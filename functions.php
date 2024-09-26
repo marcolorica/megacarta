@@ -49,7 +49,14 @@ function get_mc_categories() {
 			$res[] = (object) [
 				'name' => $category->name,
 				'slug' => $category->slug,
-				'img' => $img
+				'img' => $img,
+				'sizes' => [
+					'c1' => '',
+					'c2' => '',
+					'c3' => '',
+					'c4' => '',
+					'c5' => ''
+				]
 			];
 		}
 	}

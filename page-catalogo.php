@@ -152,14 +152,29 @@
                             <div class="product-info">
                                 <div class="d-block w-100">
                                     <div class="product-sizes w-100">
-                                        <img src="<?= get_stylesheet_directory_uri() . '/assets/images/c1.webp' ?>">
-                                        <img src="<?= get_stylesheet_directory_uri() . '/assets/images/c2.webp' ?>">
-                                        <img src="<?= get_stylesheet_directory_uri() . '/assets/images/c3.webp' ?>">
-                                        <img src="<?= get_stylesheet_directory_uri() . '/assets/images/c4.webp' ?>">
-                                        <img src="<?= get_stylesheet_directory_uri() . '/assets/images/c5.webp' ?>">
+                                        <div class="p-info">
+                                            <img src="<?= get_stylesheet_directory_uri() . '/assets/images/c1.webp' ?>">
+                                            <span><?= $p->sizes['c1'] ?></span>
+                                        </div>
+                                        <div class="p-info">
+                                            <img src="<?= get_stylesheet_directory_uri() . '/assets/images/c2.webp' ?>">
+                                            <span><?= $p->sizes['c2'] ?></span>
+                                        </div>
+                                        <div class="p-info">
+                                            <img src="<?= get_stylesheet_directory_uri() . '/assets/images/c3.webp' ?>">
+                                            <span><?= $p->sizes['c3'] ?></span>
+                                        </div>
+                                        <div class="p-info">
+                                            <img src="<?= get_stylesheet_directory_uri() . '/assets/images/c4.webp' ?>">
+                                            <span><?= $p->sizes['c4'] ?></span>
+                                        </div>
+                                        <div class="p-info">
+                                            <img src="<?= get_stylesheet_directory_uri() . '/assets/images/c5.webp' ?>">
+                                            <span><?= $p->sizes['c5'] ?></span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="d-block w-100 mt-auto">
+                                <div class="d-block w-100 mt-3">
                                     <div class="product-actions">
                                         <span class="mg-price">€<?= $p->price ?></span>
                                         <button class="btn btn-outline-primary"><i class="fa-solid fa-shopping-cart me-2"></i>Aggiungi al carrello</button>
