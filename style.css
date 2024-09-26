@@ -758,3 +758,7 @@ h2 {
   height: 100%;
   object-fit: cover;
 }
+
+.firma {
+  display: none;
+}

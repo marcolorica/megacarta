@@ -57,4 +57,35 @@ function get_mc_categories() {
 	return $res;
 }
 
+function get_mc_products() {
+	$args = [
+        'limit'    => -1,
+        'status'   => 'publish',
+	];
+
+    $query = new WC_Product_Query( $args );
+    $products = $query->get_products();
+
+	$res = [];
+
+    if(!empty($products)) {
+        foreach($products as $product) {
+			$img = '';
+
+			$image_id = $product->get_image_id();
+            if($image_id)
+                $img = wp_get_attachment_url($image_id);
+
+			$res[] = (object) [
+				'name' => $product->get_name(),
+				'price' => wc_price($product->get_price),
+				'url' => get_permalink($product->get_id()),
+				'img' => $img
+			];
+        }
+    }
+
+	return $res;
+}
+
 add_action('wp_enqueue_scripts', 'mc_wp_enqueue_scripts');
