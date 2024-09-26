@@ -844,9 +844,9 @@ section.gallery-section .image-container > img {
 }
 
 .product-info {
-  display: flex;
+  display: block;
   /* flex-direction: column; */
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .catalogo label {
