@@ -68,7 +68,7 @@
                             <div class="col-4">
                                 <img src="<?= $p->img ?>" class="w-100">
                             </div>
-                            <div class="col-9">
+                            <div class="col-8">
                                 <p class="product-title"><?= $p->name ?></p>
                                 <div class="product-info">
                                     <span class="mg-price">€<?= $p->price ?></span>
