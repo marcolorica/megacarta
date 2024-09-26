@@ -704,8 +704,19 @@ section.gallery-section .image-container > img {
 
 .intestazione {
   background-image: url(assets/images/megacarta-bg.webp);
+  background-repeat: no-repeat;
+  background-size: 100vw;
 }
+
 .mc-overlay {
-  background-color: #ffffff60;
   min-height: 80vh;
+  background-color: #00000080;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mc-overlay h1 {
+  color: white;
+  font-size: 8em;
 }
