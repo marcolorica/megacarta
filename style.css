@@ -703,7 +703,7 @@ section.gallery-section .image-container > img {
 
 
 .intestazione {
-  background-image: url('/assets/images/megacarta-bg.webp');
+  background-image: url(assets/images/megacarta-bg.webp);
 }
 .mc-overlay {
   background-color: #ffffff60;
