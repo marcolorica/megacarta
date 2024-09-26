@@ -33,7 +33,7 @@
                         </div>
                     </a>
                 </div>
-            <? endforeach; ?>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>

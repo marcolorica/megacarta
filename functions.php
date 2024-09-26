@@ -41,7 +41,7 @@ function get_mc_categories() {
 			$img = '';
 
             if($thumbnail_id)
-                $image_url = wp_get_attachment_url($thumbnail_id);
+                $img = wp_get_attachment_url($thumbnail_id);
 
 			$res[] = (object) [
 				'name' => $category->name,
