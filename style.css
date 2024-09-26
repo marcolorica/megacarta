@@ -698,3 +698,10 @@ section.gallery-section .image-container > img {
 @media screen and (max-width: 600px) {
   
 }
+
+
+
+
+.mg-overlay {
+  background-color: #ffffff60;
+}
