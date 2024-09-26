@@ -20,6 +20,9 @@
             <li class="nav-item">
                 <a class="nav-link text-white" href="#">Contatti</a>
             </li>
+            <li class="nav-item d-block d-md-none">
+                <a class="nav-link text-white" href="#"><i class="fa-solid fa-cart-shopping me-2"></i>Carrello</a>
+            </li>
         </ul>
 
         <form class="d-flex" role="search">
@@ -27,8 +30,8 @@
             <button class="btn btn-outline-light" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
 
-        <span class="navbar-text ms-2">
-        <i class="fa-solid fa-cart-shopping fa-lg text-white"></i>
+        <span class="navbar-text ms-2 d-none d-md-inline">
+            <i class="fa-solid fa-cart-shopping fa-lg text-white"></i>
         </span>
 
     </div>
