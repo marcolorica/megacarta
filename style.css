@@ -781,9 +781,8 @@ section.gallery-section .image-container > img {
   border-radius: .375rem;
 }
 
-.products img {
+.products .img-container {
   padding: 25px;
-  padding: 15px;
 }
 
 .products img {
@@ -792,7 +791,6 @@ section.gallery-section .image-container > img {
 
 .products .product-title {
   font-size: 25px;
-  /* padding: 20px 0; */
   color: black;
 }
 
@@ -802,5 +800,4 @@ section.gallery-section .image-container > img {
 
 .products .col-9 {
   padding: 25px;
-  padding-left: 0;
 }
