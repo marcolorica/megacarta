@@ -72,7 +72,9 @@
                             </a>
                         </div>
                         <div class="col-9">
-                            <p class="product-title"><?= $p->name ?></p>
+                            <a href="<?= $p->url ?>">
+                                <p class="product-title"><?= $p->name ?></p>
+                            </a>
                             <div class="product-info">
                                 <span class="mg-price">€<?= $p->price ?></span>
                                 <button class="btn btn-outline-success"><i class="fa-solid fa-shopping-cart me-2"></i>Aggiungi al carrello</button>

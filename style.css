@@ -798,6 +798,10 @@ section.gallery-section .image-container > img {
   text-decoration: none;
 }
 
+.products a:hover {
+  text-decoration: underline;
+}
+
 .products .col-9 {
   padding: 25px;
   padding-left: 0;
