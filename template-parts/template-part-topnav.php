@@ -9,22 +9,27 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <!-- <a class="nav-link active" aria-current="page" href="#">Chi siamo</a> -->
-          <a class="nav-link text-white" href="#">Chi siamo</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="#">Prodotti</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="#">Contatti</a>
-        </li>
-      </ul>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+            <!-- <a class="nav-link active" aria-current="page" href="#">Chi siamo</a> -->
+                <a class="nav-link text-white" href="#">Chi siamo</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="#">Prodotti</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="#">Contatti</a>
+            </li>
+        </ul>
 
-      <span class="navbar-text">
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="text" placeholder="Cerca...">
+            <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+
+        <span class="navbar-text">
         <i class="fa-solid fa-cart-shopping"></i>
-      </span>
+        </span>
 
     </div>
   </div>
