@@ -174,8 +174,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="d-block w-100 mt-3">
-                                    <div class="product-actions">
+                                <div class="d-block w-100">
+                                    <div class="product-actions mt-3">
                                         <span class="mg-price">€<?= $p->price ?></span>
                                         <button class="btn btn-outline-primary"><i class="fa-solid fa-shopping-cart me-2"></i>Aggiungi al carrello</button>
                                     </div>
