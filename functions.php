@@ -36,6 +36,9 @@ function get_mc_categories() {
 
 	if(!empty($product_categories) && !is_wp_error($product_categories)) {
 		foreach($product_categories as $category) {
+			if($category->term_id == 15)
+                continue;
+
 			$thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
             
 			$img = '';
