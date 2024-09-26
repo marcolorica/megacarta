@@ -151,7 +151,7 @@
                             </a>
                             <div class="product-info">
                                 <span class="mg-price">€<?= $p->price ?></span>
-                                <button class="btn btn-outline-success"><i class="fa-solid fa-shopping-cart me-2"></i>Aggiungi al carrello</button>
+                                <button class="btn btn-outline-primary"><i class="fa-solid fa-shopping-cart me-2"></i>Aggiungi al carrello</button>
                             </div>
                         </div>
                     </div>

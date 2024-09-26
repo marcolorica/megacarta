@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg bg-dark">
+<nav class="navbar navbar-expand-lg bg-primary">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
-      <img src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+      <img src="<?= get_stylesheet_directory_uri() . '/assets/images/mg-logo.png' ?>" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
     </a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
