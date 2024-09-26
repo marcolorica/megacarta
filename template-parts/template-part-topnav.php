@@ -24,7 +24,7 @@
 
         <form class="d-flex" role="search">
             <input class="form-control me-2" type="text" placeholder="Cerca...">
-            <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button class="btn btn-outline-light" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
 
         <span class="navbar-text ms-2">
