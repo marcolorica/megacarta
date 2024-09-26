@@ -54,7 +54,7 @@
             </div>
 
             <div class="col-12 col-md-6">
-                <img src="<?= get_stylesheet_directory_uri() . '/assets/images/mappa-roma.png' ?>" class="w-100">
+                <img src="<?= get_stylesheet_directory_uri() . '/assets/images/mappa-roma.png' ?>" class="w-100 img-content">
             </div>
         </div>
     </div>

@@ -753,3 +753,8 @@ h2 {
   font-size: 30px;
   margin: 0;
 }
+
+.img-content {
+  height: 100%;
+  object-fit: cover;
+}
