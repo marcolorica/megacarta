@@ -141,7 +141,7 @@
                         <div class="col-3 p-0">
                             <a href="<?= $p->url ?>">
                                 <div class="img-container">
-                                    <img src="<?= $p->img ?>" class="w-100">
+                                    <img src="<?= $p->img ?>" class="w-100 p-img">
                                 </div>
                             </a>
                         </div>

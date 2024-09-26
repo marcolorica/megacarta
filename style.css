@@ -813,7 +813,7 @@ section.gallery-section .image-container > img {
   padding: 25px;
 }
 
-.products img {
+.products .p-img {
   border-right: 1px solid lightgray;
 }
 
