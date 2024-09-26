@@ -14,7 +14,7 @@
     </div>
 </section>
 
-<section class="products">
+<section class="catalogo">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
@@ -65,12 +65,12 @@
                 <?php foreach($products as $p): ?>
                     <a href="<?= $p->url ?>">
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-3 ps-0">
                                 <div class="img-container">
                                     <img src="<?= $p->img ?>" class="w-100">
                                 </div>
                             </div>
-                            <div class="col-8">
+                            <div class="col-9">
                                 <p class="product-title"><?= $p->name ?></p>
                                 <div class="product-info">
                                     <span class="mg-price">€<?= $p->price ?></span>
