@@ -748,7 +748,8 @@ section.gallery-section .image-container > img {
   align-items: center;
 }
 
-h2 {
+.categories h2,
+.mappa h2 {
   padding: 50px 0;
   font-size: 30px;
   margin: 0;
@@ -761,4 +762,10 @@ h2 {
 
 .firma {
   display: none;
+}
+
+.product-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
