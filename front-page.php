@@ -1,5 +1,11 @@
 <?php get_header(); ?>
 
+<style>
+    .mc-overlay {
+        background-color: #ffffff60;
+    }
+</style>
+
 <section class="intestazione">
     <div class="container-fluid">
         <div class="row">
