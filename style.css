@@ -800,4 +800,5 @@ section.gallery-section .image-container > img {
 
 .products .col-9 {
   padding: 25px;
+  padding-left: 0;
 }
