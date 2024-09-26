@@ -817,6 +817,6 @@ section.gallery-section .image-container > img {
 
 .product-info {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   justify-content: space-between;
 }

@@ -31,31 +31,116 @@
                 <div class="accordion" id="accordionPanelsStayOpenExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">Carta</button>
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">Eclipse</button>
                         </h2>
                         <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
                             <div class="accordion-body">
-                                <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                <label for=""><input type="checkbox">ao</label>
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">Accordion Item #2</button>
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">Piatti</button>
                         </h2>
-                        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show">
                             <div class="accordion-body">
-                                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                <label for=""><input type="checkbox">Circolari</label>
+                                <label for=""><input type="checkbox">Quadrati</label>
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">Accordion Item #3</button>
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true" aria-controls="panelsStayOpen-collapseThree">Wrinklewall</button>
                         </h2>
-                        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+                        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show">
                             <div class="accordion-body">
-                                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                <label for=""><input type="checkbox">Ovali</label>
+                                <label for=""><input type="checkbox">Formati Speciali E Vassoi</label>
+                                <label for=""><input type="checkbox">Circolari</label>
+                                <label for=""><input type="checkbox">A Scompartimento</label>
+                                <label for=""><input type="checkbox">Rettangolari E Quadrati</label>
+                                <label for=""><input type="checkbox">Laccati</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="true" aria-controls="panelsStayOpen-collapseFour">Smoothwall</button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show">
+                            <div class="accordion-body">
+                                <label for=""><input type="checkbox">Rettangolari</label>
+                                <label for=""><input type="checkbox">Ovali</label>
+                                <label for=""><input type="checkbox">Circolari</label>
+                                <label for=""><input type="checkbox">Formati Speciali</label>
+                                <label for=""><input type="checkbox">Laccati</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="true" aria-controls="panelsStayOpen-collapseFive">Semi Smoothwall</button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse show">
+                            <div class="accordion-body">
+                                <label for=""><input type="checkbox">Circolari</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="true" aria-controls="panelsStayOpen-collapseSix">Sistemi Di Chiusura</button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse show">
+                            <div class="accordion-body">
+                                <label for=""><input type="checkbox">Coperchi</label>
+                                <label for=""><input type="checkbox">Nastro In Alluminio</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="true" aria-controls="panelsStayOpen-collapseSeven">PET</button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse show">
+                            <div class="accordion-body">
+                                <label for=""><input type="checkbox">Rettangolari</label>
+                                <label for=""><input type="checkbox">Ovali</label>
+                                <label for=""><input type="checkbox">Circolari</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseEight" aria-expanded="true" aria-controls="panelsStayOpen-collapseEight">Rotoli di alluminio</button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseEight" class="accordion-collapse collapse show">
+                            <div class="accordion-body">
+                                <!-- <label for=""><input type="checkbox">ao</label> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseNine" aria-expanded="true" aria-controls="panelsStayOpen-collapseNine">Pellicole</button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseNine" class="accordion-collapse collapse show">
+                            <div class="accordion-body">
+                                <!-- <label for=""><input type="checkbox">ao</label> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTen" aria-expanded="true" aria-controls="panelsStayOpen-collapseTen">Carta forno</button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseTen" class="accordion-collapse collapse show">
+                            <div class="accordion-body">
+                                <label for=""><input type="checkbox">ao</label>
+                                <label for=""><input type="checkbox">Rotoli In Carta Forno</label>
+                                <label for=""><input type="checkbox">Carta Forno In Fogli</label>
                             </div>
                         </div>
                     </div>
