@@ -1,0 +1,119 @@
+.owl-carousel {
+    width: 100%;
+    height: 100%;
+    z-index: 2 !important;
+}
+
+.owl-theme .custom-nav {
+    position: absolute;
+    top: 20%;
+    left: 0;
+    right: 0;
+}
+
+.owl-prev, .owl-next {
+    position: absolute;
+    width: 90px;
+    height: 100px;
+    color: inherit;
+    background: none;
+    border: none;
+    z-index: 100;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.owl-prev {
+    left: 0;
+}
+
+.owl-next {
+    right: 0;
+}
+
+.owl-prev i, .owl-next i {
+    font-size: 1.3em;
+    color: white;
+    transition: .5s;
+}
+
+.owl-prev:hover, .owl-next:hover {
+    background: none !important;
+}
+
+.owl-prev:hover i, .owl-next:hover i {
+    opacity: .6;
+    -webkit-transform: translateX(-5px) scale(0.9);
+    -moz-transform: translateX(-5px) scale(0.9);
+    -o-transform: translateX(-5px) scale(0.9);
+    -ms-transform: translateX(-5px) scale(0.9);
+    transform: translateX(-5px) scale(0.9);
+}
+
+.owl-stage, .owl-stage-outer, .owl-item {
+    height: 100%;
+}
+
+.owl-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.owl-carousel h1,
+.owl-carousel h2 {
+    font-family: 'SF-Pro-Display', Roboto, Sans-Serif;
+    font-weight: 600;
+    color: white;
+    font-size: 50px;
+    letter-spacing: -0.02em;
+    z-index: 4;
+    position: relative;
+    opacity: 0;
+    transition: opacity 0.5s;
+    text-align: center;
+}
+
+.owl-carousel h2 {
+    font-size: 30px;
+}
+
+.owl-carousel h1 span.blue {
+    color: #0eb4ce;
+}
+
+.owl-carousel p {
+    font-family: 'SF-Pro-Display', Roboto, Sans-Serif;
+    font-weight: 400;
+    color: white;
+    font-size: 16px;
+    z-index: 4;
+    position: relative;
+    opacity: 0;
+    transition: opacity 0.5s;
+    text-align: center;
+}
+
+.owl-dots {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.owl-dot span {
+    box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 600px) {
+    .owl-next, .owl-prev {
+      display: none !important;
+    }
+
+    .owl-carousel h1 {
+        font-size: 33.3px;
+    }
+
+    .owl-carousel p {
+        font-size: 13px;
+    }
+}
