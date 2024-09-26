@@ -820,3 +820,12 @@ section.gallery-section .image-container > img {
   /* flex-direction: column; */
   justify-content: space-between;
 }
+
+.catalogo label {
+  display: block;
+  cursor: pointer;
+}
+
+.catalogo input[type="checkbox"] {
+  margin-right: 10px;
+}

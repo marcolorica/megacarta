@@ -31,22 +31,12 @@
                 <div class="accordion" id="accordionPanelsStayOpenExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">Eclipse</button>
-                        </h2>
-                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
-                            <div class="accordion-body">
-                                <label for=""><input type="checkbox">ao</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">Piatti</button>
                         </h2>
                         <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show">
                             <div class="accordion-body">
-                                <label for=""><input type="checkbox">Circolari</label>
-                                <label for=""><input type="checkbox">Quadrati</label>
+                                <label for="cat-1"><input id="cat-1" type="checkbox">Circolari</label>
+                                <label for="cat-2"><input id="cat-2" type="checkbox">Quadrati</label>
                             </div>
                         </div>
                     </div>
@@ -56,12 +46,12 @@
                         </h2>
                         <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show">
                             <div class="accordion-body">
-                                <label for=""><input type="checkbox">Ovali</label>
-                                <label for=""><input type="checkbox">Formati Speciali E Vassoi</label>
-                                <label for=""><input type="checkbox">Circolari</label>
-                                <label for=""><input type="checkbox">A Scompartimento</label>
-                                <label for=""><input type="checkbox">Rettangolari E Quadrati</label>
-                                <label for=""><input type="checkbox">Laccati</label>
+                                <label for="cat-3"><input id="cat-3" type="checkbox">Ovali</label>
+                                <label for="cat-4"><input id="cat-4" type="checkbox">Formati Speciali E Vassoi</label>
+                                <label for="cat-5"><input id="cat-5" type="checkbox">Circolari</label>
+                                <label for="cat-6"><input id="cat-6" type="checkbox">A Scompartimento</label>
+                                <label for="cat-7"><input id="cat-7" type="checkbox">Rettangolari E Quadrati</label>
+                                <label for="cat-8"><input id="cat-8" type="checkbox">Laccati</label>
                             </div>
                         </div>
                     </div>
@@ -71,11 +61,11 @@
                         </h2>
                         <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show">
                             <div class="accordion-body">
-                                <label for=""><input type="checkbox">Rettangolari</label>
-                                <label for=""><input type="checkbox">Ovali</label>
-                                <label for=""><input type="checkbox">Circolari</label>
-                                <label for=""><input type="checkbox">Formati Speciali</label>
-                                <label for=""><input type="checkbox">Laccati</label>
+                                <label for="cat-9"><input id="cat-9" type="checkbox">Rettangolari</label>
+                                <label for="cat-11"><input id="cat-11" type="checkbox">Ovali</label>
+                                <label for="cat-12"><input id="cat-12" type="checkbox">Circolari</label>
+                                <label for="cat-13"><input id="cat-13" type="checkbox">Formati Speciali</label>
+                                <label for="cat-14"><input id="cat-14" type="checkbox">Laccati</label>
                             </div>
                         </div>
                     </div>
@@ -85,7 +75,7 @@
                         </h2>
                         <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse show">
                             <div class="accordion-body">
-                                <label for=""><input type="checkbox">Circolari</label>
+                                <label for="cat-15"><input id="cat-15" type="checkbox">Circolari</label>
                             </div>
                         </div>
                     </div>
@@ -95,8 +85,8 @@
                         </h2>
                         <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse show">
                             <div class="accordion-body">
-                                <label for=""><input type="checkbox">Coperchi</label>
-                                <label for=""><input type="checkbox">Nastro In Alluminio</label>
+                                <label for="cat-16"><input id="cat-16" type="checkbox">Coperchi</label>
+                                <label for="cat-17"><input id="cat-17" type="checkbox">Nastro In Alluminio</label>
                             </div>
                         </div>
                     </div>
@@ -106,9 +96,9 @@
                         </h2>
                         <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse show">
                             <div class="accordion-body">
-                                <label for=""><input type="checkbox">Rettangolari</label>
-                                <label for=""><input type="checkbox">Ovali</label>
-                                <label for=""><input type="checkbox">Circolari</label>
+                                <label for="cat-18"><input id="cat-18" type="checkbox">Rettangolari</label>
+                                <label for="cat-19"><input id="cat-19" type="checkbox">Ovali</label>
+                                <label for="cat-20"><input id="cat-20" type="checkbox">Circolari</label>
                             </div>
                         </div>
                     </div>
@@ -138,9 +128,8 @@
                         </h2>
                         <div id="panelsStayOpen-collapseTen" class="accordion-collapse collapse show">
                             <div class="accordion-body">
-                                <label for=""><input type="checkbox">ao</label>
-                                <label for=""><input type="checkbox">Rotoli In Carta Forno</label>
-                                <label for=""><input type="checkbox">Carta Forno In Fogli</label>
+                                <label for="cat-22"><input id="cat-22" type="checkbox">Rotoli In Carta Forno</label>
+                                <label for="cat-23"><input id="cat-23" type="checkbox">Carta Forno In Fogli</label>
                             </div>
                         </div>
                     </div>
