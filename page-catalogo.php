@@ -407,7 +407,7 @@
                         <div class="col-3 p-0">
                             <a href="<?= $p->url ?>">
                                 <div class="img-container">
-                                    <img src="<?= get_stylesheet_directory_uri() . '/assets/images/' . $code . '.webp' ?>" class="w-100 p-img">
+                                    <img src="<?= get_stylesheet_directory_uri() . '/assets/images/products/' . $code . '.webp' ?>" class="w-100 p-img">
                                 </div>
                             </a>
                         </div>
