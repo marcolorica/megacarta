@@ -806,3 +806,17 @@ section.gallery-section .image-container > img {
   padding: 25px;
   padding-left: 0;
 }
+
+.product-price {
+  font-size: 30px;
+}
+
+.woocommerce-Price-currencySymbol {
+  display: none;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
