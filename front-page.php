@@ -20,7 +20,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
-                Esplora il nostro catalogo
+                <h2>Esplora il nostro catalogo</h2>
             </div>
         </div>
         <div class="row">
