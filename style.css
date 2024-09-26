@@ -748,6 +748,7 @@ section.gallery-section .image-container > img {
   align-items: center;
 }
 
+.products h2,
 .categories h2,
 .mappa h2 {
   padding: 50px 0;
@@ -768,4 +769,28 @@ section.gallery-section .image-container > img {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.catalogo {
+  background: #e8e8e8;
+}
+
+.products .row {
+  margin-bottom: 20px;
+  background: white;
+}
+
+.products img {
+  padding: 15px;
+  border-right: 1px solid lightgray;
+}
+
+.products .product-title {
+  font-size: 25px;
+  padding: 20px 0;
+  color: black;
+}
+
+.products a {
+  text-decoration: none;
 }
