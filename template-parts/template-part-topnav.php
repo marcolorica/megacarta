@@ -15,7 +15,7 @@
                 <a class="nav-link text-white" href="#">Chi siamo</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="#">Prodotti</a>
+                <a class="nav-link text-white" href="/catalogo">Catalogo</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white" href="#">Contatti</a>

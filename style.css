@@ -863,3 +863,9 @@ section.gallery-section .image-container > img {
   display: inline-block;
   margin: 0;
 }
+
+
+#syrus-theme-footer,
+section.firma-footer {
+  background-color: #0d6efd;
+}

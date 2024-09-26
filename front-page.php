@@ -26,7 +26,7 @@
         <div class="row">
             <?php foreach($cats as $c): ?>
                 <div class="col-12 col-md-4">
-                    <a href="/catalogo/<?= $c->lug ?>" class="link-cat">
+                    <a href="/catalogo" class="link-cat">
                         <div class="card-categoria">
                             <img src="<?= $c->img ?>" class="img-cat">
                             <p class="title-cat"><?= $c->name ?></p>
