@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg bg-primary">
-  <div class="container-fluid">
+  <div class="container">
     <a class="navbar-brand my-2 mx-3" href="/">
       <img src="<?= get_stylesheet_directory_uri() . '/assets/images/mg-logo.png' ?>" alt="MEGACARTA" class="mg-logo" width="60" height="60" class="d-inline-block align-text-top">
     </a>
