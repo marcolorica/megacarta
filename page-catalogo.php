@@ -157,8 +157,10 @@
                                     <img src="<?= get_stylesheet_directory_uri() . '/assets/images/c4.webp' ?>">
                                     <img src="<?= get_stylesheet_directory_uri() . '/assets/images/c5.webp' ?>">
                                 </div>
-                                <span class="mg-price">€<?= $p->price ?></span>
-                                <button class="btn btn-outline-primary"><i class="fa-solid fa-shopping-cart me-2"></i>Aggiungi al carrello</button>
+                                <div class="product-actions">
+                                    <span class="mg-price">€<?= $p->price ?></span>
+                                    <button class="btn btn-outline-primary"><i class="fa-solid fa-shopping-cart me-2"></i>Aggiungi al carrello</button>
+                                </div>
                             </div>
                         </div>
                     </div>

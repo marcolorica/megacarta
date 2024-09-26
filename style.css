@@ -785,10 +785,15 @@ section.gallery-section .image-container > img {
   display: none;
 }
 
-.product-info {
+.product-info,
+.product-actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.product-sizes {
+  display: flex;
 }
 
 .catalogo {
