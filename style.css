@@ -857,3 +857,9 @@ section.gallery-section .image-container > img {
 .catalogo input[type="checkbox"] {
   margin-right: 10px;
 }
+
+.p-info {
+  width: 20%;
+  display: inline-block;
+  margin: 0;
+}
