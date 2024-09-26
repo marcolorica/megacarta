@@ -18,7 +18,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
-                <h2>Esplora il nostro catalogo</h2>
+                <h2 class="main-title">Esplora il nostro catalogo</h2>
             </div>
         </div>
         <div class="row">
@@ -104,9 +104,9 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseEight" aria-expanded="true" aria-controls="panelsStayOpen-collapseEight">Rotoli di alluminio</button>
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseEight" aria-expanded="false" aria-controls="panelsStayOpen-collapseEight">Rotoli di alluminio</button>
                         </h2>
-                        <div id="panelsStayOpen-collapseEight" class="accordion-collapse collapse show">
+                        <div id="panelsStayOpen-collapseEight" class="accordion-collapse collapse">
                             <div class="accordion-body">
                                 <!-- <label for=""><input type="checkbox">ao</label> -->
                             </div>
@@ -114,9 +114,9 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseNine" aria-expanded="true" aria-controls="panelsStayOpen-collapseNine">Pellicole</button>
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseNine" aria-expanded="false" aria-controls="panelsStayOpen-collapseNine">Pellicole</button>
                         </h2>
-                        <div id="panelsStayOpen-collapseNine" class="accordion-collapse collapse show">
+                        <div id="panelsStayOpen-collapseNine" class="accordion-collapse collapse">
                             <div class="accordion-body">
                                 <!-- <label for=""><input type="checkbox">ao</label> -->
                             </div>

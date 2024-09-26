@@ -27,8 +27,8 @@
             <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
 
-        <span class="navbar-text">
-        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="navbar-text ms-2">
+        <i class="fa-solid fa-cart-shopping fa-lg text-white"></i>
         </span>
 
     </div>
