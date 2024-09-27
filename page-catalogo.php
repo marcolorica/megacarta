@@ -278,7 +278,6 @@
             'price' => '9.99',
         ]
     ];
-
 ?>
 
 <section class="intestazione">
@@ -415,12 +414,16 @@
                 </div>
             </div>
             <div class="col-12 col-md-9 products">
-                <?php foreach($products as $code => $p): $p = (object) $p; ?>
+                <?php
+                    foreach($products as $code => $p):
+                        $p = (object) $p;
+                        $imgCode = str_replace('/', '-', $code);
+                ?>
                     <div class="row">
                         <div class="col-3 p-0">
                             <a href="#">
                                 <div class="img-container">
-                                    <img src="<?= get_stylesheet_directory_uri() . '/assets/images/products/' . str_replace('/', '-', $code) . '.webp' ?>" class="w-100 p-img">
+                                    <img src="<?= get_stylesheet_directory_uri() . "/assets/images/products/$imgCode.webp" ?>" class="w-100 p-img">
                                 </div>
                             </a>
                         </div>
@@ -434,7 +437,7 @@
                                     <div class="product-sizes w-100">
                                         <?php foreach($p->sizes as $img => $size) : ?>
                                             <div class="p-info">
-                                                <img src="<?= get_stylesheet_directory_uri() . "/assets/images/$img.webp" ?>">
+                                                <img src="<?= get_stylesheet_directory_uri() . "/assets/images/sizes/$img.webp" ?>">
                                                 <span><?= $size ?></span>
                                             </div>
                                         <?php endforeach; ?>
