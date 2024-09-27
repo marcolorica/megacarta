@@ -875,3 +875,9 @@ section.firma-footer {
   color: grey;
   font-size: 13px;
 }
+
+@media (max-width: 768px) {
+  .p-info span {
+    font-size: 9px;
+  }
+}
