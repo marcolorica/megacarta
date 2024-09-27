@@ -422,19 +422,39 @@
                         $imgCode = str_replace('/', '-', $code);
                 ?>
                     <div class="row">
-                        <div class="col-3 p-0">
+                        <div class="col-5 col-md-3 p-0">
                             <a href="#">
                                 <div class="img-container">
                                     <img src="<?= get_stylesheet_directory_uri() . "/assets/images/products/$imgCode.webp" ?>" class="w-100 p-img">
                                 </div>
                             </a>
                         </div>
-                        <div class="col-9">
+                        <div class="col-7 col-md-9">
                             <a href="#">
                                 <p class="product-title"><?= $code ?></p>
                                 <p class="product-desc"><?= $p->name ?></p>
                             </a>
-                            <div class="product-info">
+                            <div class="product-info d-none d-md-block">
+                                <div class="d-block w-100">
+                                    <div class="product-sizes w-100">
+                                        <?php foreach($p->sizes as $img => $size) : ?>
+                                            <div class="p-info">
+                                                <img src="<?= get_stylesheet_directory_uri() . "/assets/images/products/sizes/$img.webp" ?>">
+                                                <span><?= $size ?></span>
+                                            </div>
+                                        <?php endforeach; ?>
+                                    </div>
+                                </div>
+                                <div class="d-block w-100 pt-3">
+                                    <div class="product-actions mt-3">
+                                        <span class="mg-price">€<?= rand(1, 2000) / 100 ?></span>
+                                        <button class="btn btn-outline-primary"><i class="fa-solid fa-shopping-cart me-2"></i>Aggiungi al carrello</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 d-block d-md-none">
+                            <div class="product-info d-none d-md-block">
                                 <div class="d-block w-100">
                                     <div class="product-sizes w-100">
                                         <?php foreach($p->sizes as $img => $size) : ?>

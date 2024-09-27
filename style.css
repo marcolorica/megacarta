@@ -791,10 +791,6 @@ section.gallery-section .image-container > img {
   align-items: center;
 }
 
-.product-info {
-  display: block;
-}
-
 .product-sizes {
   display: flex;
 }
@@ -842,12 +838,6 @@ section.gallery-section .image-container > img {
 
 .woocommerce-Price-currencySymbol {
   display: none;
-}
-
-.product-info {
-  display: block;
-  /* flex-direction: column; */
-  /* justify-content: space-between; */
 }
 
 .catalogo label {
