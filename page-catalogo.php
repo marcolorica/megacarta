@@ -35,7 +35,7 @@
             'name' => 'Nome Prodotto',
             'price' => '9.99',
         ],
-        'RG31G' => [
+        'R31G' => [
             'sizes' => [
                 '322 x 262mm',
                 '298 x 238mm',
