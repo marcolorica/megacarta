@@ -37,7 +37,7 @@
                 <div class="socials mt-3 <?= wp_is_mobile() ? 'mobile' : '' ?>">
                     <label class="phone d-block"><i class="fa-solid fa-phone"></i></label>
                     <label class="whatsapp d-block"><i class="fa-brands fa-whatsapp"></i></label>
-                    <label class="email d-block"><i class="fa-regular fa-envelope"></i></label>
+                    <label class="email d-block"><i class="fa-regular fa-envelope me-0"></i></label>
                 </div>
             </div>
         </div>
