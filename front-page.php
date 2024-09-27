@@ -82,6 +82,7 @@
             <div class="col-12 col-md-6 text-end">
                 <label class="w-100 text-start" for="message">Messaggio <span class="text-danger">*</span></label>
                 <textarea name="message" class="form-control mb-3" rows="10"></textarea>
+                
                 <button class="btn btn-primary"><i class="fa-regular fa-paper-plane me-2"></i>Invia</button>
             </div>
         </div>
