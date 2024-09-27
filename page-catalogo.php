@@ -219,9 +219,8 @@
             'name' => 'Nome Prodotto',
             'price' => '9.99',
         ],
-        'Roll' => [
+        'Roll 300/125m' => [
             'sizes' => [
-                '300/125m',
                 '292mm 125m',
                 '9',
                 '450',
@@ -230,9 +229,8 @@
             'name' => 'Nome Prodotto',
             'price' => '9.99',
         ],
-        'Roll' => [
+        'Roll 300/300m' => [
             'sizes' => [
-                '300/300m',
                 '300mm',
                 '300m',
                 '9',
@@ -242,9 +240,8 @@
             'name' => 'Nome Prodotto',
             'price' => '9.99',
         ],
-        'Foglio' => [
+        'Foglio 5kg' => [
             'sizes' => [
-                '5kg',
                 '600 x 400mm',
                 '500',
                 '128'
@@ -252,9 +249,8 @@
             'name' => 'Nome Prodotto',
             'price' => '9.99',
         ],
-        'Roll' => [
+        'Roll 330/50m' => [
             'sizes' => [
-                '330/50',
                 '330mm',
                 '50m',
                 '9',
@@ -407,7 +403,7 @@
                         <div class="col-3 p-0">
                             <a href="<?= $p->url ?>">
                                 <div class="img-container">
-                                    <img src="<?= get_stylesheet_directory_uri() . '/assets/images/products/' . $code . '.webp' ?>" class="w-100 p-img">
+                                    <img src="<?= get_stylesheet_directory_uri() . '/assets/images/products/' . str_replace('/', '-', $code) . '.webp' ?>" class="w-100 p-img">
                                 </div>
                             </a>
                         </div>
