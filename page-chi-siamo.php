@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-12 p-0">
                 <div class="mc-overlay w-100">
-                    <h1>MEGACARTA - CHI SIAMO</h1>
+                    <h1>CHI SIAMO</h1>
                 </div>
             </div>
         </div>

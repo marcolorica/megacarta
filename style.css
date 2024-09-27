@@ -755,7 +755,7 @@ section.gallery-section .image-container > img {
 .intestazione {
   background-image: url(assets/images/homepage-bg.jpg);
   background-repeat: no-repeat;
-  background-size: 100vw;
+  background-size: cover;
   background-position: center;
 }
 
@@ -921,16 +921,6 @@ section.firma-footer {
   font-size: 13px;
 }
 
-@media (max-width: 768px) {
-  .p-info span {
-    font-size: 9px;
-  }
-
-  .mc-overlay h1 {
-    font-size: 8vw;
-  }
-}
-
 .up-container {
   display: none !important;
 }
@@ -968,4 +958,18 @@ section.firma-footer {
 
 .socials .email i {
   background-color: red;
+}
+
+@media (max-width: 768px) {
+  .p-info span {
+    font-size: 9px;
+  }
+
+  .mc-overlay h1 {
+    font-size: 8vw;
+  }
+
+  .mc-overlay {
+    min-height: 40vh;
+  }
 }
