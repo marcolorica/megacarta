@@ -26,17 +26,17 @@
                 <img src="<?= get_stylesheet_directory_uri() . '/assets/images/chi-siamo-1.jpg' ?>" class="w-100">
             </div>
         </div>
-        <div class="row mb-3 row-reverse d-none d-md-block">
+        <div class="row mb-3 d-none d-md-flex">
+            <div class="col-12 col-md-6">
+                <img src="<?= get_stylesheet_directory_uri() . '/assets/images/chi-siamo-2.png' ?>" class="w-100">
+            </div>
+
             <div class="col-12 col-md-6">
                 <p>Oltre alla qualità dei prodotti, MEGACARTA SRL si impegna a rispettare le normative ambientali vigenti, proponendo anche soluzioni ecosostenibili per chi desidera ridurre l’impatto ambientale. Offriamo infatti prodotti in carta riciclata, biodegradabile, nonché alternative plastiche compostabili, senza mai compromettere l'efficienza e la funzionalità.</p>
                 <p>Siamo il partner ideale per uffici, negozi, ristoranti, alberghi e tutte le attività che necessitano di un rifornimento costante di carta, plastica e alluminio. Grazie alla nostra esperienza e alla capacità di comprendere le specifiche esigenze di ciascun cliente, ci adattiamo perfettamente a diverse tipologie di business, garantendo una fornitura continua e senza interruzioni.</p>
             </div>
-
-            <div class="col-12 col-md-6">
-                <img src="<?= get_stylesheet_directory_uri() . '/assets/images/chi-siamo-2.png' ?>" class="w-100">
-            </div>
         </div>
-        <div class="row mb-3 d-block d-md-none">
+        <div class="row mb-3 d-flex d-md-none">
             <div class="col-12 col-md-6">
                 <p>Oltre alla qualità dei prodotti, MEGACARTA SRL si impegna a rispettare le normative ambientali vigenti, proponendo anche soluzioni ecosostenibili per chi desidera ridurre l’impatto ambientale. Offriamo infatti prodotti in carta riciclata, biodegradabile, nonché alternative plastiche compostabili, senza mai compromettere l'efficienza e la funzionalità.</p>
                 <p>Siamo il partner ideale per uffici, negozi, ristoranti, alberghi e tutte le attività che necessitano di un rifornimento costante di carta, plastica e alluminio. Grazie alla nostra esperienza e alla capacità di comprendere le specifiche esigenze di ciascun cliente, ci adattiamo perfettamente a diverse tipologie di business, garantendo una fornitura continua e senza interruzioni.</p>

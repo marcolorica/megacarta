@@ -25,7 +25,7 @@
         </div>
         <div class="row">
             <?php foreach($cats as $c): ?>
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-4 mb-3">
                     <a href="/catalogo" class="link-cat">
                         <div class="card-categoria">
                             <img src="<?= $c->img ?>" class="img-cat">
@@ -82,7 +82,7 @@
             <div class="col-12 col-md-6 text-end">
                 <label class="w-100 text-start" for="message">Messaggio <span class="text-danger">*</span></label>
                 <textarea name="message" class="form-control mb-3" rows="10"></textarea>
-                
+
                 <button class="btn btn-primary"><i class="fa-regular fa-paper-plane me-2"></i>Invia</button>
             </div>
         </div>
