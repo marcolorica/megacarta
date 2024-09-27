@@ -878,9 +878,10 @@ section.firma-footer {
 .p-info img {
   display: block;
   margin: 0 auto;
+  margin-bottom: 5px;
 }
 
-.p-info img {
+.p-info span {
   color: grey;
   font-size: 13px;
 }
