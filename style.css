@@ -941,6 +941,10 @@ section.firma-footer {
   align-items: center;
 }
 
+.socials.mobile {
+  justify-content: center;
+}
+
 .socials i {
   padding: 10px;
   border-radius: 100%;
