@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section class="intestazione bg-contacts">
+<section class="intestazione mg-contacts">
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 p-0">

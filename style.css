@@ -723,9 +723,10 @@ section.gallery-section .image-container > img {
   background-image: url(assets/images/homepage-bg.jpg);
   background-repeat: no-repeat;
   background-size: 100vw;
+  background-position: center;
 }
 
-.intestazione.mg-contact {
+.intestazione.mg-contacts {
   background-image: url(assets/images/contatti-bg.jpg);
 }
 
