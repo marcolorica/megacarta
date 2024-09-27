@@ -100,7 +100,7 @@
             'name' => 'Vaschetta alluminio 18 porzioni bordo G',
             'price' => '9.99',
         ],
-        'CR535G-CR885G' => [
+        'CR535G - CR885G' => [
             'sizes' => [
                 'cr1' => '625 x 525mm',
                 'cr2' => '39mm'
