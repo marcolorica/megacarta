@@ -36,7 +36,7 @@
                 
                 <div class="socials mt-3">
                     <label class="phone d-block"><i class="fa-solid fa-phone"></i></label>
-                    <label class="whatsapp d-block"><i class="fa-solid fa-whatsapp"></i></label>
+                    <label class="whatsapp d-block"><i class="fa-brands fa-whatsapp"></i></label>
                     <label class="email d-block"><i class="fa-regular fa-envelope"></i></label>
                 </div>
             </div>

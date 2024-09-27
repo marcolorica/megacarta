@@ -945,10 +945,13 @@ section.firma-footer {
   padding: 10px;
   border-radius: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
   color: white;
-  margin: 0 5px;
+  margin: 0 15px;
+  font-size: 23px;
+  aspect-ratio: 1/1;
+  width: 50px;
 }
 
 .socials .whatsapp i {
@@ -960,5 +963,5 @@ section.firma-footer {
 }
 
 .socials .email i {
-  background-color: darkred;
+  background-color: red;
 }
