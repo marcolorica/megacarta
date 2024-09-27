@@ -12,13 +12,13 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
             <!-- <a class="nav-link active" aria-current="page" href="#">Chi siamo</a> -->
-                <a class="nav-link text-white" href="#">Chi siamo</a>
+                <a class="nav-link text-white" href="/chi-siamo">Chi siamo</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white" href="/catalogo">Catalogo</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="#">Contatti</a>
+                <a class="nav-link text-white" href="/contatti">Contatti</a>
             </li>
             <li class="nav-item d-block d-md-none">
                 <a class="nav-link text-white" href="#"><i class="fa-solid fa-cart-shopping me-2"></i>Carrello</a>
