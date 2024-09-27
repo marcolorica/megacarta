@@ -820,6 +820,7 @@ section.gallery-section .image-container > img {
 .products .product-title {
   font-size: 25px;
   color: black;
+  margin: 0;
 }
 
 .products a {
@@ -868,4 +869,13 @@ section.gallery-section .image-container > img {
 #syrus-theme-footer,
 section.firma-footer {
   background-color: #0d6efd !important;
+}
+
+.p-info {
+  text-align: center;
+}
+
+.p-info img {
+  display: block;
+  margin: 0 auto;
 }
