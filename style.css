@@ -847,6 +847,7 @@ section.gallery-section .image-container > img {
   margin: 0 0 20px 0;
   background: white;
   border-radius: .375rem;
+  padding: 10px;
 }
 
 .products .img-container {

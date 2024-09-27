@@ -471,7 +471,7 @@
                                     </div>
                                 </div>
                                 <div class="d-block w-100 pt-3">
-                                    <div class="product-actions mt-3 pb-3 px-1">
+                                    <div class="product-actions mt-3">
                                         <span class="mg-price">€<?= rand(1, 2000) / 100 ?></span>
                                         <button class="btn btn-outline-primary"><i class="fa-solid fa-shopping-cart me-2"></i>Aggiungi al carrello</button>
                                     </div>
