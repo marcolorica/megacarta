@@ -937,7 +937,7 @@ section.firma-footer {
 
 .socials {
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
 }
 
@@ -945,7 +945,7 @@ section.firma-footer {
   padding: 10px;
   border-radius: 100%;
   display: flex;
-  justify-content: end;
+  justify-content: center;
   align-items: center;
   color: white;
   margin: 0 15px;
