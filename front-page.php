@@ -61,7 +61,7 @@
     </div>
 </section>
 
-<section class="contatti">
+<section class="contacts">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
@@ -70,19 +70,19 @@
         </div>
         <div class="row">
             <div class="col-12 col-md-6">
-                <label for="name">Nome *</label>
+                <label for="name">Nome <span class="text-red">*</span></label>
                 <input type="text" name="name" class="form-control mb-3">
 
-                <label for="surname">Cognome *</label>
+                <label for="surname">Cognome <span class="text-red">*</span></label>
                 <input type="text" name="surname" class="form-control mb-3">
 
-                <label for="email">Email *</label>
+                <label for="email">Email <span class="text-red">*</span></label>
                 <input type="email" name="email" class="form-control mb-3">
             </div>
             <div class="col-12 col-md-6 text-end">
                 <label class="w-100 text-start" for="message">Messaggio *</label>
                 <textarea name="message" class="form-control mb-3"></textarea>
-                <button class="btn btn-success"><i class="fa-regular fa-paper-plane me-2"></i>Invia</button>
+                <button class="btn btn-primary"><i class="fa-regular fa-paper-plane me-2"></i>Invia</button>
             </div>
         </div>
     </div>
