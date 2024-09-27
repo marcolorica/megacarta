@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section class="intestazione">
+<section class="intestazione mg-chi-siamo">
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 p-0">
@@ -23,9 +23,10 @@
             </div>
 
             <div class="col-12 col-md-6">
-                <img src="<?= get_stylesheet_directory_uri() . '/assets/images/' ?>" class="w-100">
+                <img src="<?= get_stylesheet_directory_uri() . '/assets/images/chi-siamo-1.jpg' ?>" class="w-100">
             </div>
-
+        </div>
+        <div class="row row-md-reverse">
             <div class="col-12 col-md-6">
                 <p>Oltre alla qualità dei prodotti, MEGACARTA SRL si impegna a rispettare le normative ambientali vigenti, proponendo anche soluzioni ecosostenibili per chi desidera ridurre l’impatto ambientale. Offriamo infatti prodotti in carta riciclata, biodegradabile, nonché alternative plastiche compostabili, senza mai compromettere l'efficienza e la funzionalità.</p>
                 <p>Siamo il partner ideale per uffici, negozi, ristoranti, alberghi e tutte le attività che necessitano di un rifornimento costante di carta, plastica e alluminio. Grazie alla nostra esperienza e alla capacità di comprendere le specifiche esigenze di ciascun cliente, ci adattiamo perfettamente a diverse tipologie di business, garantendo una fornitura continua e senza interruzioni.</p>
@@ -34,7 +35,8 @@
             <div class="col-12 col-md-6">
                 <img src="<?= get_stylesheet_directory_uri() . '/assets/images/' ?>" class="w-100">
             </div>
-
+        </div>
+        <div class="row">
             <div class="col-12 col-md-6">
                 <p>Il nostro team è composto da professionisti altamente qualificati, pronti ad assistere i clienti in ogni fase, dalla scelta dei prodotti alla fase di consegna. Investiamo continuamente in formazione e innovazione, per offrire un servizio di distribuzione sempre più efficiente, riducendo i tempi di attesa e migliorando l'interazione con i nostri clienti.</p>
                 <p>Affidarsi a MEGACARTA SRL significa scegliere un servizio di distribuzione che unisce qualità, efficienza e sostenibilità. Con un approccio orientato al cliente e una logistica ottimizzata, siamo pronti a soddisfare tutte le richieste di forniture di carta, plastica e alluminio in tutta la città di Roma, contribuendo al successo delle aziende che si affidano a noi.</p>
@@ -49,7 +51,7 @@
 
 <?php get_footer(); ?>
 
-buongiorno, questa è la prima bozza del sito 
+<!-- buongiorno, questa è la prima bozza del sito 
 su contintal.com non c'erano i prezzi, quindi quelli che ho inserito sono casuali, poi mi dirai tu i prezzi veri 
 nei prossimi giorni saranno attive anche le pagine del prodotto singolo, la pagina del carrello e quella del pagamento
 quando comprerai il dominio faremo una email, ad esempio info@megacarta.com dove le persone potranno contattarti
@@ -64,4 +66,4 @@ quindi, al momento, la ricerca dei prodotti, il carrello e le categorie sono anc
 - se vuoi darmi intanto un numero di telefono da inserire nella pagina "Contatti"
 
 infine è buona pratica mettere la partita IVA in basso al sito, se me la mandi la metto
-dimmi cosa ne pensi e non preoccuparti di chiedermi modifiche, posso anche rifarlo da capo finché non è perfetto per te
+dimmi cosa ne pensi e non preoccuparti di chiedermi modifiche, posso anche rifarlo da capo finché non è perfetto per te -->

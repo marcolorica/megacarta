@@ -720,9 +720,17 @@ section.gallery-section .image-container > img {
 }
 
 .intestazione {
-  background-image: url(assets/images/megacarta-bg.webp);
+  background-image: url(assets/images/homepage-bg.jpg);
   background-repeat: no-repeat;
   background-size: 100vw;
+}
+
+.intestazione.mg-contact {
+  background-image: url(assets/images/contatti-bg.jpg);
+}
+
+.intestazione.mg-chi-siamo {
+  background-image: url(assets/images/chi-siamo-bg.jpg);
 }
 
 .mc-overlay {
