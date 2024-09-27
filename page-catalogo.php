@@ -437,7 +437,7 @@
                                     <div class="product-sizes w-100">
                                         <?php foreach($p->sizes as $img => $size) : ?>
                                             <div class="p-info">
-                                                <img src="<?= get_stylesheet_directory_uri() . "/assets/images/sizes/$img.webp" ?>">
+                                                <img src="<?= get_stylesheet_directory_uri() . "/assets/images/products/sizes/$img.webp" ?>">
                                                 <span><?= $size ?></span>
                                             </div>
                                         <?php endforeach; ?>
