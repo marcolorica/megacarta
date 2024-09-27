@@ -804,7 +804,7 @@ section.gallery-section .image-container > img {
 }
 
 .products .row {
-  margin-bottom: 20px;
+  margin: 0 0 20px 0;
   background: white;
   border-radius: .375rem;
 }
@@ -865,7 +865,6 @@ section.gallery-section .image-container > img {
   margin: 0;
 }
 
-
 #syrus-theme-footer,
 section.firma-footer {
   background-color: #0d6efd !important;
@@ -877,8 +876,9 @@ section.firma-footer {
 
 .p-info img {
   display: block;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   margin-bottom: 5px;
+  width: 100%;
 }
 
 .p-info span {

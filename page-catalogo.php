@@ -308,7 +308,7 @@
         </div>
         <div class="row">
             <div class="col-12 col-md-3">
-                <div class="accordion" id="accordionPanelsStayOpenExample">
+                <div class="accordion mb-4" id="accordionPanelsStayOpenExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button <?= $mobile ? 'collapsed' : '' ?>" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="<?= $mobile ? 'false' : 'true' ?>" aria-controls="panelsStayOpen-collapseTwo">Piatti</button>
