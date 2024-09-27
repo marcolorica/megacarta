@@ -4,260 +4,277 @@
 
 <?php
     $products = [
+        'R10G' => [
+            'sizes' => [
+                'c1' => '150 x 125mm',
+                'c2' => '134 x 109mm',
+                'c3' => '107 x  82mm',
+                'c4' => '44mm',
+                'c5' => '490cm3'
+            ],
+            'name' => 'Vaschetta alluminio 1 porzione bordo G',
+            'price' => '9.99',
+        ],
         'R1G' => [
             'sizes' => [
                 'c1' => '210 x 140mm',
                 'c2' => '195 x 125mm',
                 'c3' => '175 x 105mm',
                 'c4' => '38mm',
-                '' => '800cm3'
+                'c5' => '800cm3'
             ],
-            'name' => 'Nome Prodotto',
+            'name' => 'Vaschetta alluminio 2 porzioni bordo G',
             'price' => '9.99',
         ],
         'R11G' => [
             'sizes' => [
-                '' => '27 x 177mm',
-                '' => '212 x 162mm',
-                '' => '197 x 147mm',
-                '' => '36mm'
+                'c1' => '27 x 177mm',
+                'c2' => '212 x 162mm',
+                'c3' => '197 x 147mm',
+                'c4' => '36mm',
+                'c5' => '1190 cm3'
             ],
-            'name' => 'Nome Prodotto',
+            'name' => 'Vaschetta alluminio 4 porzioni bordo G',
             'price' => '9.99',
         ],
         'R2G' => [
             'sizes' => [
-                '' => '314 x 213mm',
-                '' => '292 x 191mm',
-                '' => '277 x 176mm',
-                '' => '43mm'
+                'c1' => '314 x 213mm',
+                'c2' => '292 x 191mm',
+                'c3' => '277 x 176mm',
+                'c4' => '43mm',
+                'c5' => '2450 cm3'
             ],
-            'name' => 'Nome Prodotto',
+            'name' => 'Vaschetta alluminio 6 porzioni bordo G',
             'price' => '9.99',
         ],
         'R31G' => [
             'sizes' => [
-                '322 x 262mm',
-                '298 x 238mm',
-                '273 x 213mm',
-                '50mm',
-                '3260cm3'
+                'c1' => '322 x 262mm',
+                'c2' => '298 x 238mm',
+                'c3' => '273 x 213mm',
+                'c4' => '50mm',
+                'c5' => '3260cm3'
             ],
-            'name' => 'Nome Prodotto',
+            'name' => 'Vaschetta alluminio 8 porzioni bordo G',
             'price' => '9.99',
         ],
         'CR535-CR885G' => [
             'sizes' => [
-                '625 x 525mm',
-                '39mm'
+                'cr1' => '625 x 525mm',
+                'cr2' => '39mm'
             ],
-            'name' => 'Nome Prodotto',
+            'name' => 'Coperchio per vaschetta alluminio 18 porzioni',
             'price' => '9.99'
         ],
         'R535G' => [
             'sizes' => [
-                '525 x 325mm',
-                '497 x 295mm',
-                '473 x 271mm',
-                '39mm',
-                '5350cm3'
+                'c1' => '525 x 325mm',
+                'c2' => '497 x 295mm',
+                'c3' => '473 x 271mm',
+                'c4' => '39mm',
+                'c5' => '5350cm3'
             ],
-            'name' => 'Nome Prodotto',
+            'name' => 'Vaschetta alluminio 18 porzioni bassa bordo G',
             'price' => '9.99',
         ],
         'R99G' => [
             'sizes' => [
-                '395 x 325mm',
-                '368 x 298mm',
-                '345 x 275mm',
-                '45mm',
-                '4600cm3'
+                'c1' => '395 x 325mm',
+                'c2' => '368 x 298mm',
+                'c3' => '345 x 275mm',
+                'c4' => '45mm',
+                'c5' => '4600cm3'
             ],
-            'name' => 'Nome Prodotto',
+            'name' => 'Vaschetta alluminio 12 porzioni bordo G',
             'price' => '9.99',
         ],
         'R885G' => [
             'sizes' => [
-                '527 x 325mm',
-                '497 x 295mm',
-                '455 x 253mm',
-                '67mm',
-                '8850 cm3'
+                'c1' => '527 x 325mm',
+                'c2' => '497 x 295mm',
+                'c3' => '455 x 253mm',
+                'c4' => '67mm',
+                'c5' => '8850 cm3'
             ],
-            'name' => 'Nome Prodotto',
+            'name' => 'Vaschetta alluminio 18 porzioni bordo G',
             'price' => '9.99',
         ],
         'CR535G-CR885G' => [
             'sizes' => [
-                '625 x 525mm',
-                '39mm'
+                'cr1' => '625 x 525mm',
+                'cr2' => '39mm'
             ],
-            'name' => 'Nome Prodotto',
+            'name' => 'Coperchio per vaschetta alluminio 18 porzioni',
             'price' => '9.99',
         ],
         'R28L' => [
             'sizes' => [
-                '145 x 120mm',
-                '128 x 104mm',
-                '105 x 80mm',
-                '40mm',
-                '470cm3'
+                'c1' => '145 x 120mm',
+                'c2' => '128 x 104mm',
+                'c3' => '105 x 80mm',
+                'c4' => '40mm',
+                'c5' => '470cm3'
             ],
-            'name' => 'Nome Prodotto',
+            'name' => 'Vaschetta alluminio 1 porzione bordo L',
             'price' => '9.99',
         ],
         'CR23L-R28L' => [
             'sizes' => [
-                '141 x 115mm',
-                '121 x 95mm',
-                '21mm'
+                'cr1' => '141 x 115mm',
+                'cr2' => '121 x 95mm',
+                'cr3' => '21mm'
             ],
-            'name' => 'Nome Prodotto',
+            'name' => 'Coperchio per vaschetta alluminio 1 porzione bordo L',
             'price' => '9.99',
         ],
         'CR28L-CA - CR33L-CA' => [
             'sizes' => [
-                '140 x 115mm',
+                'cr1' => '140 x 115mm',
             ],
-            'name' => 'Nome Prodotto',
+            'name' => 'Coperchio per vaschetta alluminio 1 porzione bordo L',
             'price' => '9.99',
         ],
         'R8L' => [
             'sizes' => [
-                '192 x 140mm',
-                '175 x 123mm',
-                '159 x 107mm',
-                '30mm',
-                '585cm3'
+                'c1' => '192 x 140mm',
+                'c2' => '175 x 123mm',
+                'c3' => '159 x 107mm',
+                'c4' => '30mm',
+                'c5' => '585cm3'
             ],
-            'name' => 'Nome Prodotto',
+            'name' => 'Vaschetta alluminio 2 porzioni bordo L',
             'price' => '9.99',
         ],
         'CR8L-CA - CR108L-CA' => [
             'sizes' => [
-                '185 x 133mm'
+                'cr1' => '185 x 133mm'
             ],
-            'name' => 'Nome Prodotto',
+            'name' => 'Coperchio per vaschetta alluminio 2 porzioni bordo L',
             'price' => '9.99',
         ],
         'R29L' => [
             'sizes' => [
-                '225 x 175mm',
-                '208 x 158mm',
-                '200 x 150mm',
-                '35mm',
-                '1125cm3'
+                'c1' => '225 x 175mm',
+                'c2' => '208 x 158mm',
+                'c3' => '200 x 150mm',
+                'c4' => '35mm',
+                'c5' => '1125cm3'
             ],
-            'name' => 'Nome Prodotto',
+            'name' => 'Vaschetta alluminio 4 porzioni bordo L',
             'price' => '9.99',
         ],
         'CR29L-CA' => [
             'sizes' => [
-                '218 x 168mm'
+                'cr1' => '218 x 168mm'
             ],
-            'name' => 'Nome Prodotto',
+            'name' => 'Coperchio per vaschetta alluminio 4 porzioni bordo L',
             'price' => '9.99',
         ],
         'R2L' => [
             'sizes' => [
-                '318 x 214mm',
-                '296 x 192mm',
-                '280 x 176mm',
-                '39mm',
-                '2380cm3'
+                'c1' => '318 x 214mm',
+                'c2' => '296 x 192mm',
+                'c3' => '280 x 176mm',
+                'c4' => '39mm',
+                'c5' => '2380cm3'
             ],
-            'name' => 'Nome Prodotto',
+            'name' => 'Vaschetta alluminio 6 porzioni bordo L',
             'price' => '9.99',
         ],
         'CR2L-CA' => [
             'sizes' => [
-                '309 x 209mm'
+                'cr1' => '309 x 209mm'
             ],
-            'name' => 'Nome Prodotto',
+            'name' => 'Coperchio per vaschetta alluminio 6 porzioni bordo L',
             'price' => '9.99',
         ],
         'R80L' => [
             'sizes' => [
-                '227 x 177mm',
-                '209 x 161mm',
-                '197 x 147mm',
-                '30mm',
-                '350/480cm3'
+                'c1' => '227 x 177mm',
+                'c2' => '209 x 161mm',
+                'c3' => '197 x 147mm',
+                'c4' => '30mm',
+                'c5' => '350/480cm3'
             ],
-            'name' => 'Nome Prodotto',
+            'name' => 'Vaschetta alluminio tris comparto',
             'price' => '9.99',
         ],
         'CR80L-CA - CR81L-CA - CR808L-CA' => [
             'sizes' => [
-                '220 x 173mm'
+                'cr1' => '220 x 173mm'
             ],
-            'name' => 'Nome Prodotto',
+            'name' => 'Coperchio per vaschetta alluminio tris comparto',
             'price' => '9.99'
         ],
         'R31L' => [
             'sizes' => [
-                '322 x 262mm',
-                '300 x 240mm',
-                '273 x 213mm',
-                '50mm',
-                '3240cm3'
+                'c1' => '322 x 262mm',
+                'c2' => '300 x 240mm',
+                'c3' => '273 x 213mm',
+                'c4' => '50mm',
+                'c5' => '3240cm3'
             ],
-            'name' => 'Nome Prodotto',
+            'name' => 'Vaschetta alluminio 8 porzioni bordo L',
             'price' => '9.99',
         ],
         'CR31L' => [
             'sizes' => [
-                '314 x 254mm'
+                'cr1' => '314 x 254mm'
             ],
-            'name' => 'Nome Prodotto',
+            'name' => 'Coperchio per vaschetta alluminio 8 porzioni bordo L',
             'price' => '9.99',
         ],
         'CR31L-CA' => [
             'sizes' => [
-                '314 x 254mm'
+                'cr1' => '314 x 254mm'
             ],
-            'name' => 'Nome Prodotto',
+            'name' => 'Coperchio per vaschetta alluminio 8 porzioni bordo L',
             'price' => '9.99',
         ],
         'Roll 300/125m' => [
             'sizes' => [
-                '292mm 125m',
-                '9',
-                '450',
-                '50'
+                'rl1' => '',
+                'rl2' => '292mm',
+                'rl3' => '125m',
+                'rl4' => '9',
+                'rl5' => '450',
+                'rl6' => '50'
             ],
-            'name' => 'Nome Prodotto',
+            'name' => 'Roll alluminio 125metri',
             'price' => '9.99',
         ],
         'Roll 300/300m' => [
             'sizes' => [
-                '300mm',
-                '300m',
-                '9',
-                '675',
-                '75'
+                'rl1' => '',
+                'rl2' => '300mm',
+                'rl3' => '300m',
+                'rl4' => '9',
+                'rl5' => '675',
+                'rl6' => '75'
             ],
-            'name' => 'Nome Prodotto',
+            'name' => 'Roll pellicola 300metri',
             'price' => '9.99',
         ],
         'Foglio 5kg' => [
             'sizes' => [
-                '600 x 400mm',
-                '500',
-                '128'
+                'c3' => '600 x 400mm',
+                'rl4' => '500',
+                'rl5' => '128'
             ],
-            'name' => 'Nome Prodotto',
+            'name' => 'Carta forno rettangolare 40x60 confezioni da 5kg',
             'price' => '9.99',
         ],
         'Roll 330/50m' => [
             'sizes' => [
-                '330mm',
-                '50m',
-                '9',
-                '432',
-                '48'
+                'rl7' => '',
+                'rl2' => '330mm',
+                'rl3' => '50m',
+                'rl4' => '9',
+                'rl5' => '432',
+                'rl6' => '48'
             ],
-            'name' => 'Nome Prodotto',
+            'name' => 'Roll carta forno 50metri',
             'price' => '9.99',
         ]
     ];
@@ -401,45 +418,31 @@
                 <?php foreach($products as $code => $p): $p = (object) $p; ?>
                     <div class="row">
                         <div class="col-3 p-0">
-                            <a href="<?= $p->url ?>">
+                            <a href="#">
                                 <div class="img-container">
                                     <img src="<?= get_stylesheet_directory_uri() . '/assets/images/products/' . str_replace('/', '-', $code) . '.webp' ?>" class="w-100 p-img">
                                 </div>
                             </a>
                         </div>
                         <div class="col-9">
-                            <a href="<?= $p->url ?>">
+                            <a href="#">
                                 <p class="product-title"><?= $code ?></p>
                                 <p class="product-desc"><?= $p->name ?></p>
                             </a>
                             <div class="product-info">
                                 <div class="d-block w-100">
                                     <div class="product-sizes w-100">
-                                        <div class="p-info">
-                                            <img src="<?= get_stylesheet_directory_uri() . '/assets/images/c1.webp' ?>">
-                                            <span><?php //$p->sizes['c1'] ?></span>
-                                        </div>
-                                        <div class="p-info">
-                                            <img src="<?= get_stylesheet_directory_uri() . '/assets/images/c2.webp' ?>">
-                                            <span><?php //$p->sizes['c2'] ?></span>
-                                        </div>
-                                        <div class="p-info">
-                                            <img src="<?= get_stylesheet_directory_uri() . '/assets/images/c3.webp' ?>">
-                                            <span><?php //$p->sizes['c3'] ?></span>
-                                        </div>
-                                        <div class="p-info">
-                                            <img src="<?= get_stylesheet_directory_uri() . '/assets/images/c4.webp' ?>">
-                                            <span><?php //$p->sizes['c4'] ?></span>
-                                        </div>
-                                        <div class="p-info">
-                                            <img src="<?= get_stylesheet_directory_uri() . '/assets/images/c5.webp' ?>">
-                                            <span><?php //$p->sizes['c5'] ?></span>
-                                        </div>
+                                        <?php foreach($p->sizes as $img => $size) : ?>
+                                            <div class="p-info">
+                                                <img src="<?= get_stylesheet_directory_uri() . "/assets/images/$img.webp" ?>">
+                                                <span><?= $size ?></span>
+                                            </div>
+                                        <?php endforeach; ?>
                                     </div>
                                 </div>
                                 <div class="d-block w-100 pt-3">
                                     <div class="product-actions mt-3">
-                                        <span class="mg-price">€<?= $p->price ?></span>
+                                        <span class="mg-price">€<?= rand(1, 2000) / 100 ?></span>
                                         <button class="btn btn-outline-primary"><i class="fa-solid fa-shopping-cart me-2"></i>Aggiungi al carrello</button>
                                     </div>
                                 </div>
