@@ -61,4 +61,31 @@
     </div>
 </section>
 
+<section class="contatti">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2>Contattaci</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <label for="name">Nome *</label>
+                <input type="text" name="name" class="form-control mb-3">
+
+                <label for="surname">Cognome *</label>
+                <input type="text" name="surname" class="form-control mb-3">
+
+                <label for="email">Email *</label>
+                <input type="email" name="email" class="form-control mb-3">
+            </div>
+            <div class="col-12 col-md-6 text-end">
+                <label class="w-100 text-start" for="message">Messaggio *</label>
+                <textarea name="message" class="form-control mb-3"></textarea>
+                <button class="btn btn-success"><i class="fa-regular fa-paper-plane me-2"></i>Invia</button>
+            </div>
+        </div>
+    </div>
+</section>
+
 <?php get_footer(); ?>

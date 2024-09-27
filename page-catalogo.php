@@ -59,14 +59,14 @@
             'name' => 'Vaschetta alluminio 8 porzioni bordo G',
             'price' => '9.99',
         ],
-        'CR535 - CR885G' => [
-            'sizes' => [
-                'cr1' => '625 x 525mm',
-                'cr2' => '39mm'
-            ],
-            'name' => 'Coperchio per vaschetta alluminio 18 porzioni',
-            'price' => '9.99'
-        ],
+        // 'CR535 - CR885G' => [
+        //     'sizes' => [
+        //         'cr1' => '625 x 525mm',
+        //         'cr2' => '39mm'
+        //     ],
+        //     'name' => 'Coperchio per vaschetta alluminio 18 porzioni',
+        //     'price' => '9.99'
+        // ],
         'R535G' => [
             'sizes' => [
                 'c1' => '525 x 325mm',
