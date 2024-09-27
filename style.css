@@ -799,7 +799,7 @@ section.gallery-section .image-container > img {
   background: #e8e8e8;
 }
 
-.products .row {
+.products .row:not(.row-breadcrumb) {
   margin: 0 0 20px 0;
   background: white;
   border-radius: .375rem;

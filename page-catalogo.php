@@ -416,7 +416,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-9 products">
-                <div class="row d-block d-md-none">
+                <div class="row d-block d-md-none row-breadcrumb">
                     <div class="col-12 text-center">
                         <p class="mg-breadcrumb"><a href="/">Home</a> / Catalogo</p>
                     </div>
