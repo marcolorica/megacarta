@@ -54,7 +54,8 @@
             </div>
 
             <div class="col-12 col-md-6">
-                <img src="<?= get_stylesheet_directory_uri() . '/assets/images/mappa-roma.png' ?>" class="w-100 img-content">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2973.787048369707!2d12.632556876784765!3d41.811347671249194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13258632ef4dfd4b%3A0x98bb2a73478684b1!2sMEGA%20CARTA%20SRL!5e0!3m2!1sit!2sit!4v1727395814061!5m2!1sit!2sit" class="w-100" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <!-- <img src="<?= get_stylesheet_directory_uri() . '/assets/images/mappa-roma.png' ?>" class="w-100 img-content"> -->
             </div>
         </div>
     </div>
