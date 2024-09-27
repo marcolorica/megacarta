@@ -285,7 +285,7 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <p class="breadcrumb"><a href="/">Home</a> / Catalogo</p>
+                <p class="mg-breadcrumb"><a href="/">Home</a> / Catalogo</p>
             </div>
         </div>
         <div class="row">
