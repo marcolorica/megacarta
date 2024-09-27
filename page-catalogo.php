@@ -454,7 +454,7 @@
                             </div>
                         </div>
                         <div class="col-12 d-block d-md-none">
-                            <div class="product-info d-none d-md-block">
+                            <div class="product-info">
                                 <div class="d-block w-100">
                                     <div class="product-sizes w-100">
                                         <?php foreach($p->sizes as $img => $size) : ?>
