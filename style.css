@@ -862,6 +862,10 @@ section.gallery-section .image-container > img {
   font-size: 25px;
   color: black;
   margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
 }
 
 .products a {

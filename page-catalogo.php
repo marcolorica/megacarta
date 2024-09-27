@@ -435,7 +435,7 @@
                             </a>
                         </div>
                         <div class="col-7 col-md-9 d-flex d-md-block align-items-center">
-                            <a href="#">
+                            <a class="w-100" href="#">
                                 <p class="product-title"><?= $code ?></p>
                                 <p class="product-desc"><?= $p->name ?></p>
                             </a>
