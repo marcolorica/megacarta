@@ -787,6 +787,7 @@ section.gallery-section .image-container > img {
   height: auto;
   border: 1px solid lightgray;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 .card-categoria .img-cat {
