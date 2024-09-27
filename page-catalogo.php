@@ -301,7 +301,7 @@
                 <h2 class="main-title">Esplora il nostro catalogo</h2>
             </div>
         </div>
-        <div class="row">
+        <div class="row d-none d-md-block">
             <div class="col-12">
                 <p class="mg-breadcrumb"><a href="/">Home</a> / Catalogo</p>
             </div>
@@ -416,6 +416,11 @@
                 </div>
             </div>
             <div class="col-12 col-md-9 products">
+                <div class="row d-block d-md-none">
+                    <div class="col-12 text-center">
+                        <p class="mg-breadcrumb"><a href="/">Home</a> / Catalogo</p>
+                    </div>
+                </div>
                 <?php
                     foreach($products as $code => $p):
                         $p = (object) $p;
