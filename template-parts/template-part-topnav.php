@@ -30,7 +30,7 @@
             <button class="btn btn-outline-light" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
 
-        <span class="navbar-text ms-2 d-none d-md-inline">
+        <span class="navbar-text ms-3 d-none d-md-inline">
             <i class="fa-solid fa-cart-shopping fa-lg text-white"></i>
         </span>
 
