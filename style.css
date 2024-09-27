@@ -715,6 +715,39 @@ section.gallery-section .image-container > img {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .mg-logo {
   filter: invert(100%);
 }
@@ -728,6 +761,7 @@ section.gallery-section .image-container > img {
 
 .intestazione.mg-contacts {
   background-image: url(assets/images/contatti-bg.jpg);
+  background-position: top;
 }
 
 .intestazione.mg-chi-siamo {
@@ -899,4 +933,32 @@ section.firma-footer {
 
 .up-container {
   display: none !important;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.socials i {
+  padding: 10px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin: 0 5px;
+}
+
+.socials .whatsapp i {
+  background-color: green;
+}
+
+.socials .phone i {
+  background-color: #0d6efd;
+}
+
+.socials .email i {
+  background-color: darkred;
 }
