@@ -56,20 +56,3 @@
 </section>
 
 <?php get_footer(); ?>
-
-<!-- buongiorno, questa è la prima bozza del sito 
-su contintal.com non c'erano i prezzi, quindi quelli che ho inserito sono casuali, poi mi dirai tu i prezzi veri 
-nei prossimi giorni saranno attive anche le pagine del prodotto singolo, la pagina del carrello e quella del pagamento
-quando comprerai il dominio faremo una email, ad esempio info@megacarta.com dove le persone potranno contattarti
-ho copiato le categorie di contintal ma non sono davvero associate a nessun prodotto, come ti dicevo è una bozza
-se mi dici che la struttura va bene possiamo cambiare tutto quello che vuoi, colori, testi, immagini, disposizione
-il sito è creato da zero, puoi personalizzarlo al 100% e chiedermi tutte le modifiche/aggiunte che vuoi
-il logo l'ho rifatto simile perché quello che mi avevi mandato tu non va bene per un sito essendo una fotografia, se lo vuoi uguale identico provo a farlo meglio
-
-quindi, al momento, la ricerca dei prodotti, il carrello e le categorie sono ancora disabilitate, farò una seconda versione per la settimana prossima, nel frattempo ti chiedo di:
-- inviarmi un file excel con tutti i dati dei prodotti da inserire, quindi anche categoria e sotto-categoria;
-- sulla pagina "Chi Siamo" ho messo un testo generato dall'intelligenza artificiale, se vuoi cambiarlo scirvimelo e lo cambiarlo
-- se vuoi darmi intanto un numero di telefono da inserire nella pagina "Contatti"
-
-infine è buona pratica mettere la partita IVA in basso al sito, se me la mandi la metto
-dimmi cosa ne pensi e non preoccuparti di chiedermi modifiche, posso anche rifarlo da capo finché non è perfetto per te -->
