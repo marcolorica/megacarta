@@ -9,7 +9,7 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins:600,500,700%7CRoboto:400,500,700&display=swap&ver=1689169854);
 
 :root {
-  --main-color: #0cb4ce;
+  --main-color: #6a181f;
   --secondary-color: #192f4f;
 }
 
@@ -907,7 +907,7 @@ section.gallery-section .image-container > img {
 
 #syrus-theme-footer,
 section.firma-footer {
-  background-color: #0d6efd !important;
+  background-color: var(--main-color) !important;
   margin: 0 !important;
 }
 
@@ -959,7 +959,7 @@ section.firma-footer {
 }
 
 .socials .phone i {
-  background-color: #0d6efd;
+  background-color: var(--main-color);
 }
 
 .socials .email i {
@@ -978,18 +978,31 @@ a[name=add-to-cart],
 button[name=add-to-cart] {
   background-color: white !important;
   line-height: 1.1em !important;
-  border: 1px solid #0d6efd !important;
+  border: 1px solid var(--main-color) !important;
   border-radius: 5px !important;
   padding: 10px !important;
-  color: #0d6efd !important;
+  color: var(--main-color) !important;
   font-weight: 400 !important;
   /* font-size: 13px; */
 }
 
 a[name=add-to-cart]:hover,
 button[name=add-to-cart]:hover {
-  background-color: #0d6efd !important;
+  background-color: var(--main-color) !important;
   color: white !important;
+}
+
+.text-danger {
+  color: var(--main-color) !important;
+}
+
+.bg-danger {
+  background-color: var(--main-color) !important;
+}
+
+.btn-danger {
+  background-color: var(--main-color) !important;
+  border-color: var(--main-color) !important;
 }
 
 
