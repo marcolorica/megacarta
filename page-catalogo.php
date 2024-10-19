@@ -447,12 +447,6 @@
                                         <?php endforeach; ?>
                                     </div>
                                 </div>
-                                <div class="d-block w-100 pt-3">
-                                    <div class="product-actions mt-3">
-                                        <span class="mg-price">€<?= $p->price ?></span>
-                                        <button class="btn btn-outline-primary"><i class="fa-solid fa-shopping-cart me-2"></i>Aggiungi al carrello</button>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-12 d-block d-md-none">
@@ -467,13 +461,29 @@
                                         <?php endforeach; ?>
                                     </div>
                                 </div>
-                                <div class="d-block w-100 pt-3">
-                                    <div class="product-actions mt-3">
-                                        <span class="mg-price">€<?= $p->price ?></span>
-                                        <button class="btn btn-outline-primary"><i class="fa-solid fa-shopping-cart me-2"></i>Aggiungi al carrello</button>
-                                    </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="product-actions mt-3">
+                                <div class="w-50">
+                                    <span class="mg-price">€<?= $p->price ?></span>
+                                </div>
+                                
+                                <!-- <button class="btn btn-outline-primary"><i class="fa-solid fa-shopping-cart me-2"></i>Aggiungi al carrello</button> -->
+                                
+                                <div class="d-flex flex-column justify-content-end w-50">
+                                    <?php do_action('woocommerce_before_add_to_cart_form'); ?>
+    
+                                    <form class="cart d-flex justify-content-end w-100" action="<?= esc_url(apply_filters( 'woocommerce_add_to_cart_form_action', $p->url)) ?>" method="post" enctype='multipart/form-data'>
+                                        <?php do_action('woocommerce_before_add_to_cart_button'); ?>
+                                        <button type="submit" name="add-to-cart" value="<?= esc_attr($p->id); ?>" class="single_add_to_cart_button button alt<?= esc_attr(wc_wp_theme_get_element_class_name('button' ) ? ' ' . wc_wp_theme_get_element_class_name('button' ) : '' ); ?> w-100"><i class="fa-solid fa-cart-shopping me-2"></i>Aggiungi al carrello</button>
+                                        <?php do_action('woocommerce_after_add_to_cart_button'); ?>
+                                    </form>
+                                    
+                                    <?php do_action('woocommerce_after_add_to_cart_form'); ?>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 <?php endforeach; ?>
