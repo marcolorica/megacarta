@@ -36,6 +36,8 @@
     $general_font_size = get_theme_mod("general-font-size") ? sanitize_text_field(get_theme_mod("general-font-size")) : "medium";
     $general_font_size = $font_sizes[$general_font_size];
 
+    $baseDirSizes = get_stylesheet_directory_uri() . "/assets/images/products/sizes";
+
 	if(wp_is_mobile()) {
 ?>
 	<style>
@@ -103,34 +105,45 @@
 							<h1 class="product_title w-auto pb-3 <?= wp_is_mobile() ? 'px-3' : '' ?>"><?= get_the_title() ?></h1>
 							
 							<?php
-							/**
-							 * Hook: woocommerce_single_product_summary.
-							 *
-							 * @hooked woocommerce_template_single_title - 5
-							 * @hooked woocommerce_template_single_rating - 10
-							 * @hooked woocommerce_template_single_price - 10
-							 * @hooked woocommerce_template_single_excerpt - 20
-							 * @hooked woocommerce_template_single_add_to_cart - 30
-							 * @hooked woocommerce_template_single_meta - 40
-							 * @hooked woocommerce_template_single_sharing - 50
-							 * @hooked WC_Structured_Data::generate_product_data() - 60
-							 */
-							remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
-							remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+								/**
+								 * Hook: woocommerce_single_product_summary.
+								 *
+								 * @hooked woocommerce_template_single_title - 5
+								 * @hooked woocommerce_template_single_rating - 10
+								 * @hooked woocommerce_template_single_price - 10
+								 * @hooked woocommerce_template_single_excerpt - 20
+								 * @hooked woocommerce_template_single_add_to_cart - 30
+								 * @hooked woocommerce_template_single_meta - 40
+								 * @hooked woocommerce_template_single_sharing - 50
+								 * @hooked WC_Structured_Data::generate_product_data() - 60
+								 */
+								remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
+								remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+								remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
 
-							add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
-							add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
-							remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
+								add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
+								add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+							?>
 
-							echo '<div class="w-100 d-flex align-items-center">';
+							<div class="d-block w-100">
+								<div class="product-sizes w-100">
+									<?php foreach($product->get_meta('sizes') as $img => $size) : ?>
+										<div class="p-info">
+											<img src="<?= "$baseDirSizes/$img.webp" ?>">
+											<span><?= $size ?></span>
+										</div>
+									<?php endforeach; ?>
+								</div>
+							</div>
 
-							echo '<p style="font-size:1.2em !important;" class="mb-2">' . $product->get_description() . '</p>';
+							<div class="w-100 d-flex align-items-center">
+								<p style="font-size:1.2em !important;" class="mb-2"><?= $product->get_description() ?></p>
+							</div>
 
-							echo '</div>';
-							
-							add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
-							add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50 );
-							do_action( 'woocommerce_single_product_summary' );
+							<?php
+								add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
+								add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50 );
+								do_action( 'woocommerce_single_product_summary' );
 							?>
 
 							<!-- <p class="mb-1"><b>Categoria</b></p>
@@ -140,7 +153,6 @@
 							<p class="description"><?= $productInfos->description ?></p> -->
 						</div>
 					
-
 						<?php
 						/**
 						 * Hook: woocommerce_after_single_product_summary.
