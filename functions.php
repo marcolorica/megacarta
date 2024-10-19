@@ -430,3 +430,9 @@ function remove_cart_item() {
 
 add_action('wp_ajax_nopriv_remove_cart_item',"remove_cart_item");
 add_action('wp_ajax_remove_cart_item',"remove_cart_item");
+
+function mc_add_woocommerce_support() {
+    add_theme_support('woocommerce');
+}
+
+add_action('after_setup_theme','mc_add_woocommerce_support');
