@@ -22,6 +22,6 @@ global $product;
 
 ?>
 
-<p class="price text-success">
+<p class="price text-success <?= wp_is_mobile() ? 'px-3' : '' ?>">
 	<span class="currency">€</span><?= $product->get_price() ?></span>
 </p>

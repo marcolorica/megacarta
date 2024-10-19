@@ -38,7 +38,9 @@
 
     $baseDirSizes = get_stylesheet_directory_uri() . "/assets/images/products/sizes";
 
-	if(wp_is_mobile()) {
+	$mobile = wp_is_mobile();
+
+	if($mobile) {
 ?>
 	<style>
 		body.single-product .summary {
@@ -102,7 +104,7 @@
 						?>
 					
 						<div class="summary entry-summary">
-							<h1 class="product_title w-auto pb-3"><?= get_the_title() ?></h1>
+							<h1 class="product_title w-auto pb-3 <?= $mobile ? 'px-3' : '' ?>"><?= get_the_title() ?></h1>
 							
 							<?php
 								/**
@@ -125,11 +127,11 @@
 								add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
 							?>
 
-							<div class="w-100 d-flex align-items-center">
+							<div class="w-100 d-flex align-items-center <?= $mobile ? 'px-3' : '' ?>">
 								<p style="font-size:1.2em !important;" class="mb-2"><?= $product->get_description() ?></p>
 							</div>
 
-							<div class="d-block w-100 my-4">
+							<div class="d-block w-100 my-4 <?= $mobile ? 'px-3' : '' ?>">
 								<div class="product-sizes w-100">
 									<?php foreach($product->get_meta('sizes') as $img => $size) : ?>
 										<div class="p-info">
