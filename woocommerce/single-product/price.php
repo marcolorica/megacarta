@@ -22,6 +22,6 @@ global $product;
 
 ?>
 
-<p class="price">
+<p class="price text-success">
 	<span class="currency">€</span><?= $product->get_price() ?></span>
 </p>
