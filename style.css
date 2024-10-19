@@ -1005,6 +1005,16 @@ button[name=add-to-cart]:hover {
   border-color: var(--main-color) !important;
 }
 
+.accordion-button:not(.collapsed) {
+  color: var(--bs-danger-text-emphasis) !important;
+  background-color: var(--bs-danger-bg-subtle) !important;
+}
+
+a {
+  color: var(--bs-danger) !important;
+}
+
+
 
 @media (max-width: 768px) {
   .p-info span {

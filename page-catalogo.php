@@ -203,7 +203,7 @@
                         <div class="col-12">
                             <div class="product-actions mt-3">
                                 <div class="w-<?= $mobile ? 100 : 75 ?>">
-                                    <span class="mg-price">€<?= $p->price ?></span>
+                                    <span class="mg-price text-success">€<?= $p->price ?></span>
                                 </div>
                                 
                                 <div class="d-flex flex-column justify-content-end w-<?= $mobile ? 100 : 25 ?>">
