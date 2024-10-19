@@ -33,6 +33,8 @@
         ];
     }
 
+    $mobile = wp_is_mobile();
+
 ?>
 
 <main>
@@ -59,11 +61,11 @@
                             <img src="<?= $product->image ?>" class="w-100">
                         </div>
                         <div class="col-6">
-                            <p class="m-0"><a href="<?= $product->url ?>"><?= $product->description ?></a></p>
-                            <p class="mb-0 fw-bold me-2 mb-2">Codice: <?= $sku ?></p>
+                            <p class="m-0"><a href="<?= $product->url ?>"><?= $sku ?></a></p>
+                            <!-- <p class="mb-0 fw-bold me-2 mb-2"></p> -->
                             <p class="mb-0 fs-4 me-2 mb-2">€<?= $product->price ?></p>
                             <div class="qty mb-2">
-                                <input type="number" class="form-control w-25" value="<?= $product->qty ?>" oninput="changeCartTotals()" onkeyup="changeCartTotals()" onchange="changeCartTotals()">
+                                <input type="number" class="form-control w-<?= $mobile ? 100 : 25 ?>" value="<?= $product->qty ?>" oninput="changeCartTotals()" onkeyup="changeCartTotals()" onchange="changeCartTotals()">
                             </div>
                             <p class="remove-product"><a class="text-danger" role="button" onclick="removeProductFromCart('<?= $sku ?>')"><i class="fa-solid fa-trash me-2"></i>Rimuovi prodotto</a></p>
                         </div>
