@@ -996,7 +996,7 @@ button[name=add-to-cart]:hover {
   color: var(--main-color) !important;
 }
 
-.bg-danger {
+.bg-mc {
   background-color: var(--main-color) !important;
 }
 
