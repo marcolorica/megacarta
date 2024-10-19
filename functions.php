@@ -75,19 +75,20 @@ function get_mc_products() {
 
 	$res = [];
 
+    $baseDir = get_stylesheet_directory_uri();
+
     if(!empty($products)) {
         foreach($products as $product) {
-			$img = '';
+            $code = $product->get_sku();
+            $imgCode = $imgCode = str_replace('/', '-', $code);
+			$img = "$baseDir/assets/images/products/$imgCode.webp";
 
-			$image_id = $product->get_image_id();
-            if($image_id)
-                $img = wp_get_attachment_url($image_id);
-
-			$res[] = (object) [
+			$res[$code] = (object) [
 				'name' => $product->get_name(),
 				'price' => wc_price($product->get_price),
 				'url' => get_permalink($product->get_id()),
-				'img' => $img
+				'img' => $img,
+                'sizes' => $product->get_meta_data('sizes')
 			];
         }
     }

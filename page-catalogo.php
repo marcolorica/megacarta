@@ -3,7 +3,7 @@
 <?php $products = get_mc_products(); ?>
 
 <?php
-    $products = [
+    $_products = [
         'R10G' => [
             'sizes' => [
                 'c1' => '150 x 125mm',
@@ -280,6 +280,7 @@
     ];
 
     $mobile = wp_is_mobile();
+    $baseDirSizes = get_stylesheet_directory_uri() . "/assets/images/products/sizes";
 ?>
 
 <section class="intestazione">
@@ -421,16 +422,12 @@
                         <p class="mg-breadcrumb"><a href="/">Home</a> / Catalogo</p>
                     </div>
                 </div>
-                <?php
-                    foreach($products as $code => $p):
-                        $p = (object) $p;
-                        $imgCode = str_replace('/', '-', $code);
-                ?>
+                <?php foreach($products as $code => $p): $p = (object) $p; ?>
                     <div class="row">
                         <div class="col-5 col-md-3 p-0">
                             <a href="#">
                                 <div class="img-container">
-                                    <img src="<?= get_stylesheet_directory_uri() . "/assets/images/products/$imgCode.webp" ?>" class="w-100 p-img">
+                                    <img src="<?= $p->img ?>" class="w-100 p-img">
                                 </div>
                             </a>
                         </div>
@@ -444,7 +441,7 @@
                                     <div class="product-sizes w-100">
                                         <?php foreach($p->sizes as $img => $size) : ?>
                                             <div class="p-info">
-                                                <img src="<?= get_stylesheet_directory_uri() . "/assets/images/products/sizes/$img.webp" ?>">
+                                                <img src="<?= "$baseDirSizes/$img.webp" ?>">
                                                 <span><?= $size ?></span>
                                             </div>
                                         <?php endforeach; ?>
@@ -452,7 +449,7 @@
                                 </div>
                                 <div class="d-block w-100 pt-3">
                                     <div class="product-actions mt-3">
-                                        <span class="mg-price">€<?= rand(1, 2000) / 100 ?></span>
+                                        <span class="mg-price">€<?= $p->price ?></span>
                                         <button class="btn btn-outline-primary"><i class="fa-solid fa-shopping-cart me-2"></i>Aggiungi al carrello</button>
                                     </div>
                                 </div>
@@ -464,7 +461,7 @@
                                     <div class="product-sizes w-100">
                                         <?php foreach($p->sizes as $img => $size) : ?>
                                             <div class="p-info">
-                                                <img src="<?= get_stylesheet_directory_uri() . "/assets/images/products/sizes/$img.webp" ?>">
+                                                <img src="<?= "$baseDirSizes/$img.webp" ?>">
                                                 <span><?= $size ?></span>
                                             </div>
                                         <?php endforeach; ?>
@@ -472,7 +469,7 @@
                                 </div>
                                 <div class="d-block w-100 pt-3">
                                     <div class="product-actions mt-3">
-                                        <span class="mg-price">€<?= rand(1, 2000) / 100 ?></span>
+                                        <span class="mg-price">€<?= $p->price ?></span>
                                         <button class="btn btn-outline-primary"><i class="fa-solid fa-shopping-cart me-2"></i>Aggiungi al carrello</button>
                                     </div>
                                 </div>
@@ -484,7 +481,5 @@
         </div>
     </div>
 </section>
-
-<!-- ok -->
 
 <?php get_footer(); ?>
