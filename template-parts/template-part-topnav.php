@@ -1,3 +1,5 @@
+<form action="/catalogo" method="GET" id="form-mc"></form>
+
 <nav class="navbar navbar-expand-lg bg-primary">
   <div class="container">
     <a class="navbar-brand my-2 mx-3" href="/">
@@ -25,12 +27,14 @@
       </ul>
 
       <form class="d-flex" role="search">
-        <input class="form-control me-2" type="text" placeholder="Cerca...">
-        <button class="btn btn-outline-light" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <input class="form-control me-2" type="text" placeholder="Cerca..." name="term" form="form-mc">
+        <button class="btn btn-outline-light" type="submit"><i class="fa-solid fa-magnifying-glass" form="form-mc"></i></button>
       </form>
 
       <span class="navbar-text ms-3 d-none d-md-inline">
-        <i class="fa-solid fa-cart-shopping fa-lg text-white"></i>
+        <a href="/carrello" style="text-decoration:none">
+          <i class="fa-solid fa-cart-shopping fa-lg text-white"></i>
+        </a>
       </span>
     </div>
   </div>

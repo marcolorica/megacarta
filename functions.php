@@ -63,11 +63,14 @@ function get_mc_categories() {
 	return $res;
 }
 
-function get_mc_products() {
+function get_mc_products($term = null) {
 	$args = [
-        'limit'    => -1,
-        'status'   => 'publish',
+        'limit' => -1,
+        'status' => 'publish',
 	];
+
+    if($term)
+        $args['s'] = $term;
 
     $query = new WC_Product_Query($args);
     $products = $query->get_products();
@@ -436,3 +439,12 @@ function mc_add_woocommerce_support() {
 }
 
 add_action('after_setup_theme','mc_add_woocommerce_support');
+
+// function handle_custom_wc_product_query($query, $query_vars) {
+//     if(isset($query_vars['like_name']) && !empty($query_vars['like_name']))
+//         $query['s'] = esc_attr($query_vars['like_name']);
+
+//     return $query;
+// }
+
+// add_filter('woocommerce_product_data_store_cpt_get_products_query', 'handle_custom_wc_product_query', 10, 2);
