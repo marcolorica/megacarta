@@ -70,7 +70,7 @@ function get_mc_products() {
         'status'   => 'publish',
 	];
 
-    $query = new WC_Product_Query( $args );
+    $query = new WC_Product_Query($args);
     $products = $query->get_products();
 
 	$res = [];
@@ -93,7 +93,7 @@ function get_mc_products() {
         }
     }
 
-    echo '<pre>'; var_dump($res); die;
+    echo '<pre>'; var_dump($products); die;
 
 	return $res;
 }
