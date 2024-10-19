@@ -67,7 +67,7 @@
                             <div class="qty mb-2">
                                 <input type="number" class="form-control w-<?= $mobile ? 100 : 25 ?>" value="<?= $product->qty ?>" oninput="changeCartTotals()" onkeyup="changeCartTotals()" onchange="changeCartTotals()">
                             </div>
-                            <p class="remove-product"><a class="text-danger" role="button" onclick="removeProductFromCart('<?= $sku ?>')"><i class="fa-solid fa-trash me-2"></i>Rimuovi prodotto</a></p>
+                            <p class="remove-product"><a class="text-danger" role="button" onclick="removeProductFromCart('<?= $sku ?>')"><i class="fa-solid fa-trash me-2"></i>Rimuovi</a></p>
                         </div>
                         <div class="col-3">
                             <p style="font-size: 20px;">€<span class="product-total"><?= $product->qty * $product->price ?></span></p>
