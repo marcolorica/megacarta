@@ -9,31 +9,29 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-            <!-- <a class="nav-link active" aria-current="page" href="#">Chi siamo</a> -->
-                <a class="nav-link text-white" href="/chi-siamo">Chi siamo</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="/catalogo">Catalogo</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="/contatti">Contatti</a>
-            </li>
-            <li class="nav-item d-block d-md-none">
-                <a class="nav-link text-white" href="#"><i class="fa-solid fa-cart-shopping me-2"></i>Carrello</a>
-            </li>
-        </ul>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/chi-siamo">Chi siamo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/catalogo">Catalogo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/contatti">Contatti</a>
+        </li>
+        <li class="nav-item d-block d-md-none">
+          <a class="nav-link text-white" href="/carrello"><i class="fa-solid fa-cart-shopping me-2"></i>Carrello</a>
+        </li>
+      </ul>
 
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="text" placeholder="Cerca...">
-            <button class="btn btn-outline-light" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </form>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="text" placeholder="Cerca...">
+        <button class="btn btn-outline-light" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
 
-        <span class="navbar-text ms-3 d-none d-md-inline">
-            <i class="fa-solid fa-cart-shopping fa-lg text-white"></i>
-        </span>
-
+      <span class="navbar-text ms-3 d-none d-md-inline">
+        <i class="fa-solid fa-cart-shopping fa-lg text-white"></i>
+      </span>
     </div>
   </div>
 </nav>
