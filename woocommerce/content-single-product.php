@@ -81,7 +81,7 @@
 </style>
 
 
-<div class="container main-container" role="main" id="main-content" style="margin-top:<?= wp_is_mobile() ? '25' : '10' ?>% !important;">
+<div class="container main-container" role="main" id="main-content" style="margin-top:75px !important;">
 	<div class="row mt-4">
 		<div class="col-12" id="content-col">
 			<div class="card-post" style="border-radius: 15px;overflow: hidden;box-shadow: none !important;">
