@@ -87,7 +87,7 @@ function get_mc_products() {
 			$res[$p->name] = (object) [
                 'id' => $id,
 				'name' => $p->get_description(),
-				'price' => wc_price($p->get_price),
+				'price' => $p->get_price(),
 				'url' => get_permalink($id),
 				'img' => $img,
                 'sizes' => $p->get_meta('sizes')
