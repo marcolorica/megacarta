@@ -79,12 +79,12 @@ function get_mc_products() {
 
     if(!empty($products)) {
         foreach($products as $product) {
-            $code = $product->get_sku();
+            $code = $product->get_name();
             $imgCode = $imgCode = str_replace('/', '-', $code);
 			$img = "$baseDir/assets/images/products/$imgCode.webp";
 
-			$res[$code] = (object) [
-				'name' => $product->get_name(),
+			$res[$product->name] = (object) [
+				'name' => $product->get_description(),
 				'price' => wc_price($product->get_price),
 				'url' => get_permalink($product->get_id()),
 				'img' => $img,
@@ -93,8 +93,8 @@ function get_mc_products() {
         }
     }
 
-    echo '<pre>'; var_dump($products); echo '</pre><br><br><br>';
-    echo '<pre>'; var_dump($res); die;
+    // echo '<pre>'; var_dump($products); echo '</pre><br><br><br>';
+    // echo '<pre>'; var_dump($res); die;
 
 	return $res;
 }
