@@ -38,7 +38,7 @@
 ?>
 
 <main>
-    <div class="container cart p-5">
+    <div class="container cart p-2 p-md-5">
         <h1 class="text-white mb-3">Carrello</h1>
 
         <div class="row bg-white p-4">
