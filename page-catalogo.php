@@ -465,13 +465,13 @@
                         </div>
                         <div class="col-12">
                             <div class="product-actions mt-3">
-                                <div class="w-100 w-md-75">
+                                <div class="w-<?= $mobile ? 100 : 75 ?>">
                                     <span class="mg-price">€<?= $p->price ?></span>
                                 </div>
                                 
                                 <!-- <button class="btn btn-outline-primary"><i class="fa-solid fa-shopping-cart me-2"></i>Aggiungi al carrello</button> -->
                                 
-                                <div class="d-flex flex-column justify-content-end w-100 w-md-25">
+                                <div class="d-flex flex-column justify-content-end w-<?= $mobile ? 100 : 25 ?>">
                                     <?php do_action('woocommerce_before_add_to_cart_form'); ?>
     
                                     <form class="cart d-flex justify-content-end w-100" action="<?= esc_url(apply_filters( 'woocommerce_add_to_cart_form_action', $p->url)) ?>" method="post" enctype='multipart/form-data'>
