@@ -78,17 +78,19 @@ function get_mc_products() {
     $baseDir = get_stylesheet_directory_uri();
 
     if(!empty($products)) {
-        foreach($products as $product) {
-            $code = $product->get_name();
+        foreach($products as $p) {
+            $code = $p->get_name();
             $imgCode = $imgCode = str_replace('/', '-', $code);
 			$img = "$baseDir/assets/images/products/$imgCode.webp";
+            $id = $p->get_id();
 
-			$res[$product->name] = (object) [
-				'name' => $product->get_description(),
-				'price' => wc_price($product->get_price),
-				'url' => get_permalink($product->get_id()),
+			$res[$p->name] = (object) [
+                'id' => $id,
+				'name' => $p->get_description(),
+				'price' => wc_price($p->get_price),
+				'url' => get_permalink($id),
 				'img' => $img,
-                'sizes' => $product->get_meta('sizes')
+                'sizes' => $p->get_meta('sizes')
 			];
         }
     }
