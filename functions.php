@@ -88,7 +88,7 @@ function get_mc_products() {
 				'price' => wc_price($product->get_price),
 				'url' => get_permalink($product->get_id()),
 				'img' => $img,
-                'sizes' => $product->get_meta_data('sizes')
+                'sizes' => $product->get_meta('sizes')
 			];
         }
     }
