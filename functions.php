@@ -79,7 +79,7 @@ function get_mc_products() {
     if(!empty($products)) {
         foreach($products as $p) {
             $code = $p->get_name();
-            $imgCode = $imgCode = str_replace('/', '-', $code);
+            $imgCode = str_replace('/', '-', $code);
 			$img = "$baseDir/assets/images/products/$imgCode.webp";
             $id = $p->get_id();
 
