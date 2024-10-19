@@ -7,7 +7,7 @@ function removeProductFromCart(sku) {
     jQuery('.row-cart-product[data-sku='+sku+']').remove();
 
     jQuery.ajax({
-        url: args_mg.ajax_url,
+        url: args_mc.ajax_url,
         method: "POST",
         dataType: 'json',
         data: {
@@ -52,7 +52,7 @@ function changeCartTotals() {
     jQuery('.cart-total').text(total.toFixed(2));
 
     jQuery.ajax({
-        url: args_mg.ajax_url,
+        url: args_mc.ajax_url,
         method: "POST",
         dataType: 'json',
         data: {
