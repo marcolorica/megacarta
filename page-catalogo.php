@@ -33,7 +33,7 @@
         </div>
         <div class="row d-none d-md-block">
             <div class="col-12">
-                <p class="mg-breadcrumb"><a href="/">Home</a> / Catalogo</p>
+                <p class="mg-breadcrumb <?= $term ? 'text-center' : '' ?>"><a href="/">Home</a> / <?= $term ? "Ricerca per \"$term\"" : 'Catalogo' ?></p>
             </div>
         </div>
         <div class="row <?= $term ? "justify-content-center" : '' ?>">
