@@ -102,7 +102,7 @@
 						?>
 					
 						<div class="summary entry-summary">
-							<h1 class="product_title w-auto pb-3 <?= wp_is_mobile() ? 'px-3' : '' ?>"><?= get_the_title() ?></h1>
+							<h1 class="product_title w-auto pb-3"><?= get_the_title() ?></h1>
 							
 							<?php
 								/**
