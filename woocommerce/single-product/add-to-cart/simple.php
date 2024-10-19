@@ -39,7 +39,7 @@ if($product->is_in_stock()) :
 				'min_value'   => apply_filters('woocommerce_quantity_input_min', $product->get_min_purchase_quantity(), $product),
 				'max_value'   => apply_filters('woocommerce_quantity_input_max', $product->get_max_purchase_quantity(), $product),
 				'input_value' => isset($_POST['quantity']) ? wc_stock_amount(wp_unslash($_POST['quantity'])) : $product->get_min_purchase_quantity(), // WPCS: CSRF ok, input var ok.
-				'classes'     => apply_filters('woocommerce_quantity_input_classes', array('input-text', 'qty', 'text'), $product)
+				'classes'     => apply_filters('woocommerce_quantity_input_classes', array('input-text', 'qty', 'text', 'form-control'), $product)
 			)
 		);
 
