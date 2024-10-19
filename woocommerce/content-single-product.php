@@ -124,7 +124,6 @@
 
 							echo '<div class="w-100 d-flex align-items-center">';
 
-							echo '<p style="font-size:1.2em !important;" class="my-2"><b>' . $product->get_name() . '</b></p>';
 							echo '<p style="font-size:1.2em !important;" class="mb-2">' . $product->get_description() . '</p>';
 
 							echo '</div>';
