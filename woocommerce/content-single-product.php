@@ -125,7 +125,11 @@
 								add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
 							?>
 
-							<div class="d-block w-100">
+							<div class="w-100 d-flex align-items-center">
+								<p style="font-size:1.2em !important;" class="mb-2"><?= $product->get_description() ?></p>
+							</div>
+
+							<div class="d-block w-100 my-4">
 								<div class="product-sizes w-100">
 									<?php foreach($product->get_meta('sizes') as $img => $size) : ?>
 										<div class="p-info">
@@ -134,10 +138,6 @@
 										</div>
 									<?php endforeach; ?>
 								</div>
-							</div>
-
-							<div class="w-100 d-flex align-items-center">
-								<p style="font-size:1.2em !important;" class="mb-2"><?= $product->get_description() ?></p>
 							</div>
 
 							<?php
