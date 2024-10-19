@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<?php $products = get_mc_products(); ?>
+<?php $products = get_mc_products(); var_dump($products); ?>
 
 <?php
     $_products = [
