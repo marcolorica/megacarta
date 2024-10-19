@@ -6,28 +6,30 @@
     $cartTotal = 0;
 
     $cart_items = WC()->cart->get_cart();
-    $skus = [];
+
+    $baseDir = get_stylesheet_directory_uri();
 
     foreach($cart_items as $cart_item_key => $cart_item) {
         $product = $cart_item['data'];
 
-        $sku = $product->get_sku();
-        $name = $product->get_name();
+        $sku = $product->get_name();
+        $name = $product->get_description();
         $price = $product->get_price();
         $qty = $cart_item['quantity'];
         $url = $product->get_permalink();
 
+        $imgCode = $imgCode = str_replace('/', '-', $sku);
+        $img = "$baseDir/assets/images/products/$imgCode.webp";
+
         $cartTotal += $price * $qty;
 
-        $skus[] = $sku;
-
-        $cartProducts['sku-'.$sku] = [
+        $cartProducts[$sku] = [
             'itemKey' => $cart_item_key,
             'qty' => $qty,
             'price' => $price,
             'name' => $name,
             'url' => $url,
-            'image' => ''
+            'image' => $img
         ];
     }
 
@@ -50,7 +52,6 @@
     
                 <?php
                     foreach($cartProducts as $sku => $product) {
-                        $sku = str_replace('sku-', '', $sku);
                         $product = (object) $product;
                     ?>
                     <div class="row mb-3 row-cart-product py-3" data-sku="<?= $sku ?>" data-price="<?= $product->price ?>" data-cart-item-key="<?= $product->itemKey ?>">
@@ -58,11 +59,7 @@
                             <img src="<?= $product->image ?>" class="w-100">
                         </div>
                         <div class="col-6">
-                            <div class="availability mb-2">
-                                <i class="fa-solid fa-circle"></i>
-                                <p class="mb-0">Disponibile</p>
-                            </div>
-                            <p class="m-0"><a href="<?= $product->url ?>"><?= $product->name ?></a></p>
+                            <p class="m-0"><a href="<?= $product->url ?>"><?= $product->description ?></a></p>
                             <p class="mb-0 fw-bold me-2 mb-2">Codice: <?= $sku ?></p>
                             <p class="mb-0 fs-4 me-2 mb-2">€<?= $product->price ?></p>
                             <div class="qty mb-2">
