@@ -425,14 +425,14 @@
                 <?php foreach($products as $code => $p): $p = (object) $p; ?>
                     <div class="row">
                         <div class="col-5 col-md-3 p-0">
-                            <a href="#">
+                            <a href="<?= $p->url ?>">
                                 <div class="img-container">
                                     <img src="<?= $p->img ?>" class="w-100 p-img">
                                 </div>
                             </a>
                         </div>
                         <div class="col-7 col-md-9 d-flex d-md-block align-items-center">
-                            <a class="w-100" href="#">
+                            <a class="w-100" href="<?= $p->url ?>">
                                 <p class="product-title"><?= $code ?></p>
                                 <p class="product-desc"><?= $p->name ?></p>
                             </a>
