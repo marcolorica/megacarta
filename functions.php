@@ -93,9 +93,6 @@ function get_mc_products() {
         }
     }
 
-    // echo '<pre>'; var_dump($products); echo '</pre><br><br><br>';
-    echo '<pre>'; var_dump($res); die;
-
 	return $res;
 }
 
