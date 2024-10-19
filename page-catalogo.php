@@ -33,7 +33,11 @@
         </div>
         <div class="row d-none d-md-block">
             <div class="col-12">
-                <p class="mg-breadcrumb <?= $term ? 'text-center' : '' ?>"><a href="/">Home</a> / <?= $term ? "Ricerca per \"$term\"" : 'Catalogo' ?></p>
+                <?php if(!$term) : ?>
+                    <p class="mg-breadcrumb"><a href="/">Home</a> / Catalogo</p>
+                <?php else : ?>
+                    <p class="mg-breadcrumb text-center"><a href="/">Home</a> / <a href="/catalogo">Catalogo</a> / Ricerca per "<?= $term ?>"</p>
+                <?php endif; ?>
             </div>
         </div>
         <div class="row <?= $term ? "justify-content-center" : '' ?>">
@@ -148,7 +152,11 @@
             <div class="col-12 col-md-9 products">
                 <div class="row d-block d-md-none row-breadcrumb">
                     <div class="col-12 text-center">
-                        <p class="mg-breadcrumb"><a href="/">Home</a> / <?= $term ? "Ricerca per \"$term\"" : 'Catalogo' ?></p>
+                        <?php if(!$term) : ?>
+                            <p class="mg-breadcrumb"><a href="/">Home</a> / Catalogo</p>
+                        <?php else : ?>
+                            <p class="mg-breadcrumb"><a href="/">Home</a> / <a href="/catalogo">Catalogo</a> / Ricerca per "<?= $term ?>"</p>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <?php foreach($products as $code => $p): $p = (object) $p; ?>
