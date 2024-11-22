@@ -1039,7 +1039,9 @@ a {
   background: #970713;
   color: white;
   aspect-ratio: 1/1;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 0.375rem;
   border: 1px solid #970713;
   width: 2.5em;
