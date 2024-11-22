@@ -117,19 +117,21 @@
                     </div>
                 <?php endforeach; ?>
                 <div class="row row-pagination">
-                    <button class="btn btn-danger" onclick="changeMcPage('prev')" <?= $numPage > 1 ? '' : 'disabled' ?>><i class="fa-solid fa-chevron-left"></i></button>
-
-                    <?php if($numPage > 1) : ?>
-                        <span class="prev-page" onclick="changeMcPage('prev')"><?= $numPage - 1 ?></span>
-                    <?php endif; ?>
-
-                    <span class="actual-page"><?= $numPage ?></span>
-
-                    <?php if($numPage < $maxPages) : ?>
-                        <span class="next-page" onclick="changeMcPage('next')"><?= $numPage + 1 ?></span>
-                    <?php endif; ?>
-
-                    <button class="btn btn-danger" onclick="changeMcPage('next')" <?= $numPage < $maxPages ? '' : 'disabled' ?>><i class="fa-solid fa-chevron-right"></i></button>
+                    <div class="col-12 d-flex">
+                        <button class="btn btn-danger" onclick="changeMcPage('prev')" <?= $numPage > 1 ? '' : 'disabled' ?>><i class="fa-solid fa-chevron-left"></i></button>
+    
+                        <?php if($numPage > 1) : ?>
+                            <span class="prev-page" onclick="changeMcPage('prev')"><?= $numPage - 1 ?></span>
+                        <?php endif; ?>
+    
+                        <span class="actual-page"><?= $numPage ?></span>
+    
+                        <?php if($numPage < $maxPages) : ?>
+                            <span class="next-page" onclick="changeMcPage('next')"><?= $numPage + 1 ?></span>
+                        <?php endif; ?>
+    
+                        <button class="btn btn-danger" onclick="changeMcPage('next')" <?= $numPage < $maxPages ? '' : 'disabled' ?>><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
                 </div>
             </div>
         </div>
