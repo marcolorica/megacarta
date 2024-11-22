@@ -64,7 +64,7 @@ function get_mc_categories() {
 	return $res;
 }
 
-function get_mc_products($term = null, $perPage = 10, $order = 'DESC', $numPage = 1) {
+function get_mc_products($term = null, $perPage = 10, $order = 'DESC', $numPage = 1, $categories = []) {
 	$args = [
         'limit' => $perPage,
         'status' => 'publish',
@@ -75,6 +75,9 @@ function get_mc_products($term = null, $perPage = 10, $order = 'DESC', $numPage 
 
     if($term)
         $args['s'] = $term;
+
+    if(!empty($categories))
+        $args['category'] = $categories;
 
     $query = new WC_Product_Query($args);
     $products = $query->get_products();
@@ -108,6 +111,9 @@ function get_mc_products($term = null, $perPage = 10, $order = 'DESC', $numPage 
 
     if($term)
         $args_total['s'] = $term;
+
+    if(!empty($categories))
+        $args_total['category'] = $categories;
 
     $total_products = wc_get_products($args_total);
 

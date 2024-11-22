@@ -7,8 +7,9 @@
     $perPage = isset($request->per_page) ? (int) $request->per_page : 10;
     $order = isset($request->order) ? $request->order : 'DESC';
     $numPage = isset($request->num_page) ? $request->num_page : 1;
+    $categories = isset($request->categories) ? $request->categories : [];
 
-    $products = get_mc_products($term, $perPage, $order, $numPage);
+    $products = get_mc_products($term, $perPage, $order, $numPage, $categories);
 
     $maxPages = ceil($products->count / $perPage);
 
@@ -63,7 +64,16 @@
                             <div id="panelsStayOpen-collapse<?= $cid ?>" class="accordion-collapse collapse <?= $mobile ? '' : 'show' ?>">
                                 <div class="accordion-body">
                                     <?php foreach($c->children as $sid => $subc) : ?>
-                                        <label for="cat-<?= "$cid-$sid" ?>"><input id="cat-<?= "$cid-$sid" ?>" type="checkbox" class="form-check" name="categories[]" form="form-mc" value="<?= $subc->slug ?>"><?= $subc->name ?></label>
+                                        <label for="cat-<?= "$cid-$sid" ?>">
+                                            <input id="cat-<?= "$cid-$sid" ?>"
+                                                    type="checkbox"
+                                                    class="form-check"
+                                                    name="categories[]"
+                                                    form="form-mc"
+                                                    value="<?= $subc->slug ?>"
+                                                    onchange="jQuery('#form-mc').submit()" 
+                                                    <?= in_array($subc->slug, $categories) ? 'checked' : '' ?>><?= $subc->name ?>
+                                        </label>
                                     <?php endforeach; ?>
                                 </div>
                             </div>
