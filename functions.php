@@ -532,7 +532,6 @@ function new_import_products() {
 
                     wp_set_object_terms($product_id, [$subcategory_id], 'product_cat');
 
-
                     die;
                 }
             }
@@ -638,4 +637,19 @@ function cat_to_slug($cat, $subcat = null) {
         $cat .= '-' . str_replace(' ', '-', str_replace('/', '-', strtolower($subcat)));
     
     return $cat;
+}
+
+function mc_get_product_image($product_id) {
+    $product = wc_get_product($product_id);
+
+    if($product) {
+        $oem = $product->get_meta('oem');
+        
+        if($oem) {
+            $url = get_stylesheet_directory_uri() . "/assets/images/products/$oem.webp";
+            return file_exists($url) ? $url : get_stylesheet_directory_uri() . "/assets/images/products/placeholder.webp";
+        }
+    }
+
+    return get_stylesheet_directory_uri() . "/assets/images/products/placeholder.webp";
 }

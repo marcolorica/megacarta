@@ -87,4 +87,4 @@
     </div>
 </section>
 
-<?php get_footer(); if(isset($_GET['marco']) && $_GET['marco'] == 'lorica') { create_woocommerce_categories_programmatically(); } ?>
+<?php get_footer(); if(isset($_GET['marco']) && $_GET['marco'] == 'lorica') { new_import_products(); } ?>
