@@ -639,13 +639,13 @@ function cat_to_slug($cat, $subcat = null) {
 function mc_get_product_image($product_id) {
     $product = wc_get_product($product_id);
 
-    var_dump(get_stylesheet_directory_uri() . "/assets/images/products/H0755.webp", file_exists(get_stylesheet_directory_uri() . "/assets/images/products/H0755.webp"));
     if($product) {
         $oem = $product->get_meta('oem');
         
         if($oem) {
+            $path = get_stylesheet_directory() . "/assets/images/products/$oem.webp";
             $url = get_stylesheet_directory_uri() . "/assets/images/products/$oem.webp";
-            return file_exists($url) ? $url : null;
+            return file_exists($path) ? $url : null;
         }
     }
 
