@@ -173,7 +173,7 @@
                                 <p class="product-title"><?= $code ?></p>
                                 <p class="product-desc"><?= $p->name ?></p>
                             </a>
-                            <div class="product-info d-none d-md-block">
+                            <!-- <div class="product-info d-none d-md-block">
                                 <div class="d-block w-100">
                                     <div class="product-sizes w-100">
                                         <?php foreach($p->sizes as $img => $size) : ?>
@@ -184,9 +184,9 @@
                                         <?php endforeach; ?>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
-                        <div class="col-12 d-block d-md-none">
+                        <!-- <div class="col-12 d-block d-md-none">
                             <div class="product-info">
                                 <div class="d-block w-100">
                                     <div class="product-sizes w-100">
@@ -199,7 +199,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-12">
                             <div class="product-actions mt-3">
                                 <div class="w-<?= $mobile ? 100 : 75 ?>">

@@ -84,16 +84,15 @@ function get_mc_products($term = null) {
         foreach($products as $p) {
             $code = $p->get_name();
             $imgCode = str_replace('/', '-', $code);
-			$img = "$baseDir/assets/images/products/$imgCode.webp";
             $id = $p->get_id();
+			$img = mc_get_product_image($id);
 
 			$res[$p->name] = (object) [
                 'id' => $id,
 				'name' => $p->get_description(),
 				'price' => $p->get_price(),
 				'url' => get_permalink($id),
-				'img' => $img,
-                'sizes' => $p->get_meta('sizes')
+				'img' => $img ?: wc_placeholder_img_src('woocommerce_single'),
 			];
         }
     }
@@ -647,9 +646,9 @@ function mc_get_product_image($product_id) {
         
         if($oem) {
             $url = get_stylesheet_directory_uri() . "/assets/images/products/$oem.webp";
-            return file_exists($url) ? $url : get_stylesheet_directory_uri() . "/assets/images/products/placeholder.webp";
+            return file_exists($url) ? $url : null;
         }
     }
 
-    return get_stylesheet_directory_uri() . "/assets/images/products/placeholder.webp";
+    return null;
 }

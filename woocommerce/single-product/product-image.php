@@ -36,8 +36,7 @@ $wrapper_classes   = apply_filters(
 	)
 );
 
-$imgCode = str_replace('/', '-', $product->get_name());
-$image_src = get_stylesheet_directory_uri() . "/assets/images/products/$imgCode.webp";
+$image_src = mc_get_product_image($product->get_id());
 
 ?>
 <div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>" data-columns="<?php echo esc_attr( $columns ); ?>" style="opacity: 0; transition: opacity .25s ease-in-out;">
