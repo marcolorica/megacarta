@@ -27,6 +27,7 @@ function get_mc_categories() {
 	$args = [
 		'taxonomy'   => 'product_cat',
 		'hide_empty' => false,
+        'parent' => 0
 	];
 
 	$product_categories = get_terms($args);
@@ -451,7 +452,7 @@ add_action('after_setup_theme','mc_add_woocommerce_support');
 
 function new_import_products() {
     $uploads = wp_upload_dir();
-    $csvPath = $uploads['basedir'] . '/megacarta.csv';
+    $csvPath = $uploads['basedir'] . '/megacarta1.csv';
 
     if(file_exists($csvPath)) {
         if(($handle = fopen($csvPath, "r")) !== false) {
