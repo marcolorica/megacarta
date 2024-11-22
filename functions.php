@@ -530,8 +530,6 @@ function new_import_products() {
                     }
 
                     wp_set_object_terms($product_id, [$subcategory_id], 'product_cat');
-
-                    die;
                 }
             }
         }
