@@ -18,8 +18,7 @@
         $qty = $cart_item['quantity'];
         $url = $product->get_permalink();
 
-        $imgCode = $imgCode = str_replace('/', '-', $sku);
-        $img = "$baseDir/assets/images/products/$imgCode.webp";
+        $img = mc_get_product_image($product->get_id());
 
         $cartTotal += $price * $qty;
 
@@ -29,7 +28,7 @@
             'price' => $price,
             'name' => $name,
             'url' => $url,
-            'image' => $img
+            'image' => $img ?: wc_placeholder_img_src('woocommerce_single')
         ];
     }
 

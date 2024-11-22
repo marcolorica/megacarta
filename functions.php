@@ -650,3 +650,38 @@ function mc_get_product_image($product_id) {
 
     return null;
 }
+
+function mc_get_categories() {
+    $result = [];
+
+    $categories = get_terms('product_cat', [
+        'hide_empty' => 0,
+        'orderby' => 'ASC',
+        'parent' => 0
+    ]);
+
+    $subCategories = get_terms('product_cat', [
+        'hide_empty' => 0,
+        'orderby' => 'ASC'
+    ]);
+
+    foreach($categories as $c) {
+        if(!isset($result['c.'.$c->term_id]))
+            $result['c.'.$c->term_id] = (object) [
+                'name' => $c->name,
+                'slug' => $c->slug,
+                'children' => []
+            ];
+    }
+
+    foreach($subCategories as $subc) {
+        if($subc->parent != 0)
+            $result['c-' . $subc->parent]->children[] = (object) [
+                'name' => $subc->name,
+                'slug' => $subc->slug,
+                'children' => []
+            ];
+    }
+
+    return $result;
+}

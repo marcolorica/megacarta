@@ -6,6 +6,8 @@
 
     $mobile = wp_is_mobile();
     $baseDirSizes = get_stylesheet_directory_uri() . "/assets/images/products/sizes";
+
+    $cats = mc_get_categories();
 ?>
 
 <section class="intestazione">
@@ -40,10 +42,27 @@
                 <?php endif; ?>
             </div>
         </div>
+
         <div class="row <?= $term ? "justify-content-center" : '' ?>">
             <div class="col-12 col-md-3 <?= $term ? 'd-none' : '' ?>">
                 <div class="accordion mb-4" id="accordionPanelsStayOpenExample">
-                    <div class="accordion-item">
+
+                    <?php foreach($cats as $cid => $c) : $cid = str_replace('c-', '', $cid); ?>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button <?= $mobile ? 'collapsed' : '' ?>" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse<?= $cid ?>" aria-expanded="<?= $mobile ? 'false' : 'true' ?>" aria-controls="panelsStayOpen-collapse<?= $cid ?>"><?= $c->name ?></button>
+                            </h2>
+                            <div id="panelsStayOpen-collapse<?= $cid ?>" class="accordion-collapse collapse <?= $mobile ? '' : 'show' ?>">
+                                <div class="accordion-body">
+                                    <?php foreach($c->children as $sid => $subc) : ?>
+                                        <label for="cat-<?= "$cid-$sid" ?>"><input id="cat-<?= "$cid-$sid" ?>" type="checkbox" class="form-check" name="categories[]" form="form-mc" value="<?= $subc->slug ?>"><?= $subc->name ?></label>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+
+                    <!-- <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button <?= $mobile ? 'collapsed' : '' ?>" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="<?= $mobile ? 'false' : 'true' ?>" aria-controls="panelsStayOpen-collapseTwo">Piatti</button>
                         </h2>
@@ -115,40 +134,10 @@
                                 <label for="cat-20"><input id="cat-20" type="checkbox">Circolari</label>
                             </div>
                         </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseEight" aria-expanded="false" aria-controls="panelsStayOpen-collapseEight">Rotoli di alluminio</button>
-                        </h2>
-                        <div id="panelsStayOpen-collapseEight" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                                <!-- <label for=""><input type="checkbox">ao</label> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseNine" aria-expanded="false" aria-controls="panelsStayOpen-collapseNine">Pellicole</button>
-                        </h2>
-                        <div id="panelsStayOpen-collapseNine" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                                <!-- <label for=""><input type="checkbox">ao</label> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button <?= $mobile ? 'collapsed' : '' ?>" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTen" aria-expanded="<?= $mobile ? 'false' : 'true' ?>" aria-controls="panelsStayOpen-collapseTen">Carta forno</button>
-                        </h2>
-                        <div id="panelsStayOpen-collapseTen" class="accordion-collapse collapse <?= $mobile ? '' : 'show' ?>">
-                            <div class="accordion-body">
-                                <label for="cat-22"><input id="cat-22" type="checkbox">Rotoli In Carta Forno</label>
-                                <label for="cat-23"><input id="cat-23" type="checkbox">Carta Forno In Fogli</label>
-                            </div>
-                        </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
+
             <div class="col-12 col-md-9 products">
                 <div class="row d-block d-md-none row-breadcrumb">
                     <div class="col-12 text-center">
