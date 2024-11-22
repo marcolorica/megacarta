@@ -568,6 +568,10 @@ function align_product_prices() {
 
                 if($code != 'Codice') {
                     $product_id = wc_get_product_id_by_sku($code);
+
+                    if($code == 'IA8002') {
+                        var_dump($product_id, $price);die;
+                    }
     
                     if(!$product_id)
                         return false;
