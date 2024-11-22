@@ -68,14 +68,15 @@ function changeCartTotals() {
 
 function changeMcPage(where) {
     let $num_page = jQuery('input[name=num_page]');
+    let num = parseInt($num_page.val());
 
     switch(where) {
         case 'prev':
-            $num_page.val($num_page.val() - 1);
+            $num_page.val(num - 1);
             break;
 
         case 'next':
-            $num_page.val($num_page.val() + 1);
+            $num_page.val(num + 1);
             break;
     }
 
