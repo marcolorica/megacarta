@@ -120,6 +120,11 @@
                     <div class="col-12 d-flex justify-content-end" style="gap: 10px">
                         <button class="btn btn-danger" onclick="changeMcPage('prev')" <?= $numPage > 1 ? '' : 'disabled' ?>><i class="fa-solid fa-chevron-left"></i></button>
     
+                        <?php if($numPage > 2) : ?>
+                            <span onclick="changeMcPage(null, 1)">1</span>
+                            <span>...</span>
+                        <?php endif; ?>
+
                         <?php if($numPage > 1) : ?>
                             <span class="prev-page" onclick="changeMcPage('prev')"><?= $numPage - 1 ?></span>
                         <?php endif; ?>
@@ -128,6 +133,11 @@
     
                         <?php if($numPage < $maxPages) : ?>
                             <span class="next-page" onclick="changeMcPage('next')"><?= $numPage + 1 ?></span>
+                        <?php endif; ?>
+
+                        <?php if($numPage < ($maxPages - 1)) : ?>
+                            <span>...</span>
+                            <span onclick="changeMcPage(null, <?= $maxPages ?>)"><?= $maxPages ?></span>
                         <?php endif; ?>
     
                         <button class="btn btn-danger" onclick="changeMcPage('next')" <?= $numPage < $maxPages ? '' : 'disabled' ?>><i class="fa-solid fa-chevron-right"></i></button>

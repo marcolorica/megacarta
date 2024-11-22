@@ -66,18 +66,23 @@ function changeCartTotals() {
     });
 }
 
-function changeMcPage(where) {
+function changeMcPage(where = null, specific = null) {
     let $num_page = jQuery('input[name=num_page]');
     let num = parseInt($num_page.val());
 
-    switch(where) {
-        case 'prev':
-            $num_page.val(num - 1);
-            break;
-
-        case 'next':
-            $num_page.val(num + 1);
-            break;
+    if(specific) {
+        $num_page.val(specific);
+    }
+    else {
+        switch(where) {
+            case 'prev':
+                $num_page.val(num - 1);
+                break;
+    
+            case 'next':
+                $num_page.val(num + 1);
+                break;
+        }
     }
 
     jQuery('#form-mc').submit();
