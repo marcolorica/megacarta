@@ -3,8 +3,8 @@ jQuery(document).ready(() => {
 });
 
 function removeProductFromCart(sku) {
-    let key = jQuery('.row-cart-product[data-sku='+sku+']').attr('data-cart-item-key');
-    jQuery('.row-cart-product[data-sku='+sku+']').remove();
+    let key = jQuery('.row-cart-product[data-sku="'+sku+'"]').attr('data-cart-item-key');
+    jQuery('.row-cart-product[data-sku="'+sku+'"]').remove();
 
     jQuery.ajax({
         url: args_mc.ajax_url,
