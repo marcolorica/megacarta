@@ -1045,6 +1045,7 @@ a {
   border-radius: 0.375rem;
   border: 1px solid #970713;
   width: 2.5em;
+  transition: .3s;
 }
 
 .row-pagination span.actual-page {
@@ -1052,6 +1053,11 @@ a {
   background: white;
 }
 
-.row-pagination span:not(.actual-page) {
+.row-pagination span.points {
+  opacity: .65;
+}
+
+.row-pagination span:not(.actual-page, .points):hover {
   cursor: pointer;
+  opacity: .65;
 }
