@@ -161,6 +161,7 @@
                             <a class="w-100" href="<?= $p->url ?>">
                                 <p class="product-title"><?= $code ?></p>
                                 <p class="product-desc"><?= $p->name ?></p>
+                                <p class="mg-price text-success">€<?= $p->price ?></p>
                             </a>
                             <!-- <div class="product-info d-none d-md-block">
                                 <div class="d-block w-100">
@@ -190,11 +191,7 @@
                             </div>
                         </div> -->
                         <div class="col-12">
-                            <div class="product-actions mt-3">
-                                <div class="w-<?= $mobile ? 100 : 75 ?>">
-                                    <span class="mg-price text-success">€<?= $p->price ?></span>
-                                </div>
-                                
+                            <div class="product-actions mt-3">                                
                                 <div class="d-flex flex-column justify-content-end w-<?= $mobile ? 100 : 25 ?>">
                                     <?php do_action('woocommerce_before_add_to_cart_form'); ?>
     
