@@ -122,7 +122,7 @@
     
                         <?php if($numPage > 2) : ?>
                             <span onclick="changeMcPage(null, 1)">1</span>
-                            <span>...</span>
+                            <span class="points">...</span>
                         <?php endif; ?>
 
                         <?php if($numPage > 1) : ?>
@@ -136,7 +136,7 @@
                         <?php endif; ?>
 
                         <?php if($numPage < ($maxPages - 1)) : ?>
-                            <span>...</span>
+                            <span class="points">...</span>
                             <span onclick="changeMcPage(null, <?= $maxPages ?>)"><?= $maxPages ?></span>
                         <?php endif; ?>
     

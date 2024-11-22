@@ -1057,7 +1057,12 @@ a {
   opacity: .65;
 }
 
+.row-pagination .btn {
+  transition: .3s !important;
+}
+
+.row-pagination .btn:hover,
 .row-pagination span:not(.actual-page, .points):hover {
   cursor: pointer;
-  opacity: .65;
+  opacity: .65 !important;
 }
