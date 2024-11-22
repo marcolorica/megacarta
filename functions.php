@@ -675,12 +675,17 @@ function mc_get_categories() {
     }
 
     foreach($subCategories as $subc) {
-        if($subc->parent != 0)
+        if($subc->parent != 0) {
+            if(!isset($result['c-' . $subc->parent])) {
+                var_dump($subc->name);die;
+            }
+            
             $result['c-' . $subc->parent]->children[] = (object) [
                 'name' => $subc->name,
                 'slug' => $subc->slug,
                 'children' => []
             ];
+        }
     }
 
     return $result;
