@@ -71,10 +71,23 @@
                                                     name="categories[]"
                                                     form="form-mc"
                                                     value="<?= $subc->slug ?>"
-                                                    onchange="jQuery('#form-mc').submit()" 
+                                                    onchange="changeMcCategories()" 
                                                     <?= in_array($subc->slug, $categories) ? 'checked' : '' ?>><?= $subc->name ?>
                                         </label>
                                     <?php endforeach; ?>
+
+                                    <?php if(empty($c->children)) : ?>
+                                        <label for="cat-<?= "$cid" ?>">
+                                            <input id="cat-<?= "$cid" ?>"
+                                                    type="checkbox"
+                                                    class="form-check"
+                                                    name="categories[]"
+                                                    form="form-mc"
+                                                    value="<?= $c->slug ?>"
+                                                    onchange="changeMcCategories()" 
+                                                    <?= in_array($c->slug, $categories) ? 'checked' : '' ?>><?= $c->name ?>
+                                        </label>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>

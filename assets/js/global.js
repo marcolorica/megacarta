@@ -87,3 +87,8 @@ function changeMcPage(where = null, specific = null) {
 
     jQuery('#form-mc').submit();
 }
+
+function changeMcCategories() {
+    jQuery('input[name=num_page]').val(1);
+    jQuery('#form-mc').submit();
+}
