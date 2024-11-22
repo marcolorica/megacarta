@@ -54,7 +54,13 @@ function get_mc_categories() {
 
             $product_ids = get_posts($product_args);
 
-            var_dump($product_ids);die;
+            $img = null;
+            foreach($product_ids as $id) {
+                $img = mc_get_product_image($id);
+
+                if($img)
+                    break;
+            }
 
 			$res[] = (object) [
 				'name' => $category->name,
