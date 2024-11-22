@@ -639,9 +639,9 @@ function cat_to_slug($cat, $subcat = null) {
 function mc_get_product_image($product_id) {
     $product = wc_get_product($product_id);
 
+    var_dump(file_exists(get_stylesheet_directory_uri() . "/assets/images/products/H0755.webp"));
     if($product) {
         $oem = $product->get_meta('oem');
-        var_dump($oem);
         
         if($oem) {
             $url = get_stylesheet_directory_uri() . "/assets/images/products/$oem.webp";
