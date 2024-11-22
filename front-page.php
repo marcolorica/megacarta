@@ -24,7 +24,7 @@
         <div class="row">
             <?php foreach($cats as $c): ?>
                 <div class="col-12 col-md-4 mb-3">
-                    <a href="/catalogo" class="link-cat">
+                    <a href="/catalogo?categories[]=<?= $c->slug ?>" class="link-cat">
                         <div class="card-categoria">
                             <img src="<?= $c->img ?>" class="img-cat">
                             <p class="title-cat"><?= $c->name ?></p>
@@ -86,5 +86,3 @@
         </div>
     </div>
 </section>
-
-<?php get_footer(); if(isset($_GET['marco']) && $_GET['marco'] == 'lorica') { align_product_prices(); } ?>

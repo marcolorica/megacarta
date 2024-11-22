@@ -39,24 +39,27 @@ function get_mc_categories() {
 			if($category->term_id == 15)
                 continue;
 
-			$thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
-            
-			$img = '';
+            $product_args = [
+                'post_type' => 'product',
+                'posts_per_page' => -1,
+                'fields' => 'ids',
+                'tax_query' => [
+                    [
+                        'taxonomy' => 'product_cat',
+                        'field' => 'term_id',
+                        'terms' => $category->term_id,
+                    ],
+                ],
+            ];
 
-            if($thumbnail_id)
-                $img = wp_get_attachment_url($thumbnail_id);
+            $product_ids = get_posts($product_args);
+
+            var_dump($product_ids);die;
 
 			$res[] = (object) [
 				'name' => $category->name,
 				'slug' => $category->slug,
-				'img' => $img,
-				'sizes' => [
-					'topout' => '',
-					'topin' => '',
-					'base' => '',
-					'depth' => '',
-					'capacity' => ''
-				]
+				'img' => $img
 			];
 		}
 	}
@@ -568,7 +571,7 @@ function align_product_prices() {
 
                 if($code != 'Codice') {
                     $product_id = wc_get_product_id_by_sku($code);
-                    
+
                     if(!$product_id)
                         return false;
                 
