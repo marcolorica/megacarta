@@ -1,4 +1,20 @@
-<form action="/catalogo" method="GET" id="form-mc"></form>
+<?php
+
+  $term = isset($request->term) && strlen($request->term) ? $request->term : null;
+  $perPage = isset($request->per_page) ? (int) $request->per_page : 10;
+  $order = isset($request->order) ? $request->order : 'DESC';
+  $numPage = isset($request->num_page) ? $request->num_page : 1;
+
+  $products = get_mc_products($term, $perPage, $order, $numPage);
+
+  $maxPages = ceil($products->count / $perPage);
+
+?>
+
+<form action="/catalogo" method="GET" id="form-mc">
+  <input type="hidden" name="per_page" value="<?= $perPage ?>">
+  <input type="hidden" name="num_page" value="<?= $numPage ?>">
+</form>
 
 <nav class="navbar navbar-expand-lg bg-mc">
   <div class="container">
@@ -27,7 +43,7 @@
       </ul>
 
       <form class="d-flex" role="search">
-        <input class="form-control me-2" type="text" placeholder="Cerca..." name="term" form="form-mc">
+        <input class="form-control me-2" type="text" placeholder="Cerca..." name="term" form="form-mc" value="<?= $term ?: '' ?>">
         <button class="btn btn-outline-light" type="submit"><i class="fa-solid fa-magnifying-glass" form="form-mc"></i></button>
       </form>
 

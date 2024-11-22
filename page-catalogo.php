@@ -1,8 +1,16 @@
 <?php
     get_header();
 
-    $term = isset($_GET['term']) && strlen($_GET['term']) ? $_GET['term'] : null;
-    $products = get_mc_products($term);
+    $request = (object) $_GET;
+
+    $term = isset($request->term) && strlen($request->term) ? $request->term : null;
+    $perPage = isset($request->per_page) ? (int) $request->per_page : 10;
+    $order = isset($request->order) ? $request->order : 'DESC';
+    $numPage = isset($request->num_page) ? $request->num_page : 1;
+
+    $products = get_mc_products($term, $perPage, $order, $numPage);
+
+    $maxPages = ceil($products->count / $perPage);
 
     $mobile = wp_is_mobile();
     $baseDirSizes = get_stylesheet_directory_uri() . "/assets/images/products/sizes";
@@ -62,79 +70,6 @@
                         </div>
                     <?php endforeach; ?>
 
-                    <!-- <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button <?= $mobile ? 'collapsed' : '' ?>" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="<?= $mobile ? 'false' : 'true' ?>" aria-controls="panelsStayOpen-collapseTwo">Piatti</button>
-                        </h2>
-                        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse <?= $mobile ? '' : 'show' ?>">
-                            <div class="accordion-body">
-                                <label for="cat-1"><input id="cat-1" type="checkbox">Circolari</label>
-                                <label for="cat-2"><input id="cat-2" type="checkbox">Quadrati</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button <?= $mobile ? 'collapsed' : '' ?>" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="<?= $mobile ? 'false' : 'true' ?>" aria-controls="panelsStayOpen-collapseThree">Wrinklewall</button>
-                        </h2>
-                        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse <?= $mobile ? '' : 'show' ?>">
-                            <div class="accordion-body">
-                                <label for="cat-3"><input id="cat-3" type="checkbox">Ovali</label>
-                                <label for="cat-4"><input id="cat-4" type="checkbox">Formati Speciali E Vassoi</label>
-                                <label for="cat-5"><input id="cat-5" type="checkbox">Circolari</label>
-                                <label for="cat-6"><input id="cat-6" type="checkbox">A Scompartimento</label>
-                                <label for="cat-7"><input id="cat-7" type="checkbox">Rettangolari E Quadrati</label>
-                                <label for="cat-8"><input id="cat-8" type="checkbox">Laccati</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button <?= $mobile ? 'collapsed' : '' ?>" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="<?= $mobile ? 'false' : 'true' ?>" aria-controls="panelsStayOpen-collapseFour">Smoothwall</button>
-                        </h2>
-                        <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse <?= $mobile ? '' : 'show' ?>">
-                            <div class="accordion-body">
-                                <label for="cat-9"><input id="cat-9" type="checkbox">Rettangolari</label>
-                                <label for="cat-11"><input id="cat-11" type="checkbox">Ovali</label>
-                                <label for="cat-12"><input id="cat-12" type="checkbox">Circolari</label>
-                                <label for="cat-13"><input id="cat-13" type="checkbox">Formati Speciali</label>
-                                <label for="cat-14"><input id="cat-14" type="checkbox">Laccati</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button <?= $mobile ? 'collapsed' : '' ?>" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="<?= $mobile ? 'false' : 'true' ?>" aria-controls="panelsStayOpen-collapseFive">Semi Smoothwall</button>
-                        </h2>
-                        <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse <?= $mobile ? '' : 'show' ?>">
-                            <div class="accordion-body">
-                                <label for="cat-15"><input id="cat-15" type="checkbox">Circolari</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button <?= $mobile ? 'collapsed' : '' ?>" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="<?= $mobile ? 'false' : 'true' ?>" aria-controls="panelsStayOpen-collapseSix">Sistemi Di Chiusura</button>
-                        </h2>
-                        <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse <?= $mobile ? '' : 'show' ?>">
-                            <div class="accordion-body">
-                                <label for="cat-16"><input id="cat-16" type="checkbox">Coperchi</label>
-                                <label for="cat-17"><input id="cat-17" type="checkbox">Nastro In Alluminio</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button <?= $mobile ? 'collapsed' : '' ?>" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="<?= $mobile ? 'false' : 'true' ?>" aria-controls="panelsStayOpen-collapseSeven">PET</button>
-                        </h2>
-                        <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse <?= $mobile ? '' : 'show' ?>">
-                            <div class="accordion-body">
-                                <label for="cat-18"><input id="cat-18" type="checkbox">Rettangolari</label>
-                                <label for="cat-19"><input id="cat-19" type="checkbox">Ovali</label>
-                                <label for="cat-20"><input id="cat-20" type="checkbox">Circolari</label>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
             </div>
 
@@ -148,7 +83,7 @@
                         <?php endif; ?>
                     </div>
                 </div>
-                <?php foreach($products as $code => $p): $p = (object) $p; ?>
+                <?php foreach($products->result as $code => $p): $p = (object) $p; ?>
                     <div class="row">
                         <div class="col-5 col-md-3 p-0">
                             <a href="<?= $p->url ?>">
@@ -163,33 +98,7 @@
                                 <p class="product-desc"><?= $p->name ?></p>
                                 <p class="mg-price text-success">€<?= $p->price ?></p>
                             </a>
-                            <!-- <div class="product-info d-none d-md-block">
-                                <div class="d-block w-100">
-                                    <div class="product-sizes w-100">
-                                        <?php foreach($p->sizes as $img => $size) : ?>
-                                            <div class="p-info">
-                                                <img src="<?= "$baseDirSizes/$img.webp" ?>">
-                                                <span><?= $size ?></span>
-                                            </div>
-                                        <?php endforeach; ?>
-                                    </div>
-                                </div>
-                            </div> -->
                         </div>
-                        <!-- <div class="col-12 d-block d-md-none">
-                            <div class="product-info">
-                                <div class="d-block w-100">
-                                    <div class="product-sizes w-100">
-                                        <?php foreach($p->sizes as $img => $size) : ?>
-                                            <div class="p-info">
-                                                <img src="<?= "$baseDirSizes/$img.webp" ?>">
-                                                <span><?= $size ?></span>
-                                            </div>
-                                        <?php endforeach; ?>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
                         <div class="col-12">
                             <div class="product-actions mt-3">                                
                                 <div class="d-flex flex-column justify-content-end w-<?= $mobile ? 100 : 25 ?>">
@@ -204,10 +113,24 @@
                                     <?php do_action('woocommerce_after_add_to_cart_form'); ?>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 <?php endforeach; ?>
+                <div class="row row-pagination">
+                    <button class="btn btn-danger" onclick="changeMcPage('prev')" <?= $numPage > 1 ? '' : 'disabled' ?>><i class="fa-solid fa-chevron-left"></i></button>
+
+                    <?php if($numPage > 1) : ?>
+                        <span class="prev-page" onclick="changeMcPage('prev')"><?= $numPage - 1 ?></span>
+                    <?php endif; ?>
+
+                    <span class="actual-page"><?= $numPage ?></span>
+
+                    <?php if($numPage < $maxPages) : ?>
+                        <span class="next-page" onclick="changeMcPage('next')"><?= $numPage + 1 ?></span>
+                    <?php endif; ?>
+
+                    <button class="btn btn-danger" onclick="changeMcPage('next')" <?= $numPage < $maxPages ? '' : 'disabled' ?>><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
             </div>
         </div>
     </div>

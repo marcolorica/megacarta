@@ -64,10 +64,13 @@ function get_mc_categories() {
 	return $res;
 }
 
-function get_mc_products($term = null) {
+function get_mc_products($term = null, $perPage = 10, $order = 'DESC', $numPage = 1) {
 	$args = [
-        'limit' => -1,
+        'limit' => $perPage,
         'status' => 'publish',
+        'orderby' => 'id',
+        'order' => $order,
+        'page' => $numPage
 	];
 
     if($term)
@@ -97,7 +100,18 @@ function get_mc_products($term = null) {
         }
     }
 
-	return $res;
+    $args_total = [
+        'status' => 'publish',
+        'return' => 'ids',
+        'limit' => -1
+    ];
+
+    if($term)
+        $args_total['s'] = $term;
+
+    $total_products = wc_get_products($args_total);
+
+	return (object) ['result' => $res, 'count' => count($total_products)];
 }
 
 add_action('wp_enqueue_scripts', 'mc_wp_enqueue_scripts');

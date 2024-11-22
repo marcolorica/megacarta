@@ -65,3 +65,19 @@ function changeCartTotals() {
         }
     });
 }
+
+function changeMcPage(where) {
+    let num_page = jQuery('input[name=num_page]').val();
+
+    switch(where) {
+        case 'prev':
+            num_page--;
+            break;
+
+        case 'next':
+            num_page++;
+            break;
+    }
+
+    jQuery('#form-mc').submit();
+}
