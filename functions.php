@@ -641,6 +641,7 @@ function mc_get_product_image($product_id) {
 
     if($product) {
         $oem = $product->get_meta('oem');
+        var_dump($oem);
         
         if($oem) {
             $url = get_stylesheet_directory_uri() . "/assets/images/products/$oem.webp";
