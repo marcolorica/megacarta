@@ -666,8 +666,8 @@ function mc_get_categories() {
     ]);
 
     foreach($categories as $c) {
-        if(!isset($result['c.'.$c->term_id]))
-            $result['c.'.$c->term_id] = (object) [
+        if(!isset($result['c-'.$c->term_id]))
+            $result['c-'.$c->term_id] = (object) [
                 'name' => $c->name,
                 'slug' => $c->slug,
                 'children' => []
