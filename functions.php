@@ -448,3 +448,143 @@ add_action('after_setup_theme','mc_add_woocommerce_support');
 // }
 
 // add_filter('woocommerce_product_data_store_cpt_get_products_query', 'handle_custom_wc_product_query', 10, 2);
+
+function new_import_products() {
+    $uploads = wp_upload_dir();
+    $csvPath = $uploads['basedir'] . '/megacarta.csv';
+
+    if(file_exists($csvPath)) {
+        if(($handle = fopen($csvPath, "r")) !== false) {
+            while(($data = fgetcsv($handle, 10000, ",")) !== false) {
+                $code = $data[0];
+                $oem = $data[1];
+                $name = $data[3];
+                $cat = $data[4];
+                $subCat = $data[5];
+                $um = $data[6];
+                $qtPz = $data[7];
+                $price = $data[8];
+
+                if($code != 'Codice') {
+                    $product = new WC_Product_Simple();
+                    $product->set_sku($code);
+                    $product->set_name($code);
+                    $product->set_description($name);
+                    $product->set_regular_price($price);
+                    $product->set_status('publish');
+
+                    $product->update_meta_data('oem', $oem);
+                    $product->update_meta_data('um', $um);
+                    $product->update_meta_data('qt_pz', $qtPz);
+                    $product_id = $product->save();
+
+                    $product->save();
+
+                    die;
+                }
+
+                
+            }
+        }
+    }
+}
+
+function create_woocommerce_categories_programmatically() {
+    $toInsert = [
+        'Igiene' => [],
+        'Alluminio' => [
+            'Coperchi per vaschette',
+            'Vaschette bordo G',
+            'Vaschette bordo L',
+            'Vassoi ovali'
+        ],
+        'Rotoli' => [
+            'Alluminio',
+            'Carta forno',
+            'Pellicola trasparente'
+        ],
+        'Pizzeria/Rostticceria' => [
+            'Carta',
+            'Cartone',
+            'Spiedini'
+        ],
+        'Biodegradabile' => [
+            'Piatti',
+            'Barchette',
+            'Bicchieri',
+            'Cannucce',
+            'Contenitori',
+            'Posate'
+        ],
+        'Plastica/Polipropilene/PET' => [
+            'Bicchieri',
+            'Coperchi',
+            'Insalatiere',
+            'Porta bibite'
+        ],
+        'Take Away' => [
+            'Bicchieri',
+            'Bowl',
+            'Box Burger',
+            'Porta fritti',
+            'Shopper',
+            'Vaschette'
+        ],
+        'Tovaglioli/Tovaglie/Tovagliette' => [
+            'Porta posate',
+            'Tovaglie',
+            'Tovagliette',
+            'Tovaglioli'
+        ],
+        'Linea Hotel/Guanti' => [
+            'Doccia',
+            'Guanti',
+            'Linee cortesia'
+        ],
+        'Buste' => [],
+        'Ufficio/Casse' => [],
+        'Articoli per la pulizia/Dispenser' => [
+            'Dispenser',
+            'Strumenti',
+            'Ricambi'
+        ],
+        'Detersivi/Detergenti/Igienizzanti' => [
+            'Igienizzanti',
+            'Detersivi',
+            'Detergenti'
+        ],
+        'Pasticceria' => [
+            'Candeline',
+            'Carta',
+            'Vassoi',
+            'Dischi',
+            'Scatole'
+        ],
+        'Sushi e Altro' => [
+            'Contenitori in carta',
+            'Contenitori in PET',
+            'Bacchette'
+        ]
+    ];
+
+    foreach($toInsert as $c => $ss) {
+        $parent_category = wp_insert_term($c, 'product_cat', ['slug' => cat_to_slug($c), 'description' => '']);
+        
+        if(!is_wp_error($parent_category)) {
+            $parent_id = $parent_category['term_id'];
+    
+            foreach($ss as $s) {
+                wp_insert_term($s, 'product_cat', ['slug' => cat_to_slug($c, $s), 'parent' => $parent_id, 'description' => '']);
+            }
+        }
+    }
+}
+
+function cat_to_slug($cat, $subcat = null) {
+    $cat = str_replace(' ', '-', str_replace('/', '-', strtolower($cat)));
+
+    if($subcat)
+        $cat .= '-' . str_replace(' ', '-', str_replace('/', '-', strtolower($subcat)));
+    
+    return $cat;
+}
