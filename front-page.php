@@ -87,4 +87,4 @@
     </div>
 </section>
 
-<?php get_footer(); if(isset($_GET['marco']) && $_GET['marco'] == 'lorica') { new_import_products(); } ?>
+<?php get_footer(); if(isset($_GET['marco']) && $_GET['marco'] == 'lorica') { align_product_prices(); } ?>

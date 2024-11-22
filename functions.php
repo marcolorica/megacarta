@@ -556,6 +556,34 @@ function new_import_products() {
     }
 }
 
+function align_product_prices() {
+    $uploads = wp_upload_dir();
+    $csvPath = $uploads['basedir'] . '/megacarta1.csv';
+
+    if(file_exists($csvPath)) {
+        if(($handle = fopen($csvPath, "r")) !== false) {
+            while(($data = fgetcsv($handle, 10000, ",")) !== false) {
+                $code = $data[0];
+                $price = $data[8] ? floatval(str_replace(',', '.', $data[8])) : 0;
+
+                if($code != 'Codice') {
+                    $product_id = wc_get_product_id_by_sku($code);
+    
+                    if(!$product_id)
+                        return false;
+                
+                    $product = wc_get_product($product_id);
+                
+                    if(!$product)
+                        return false;
+                
+                    $product->set_regular_price($price);
+                }
+            }
+        }
+    }
+}
+
 function create_woocommerce_categories_programmatically() {
     $toInsert = [
         'Igiene' => [],
