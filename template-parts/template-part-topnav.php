@@ -1,5 +1,6 @@
 <?php
-
+  $request = (object) $_GET;
+  
   $term = isset($request->term) && strlen($request->term) ? $request->term : null;
   $perPage = isset($request->per_page) ? (int) $request->per_page : 10;
   $order = isset($request->order) ? $request->order : 'DESC';
