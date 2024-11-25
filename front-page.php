@@ -26,7 +26,7 @@
                 <div class="col-12 col-md-4 mb-3">
                     <a href="/catalogo?categories[]=<?= $c->slug ?>" class="link-cat">
                         <div class="card-categoria">
-                            <img src="<?= $c->img ?>" class="img-cat <?= str_contains($c->img, 'megacarta.logo.webp') ? 'placeholder' : '' ?>">
+                            <img src="<?= $c->img ?>" class="img-cat <?= str_contains($c->img, 'megacarta-logo.webp') ? 'placeholder' : '' ?>">
                             <p class="title-cat"><?= $c->name ?></p>
                         </div>
                     </a>
