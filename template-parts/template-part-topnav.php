@@ -20,7 +20,7 @@
 <nav class="navbar navbar-expand-lg bg-mc">
   <div class="container">
     <a class="navbar-brand my-2 mx-3" href="/">
-      <img src="<?= get_stylesheet_directory_uri() . '/assets/images/mg-logo.png' ?>" alt="MEGACARTA" class="mg-logo" width="60" height="60" class="d-inline-block align-text-top">
+      <img src="<?= get_stylesheet_directory_uri() . '/assets/images/megacarta-logo-white.webp' ?>" alt="MEGACARTA" class="mg-logo" width="60" height="60" class="d-inline-block align-text-top">
     </a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
