@@ -792,6 +792,10 @@ section.gallery-section .image-container > img {
   object-fit: cover;
 }
 
+.card-categoria .img-cat.placeholder {
+  object-fit: contain;
+}
+
 .link-cat {
   text-decoration: none;
 }
