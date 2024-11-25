@@ -748,10 +748,6 @@ section.gallery-section .image-container > img {
 
 
 
-.mg-logo {
-  filter: invert(100%);
-}
-
 .intestazione {
   background-image: url(assets/images/homepage-bg.jpg);
   background-repeat: no-repeat;
