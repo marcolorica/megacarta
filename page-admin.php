@@ -4,14 +4,14 @@
     <input type="hidden" name="action" value="admin_login">
 </form>
 
-<section class="mt-5">
+<section class="mt-5" style="min-height:100vh">
     <div class="container">
         <div class="row mb-3 justify-content-center">
             <div class="col-8 text-center shadow p-5">
                 <h3 class="mb-3">Inserisci le credenziali di accesso</h3>
 
                 <input type="email" class="form-control mb-3" name="email" form="form-login" placeholder="Email">
-                <input type="password" class="form-control" name="password" form="form-login" placeholder="Password">
+                <input type="password" class="form-control mb-3" name="password" form="form-login" placeholder="Password">
 
                 <button class="btn btn-danger float-end" type="submit" form="form-login">Accedi</button>
             </div>
