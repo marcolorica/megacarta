@@ -11,6 +11,13 @@ function mc_wp_enqueue_scripts() {
 
 	wp_localize_script('mc-script','args_mc', ['ajax_url' => admin_url('admin-ajax.php')]);
 
+	if(mg_is_admin_area()) {
+		wp_enqueue_style('mc-admin-style',get_stylesheet_directory_uri() . '/css/area-admin.css', [], md5(uniqid()));
+		wp_enqueue_script('mc-admin-script',get_stylesheet_directory_uri() . '/assets/js/area-admin.js', ['jquery', 'jquery-ui'],  md5(uniqid()));
+
+		wp_localize_script('mc-admin-script','args_mc', ['ajax_url' => admin_url('admin-ajax.php')]);
+	}
+
 	// LIBRERIE
 	wp_enqueue_style('mc-fontawesome-css',get_stylesheet_directory_uri() . '/assets/css/fontawesome.min.css', [], "0.0.1");
 	wp_enqueue_style('mc-owl-carousel-css',get_stylesheet_directory_uri() . '/assets/css/owl.carousel.min.css', [], "2.3.4");
@@ -37,7 +44,7 @@ function mc_restrict_admin_area_access() {
         $restricted_slug = '';
         
         if(is_page() && (get_the_title($post) == 'Area Admin' || ($post->post_parent && get_the_title($post->post_parent) == 'Area Admin'))) {
-            wp_redirect('/admin-login');
+            wp_redirect('/admin');
             exit;
         }
     }

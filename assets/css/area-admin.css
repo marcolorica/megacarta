@@ -1,0 +1,12 @@
+#navbarAdmin ul {
+    gap: 20px;
+}
+
+#navbarAdmin ul li a {
+    color: black;
+}
+
+#navbarAdmin ul li a:hover,
+#navbarAdmin ul li a.active {
+    color: blue;
+}

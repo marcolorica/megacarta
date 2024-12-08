@@ -16,6 +16,6 @@ function admin_login_action_handler() {
     }
 
     $_SESSION['error_login'] = true;
-    wp_redirect('/admin-login');
+    wp_redirect('/admin');
     exit();
 }
