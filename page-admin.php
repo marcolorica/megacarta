@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <form action="<?= esc_url(admin_url('admin-post.php')); ?>" id="form-login">
-    <input type="text" name="action" value="admin_login">
+    <input type="hidden" name="action" value="admin_login">
 </form>
 
 <section class="mt-5">
