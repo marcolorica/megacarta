@@ -1,3 +1,7 @@
+#navbarAdmin {
+    border-bottom: 1px solid lightgray;
+}
+
 #navbarAdmin ul {
     gap: 20px;
 }
