@@ -55,6 +55,4 @@
     </div>
 </section>
 
-<?php if(isset($_GET['marco']) && $_GET['marco'] == 'lorica') { populate_products(); } ?>
-
 <?php get_footer(); ?>

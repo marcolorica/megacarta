@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<?php $cats = get_mc_categories(); ?>
+<?php $cats = mc_get_categories_home(); ?>
 
 <section class="intestazione">
     <div class="container-fluid">

@@ -1,136 +1,28 @@
 <?php
 
-function mc_wp_enqueue_scripts() {
-	wp_enqueue_style('mc-style',get_stylesheet_directory_uri() . '/style.css', [], md5(uniqid()));
-	wp_enqueue_style('mc-owl-custom-css',get_stylesheet_directory_uri() . '/assets/css/owl-mc.css', [], md5(uniqid()));
-	wp_enqueue_script('mc-script',get_stylesheet_directory_uri() . '/assets/js/global.js', ['jquery', 'jquery-ui'],  md5(uniqid()));
+require_once 'load.php';
 
-	wp_localize_script('mc-script','args_mc', ['ajax_url' => admin_url('admin-ajax.php')]);
 
-	// DIPENDENZE
-	wp_enqueue_style('mc-fontawesome-css',get_stylesheet_directory_uri() . '/assets/css/fontawesome.min.css', [], "0.0.1");
-	wp_enqueue_style('mc-owl-carousel-css',get_stylesheet_directory_uri() . '/assets/css/owl.carousel.min.css', [], "2.3.4");
-	wp_enqueue_style('mc-owl-default-theme-css',get_stylesheet_directory_uri() . '/assets/css/owl.theme.default.css', [], "2.3.4");
-	wp_enqueue_style('mc-owl-animate-css',"https://owlcarousel2.github.io/OwlCarousel2/assets/css/animate.css", [], "2.3.4");
-	wp_enqueue_style('mc-aos-css',get_stylesheet_directory_uri() . '/assets/css/aos.css', [], "2.3.1");
 
-	wp_enqueue_script('mc-owl-carousel-js',get_stylesheet_directory_uri() . '/assets/js/owl.carousel.min.js', ['jquery'], "2.3.4");
-	wp_enqueue_script('mc-particles-js',get_stylesheet_directory_uri() . '/assets/js/particles.min.js', ['jquery'], "2.0.0");
-	wp_enqueue_script('jquery-ui',"https://code.jquery.com/ui/1.13.1/jquery-ui.min.js", ['jquery'],  md5(uniqid()));
-	wp_enqueue_script('mc-aos-js',get_stylesheet_directory_uri() . '/assets/js/aos.js', ['jquery'], "2.3.1");
 
-	wp_enqueue_style('swal2-css', "https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css", [], "11.10.0");
-    wp_enqueue_script('swal2-js', "https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js", [], "11.10.0");
-}
 
-function get_mc_categories() {
-	$args = [
-		'taxonomy'   => 'product_cat',
-		'hide_empty' => false,
-        'parent' => 0
-	];
 
-	$product_categories = get_terms($args);
 
-	$res = [];
 
-	if(!empty($product_categories) && !is_wp_error($product_categories)) {
-		foreach($product_categories as $category) {
-			if($category->term_id == 15)
-                continue;
 
-            $product_args = [
-                'post_type' => 'product',
-                'posts_per_page' => -1,
-                'fields' => 'ids',
-                'tax_query' => [
-                    [
-                        'taxonomy' => 'product_cat',
-                        'field' => 'term_id',
-                        'terms' => $category->term_id,
-                    ],
-                ],
-            ];
 
-            $product_ids = get_posts($product_args);
 
-            $img = null;
-            foreach($product_ids as $id) {
-                $img = mc_get_product_image($id);
 
-                if($img)
-                    break;
-            }
 
-			$res[] = (object) [
-				'name' => $category->name,
-				'slug' => $category->slug,
-				'img' => $img ?: get_stylesheet_directory_uri() . '/assets/images/megacarta-logo.webp'
-			];
-		}
-	}
 
-	return $res;
-}
 
-function get_mc_products($term = null, $perPage = 10, $order = 'DESC', $numPage = 1, $categories = []) {
-	$args = [
-        'limit' => $perPage,
-        'status' => 'publish',
-        'orderby' => 'id',
-        'order' => $order,
-        'page' => $numPage
-	];
 
-    if($term)
-        $args['s'] = $term;
 
-    if(!empty($categories))
-        $args['category'] = $categories;
 
-    $query = new WC_Product_Query($args);
-    $products = $query->get_products();
 
-	$res = [];
 
-    $baseDir = get_stylesheet_directory_uri();
 
-    if(!empty($products)) {
-        foreach($products as $p) {
-            $code = $p->get_name();
-            $imgCode = str_replace('/', '-', $code);
-            $id = $p->get_id();
-			$img = mc_get_product_image($id);
-
-			$res[$p->name] = (object) [
-                'id' => $id,
-				'name' => $p->get_description(),
-				'price' => $p->get_price(),
-				'url' => get_permalink($id),
-				'img' => $img ?: get_stylesheet_directory_uri() . '/assets/images/megacarta-logo.webp',
-			];
-        }
-    }
-
-    $args_total = [
-        'status' => 'publish',
-        'return' => 'ids',
-        'limit' => -1
-    ];
-
-    if($term)
-        $args_total['s'] = $term;
-
-    if(!empty($categories))
-        $args_total['category'] = $categories;
-
-    $total_products = wc_get_products($args_total);
-
-	return (object) ['result' => $res, 'count' => count($total_products)];
-}
-
-add_action('wp_enqueue_scripts', 'mc_wp_enqueue_scripts');
-
+// DEPRECATED
 function populate_products() {
 	$products = [
         'R10G' => [
@@ -423,61 +315,6 @@ function populate_products() {
 	}
 }
 
-function update_cart_items() {
-    $request = (object) $_POST;
-
-    $itemKeys = isset($request->itemKeys) ? $request->itemKeys : null;
-    $qtys = isset($request->qtys) ? $request->qtys : null;
-
-    foreach($itemKeys as $i => $itemKey) {
-        if(is_numeric($qtys[$i]) && $qtys[$i] > 0) {
-            WC()->cart->set_quantity($itemKey, $qtys[$i]);
-        }
-    }
-
-    echo json_encode([
-        'status' => 'success',
-        'results' => '',
-    ]);
-
-    wp_die();
-}
-
-add_action('wp_ajax_nopriv_update_cart_items',"update_cart_items");
-add_action('wp_ajax_update_cart_items',"update_cart_items");
-
-function remove_cart_item() {
-    $request = (object) $_POST;
-
-    $itemKey = isset($request->itemKey) ? $request->itemKey : null;
-    WC()->cart->remove_cart_item($itemKey);
-
-    echo json_encode([
-        'status' => 'success',
-        'results' => '',
-    ]);
-
-    wp_die();
-}
-
-add_action('wp_ajax_nopriv_remove_cart_item',"remove_cart_item");
-add_action('wp_ajax_remove_cart_item',"remove_cart_item");
-
-function mc_add_woocommerce_support() {
-    add_theme_support('woocommerce');
-}
-
-add_action('after_setup_theme','mc_add_woocommerce_support');
-
-// function handle_custom_wc_product_query($query, $query_vars) {
-//     if(isset($query_vars['like_name']) && !empty($query_vars['like_name']))
-//         $query['s'] = esc_attr($query_vars['like_name']);
-
-//     return $query;
-// }
-
-// add_filter('woocommerce_product_data_store_cpt_get_products_query', 'handle_custom_wc_product_query', 10, 2);
-
 function new_import_products() {
     $uploads = wp_upload_dir();
     $csvPath = $uploads['basedir'] . '/megacarta1.csv';
@@ -694,72 +531,3 @@ function cat_to_slug($cat, $subcat = null) {
     
     return $cat;
 }
-
-function mc_get_product_image($product_id) {
-    $product = wc_get_product($product_id);
-
-    if($product) {
-        $oem = $product->get_meta('oem');
-        
-        if($oem) {
-            $path = get_stylesheet_directory() . "/assets/images/products/$oem.webp";
-            $url = get_stylesheet_directory_uri() . "/assets/images/products/$oem.webp";
-            return file_exists($path) ? $url : null;
-        }
-    }
-
-    return null;
-}
-
-function mc_get_categories() {
-    $result = [];
-
-    $categories = get_terms('product_cat', [
-        'hide_empty' => 0,
-        'orderby' => 'ASC',
-        'parent' => 0
-    ]);
-
-    $subCategories = get_terms('product_cat', [
-        'hide_empty' => 0,
-        'orderby' => 'ASC'
-    ]);
-
-    foreach($categories as $c) {
-        if(!isset($result['c-'.$c->term_id]))
-            $result['c-'.$c->term_id] = (object) [
-                'name' => $c->name,
-                'slug' => $c->slug,
-                'children' => []
-            ];
-    }
-
-    foreach($subCategories as $subc) {
-        if($subc->parent != 0) {
-            if(!isset($result['c-' . $subc->parent])) {
-                var_dump($subc->name);
-                var_dump($result);
-                die;
-            }
-
-            $result['c-' . $subc->parent]->children[] = (object) [
-                'name' => $subc->name,
-                'slug' => $subc->slug,
-                'children' => []
-            ];
-        }
-    }
-
-    return $result;
-}
-
-function filter_woocommerce_placeholder_img_src($src) {
-    global $product;
-
-    if(is_a($product, 'WC_Product'))
-        $src = get_stylesheet_directory_uri() . '/assets/images/megacarta-logo.webp';
-    
-    return $src;
-}
-
-add_filter('woocommerce_placeholder_img_src', 'filter_woocommerce_placeholder_img_src', 10, 1);

@@ -9,14 +9,14 @@
     $numPage = isset($request->num_page) ? $request->num_page : 1;
     $categories = isset($request->categories) ? $request->categories : [];
 
-    $products = get_mc_products($term, $perPage, $order, $numPage, $categories);
+    $products = mc_get_products($term, $perPage, $order, $numPage, $categories);
 
     $maxPages = ceil($products->count / $perPage);
 
     $mobile = wp_is_mobile();
     $baseDirSizes = get_stylesheet_directory_uri() . "/assets/images/products/sizes";
 
-    $cats = mc_get_categories();
+    $cats = mc_get_categories_catalogue();
 ?>
 
 <section class="intestazione">
