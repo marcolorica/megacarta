@@ -21,7 +21,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarAdmin">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link" href="/area-admin/prodotti"><i class="fa-solid fa-boxes-stacked me-2"></i>Prodotti</a>
                 </li>
@@ -32,7 +32,7 @@
                     <a class="nav-link" href="/area-admin/ordini"><i class="fa-regular fa-credit-card me-2"></i>Ordini</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/area-admin/pagine"><i class="fa-regular fa-newspaper"></i>Pagine</a>
+                    <a class="nav-link" href="/area-admin/pagine"><i class="fa-regular fa-newspaper me-2"></i>Pagine</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/area-admin/pagine"><i class="fa-solid fa-gear me-2"></i>Impostazioni</a>

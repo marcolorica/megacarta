@@ -3,10 +3,10 @@
 }
 
 #navbarAdmin ul li a {
-    color: black;
+    color: black !important;
 }
 
 #navbarAdmin ul li a:hover,
 #navbarAdmin ul li a.active {
-    color: blue;
+    color: #0d6efd !important;
 }
