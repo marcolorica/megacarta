@@ -35,7 +35,7 @@
                     <a class="nav-link <?= $pagename == 'pagine' ? 'active' : '' ?>" href="/area-admin/pagine"><i class="fa-regular fa-newspaper me-2"></i>Pagine</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?= $pagename == 'pagine' ? 'active' : '' ?>" href="/area-admin/pagine"><i class="fa-solid fa-gear me-2"></i>Impostazioni</a>
+                    <a class="nav-link <?= $pagename == 'impostazioni' ? 'active' : '' ?>" href="/area-admin/impostazioni"><i class="fa-solid fa-gear me-2"></i>Impostazioni</a>
                 </li>
             </ul>
         </div>
