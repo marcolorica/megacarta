@@ -18,3 +18,11 @@ html {
 #navbarAdmin ul li a.active {
     color: #0d6efd !important;
 }
+
+#adminSearch input {
+    border-radius: 15em 0 0 15em;
+}
+
+#adminSearch button {
+    border-radius: 0 15em 15em 0;
+}
