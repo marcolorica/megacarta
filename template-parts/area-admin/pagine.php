@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
-                <h2>Pagine</h2>
+                <h2 class="mb-3">Pagine</h2>
             </div>
             <div class="col-12">
                 <div class="input-group mb-3" id="adminSearch">
