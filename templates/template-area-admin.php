@@ -10,7 +10,7 @@
 <?php get_header(); ?>
 <?php global $pagename; ?>
 
-<nav class="navbar navbar-expand-lg mb-5" style="border-bottom: 1px solid lightgray">
+<nav class="navbar navbar-expand-lg" style="border-bottom: 1px solid lightgray">
     <div class="container">
         <a class="navbar-brand my-2 mx-3" href="/">
             <img src="<?= get_stylesheet_directory_uri() . '/assets/images/megacarta-logo.webp' ?>" alt="MEGACARTA" class="mg-logo" width="60" height="60" class="d-inline-block align-text-top">
