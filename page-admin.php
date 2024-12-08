@@ -5,8 +5,8 @@
 </form>
 
 <section class="mt-5" style="min-height:100vh">
-    <div class="container">
-        <div class="row mb-3 justify-content-center">
+    <div class="container pt-5">
+        <div class="row my-3 justify-content-center">
             <div class="col-8 text-center shadow p-5">
                 <h3 class="mb-3">Inserisci le credenziali di accesso</h3>
 

@@ -163,3 +163,8 @@ function mc_get_product_image($product_id) {
 
     return null;
 }
+
+function mg_is_admin_area() {
+    global $post;
+    return $post ? get_the_title($post) == 'Area Admin' || ($post->post_parent && get_the_title($post->post_parent) == 'Area Admin') : false;
+}
