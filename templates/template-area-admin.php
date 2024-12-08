@@ -23,19 +23,19 @@
         <div class="collapse navbar-collapse" id="navbarAdmin">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="/area-admin/prodotti"><i class="fa-solid fa-boxes-stacked me-2"></i>Prodotti</a>
+                    <a class="nav-link <?= $pagename == 'prodotti' ? 'active' : '' ?>" href="/area-admin/prodotti"><i class="fa-solid fa-boxes-stacked me-2"></i>Prodotti</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/area-admin/categorie"><i class="fa-solid fa-list-ul me-2"></i>Categorie</a>
+                    <a class="nav-link <?= $pagename == 'categorie' ? 'active' : '' ?>" href="/area-admin/categorie"><i class="fa-solid fa-list-ul me-2"></i>Categorie</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/area-admin/ordini"><i class="fa-regular fa-credit-card me-2"></i>Ordini</a>
+                    <a class="nav-link <?= $pagename == 'ordini' ? 'active' : '' ?>" href="/area-admin/ordini"><i class="fa-regular fa-credit-card me-2"></i>Ordini</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/area-admin/pagine"><i class="fa-regular fa-newspaper me-2"></i>Pagine</a>
+                    <a class="nav-link <?= $pagename == 'pagine' ? 'active' : '' ?>" href="/area-admin/pagine"><i class="fa-regular fa-newspaper me-2"></i>Pagine</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/area-admin/pagine"><i class="fa-solid fa-gear me-2"></i>Impostazioni</a>
+                    <a class="nav-link <?= $pagename == 'pagine' ? 'active' : '' ?>" href="/area-admin/pagine"><i class="fa-solid fa-gear me-2"></i>Impostazioni</a>
                 </li>
             </ul>
         </div>
