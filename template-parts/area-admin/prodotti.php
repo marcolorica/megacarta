@@ -5,11 +5,11 @@
     $perPage = isset($request->per_page) ? (int) $request->per_page : 10;
     $order = isset($request->order) ? $request->order : 'DESC';
     $numPage = isset($request->num_page) ? $request->num_page : 1;
-    $maxPages = ceil($products->count / $perPage);
 
     $categories = isset($request->categories) ? $request->categories : [];
 
     $products = mc_get_products($term, $perPage, $order, $numPage, $categories);
+    $maxPages = ceil($products->count / $perPage);
 ?>
 
 <form action="/area-admin/prodotti" method="GET" id="form-mc">
