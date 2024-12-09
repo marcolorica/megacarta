@@ -120,13 +120,13 @@ function mc_get_products($term = null, $perPage = 10, $order = 'DESC', $numPage 
             $imgCode = str_replace('/', '-', $code);
             $id = $p->get_id();
 			$img = mc_get_product_image($id);
-            $categories = $p->get_category_ids();
+            $cats = $p->get_category_ids();
 
-            $cats = [];
+            $_cats = [];
 
-            foreach($categories as $cat_id) {
-                $category = get_term($cat_id, 'product_cat');
-                $cats[] = $category->name;
+            foreach($cats as $cat_id) {
+                $cat = get_term($cat_id, 'product_cat');
+                $cats[] = $cat->name;
             }
 
 			$res[$p->name] = (object) [
@@ -135,7 +135,7 @@ function mc_get_products($term = null, $perPage = 10, $order = 'DESC', $numPage 
 				'price' => $p->get_price(),
 				'url' => get_permalink($id),
 				'img' => $img ?: mc_get_logo_src(),
-				'cats' => $cats
+				'cats' => $_cats
 			];
         }
     }
