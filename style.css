@@ -1061,6 +1061,7 @@ a {
 
 .row-pagination.admin span.actual-page {
   color: #0d6efd;
+  background: white;
 }
 
 .row-pagination span.points {
