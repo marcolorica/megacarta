@@ -31,3 +31,24 @@ html {
     background: whitesmoke;
     min-height: 100vh;
 }
+
+.row-prodotto {
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    background: white;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+  
+.azione-mc:hover i {
+    color: white !important;
+}
+
+.p-price {
+    color: green;
+    font-size: 25px;
+}
+  
+.p-code {
+    font-weight: bold;
+}  

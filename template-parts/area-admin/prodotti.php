@@ -28,18 +28,18 @@
             <div class="col-12 body-content">
                 <?php foreach($products->result as $sku => $p) : $p = (object) $p; ?>
                     <div class="row row-prodotto">
-                        <div class="col-2">
+                        <div class="col-1 d-flex justify-content-center align-items-center">
                             <img src="<?= $p->img ?>" class="w-100">
                         </div>
-                        <div class="col-7">
+                        <div class="col-9">
                             <p class="p-code"><?= $sku ?></p>
                             <p class="p-title"><?= $p->name ?></p>
                             <p class="p-price"><?= $p->price ?></p>
                             <p class="p-categories"></p>
                         </div>
-                        <div class="col-3">
-                            <a class="btn btn-outline-primary me-2" href="/area-admin/prodotti/prodotto?id=<?= $p->id ?>"><i class="fa-solid fa-eye fa-fw"></i></a>
-                            <a class="btn btn-outline-danger" role="button" onclick="deleteProduct(<?= $p->id ?>)"><i class="fa-solid fa-trash-can fa-fw"></i></a>
+                        <div class="col-2 d-flex justify-content-center align-items-center">
+                            <a class="btn azione-mc btn-outline-primary me-3" href="/area-admin/prodotti/prodotto?id=<?= $p->id ?>"><i class="fa-solid fa-eye fa-fw text-primary"></i></a>
+                            <a class="btn azione-mc btn-outline-danger" role="button" onclick="deleteProduct(<?= $p->id ?>)"><i class="fa-solid fa-trash-can fa-fw"></i></a>
                         </div>
                     </div>
                 <?php endforeach; ?>
