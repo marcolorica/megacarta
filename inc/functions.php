@@ -42,7 +42,7 @@ function mc_get_categories_home() {
 			$res[] = (object) [
 				'name' => $category->name,
 				'slug' => $category->slug,
-				'img' => $img ?: get_stylesheet_directory_uri() . '/assets/images/megacarta-logo.webp'
+				'img' => $img ?: mc_get_logo_src()
 			];
 		}
 	}
@@ -126,7 +126,7 @@ function mc_get_products($term = null, $perPage = 10, $order = 'DESC', $numPage 
 				'name' => $p->get_description(),
 				'price' => $p->get_price(),
 				'url' => get_permalink($id),
-				'img' => $img ?: get_stylesheet_directory_uri() . '/assets/images/megacarta-logo.webp',
+				'img' => $img ?: mc_get_logo_src(),
 			];
         }
     }
@@ -167,4 +167,8 @@ function mc_get_product_image($product_id) {
 function mg_is_admin_area() {
     global $post;
     return $post ? get_the_title($post) == 'Area Admin' || ($post->post_parent && get_the_title($post->post_parent) == 'Area Admin') : false;
+}
+
+function mc_get_logo_src($white = false) {
+    return get_stylesheet_directory_uri() . '/assets/images/megacarta-logo' . ($white ? '-white' : '') . '.webp';
 }
