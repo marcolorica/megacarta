@@ -26,15 +26,15 @@
             </div>
 
             <div class="col-12 body-content">
-                <?php foreach($products as $p) : var_dump($p); die;?>
-                    <div class="row row-prodotto">
+                <?php foreach($products->result as $sku => $p) : $p = (object) $p; ?>
+                    <div class="row row-prodotto" onclick="goToProductPage(<?= $p->id ?>)">
                         <div class="col-2">
-                            <img src="" alt="">
+                            <img src="<?= $p->img ?>" class="w-100">
                         </div>
                         <div class="col-7">
-                            <p class="p-code"></p>
-                            <p class="p-title"></p>
-                            <p class="p-price"></p>
+                            <p class="p-code"><?= $sku ?></p>
+                            <p class="p-title"><?= $p->name ?></p>
+                            <p class="p-price"><?= $p->price ?></p>
                             <p class="p-categories"></p>
                         </div>
                     </div>
