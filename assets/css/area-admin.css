@@ -39,7 +39,11 @@ html {
     padding: 10px;
     margin-bottom: 10px;
 }
-  
+
+.azione-mc i {
+    transition: .15s ease-in-out;
+}
+
 .azione-mc:hover i {
     color: white !important;
 }
