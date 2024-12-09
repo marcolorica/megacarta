@@ -36,8 +36,6 @@
     $general_font_size = get_theme_mod("general-font-size") ? sanitize_text_field(get_theme_mod("general-font-size")) : "medium";
     $general_font_size = $font_sizes[$general_font_size];
 
-    $baseDirSizes = get_stylesheet_directory_uri() . "/assets/images/products/sizes";
-
 	$mobile = wp_is_mobile();
 
 	if($mobile) {
@@ -131,28 +129,11 @@
 								<p style="font-size:1.2em !important;" class="mb-2"><?= $product->get_description() ?></p>
 							</div>
 
-							<!-- <div class="d-block w-100 my-4 <?= $mobile ? 'px-3' : '' ?>">
-								<div class="product-sizes w-100">
-									<?php foreach($product->get_meta('sizes') as $img => $size) : ?>
-										<div class="p-info">
-											<img src="<?= "$baseDirSizes/$img.webp" ?>">
-											<span><?= $size ?></span>
-										</div>
-									<?php endforeach; ?>
-								</div>
-							</div> -->
-
 							<?php
 								add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
 								add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50 );
 								do_action( 'woocommerce_single_product_summary' );
 							?>
-
-							<!-- <p class="mb-1"><b>Categoria</b></p>
-							<p class="category"><?= $productInfos->sub_category ? $productInfos->category . ' > ' . $productInfos->sub_category : $productInfos->category ?></p>
-
-							<p class="mb-1"><b>Descrizione</b></p>
-							<p class="description"><?= $productInfos->description ?></p> -->
 						</div>
 					
 						<?php
