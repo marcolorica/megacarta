@@ -39,7 +39,7 @@
                         <div class="col-9">
                             <p class="p-code"><?= $sku ?></p>
                             <p class="p-title"><?= $p->name ?></p>
-                            <p class="p-price">€<?= $p->price ?></p>
+                            <p class="p-price">€<?= round($p->price, 2) ?></p>
                             <p class="p-categories"></p>
                         </div>
                         <div class="col-2 d-flex justify-content-end align-items-center">
@@ -51,9 +51,9 @@
             </div>
         </div>
 
-        <div class="row row-pagination admin">
-            <div class="col-12 d-flex justify-content-end" style="gap: 10px">
-                <button class="btn btn-danger" onclick="changeMcPage('prev')" <?= $numPage > 1 ? '' : 'disabled' ?>><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="row row-pagination admin mt-3">
+            <div class="col-12 d-flex justify-content-end p-0" style="gap: 10px">
+                <button class="btn btn-primary" onclick="changeMcPage('prev')" <?= $numPage > 1 ? '' : 'disabled' ?>><i class="fa-solid fa-chevron-left"></i></button>
 
                 <?php if($numPage > 2) : ?>
                     <span onclick="changeMcPage(null, 1)">1</span>
@@ -75,7 +75,7 @@
                     <span onclick="changeMcPage(null, <?= $maxPages ?>)"><?= $maxPages ?></span>
                 <?php endif; ?>
 
-                <button class="btn btn-danger" onclick="changeMcPage('next')" <?= $numPage < $maxPages ? '' : 'disabled' ?>><i class="fa-solid fa-chevron-right"></i></button>
+                <button class="btn btn-primary" onclick="changeMcPage('next')" <?= $numPage < $maxPages ? '' : 'disabled' ?>><i class="fa-solid fa-chevron-right"></i></button>
             </div>
         </div>
     </div>
