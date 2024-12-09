@@ -1054,6 +1054,15 @@ a {
   background: white;
 }
 
+.row-pagination.admin span {
+  background: #0d6efd;
+  border: 1px solid #0d6efd;
+}
+
+.row-pagination.admin span.actual-page {
+  color: #0d6efd;
+}
+
 .row-pagination span.points {
   opacity: .65;
 }

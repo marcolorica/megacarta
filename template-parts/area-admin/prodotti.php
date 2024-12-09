@@ -51,7 +51,7 @@
             </div>
         </div>
 
-        <div class="row row-pagination">
+        <div class="row row-pagination admin">
             <div class="col-12 d-flex justify-content-end" style="gap: 10px">
                 <button class="btn btn-danger" onclick="changeMcPage('prev')" <?= $numPage > 1 ? '' : 'disabled' ?>><i class="fa-solid fa-chevron-left"></i></button>
 
