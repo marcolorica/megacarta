@@ -51,4 +51,11 @@ html {
   
 .p-code {
     font-weight: bold;
-}  
+}
+
+.p-code,
+.p-title,
+.p-price,
+.p-categories {
+    margin: 0;
+}
