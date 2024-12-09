@@ -126,7 +126,7 @@ function mc_get_products($term = null, $perPage = 10, $order = 'DESC', $numPage 
 
             foreach($cats as $cat_id) {
                 $cat = get_term($cat_id, 'product_cat');
-                $cats[] = $cat->name;
+                $_cats[] = $cat->name;
             }
 
 			$res[$p->name] = (object) [
