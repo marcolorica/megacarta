@@ -40,7 +40,7 @@
                             <p class="p-code"><?= $sku ?></p>
                             <p class="p-title"><?= $p->name ?></p>
                             <p class="p-price">€<?= number_format($p->price, 2, ',', '.'); ?></p>
-                            <p class="p-categories"></p>
+                            <p class="p-categories"><?= implode(',', $p->cats) ?></p>
                         </div>
                         <div class="col-2 d-flex justify-content-end align-items-center">
                             <a class="btn azione-mc btn-outline-primary me-3" href="/area-admin/prodotti/prodotto?id=<?= $p->id ?>"><i class="fa-solid fa-pencil fa-fw text-primary"></i></a>
