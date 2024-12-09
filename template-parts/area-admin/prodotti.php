@@ -36,16 +36,16 @@
                         <div class="col-1 d-flex justify-content-center align-items-center">
                             <img src="<?= $p->img ?>" class="w-100">
                         </div>
-                        <div class="col-2">
+                        <div class="col-2 d-flex justify-content-center align-items-center">
                             <p class="p-code"><?= $sku ?></p>
                         </div>
-                        <div class="col-3">
+                        <div class="col-3 d-flex align-items-center">
                             <p class="p-title"><?= $p->name ?></p>
                         </div>
-                        <div class="col-2">
+                        <div class="col-2 d-flex justify-content-center align-items-center">
                             <p class="p-price">€<?= number_format($p->price, 2, ',', '.'); ?></p>
                         </div>
-                        <div class="col-2">
+                        <div class="col-2 d-flex justify-content-center align-items-center">
                             <p class="p-categories"><?= implode(',', $p->cats) ?></p>
                         </div>
                         <div class="col-2 d-flex justify-content-end align-items-center">

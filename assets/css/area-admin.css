@@ -61,6 +61,10 @@ html {
     font-weight: bold;
 }
 
+.p-categories {
+    color: grey;
+}
+
 .p-code,
 .p-title,
 .p-price,
