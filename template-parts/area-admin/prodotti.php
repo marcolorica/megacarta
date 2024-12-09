@@ -12,6 +12,11 @@
     $products = mc_get_products($term, $perPage, $order, $numPage, $categories);
 ?>
 
+<form action="/area-admin/prodotti" method="GET" id="form-mc">
+    <input type="hidden" name="per_page" value="<?= $perPage ?>">
+    <input type="hidden" name="num_page" value="<?= $numPage ?>">
+</form>
+
 <section class="admin-body pt-5">
     <div class="container">
         <div class="row">
@@ -20,8 +25,8 @@
             </div>
             <div class="col-12">
                 <div class="input-group mb-3" id="adminSearch">
-                    <input type="text" class="form-control" placeholder="Cerca prodotti...">
-                    <button class="btn btn-outline-primary" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <input type="text" class="form-control" placeholder="Cerca prodotti..." form="form-mc" name="term">
+                    <button class="btn btn-outline-primary" type="submit" form="form-mc"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
             </div>
 
@@ -43,6 +48,34 @@
                         </div>
                     </div>
                 <?php endforeach; ?>
+            </div>
+        </div>
+
+        <div class="row row-pagination">
+            <div class="col-12 d-flex justify-content-end" style="gap: 10px">
+                <button class="btn btn-danger" onclick="changeMcPage('prev')" <?= $numPage > 1 ? '' : 'disabled' ?>><i class="fa-solid fa-chevron-left"></i></button>
+
+                <?php if($numPage > 2) : ?>
+                    <span onclick="changeMcPage(null, 1)">1</span>
+                    <span class="points">...</span>
+                <?php endif; ?>
+
+                <?php if($numPage > 1) : ?>
+                    <span class="prev-page" onclick="changeMcPage('prev')"><?= $numPage - 1 ?></span>
+                <?php endif; ?>
+
+                <span class="actual-page"><?= $numPage ?></span>
+
+                <?php if($numPage < $maxPages) : ?>
+                    <span class="next-page" onclick="changeMcPage('next')"><?= $numPage + 1 ?></span>
+                <?php endif; ?>
+
+                <?php if($numPage < ($maxPages - 1)) : ?>
+                    <span class="points">...</span>
+                    <span onclick="changeMcPage(null, <?= $maxPages ?>)"><?= $maxPages ?></span>
+                <?php endif; ?>
+
+                <button class="btn btn-danger" onclick="changeMcPage('next')" <?= $numPage < $maxPages ? '' : 'disabled' ?>><i class="fa-solid fa-chevron-right"></i></button>
             </div>
         </div>
     </div>
