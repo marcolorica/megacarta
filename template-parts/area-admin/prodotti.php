@@ -39,7 +39,7 @@
                         <div class="col-9">
                             <p class="p-code"><?= $sku ?></p>
                             <p class="p-title"><?= $p->name ?></p>
-                            <p class="p-price">€<?= round($p->price, 2) ?></p>
+                            <p class="p-price">€<?= number_format($p->price, 2, ',', '.'); ?></p>
                             <p class="p-categories"></p>
                         </div>
                         <div class="col-2 d-flex justify-content-end align-items-center">
