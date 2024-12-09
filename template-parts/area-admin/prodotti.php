@@ -33,19 +33,19 @@
             <div class="col-12 body-content">
                 <?php foreach($products->result as $sku => $p) : $p = (object) $p; ?>
                     <div class="row row-prodotto">
-                        <div class="col-1 d-flex justify-content-center align-items-center">
+                        <div class="col-1 d-flex justify-content-center align-items-center text-center">
                             <img src="<?= $p->img ?>" class="w-100">
                         </div>
-                        <div class="col-2 d-flex justify-content-center align-items-center">
+                        <div class="col-2 d-flex justify-content-center align-items-center text-center">
                             <p class="p-code"><?= $sku ?></p>
                         </div>
                         <div class="col-3 d-flex align-items-center">
                             <p class="p-title"><?= $p->name ?></p>
                         </div>
-                        <div class="col-2 d-flex justify-content-center align-items-center">
+                        <div class="col-2 d-flex justify-content-center align-items-center text-center">
                             <p class="p-price">€<?= number_format($p->price, 2, ',', '.'); ?></p>
                         </div>
-                        <div class="col-2 d-flex justify-content-center align-items-center">
+                        <div class="col-2 d-flex justify-content-center align-items-center text-center">
                             <p class="p-categories"><?= implode(',', $p->cats) ?></p>
                         </div>
                         <div class="col-2 d-flex justify-content-end align-items-center">
