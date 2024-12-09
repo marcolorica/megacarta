@@ -27,7 +27,7 @@
 
             <div class="col-12 body-content">
                 <?php foreach($products->result as $sku => $p) : $p = (object) $p; ?>
-                    <div class="row row-prodotto" onclick="goToProductPage(<?= $p->id ?>)">
+                    <div class="row row-prodotto">
                         <div class="col-2">
                             <img src="<?= $p->img ?>" class="w-100">
                         </div>
@@ -36,6 +36,10 @@
                             <p class="p-title"><?= $p->name ?></p>
                             <p class="p-price"><?= $p->price ?></p>
                             <p class="p-categories"></p>
+                        </div>
+                        <div class="col-3">
+                            <a class="d-block me-2" class="btn btn-ouline-primary" href="/area-admin/prodotti/prodotto?id=<?= $p->id ?>"><i class="fa-solid fa-eye fa-fw"></i></a>
+                            <a class="btn btn-ouline-danger" role="button" onclick="deleteProduct(<?= $p->id ?>)"><i class="fa-solid fa-trash-can fa-fw"></i></a>
                         </div>
                     </div>
                 <?php endforeach; ?>
