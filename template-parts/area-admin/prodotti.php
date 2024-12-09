@@ -38,8 +38,8 @@
                             <p class="p-categories"></p>
                         </div>
                         <div class="col-3">
-                            <a class="btn btn-ouline-primary me-2" href="/area-admin/prodotti/prodotto?id=<?= $p->id ?>"><i class="fa-solid fa-eye fa-fw"></i></a>
-                            <a class="btn btn-ouline-danger" role="button" onclick="deleteProduct(<?= $p->id ?>)"><i class="fa-solid fa-trash-can fa-fw"></i></a>
+                            <a class="btn btn-outline-primary me-2" href="/area-admin/prodotti/prodotto?id=<?= $p->id ?>"><i class="fa-solid fa-eye fa-fw"></i></a>
+                            <a class="btn btn-outline-danger" role="button" onclick="deleteProduct(<?= $p->id ?>)"><i class="fa-solid fa-trash-can fa-fw"></i></a>
                         </div>
                     </div>
                 <?php endforeach; ?>
