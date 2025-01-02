@@ -175,7 +175,21 @@ function mc_get_product_image($product_id) {
 
 function mg_is_admin_area() {
     global $post;
-    return $post ? get_the_title($post) == 'Area Admin' || ($post->post_parent && get_the_title($post->post_parent) == 'Area Admin') : false;
+
+    $check = false;
+
+    if($post) {
+        $check = get_the_title($post) == 'Area Admin';
+    
+        if(!$check && $post->post_parent) {
+            $check = get_the_title($post->post_parent) == 'Area Admin';
+    
+            if(!$check && get_post($post->post_parent)->post_parent)
+                $check = get_the_title(get_post($post->post_parent)->post_parent) == 'Area Admin';
+        }
+    }
+
+    return $check;
 }
 
 function mc_get_logo_src($white = false) {

@@ -49,7 +49,7 @@
 
     <?php get_template_part('template-parts/area-admin/' . $pagename); ?>
 
-<?php else : ?>
+<?php else : var_dump('ao');die; ?>
     <?php
         $icon = '';
         $text = '';
