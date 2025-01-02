@@ -14,7 +14,7 @@
 
                 <div class="input-group mb-3">
                     <input type="password" class="form-control" name="password" placeholder="Password">
-                    <button class="btn btn-outline-secondary" type="button" onclick="togglePasswordType(el)">
+                    <button class="btn btn-outline-secondary" type="button" onclick="togglePasswordType(this)">
                         <i class="fa-regular fa-eye"></i>
                     </button>
                 </div>
