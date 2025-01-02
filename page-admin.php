@@ -13,7 +13,7 @@
                 <input type="email" class="form-control mb-3" name="email" form="form-login" placeholder="Email">
 
                 <div class="input-group mb-3">
-                    <input type="password" class="form-control" name="password" placeholder="Password">
+                    <input type="password" class="form-control" name="password" placeholder="Password" form="form-login">
                     <button class="btn btn-outline-secondary" type="button" onclick="togglePasswordType(this)">
                         <i class="fa-regular fa-eye"></i>
                     </button>
