@@ -8,6 +8,8 @@ function admin_login_action_handler() {
 
     $user = get_user_by('email', $request->email);
 
+    var_dump($user);die;
+
     if($user && wp_check_password($request->password, $user->data->user_pass)) {
         wp_set_current_user($user->ID, $user->user_login);
         wp_set_auth_cookie($user->ID, true);
