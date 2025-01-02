@@ -19,8 +19,6 @@
                     </button>
                 </div>
 
-                <input type="password" class="form-control mb-3" name="password" form="form-login" placeholder="Password">
-
                 <button class="btn btn-danger float-end" type="submit" form="form-login">Accedi</button>
             </div>
         </div>
