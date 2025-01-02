@@ -97,6 +97,6 @@
         </div>
     </nav>
 
-    <?php get_template_part('template-parts/area-admin/' . $text . '/' . $pagename); ?>
+    <?php get_template_part('template-parts/area-admin/edits' . $pagename); ?>
 
 <?php endif; ?>
