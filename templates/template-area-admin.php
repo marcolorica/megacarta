@@ -46,6 +46,9 @@
             </div>
         </div>
     </nav>
+
+    <?php get_template_part('template-parts/area-admin/' . $pagename); ?>
+
 <?php else : ?>
     <?php
         $icon = '';
@@ -93,6 +96,7 @@
             </div>
         </div>
     </nav>
-<?php endif; ?>
 
-<?php get_template_part('template-parts/area-admin/' . $pagename); ?>
+    <?php get_template_part('template-parts/area-admin/' . $text . '/' . $pagename); ?>
+
+<?php endif; ?>
