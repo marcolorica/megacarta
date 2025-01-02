@@ -2,6 +2,7 @@ jQuery(document).ready(() => {
 
 });
 
+//cart
 function removeProductFromCart(sku) {
     let key = jQuery('.row-cart-product[data-sku="'+sku+'"]').attr('data-cart-item-key');
     jQuery('.row-cart-product[data-sku="'+sku+'"]').remove();
@@ -66,6 +67,7 @@ function changeCartTotals() {
     });
 }
 
+//global pagination
 function changeMcPage(where = null, specific = null) {
     let $num_page = jQuery('input[name=num_page]');
     let num = parseInt($num_page.val());
@@ -88,7 +90,17 @@ function changeMcPage(where = null, specific = null) {
     jQuery('#form-mc').submit();
 }
 
+//catalogue
 function changeMcCategories() {
     jQuery('input[name=num_page]').val(1);
     jQuery('#form-mc').submit();
+}
+
+//admin action
+function deleteProduct(id) {
+
+}
+
+function deleteCategory(id) {
+    
 }

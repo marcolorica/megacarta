@@ -16,27 +16,32 @@ function mc_get_categories_home() {
 			if($category->term_id == 15)
                 continue;
 
-            $product_args = [
-                'post_type' => 'product',
-                'posts_per_page' => -1,
-                'fields' => 'ids',
-                'tax_query' => [
-                    [
-                        'taxonomy' => 'product_cat',
-                        'field' => 'term_id',
-                        'terms' => $category->term_id,
+            $path = get_stylesheet_directory() . "/assets/images/categories/$category->slug.webp";
+            $url = get_stylesheet_directory_uri() . "/assets/images/categories/$category->slug.webp";
+            $img = file_exists($path) ? $url : null;
+
+            if(!$img) {
+                $product_args = [
+                    'post_type' => 'product',
+                    'posts_per_page' => -1,
+                    'fields' => 'ids',
+                    'tax_query' => [
+                        [
+                            'taxonomy' => 'product_cat',
+                            'field' => 'term_id',
+                            'terms' => $category->term_id,
+                        ],
                     ],
-                ],
-            ];
-
-            $product_ids = get_posts($product_args);
-
-            $img = null;
-            foreach($product_ids as $id) {
-                $img = mc_get_product_image($id);
-
-                if($img)
-                    break;
+                ];
+    
+                $product_ids = get_posts($product_args);
+    
+                foreach($product_ids as $id) {
+                    $img = mc_get_product_image($id);
+    
+                    if($img)
+                        break;
+                }
             }
 
 			$res[] = (object) [
@@ -65,12 +70,18 @@ function mc_get_categories_catalogue() {
     ]);
 
     foreach($categories as $c) {
-        if(!isset($result['c-'.$c->term_id]))
+        if(!isset($result['c-'.$c->term_id])) {
+            $path = get_stylesheet_directory() . "/assets/images/categories/$c->slug.webp";
+            $url = get_stylesheet_directory_uri() . "/assets/images/categories/$c->slug.webp";
+
             $result['c-'.$c->term_id] = (object) [
+                'id' => $c->term_id,
                 'name' => $c->name,
                 'slug' => $c->slug,
+                'img' => file_exists($path) ? $url : mc_get_logo_src(),
                 'children' => []
             ];
+        }
     }
 
     foreach($subCategories as $subc) {
@@ -81,9 +92,14 @@ function mc_get_categories_catalogue() {
                 die;
             }
 
+            $path = get_stylesheet_directory() . "/assets/images/categories/$subc->slug.webp";
+            $url = get_stylesheet_directory_uri() . "/assets/images/categories/$subc->slug.webp";
+
             $result['c-' . $subc->parent]->children[] = (object) [
+                'id' => $subc->term_id,
                 'name' => $subc->name,
                 'slug' => $subc->slug,
+                'img' => file_exists($path) ? $url : mc_get_logo_src(),
                 'children' => []
             ];
         }
