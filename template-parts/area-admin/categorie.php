@@ -26,10 +26,9 @@
                         <div class="col-1 d-flex justify-content-center align-items-center text-center">
                             <img src="<?= $c->img ?>" class="w-100">
                         </div>
-                        <div class="col-2 d-flex justify-content-center align-items-center text-center">
+                        <div class="col-7 d-flex align-items-center text-center">
                             <p class="p-code"><?= $c->name ?></p>
                         </div>
-                        <div class="col-5"></div>
                         <div class="col-2 d-flex justify-content-center align-items-center text-center">
                             <p class="p-categories"><?= count($c->children) ?> sottocategorie</p>
                         </div>
