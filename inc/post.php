@@ -8,15 +8,14 @@ function admin_login_action_handler() {
 
     $user = get_user_by('email', $request->email);
 
-    $check = $user && wp_check_password($request->password, $user->data->user_pass);
-
-    
-    if($check) {
-        var_dump('porcodio');die;
+    if($user && wp_check_password($request->password, $user->data->user_pass)) {
         wp_set_current_user($user->ID, $user->user_login);
         wp_set_auth_cookie($user->ID, true);
+        
         update_user_meta($user->ID, 'last_login', current_time('mysql'));
+        
         wp_redirect('/area-admin/dashboard');
+        exit();
     }
 
     $_SESSION['error_login'] = true;
