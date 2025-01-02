@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<form action="<?= esc_url(admin_url('admin-post.php')); ?>" id="form-login">
+<form action="<?= esc_url(admin_url('admin-post.php')); ?>" method="POST" id="form-login">
     <input type="hidden" name="action" value="admin_login">
 </form>
 
