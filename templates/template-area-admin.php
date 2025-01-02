@@ -11,7 +11,7 @@
     get_header();
     
     global $pagename;
-    $macros = ['prodotti','categorie','ordini','pagine','impostazioni'];
+    $macros = ['area-admin','prodotti','categorie','ordini','pagine','impostazioni'];
 ?>
 
 <?php if(in_array($pagename, $macros)) : ?> 
