@@ -79,16 +79,12 @@
 
     <nav class="navbar navbar-expand-lg" style="border-bottom: 1px solid lightgray">
         <div class="container">
-            <a class="navbar-brand my-2 mx-3" href="/">
-                <img src="<?= mc_get_logo_src(); ?>" alt="MEGACARTA" class="mg-logo" width="60" height="60" class="d-inline-block align-text-top">
-            </a>
-
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarAdmin" aria-controls="navbarAdmin" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarAdmin">
-                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <div class="collapse navbar-collapse my-2" id="navbarAdmin">
+                <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link" href="/area-admin/<?= $text ?>"><i class="fa-solid fa-arrow-left me-2"></i>Torna a <i class="fa-solid fa-<?= $icon ?> mx-2"></i><?= ucfirst($text) ?></a>
                     </li>
