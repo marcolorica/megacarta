@@ -14,7 +14,7 @@ function admin_login_action_handler() {
         
         update_user_meta($user->ID, 'last_login', current_time('mysql'));
         
-        wp_redirect('/area-admin/dashboard');
+        wp_redirect('/area-admin');
         exit();
     }
 
