@@ -38,7 +38,7 @@
                         </div>
 
                         <?php foreach($c->children as $subc) : ?>
-                            <div class="col-12">
+                            <div class="col-12 ps-5">
                                 <div class="row row-categoria child-cat">
                                     <div class="col-1 d-flex justify-content-center align-items-center text-center">
                                         <img src="<?= $subc->img ?>" class="w-100">
@@ -56,7 +56,7 @@
                                 </div>
                             </div>
                         <?php endforeach; ?>
-                        
+
                     </div>
                 <?php endforeach; ?>
             </div>
