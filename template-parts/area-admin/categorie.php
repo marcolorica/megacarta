@@ -38,22 +38,25 @@
                         </div>
 
                         <?php foreach($c->children as $subc) : ?>
-                            <div class="row row-categoria child-cat">
-                                <div class="col-1 d-flex justify-content-center align-items-center text-center">
-                                    <img src="<?= $subc->img ?>" class="w-100">
-                                </div>
-                                <div class="col-7 d-flex align-items-center text-center">
-                                    <p class="p-code"><?= $subc->name ?></p>
-                                </div>
-                                <div class="col-2 d-flex justify-content-center align-items-center text-center">
-                                    <p class="p-products"><?= $subc->count ?> prodotti</p>
-                                </div>
-                                <div class="col-2 d-flex justify-content-end align-items-center">
-                                    <a class="btn azione-mc btn-outline-primary me-3" href="/area-admin/categorie/categoria?id=<?= $subc->id ?>"><i class="fa-solid fa-pencil fa-fw text-primary"></i></a>
-                                    <a class="btn azione-mc btn-outline-danger" role="button" onclick="deleteCategory(<?= $subc->id ?>)"><i class="fa-solid fa-trash-can fa-fw"></i></a>
+                            <div class="col-12">
+                                <div class="row row-categoria child-cat">
+                                    <div class="col-1 d-flex justify-content-center align-items-center text-center">
+                                        <img src="<?= $subc->img ?>" class="w-100">
+                                    </div>
+                                    <div class="col-7 d-flex align-items-center text-center">
+                                        <p class="p-code"><?= $subc->name ?></p>
+                                    </div>
+                                    <div class="col-2 d-flex justify-content-center align-items-center text-center">
+                                        <p class="p-products"><?= $subc->count ?> prodotti</p>
+                                    </div>
+                                    <div class="col-2 d-flex justify-content-end align-items-center">
+                                        <a class="btn azione-mc btn-outline-primary me-3" href="/area-admin/categorie/categoria?id=<?= $subc->id ?>"><i class="fa-solid fa-pencil fa-fw text-primary"></i></a>
+                                        <a class="btn azione-mc btn-outline-danger" role="button" onclick="deleteCategory(<?= $subc->id ?>)"><i class="fa-solid fa-trash-can fa-fw"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         <?php endforeach; ?>
+                        
                     </div>
                 <?php endforeach; ?>
             </div>
