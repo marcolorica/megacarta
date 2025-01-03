@@ -2,7 +2,7 @@
 
 function mc_get_categories_home() {
 	$args = [
-		'taxonomy'   => 'product_cat',
+		'taxonomy' => 'product_cat',
 		'hide_empty' => false,
         'parent' => 0
 	];
@@ -55,7 +55,7 @@ function mc_get_categories_home() {
 	return $res;
 }
 
-function mc_get_categories_catalogue() {
+function mc_get_categories_catalogue($term = null) {
     $result = [];
 
     $categories = get_terms('product_cat', [
@@ -78,6 +78,7 @@ function mc_get_categories_catalogue() {
                 'id' => $c->term_id,
                 'name' => $c->name,
                 'slug' => $c->slug,
+                'count' => $c->count,
                 'img' => file_exists($path) ? $url : mc_get_logo_src(),
                 'children' => []
             ];
@@ -99,6 +100,7 @@ function mc_get_categories_catalogue() {
                 'id' => $subc->term_id,
                 'name' => $subc->name,
                 'slug' => $subc->slug,
+                'count' => $subc->count,
                 'img' => file_exists($path) ? $url : mc_get_logo_src(),
                 'children' => []
             ];
