@@ -22,7 +22,7 @@
 
             <div class="col-12 body-content">
                 <?php foreach($categories as $c) : ?>
-                    <div class="row row-categoria">
+                    <div class="row row-categoria mb-3">
                         <div class="col-1 d-flex justify-content-center align-items-center text-center">
                             <img src="<?= $c->img ?>" class="w-100">
                         </div>
