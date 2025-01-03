@@ -72,6 +72,10 @@ html {
     margin: 0;
 }
 
+.child-cat {
+    position: relative;
+}
+
 .child-cat::after,
 .child-cat::before {
     content: "";
