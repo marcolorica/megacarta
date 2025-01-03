@@ -71,3 +71,23 @@ html {
 .p-categories {
     margin: 0;
 }
+
+.child-cat::after,
+.child-cat::before {
+    content: "";
+    background: lightgrey;
+    position: absolute;
+    left: 25px;
+}
+
+.child-cat::before {
+    height: 50%;
+    width: 2px;
+    top: 0;
+}
+
+.child-cat::after {
+    height: 2px;
+    width: 15px;
+    top: 50%;
+}
