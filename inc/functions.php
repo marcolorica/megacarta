@@ -174,8 +174,8 @@ function mc_get_page_datas($pagina) {
                 'main_img' => get_option('mc_home_main_img'),
                 'categories' => $cats && is_array($cats) ? $cats : null,
                 'map_section' => (object) [
-                    'title' => $title ? strip_slashes($title) : '',
-                    'text' => $text ? strip_slashes($text) : ''
+                    'title' => $title ? stripslashes($title) : '',
+                    'text' => $text ? stripslashes($text) : ''
                 ]
             ];
             break;
@@ -193,16 +193,16 @@ function mc_get_page_datas($pagina) {
                 'title' => 'Chi Siamo',
                 'main_img' => get_option('mc_chi_siamo_main_img'),
                 'first_section' => (object) [
-                    'title' => $title_1 ? strip_slashes($title_1) : '',
-                    'text' => $text_1 ? strip_slashes($text_1) : '',
+                    'title' => $title_1 ? stripslashes($title_1) : '',
+                    'text' => $text_1 ? stripslashes($text_1) : '',
                     'img' => get_option('mc_chi_siamo_img_1'),
                 ],
                 'second_section' => (object) [
-                    'title' => $title_2 ? strip_slashes($title_2) : '',
-                    'text' => $text_2 ? strip_slashes($text_2) : '',
+                    'title' => $title_2 ? stripslashes($title_2) : '',
+                    'text' => $text_2 ? stripslashes($text_2) : '',
                     'img' => get_option('mc_chi_siamo_img_2'),
                 ],
-                'third_section' => $text_3 ? strip_slashes($text_3) : '',
+                'third_section' => $text_3 ? stripslashes($text_3) : '',
             ];
             break;
 
