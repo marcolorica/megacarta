@@ -46,7 +46,7 @@
                                     <label for="cat-<?= "$cid" ?>">
                                         <input id="cat-<?= "$cid" ?>"
                                                 type="checkbox"
-                                                class="form-check me-2"
+                                                class="form-check me-2 label-home"
                                                 name="home_categories[]"
                                                 form="form-page"
                                                 value="<?= $c->slug ?>"

@@ -1113,11 +1113,10 @@ a {
   right: 15px;
 }
 
-#accordionEditPage label {
+.label-home {
   cursor: pointer;
   display: flex;
 }
-
 
 .img-for-edit {
   object-fit: cover;
