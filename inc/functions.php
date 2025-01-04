@@ -222,7 +222,7 @@ function mc_get_page_datas($pagina) {
             $return = [
                 'title' => 'Home',
                 'main_img' => get_option('mc_home_main_img'),
-                'categories' => get_option('mc_home_categories'),
+                'categories' => get_option('mc_home_categories') ? (array) get_option('mc_home_categories') : [],
                 'map_section' => [
                     'title' => get_option('mc_home_map_title'),
                     'text' => get_option('mc_home_map_text'),

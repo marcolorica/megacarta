@@ -3,8 +3,6 @@
     $datas = mc_get_page_datas($pagina);
 
     $categories = mc_get_categories_catalogue();
-
-    var_dump($datas->categories);
 ?>
 
 <form action="<?= esc_url(admin_url('admin-post.php')); ?>" id="form-page" method="POST" enctype="multipart/form-data">
@@ -57,7 +55,7 @@
                                                                 name="home_categories[]"
                                                                 form="form-page"
                                                                 value="<?= $subc->slug ?>"
-                                                                <?= in_array($cid, $datas->categories ?: []) ? 'checked' : '' ?>><?= $subc->name ?>
+                                                                <?= in_array($cid, $datas->categories) ? 'checked' : '' ?>><?= $subc->name ?>
                                                     </label>
                                                 <?php endforeach; ?>
 
@@ -69,7 +67,7 @@
                                                                 name="home_categories[]"
                                                                 form="form-page"
                                                                 value="<?= $c->slug ?>"
-                                                                <?= in_array($sid, $datas->categories ?: []) ? 'checked' : '' ?>><?= $c->name ?>
+                                                                <?= in_array($sid, $datas->categories) ? 'checked' : '' ?>><?= $c->name ?>
                                                     </label>
                                                 <?php endif; ?>
                                             </div>
