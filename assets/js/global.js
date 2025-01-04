@@ -107,7 +107,7 @@ function deleteCategory(id) {
 
 function changeImg(el) {
     let $input = jQuery(el);
-    let file = $input.files[0];
+    let file = $input.get(0).files[0];
     
     if(file) {
         let reader = new FileReader();
