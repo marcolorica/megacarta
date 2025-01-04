@@ -28,12 +28,12 @@
             </div>
 
             <div class="col-12 col-md-6">
-                <img src="<?= get_stylesheet_directory_uri() . '/assets/images/chi-siamo-1.jpg' ?>" class="w-100">
+                <img src="<?= get_option('mc_chi_siamo_img_1') ?>" class="w-100">
             </div>
         </div>
         <div class="row mb-3 d-none d-md-flex">
             <div class="col-12 col-md-6">
-                <img src="<?= get_stylesheet_directory_uri() . '/assets/images/chi-siamo-2.png' ?>" class="w-100">
+                <img src="<?= get_option('mc_chi_siamo_img_2') ?>" class="w-100">
             </div>
 
             <div class="col-12 col-md-6">
@@ -48,7 +48,7 @@
             </div>
 
             <div class="col-12 col-md-6">
-                <img src="<?= get_stylesheet_directory_uri() . '/assets/images/chi-siamo-2.png' ?>" class="w-100">
+                <img src="<?= get_option('mc_chi_siamo_img_2') ?>" class="w-100">
             </div>
         </div>
         <div class="row mb-3">
