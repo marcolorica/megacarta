@@ -22,13 +22,13 @@
                     <div class="col-12">
                         <input type="file" style="display:none" name="main_img" form="form-page">
                         
-                        <h4>Immagine principale <span class="text-red">*</span></h4>
+                        <h4>Immagine principale <span class="text-danger">*</span></h4>
                         <img src="<?= $datas->main_img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100">
                     </div>
 
                     <?php if($pagina == 'home') : ?>
                         <div class="col-12">
-                            <h4>Categorie in vetrina <span class="text-red">*</span></h4>
+                            <h4>Categorie in vetrina <span class="text-danger">*</span></h4>
                             <div class="edit-categories">
                                 <ul>
                                     <?php foreach($categories as $c) : ?>
@@ -55,7 +55,7 @@
                         </div>
 
                         <div class="col-12">
-                            <h4>Sezione con mappa <span class="text-red">*</span></h4>
+                            <h4>Sezione con mappa <span class="text-danger">*</span></h4>
                             
                             <div class="row">
                                 <div class="col-6">
@@ -72,7 +72,7 @@
                         
                     <?php if($pagina == 'chi-siamo') : ?>
                         <div class="col-12">
-                            <h4>Prima Sezione <span class="text-red">*</span></h4>
+                            <h4>Prima Sezione <span class="text-danger">*</span></h4>
 
                             <div class="row">
                                 <div class="col-6">
@@ -87,7 +87,7 @@
                         </div>
 
                         <div class="col-12">
-                            <h4>Seconda Sezione <span class="text-red">*</span></h4>
+                            <h4>Seconda Sezione <span class="text-danger">*</span></h4>
 
                             <div class="row">
                                 <div class="col-6">
@@ -111,7 +111,7 @@
                     
                     <?php if($pagina == 'contatti') : ?>
                         <div class="col-12">
-                            <h4>Imposta i tuoi dati di contatto <span class="text-red">*</span></h4>
+                            <h4>Imposta i tuoi dati di contatto <span class="text-danger">*</span></h4>
     
                             <div class="socials mt-3 <?= wp_is_mobile() ? 'mobile' : '' ?>">
                                 <label class="phone d-block"><i class="fa-solid fa-phone"></i></label>
