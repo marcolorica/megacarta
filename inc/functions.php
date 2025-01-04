@@ -264,6 +264,7 @@ function mc_get_page_datas($pagina) {
 
     $return = (object) array_map(function($info) {
         $info = is_array($info) ? (object) $info : $info;
+        return $info;
     }, $return);
 
     return $return;
