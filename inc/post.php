@@ -43,7 +43,7 @@ function admin_save_page_edits() {
             $img = $img ? (object) $img : null;
 
             if($img && !empty($img->name)) {
-                $file_type = mime_content_type($img_tmp_name);
+                $file_type = mime_content_type($img->tmp_name);
                 $upload = mc_upload_image_in_theme($img->name, $img->tmp_name, $file_type);
 
                 if($upload->status != 'success') {
