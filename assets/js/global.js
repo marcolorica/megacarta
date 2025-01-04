@@ -105,7 +105,7 @@ function deleteCategory(id) {
     
 }
 
-function changeImg(el) {
+function changeImg(el, noTitle) {
     let $input = jQuery(el);
     let file = $input.get(0).files[0];
     
@@ -113,7 +113,10 @@ function changeImg(el) {
         let reader = new FileReader();
 
         reader.onload = (e) => {
-            let $img = $input.next().next();
+            let $img = $input.next();
+            
+            if(!noTitle)
+                $img = $img.next();
 
             $img.removeClass('ph')
                 .attr('src', e.target.result);
