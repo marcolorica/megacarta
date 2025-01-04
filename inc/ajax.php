@@ -6,8 +6,6 @@ add_action('wp_ajax_remove_cart_item',"remove_cart_item");
 add_action('wp_ajax_nopriv_update_cart_items',"update_cart_items");
 add_action('wp_ajax_update_cart_items',"update_cart_items");
 
-add_action('wp_ajax_admin_save_page_edits',"admin_save_page_edits");
-
 function update_cart_items() {
     $request = (object) $_POST;
 

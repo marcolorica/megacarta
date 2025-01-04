@@ -3,7 +3,7 @@
 add_action('admin_post_admin_login', 'admin_login_action_handler');
 add_action('admin_post_nopriv_admin_login', 'admin_login_action_handler');
 
-add_action('admin_post_save_page_edits', 'admin_save_page_edits_action_handler');
+add_action('admin_post_save_page_edits', 'admin_save_page_edits');
 
 function admin_login_action_handler() {
     $request = (object) $_POST;
