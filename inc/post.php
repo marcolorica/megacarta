@@ -49,10 +49,6 @@ function admin_save_page_edits() {
     ];
 
     foreach($to_update as $name) {
-        if($name == 'home_categories') {
-            var_dump($request->$name);die;
-        }
-
         update_option('mc_' . $name, ($request->$name ?? null));
     }
 
