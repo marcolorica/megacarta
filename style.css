@@ -1079,11 +1079,17 @@ a {
 }
 
 .card-pagina {
+  cursor: pointer;
+  transition: .3s;
   aspect-ratio: 1/1;
 }
 
 .card-pagina .card-body {
   position: relative;
+}
+
+.card-pagina:hover .card-body {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .15);
 }
 
 .card-pagina .card-body h3 {
