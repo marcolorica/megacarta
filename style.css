@@ -749,7 +749,7 @@ section.gallery-section .image-container > img {
 
 
 .intestazione {
-  background-image: url(assets/images/homepage-bg.jpg);
+  /* background-image: url(assets/images/homepage-bg.jpg); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

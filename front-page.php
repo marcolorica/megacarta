@@ -3,7 +3,15 @@
 <?php
     $home = mc_get_page_datas('home');
     $categories = mc_get_categories_catalogue();
+
+    $main_img = str_replace(PHP_URL_PATH . '/wp-content/themes/megacarta-theme/', '', get_option('mc_home_main_img'));
 ?>
+
+<style>
+    .intestazione {
+        background-image: url(<?= $main_img ?>);
+    }
+</style>
 
 <section class="intestazione">
     <div class="container-fluid">
