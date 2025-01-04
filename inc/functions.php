@@ -219,11 +219,11 @@ function mc_get_page_datas($pagina) {
 
     switch($pagina) {
         case 'home':
-            $return = [
+            $return = (object) [
                 'title' => 'Home',
                 'main_img' => get_option('mc_home_main_img'),
-                'categories' => get_option('mc_home_categories') ? (array) get_option('mc_home_categories') : [],
-                'map_section' => [
+                'categories' => get_option('mc_home_categories'),
+                'map_section' => (object) [
                     'title' => get_option('mc_home_map_title'),
                     'text' => get_option('mc_home_map_text'),
                 ]
@@ -231,20 +231,20 @@ function mc_get_page_datas($pagina) {
             break;
 
         case 'chi-siamo':
-            $return = [
+            $return = (object) [
                 'title' => 'Chi Siamo',
                 'main_img' => get_option('mc_chi_siamo_main_img'),
-                'first_section' => [
+                'first_section' => (object) [
                     'title' => get_option('mc_chi_siamo_title_1'),
                     'text' => get_option('mc_chi_siamo_text_1'),
                     'img' => get_option('mc_chi_siamo_img_1'),
                 ],
-                'second_section' => [
+                'second_section' => (object) [
                     'title' => get_option('mc_chi_siamo_title_2'),
                     'text' => get_option('mc_chi_siamo_text_2'),
                     'img' => get_option('mc_chi_siamo_img_2'),
                 ],
-                'third_section' => [
+                'third_section' => (object) [
                     'p1' => get_option('mc_chi_siamo_content_1'),
                     'p2' => get_option('mc_chi_siamo_content_2')
                 ]
@@ -252,7 +252,7 @@ function mc_get_page_datas($pagina) {
             break;
 
         case 'contatti':
-            $return = [
+            $return = (object) [
                 'title' => 'Contatti',
                 'main_img' => get_option('mc_contatti_main_img'),
                 'phone' => get_option('mc_contacts_phone'),
@@ -261,10 +261,6 @@ function mc_get_page_datas($pagina) {
             ];
             break;
     }
-
-    $return = (object) array_map(function($info) {
-        return is_array($info) ? (object) $info : $info;
-    }, $return);
 
     return $return;
 }
