@@ -48,6 +48,8 @@ function admin_save_page_edits() {
     $contacts_whatsapp = $request->contacts_whatsapp ?? null;
     $contacts_email = $request->contacts_email ?? null;
 
+    var_dump($home_categories);die;
+
     update_option('mc_home_main_img', $home_main_img);
     update_option('mc_home_categories', $home_categories);
     update_option('mc_home_map_title', $home_map_title);
