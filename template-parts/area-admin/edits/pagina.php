@@ -135,27 +135,21 @@
                             
                             <h4 class="mb-3">Immagine principale <span class="text-danger">*</span></h4>
                             <img src="<?= $datas->main_img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 mb-5 img-for-edit main-img rounded <?= !$datas->main_img ? 'ph'  : '' ?>">
-
-                            <h4 class="mb-3">Sezione con mappa <span class="text-danger">*</span></h4>
-                            
-                            <input type="text" class="form-control mb-3" name="home_map_title" placeholder="Titolo" value="<?= $datas->map_section->title ?>" form="form-page" required>
-                            <textarea rows="13" class="form-control" name="home_map_text" placeholder="Contenuto" form="form-page" required><?= $datas->map_section->text ?></textarea>
-                            <p class="text-secondary mt-3" style="font-size:13px;font-style:italic">Per modificare l'indirizzo della mappa vai a <a href="/area-admin/impostazioni">Impostazioni</a></p>
                         </div>
 
                         <div class="col-6">
                             <h4 class="mb-3">Imposta i tuoi dati di contatto <span class="text-danger">*</span></h4>
     
                             <div class="socials mt-3 flex-column">
-                                <div class="d-flex">
+                                <div class="d-flex w-100 align-items-center mb-3">
                                     <label class="phone d-block"><i class="fa-solid fa-phone"></i></label>
                                     <input type="text" class="form-control" name="contacts_phone" placeholder="+393333333333" form="form-page" value="<?= $datas->phone ?>" required>
                                 </div>
-                                <div class="d-flex">
+                                <div class="d-flex w-100 align-items-center mb-3">
                                     <label class="whatsapp d-block"><i class="fa-brands fa-whatsapp"></i></label>
                                     <input type="text" class="form-control" name="contacts_whatsapp" placeholder="+393333333333" form="form-page" value="<?= $datas->whatsapp ?>" required>
                                 </div>
-                                <div class="d-flex">
+                                <div class="d-flex w-100 align-items-center">
                                     <label class="email d-block"><i class="fa-regular fa-envelope"></i></label>
                                     <input type="email" class="form-control" name="contacts_email" placeholder="mario.rossi@gmail.com" form="form-page" value="<?= $datas->email ?>" required>
                                 </div>
