@@ -7,6 +7,7 @@
 
 <form action="<?= esc_url(admin_url('admin-post.php')); ?>" id="form-page" enctype="multipart/form-data">
     <input type="hidden" name="action" value="save_page_edits">
+    <input type="hidden" name="pagina" value="<?= $pagina ?>">
 </form>
 
 <section class="admin-body pt-5">
