@@ -41,7 +41,7 @@
 
                                             <?php if(count($c->children)) : ?>
                                                 <ul>
-                                                    <?php foreach($subc->children as $subc) : ?>
+                                                    <?php foreach($c->children as $subc) : ?>
                                                         <li>
                                                             <label for="subc-<?= $subc->id ?>">
                                                                 <input id="subc-<?= $subc->id ?>" class="form-check me-2" type="checkbox" name="home_categories[]" form="form-page" <?= in_array($subc->id, $datas->categories ?: []) ? 'checked' : '' ?>><?= $subc->name ?>
