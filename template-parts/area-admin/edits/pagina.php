@@ -55,7 +55,7 @@
                                                                 name="home_categories[]"
                                                                 form="form-page"
                                                                 value="<?= $subc->slug ?>"
-                                                                <?= in_array($c->slug, $datas->categories ?: []) ? 'checked' : '' ?>><?= $subc->name ?>
+                                                                <?= in_array($subc->slug, $datas->categories ?: []) ? 'checked' : '' ?>><?= $subc->name ?>
                                                     </label>
                                                 <?php endforeach; ?>
 
@@ -67,7 +67,7 @@
                                                                 name="home_categories[]"
                                                                 form="form-page"
                                                                 value="<?= $c->slug ?>"
-                                                                <?= in_array($subc->slug, $datas->categories ?: []) ? 'checked' : '' ?>><?= $c->name ?>
+                                                                <?= in_array($c->slug, $datas->categories ?: []) ? 'checked' : '' ?>><?= $c->name ?>
                                                     </label>
                                                 <?php endif; ?>
                                             </div>
