@@ -35,16 +35,16 @@
                                 <ul>
                                     <?php foreach($categories as $c) : ?>
                                         <li>
-                                            <label for="c-<?= $c->term_id ?>">
-                                                <input id="subc-<?= $c->term_id ?>" class="form-check me-2" type="checkbox" name="home_categories[]" form="form-page" <?= in_array($c->term_id, $datas->categories) ? 'checked' : '' ?>><?= $c->name ?>
+                                            <label for="c-<?= $c->id ?>">
+                                                <input id="subc-<?= $c->id ?>" class="form-check me-2" type="checkbox" name="home_categories[]" form="form-page" <?= in_array($c->id, $datas->categories) ? 'checked' : '' ?>><?= $c->name ?>
                                             </label>
 
                                             <?php if(count($c->children)) : ?>
                                                 <ul>
                                                     <?php foreach($subc->children as $subc) : ?>
                                                         <li>
-                                                            <label for="subc-<?= $subc->term_id ?>">
-                                                                <input id="subc-<?= $subc->term_id ?>" class="form-check me-2" type="checkbox" name="home_categories[]" form="form-page" <?= in_array($subc->term_id, $datas->categories) ? 'checked' : '' ?>><?= $subc->name ?>
+                                                            <label for="subc-<?= $subc->id ?>">
+                                                                <input id="subc-<?= $subc->id ?>" class="form-check me-2" type="checkbox" name="home_categories[]" form="form-page" <?= in_array($subc->id, $datas->categories) ? 'checked' : '' ?>><?= $subc->name ?>
                                                             </label>
                                                         </li>
                                                     <?php endforeach; ?>
