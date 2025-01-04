@@ -43,10 +43,10 @@
                                 foreach($categories as $cid => $c) : 
                                     $cid = str_replace('c-', '', $cid);
                                 ?>
-                                    <label for="cat-<?= "$cid" ?>">
+                                    <label for="cat-<?= "$cid" ?>" class="label-home">
                                         <input id="cat-<?= "$cid" ?>"
                                                 type="checkbox"
-                                                class="form-check me-2 label-home"
+                                                class="form-check me-"
                                                 name="home_categories[]"
                                                 form="form-page"
                                                 value="<?= $c->slug ?>"
