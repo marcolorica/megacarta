@@ -3,6 +3,8 @@
     $datas = mc_get_page_datas($pagina);
 
     $categories = mc_get_categories_catalogue();
+
+    var_dump($datas->categories);
 ?>
 
 <form action="<?= esc_url(admin_url('admin-post.php')); ?>" id="form-page" method="POST" enctype="multipart/form-data">
