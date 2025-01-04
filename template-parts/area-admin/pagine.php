@@ -3,19 +3,19 @@
         (object) [
             'name' => 'Home',
             'slug' => 'home',
-            'icon' => 'fa-solid house',
+            'icon' => 'fa-solid fa-house',
             'text' => 'Modifica la pagina principale'
         ],
         (object) [
             'name' => 'Chi Siamo',
             'slug' => 'chi-siamo',
-            'icon' => 'fa-solid map',
+            'icon' => 'fa-solid fa-map',
             'text' => 'Modifica la pagina descrittiva dell\'azienda'
         ],
         (object) [
             'name' => 'Contatti',
             'slug' => 'contatti',
-            'icon' => 'fa-regular address-book',
+            'icon' => 'fa-regular fa-address-book',
             'text' => 'Modifica la pagina che permette agli utenti di contattarti'
         ]
     ];
@@ -32,10 +32,10 @@
                 <div class="row row-pagine">
                     <?php foreach($pages as $page) : ?>
                         <div class="col-4">
-                            <div class="card w-100">
+                            <div class="card w-100 card-pagina">
                                 <div class="card-body">
                                     <h5 class="card-title"><i class="<?= $page->icon ?> me-2"></i><?= $page->name ?></h5>
-                                    <p class="card-text"><?= $page->text ?></p>
+                                    <p class="card-text text-center"><?= $page->text ?></p>
                                     <a class="btn azione-mc btn-outline-primary w-100" href="/area-admin/pagine/pagina?slug=<?= $page->slug ?>"><i class="fa-solid fa-pencil fa-fw text-primary"></i></a>
                                 </div>
                             </div>
