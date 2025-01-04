@@ -1080,28 +1080,27 @@ a {
 
 .card-pagina {
   cursor: pointer;
-  transition: .3s;
   aspect-ratio: 1/1;
 }
 
 .card-pagina .card-body {
   position: relative;
+  transition: .3s;
 }
 
 .card-pagina:hover .card-body {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .15);
+  box-shadow: 0 0.5rem 1rem #0d6efd35;
 }
 
 .card-pagina .card-body h3 {
   width: 40%;
   border: 3px solid #0d6efd;
-  margin: 0 auto;
+  margin: 20px auto 50px auto;
   aspect-ratio: 1/1;
   border-radius: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
 }
 
 .card-pagina .card-body h3 i {
