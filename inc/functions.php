@@ -191,10 +191,7 @@ function mc_get_page_datas($pagina) {
                     'text' => get_option('mc_chi_siamo_text_2'),
                     'img' => get_option('mc_chi_siamo_img_2'),
                 ],
-                'third_section' => (object) [
-                    'p1' => get_option('mc_chi_siamo_content_1'),
-                    'p2' => get_option('mc_chi_siamo_content_2')
-                ]
+                'third_section' => get_option('mc_chi_siamo_content')
             ];
             break;
 

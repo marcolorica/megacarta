@@ -51,8 +51,7 @@ function admin_save_page_edits() {
                 'chi_siamo_title_2',
                 'chi_siamo_text_2',
                 'chi_siamo_img_2',
-                'chi_siamo_content_1',
-                'chi_siamo_content_2'
+                'chi_siamo_content',
             ];
             
             break;
