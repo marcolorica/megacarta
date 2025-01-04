@@ -4,7 +4,7 @@
 
     $categories = mc_get_categories_catalogue();
 
-    var_dump($datas->categories);
+    var_dump($datas->categories);die;
 ?>
 
 <form action="<?= esc_url(admin_url('admin-post.php')); ?>" id="form-page" method="POST" enctype="multipart/form-data">
