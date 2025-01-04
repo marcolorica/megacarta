@@ -17,7 +17,7 @@
             </div>
 
             <div class="col-12 text-center">
-                <h2 class="mb-3">Modifica pagina <b><?= $datas->title ?></b></h2>
+                <h2 class="mb-5">Modifica pagina <b><?= $datas->title ?></b></h2>
             </div>
             <div class="col-12">
                 <div class="row">
@@ -25,10 +25,10 @@
                         <div class="col-6">
                             <input type="file" style="display:none" name="main_img" form="form-page">
                             
-                            <h4>Immagine principale <span class="text-danger">*</span></h4>
-                            <img src="<?= $datas->main_img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100">
+                            <h4 class="mb-3">Immagine principale <span class="text-danger">*</span></h4>
+                            <img src="<?= $datas->main_img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 mb-5">
 
-                            <h4>Sezione con mappa <span class="text-danger">*</span></h4>
+                            <h4 class="mb-3">Sezione con mappa <span class="text-danger">*</span></h4>
                             
                             <input type="text" class="form-control mb-3" name="home_map_title" placeholder="Titolo" value="<?= $datas->map_section->title ?>" form="form-page" required>
                             <textarea rows="10" class="form-control" name="home_map_text" placeholder="Contenuto" form="form-page" required><?= $datas->map_section->text ?></textarea>
@@ -36,7 +36,7 @@
                         </div>
 
                         <div class="col-6">
-                            <h4>Categorie in vetrina <span class="text-danger">*</span></h4>
+                            <h4 class="mb-3">Categorie in vetrina <span class="text-danger">*</span></h4>
 
                             <div class="accordion mb-4" id="accordionEditPage">
                                 <?php foreach($categories as $cid => $c) : $cid = str_replace('c-', '', $cid); ?>
