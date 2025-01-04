@@ -97,7 +97,7 @@
                         <div class="col-12">
                             <h4 class="mb-3">Terza Sezione</h4>
 
-                            <textarea rows="13" class="form-control mb-3" name="chi_siamo_content" placeholder="Contenuto 1" form="form-page"><?= $datas->third_section ?></textarea>
+                            <textarea rows="13" class="form-control mb-3" name="chi_siamo_content" placeholder="Contenuto" form="form-page"><?= $datas->third_section ?></textarea>
                         </div>
                     <?php endif; ?>
                     

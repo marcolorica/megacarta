@@ -166,32 +166,43 @@ function mc_get_page_datas($pagina) {
         case 'home':
             $cats = get_option('mc_home_categories');
 
+            $title = get_option('mc_home_map_title');
+            $text = get_option('mc_home_map_text');
+
             $return = (object) [
                 'title' => 'Home',
                 'main_img' => get_option('mc_home_main_img'),
                 'categories' => $cats && is_array($cats) ? $cats : null,
                 'map_section' => (object) [
-                    'title' => get_option('mc_home_map_title'),
-                    'text' => get_option('mc_home_map_text'),
+                    'title' => $title ? strip_slashes($title) : '',
+                    'text' => $text ? strip_slashes($text) : ''
                 ]
             ];
             break;
 
         case 'chi-siamo':
+            $title_1 = get_option('mc_chi_siamo_title_1');
+            $text_1 = get_option('mc_chi_siamo_text_1');
+
+            $title_2 = get_option('mc_chi_siamo_title_2');
+            $text_2 = get_option('mc_chi_siamo_text_2');
+
+            $text_3 = get_option('mc_chi_siamo_content');
+
             $return = (object) [
                 'title' => 'Chi Siamo',
                 'main_img' => get_option('mc_chi_siamo_main_img'),
                 'first_section' => (object) [
-                    'title' => get_option('mc_chi_siamo_title_1'),
-                    'text' => get_option('mc_chi_siamo_text_1'),
+                    'title' => $title_1 ? strip_slashes($title_1) : '',
+                    'text' => $text_1 ? strip_slashes($text_1) : '',
                     'img' => get_option('mc_chi_siamo_img_1'),
                 ],
                 'second_section' => (object) [
-                    'title' => get_option('mc_chi_siamo_title_2'),
-                    'text' => get_option('mc_chi_siamo_text_2'),
+                    'title' => $title_2 ? strip_slashes($title_2) : '',
+                    'text' => $text_2 ? strip_slashes($text_2) : '',
                     'img' => get_option('mc_chi_siamo_img_2'),
                 ],
-                'third_section' => get_option('mc_chi_siamo_content')
+                'third_section' => $text_3 ? strip_slashes($text_3) : '',
             ];
             break;
 
