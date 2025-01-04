@@ -219,10 +219,12 @@ function mc_get_page_datas($pagina) {
 
     switch($pagina) {
         case 'home':
+            $cats = get_option('mc_home_categories');
+
             $return = (object) [
                 'title' => 'Home',
                 'main_img' => get_option('mc_home_main_img'),
-                'categories' => get_option('mc_home_categories'),
+                'categories' => $cats && is_array($cats) ? $cats : null,
                 'map_section' => (object) [
                     'title' => get_option('mc_home_map_title'),
                     'text' => get_option('mc_home_map_text'),
