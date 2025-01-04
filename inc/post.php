@@ -43,7 +43,8 @@ function admin_save_page_edits() {
             $img = $img ? (object) $img : null;
 
             if($img && !empty($img->name)) {
-                $upload = mc_upload_image_in_theme($img->name, $img->tmp_name);
+                $file_type = mime_content_type($img_tmp_name);
+                $upload = mc_upload_image_in_theme($img->name, $img->tmp_name, $file_type);
 
                 if($upload->status != 'success') {
                     $_SESSION['error'] = $upload->message;
@@ -51,7 +52,7 @@ function admin_save_page_edits() {
                     exit();
                 }
                 
-                update_option('mc_home_main_img', get_stylesheet_directory_uri() . "/assets/images/pages/homepage-bg." . explode('/', mime_content_type($img->tmp_name))[1]);
+                update_option('mc_home_main_img', get_stylesheet_directory_uri() . "/assets/images/pages/homepage-bg." . explode('/', $file_type)[1]);
             }
 
             break;
