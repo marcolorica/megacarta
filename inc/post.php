@@ -51,8 +51,11 @@ function admin_save_page_edits() {
                     wp_redirect('/area-admin/pagine/pagina?slug=' . $pagina);
                     exit();
                 }
+
+                $ext = explode('/', $file_type)[1];
+                $ext = $ext == 'jpeg' ? 'jpg' : $ext;
                 
-                update_option('mc_home_main_img', get_stylesheet_directory_uri() . "/assets/images/homepage-bg." . explode('/', $file_type)[1]);
+                update_option('mc_home_main_img', get_stylesheet_directory_uri() . "/assets/images/homepage-bg." . $ext);
             }
 
             break;
@@ -84,8 +87,11 @@ function admin_save_page_edits() {
                         wp_redirect('/area-admin/pagine/pagina?slug=' . $pagina);
                         exit();
                     }
+
+                    $ext = explode('/', $file_type)[1];
+                    $ext = $ext == 'jpeg' ? 'jpg' : $ext;
                     
-                    update_option('mc_' . $img_name, get_stylesheet_directory_uri() . "/assets/images/chi-siamo-bg." . explode('/', mime_content_type($img->tmp_name))[1]);
+                    update_option('mc_' . $img_name, get_stylesheet_directory_uri() . "/assets/images/chi-siamo-bg." . $ext);
                 }
             }
             
@@ -110,8 +116,11 @@ function admin_save_page_edits() {
                     wp_redirect('/area-admin/pagine/pagina?slug=' . $pagina);
                     exit();
                 }
+
+                $ext = explode('/', $file_type)[1];
+                $ext = $ext == 'jpeg' ? 'jpg' : $ext;
                 
-                update_option('mc_contatti_main_img', get_stylesheet_directory_uri() . "/assets/images/contatti-bg." . explode('/', mime_content_type($img->tmp_name))[1]);
+                update_option('mc_contatti_main_img', get_stylesheet_directory_uri() . "/assets/images/contatti-bg." . $ext);
             }
             
             break;
