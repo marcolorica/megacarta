@@ -67,7 +67,7 @@
                                                     <label for="cat-<?= "$cid-$sid" ?>">
                                                         <input id="cat-<?= "$cid-$sid" ?>"
                                                                 type="checkbox"
-                                                                class="form-check"
+                                                                class="form-check me-2"
                                                                 name="home_categories[]"
                                                                 form="form-page"
                                                                 value="<?= $subc->slug ?>"
@@ -79,7 +79,7 @@
                                                     <label for="cat-<?= "$cid" ?>">
                                                         <input id="cat-<?= "$cid" ?>"
                                                                 type="checkbox"
-                                                                class="form-check"
+                                                                class="form-check me-2"
                                                                 name="home_categories[]"
                                                                 form="form-page"
                                                                 value="<?= $c->slug ?>"
