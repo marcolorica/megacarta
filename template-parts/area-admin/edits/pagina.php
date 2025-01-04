@@ -43,7 +43,7 @@
                                 <?php
                                     foreach($categories as $cid => $c) : 
                                         $cid = str_replace('c-', '', $cid);
-                                        $opened = count($categories->children) ? !empty(array_intersect($datas->categories, array_column(json_decode(json_encode($categories->children), true), 'slug'))) : in_array($c->slug, $datas->categories ?: []);
+                                        $opened = count($c->children) ? !empty(array_intersect($datas->categories, array_column(json_decode(json_encode($c->children), true), 'slug'))) : in_array($c->slug, $datas->categories ?: []);
                                 ?>
                                     <div class="accordion-item">
                                         <h2 class="accordion-header">
