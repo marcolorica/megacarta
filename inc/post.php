@@ -80,7 +80,7 @@ function admin_save_page_edits() {
                 $img = $img ? (object) $img : null;
 
                 if($img && !empty($img->name)) {
-                    $upload = mc_upload_image_in_theme($$img->name, $img->tmp_name);
+                    $upload = mc_upload_image_in_theme($img->name, $img->tmp_name);
     
                     if($upload->status != 'success') {
                         $_SESSION['error'] = $upload->message;
@@ -109,7 +109,7 @@ function admin_save_page_edits() {
             $img = $img ? (object) $img : null;
 
             if($img && !empty($img->name)) {
-                $upload = mc_upload_image_in_theme($$img->name, $img->tmp_name);
+                $upload = mc_upload_image_in_theme($img->name, $img->tmp_name);
 
                 if($upload->status != 'success') {
                     $_SESSION['error'] = $upload->message;
