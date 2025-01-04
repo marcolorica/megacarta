@@ -233,16 +233,16 @@ function mc_upload_image_in_theme($img_name, $img_tmp_name) {
     $file_type = mime_content_type($img_tmp_name);
     
     if(!in_array($file_type, $allowed_types))
-        return [
+        return (object) [
             'status' => 'error',
             'message' => 'Errore: Il file deve essere un\'immagine (JPG, JPEG, PNG o GIF)'
         ];
 
     if(!move_uploaded_file($img_tmp_name, $target_file))
-        return [
+        return (object) [
             'status' => 'error',
             'message' => 'Errore nel caricamento dell\'immagine'
         ];
 
-    return ['status' => 'success'];
+    return (object) ['status' => 'success'];
 }
