@@ -36,7 +36,7 @@
                                     <?php foreach($categories as $c) : ?>
                                         <li>
                                             <label for="c-<?= $c->id ?>">
-                                                <input id="c-<?= $c->id ?>" class="form-check me-2" type="checkbox" name="home_categories[]" form="form-page" <?= in_array($c->id, $datas->categories ?: []) ? 'checked' : '' ?>><?= $c->name ?>
+                                                <input id="c-<?= $c->id ?>" class="me-2" type="checkbox" name="home_categories[]" form="form-page" <?= in_array($c->id, $datas->categories ?: []) ? 'checked' : '' ?>><?= $c->name ?>
                                             </label>
 
                                             <?php if(count($c->children)) : ?>
@@ -44,7 +44,7 @@
                                                     <?php foreach($c->children as $subc) : ?>
                                                         <li>
                                                             <label for="subc-<?= $subc->id ?>">
-                                                                <input id="subc-<?= $subc->id ?>" class="form-check me-2" type="checkbox" name="home_categories[]" form="form-page" <?= in_array($subc->id, $datas->categories ?: []) ? 'checked' : '' ?>><?= $subc->name ?>
+                                                                <input id="subc-<?= $subc->id ?>" class="me-2" type="checkbox" name="home_categories[]" form="form-page" <?= in_array($subc->id, $datas->categories ?: []) ? 'checked' : '' ?>><?= $subc->name ?>
                                                             </label>
                                                         </li>
                                                     <?php endforeach; ?>
@@ -61,7 +61,7 @@
                             
                             <div class="row">
                                 <div class="col-6">
-                                    <input type="text" class="form-control" name="home_map_title" placeholder="Titolo" value="<?= $datas->map_section->title ?>" form="form-page" required>
+                                    <input type="text" class="form-control mb-3" name="home_map_title" placeholder="Titolo" value="<?= $datas->map_section->title ?>" form="form-page" required>
                                     <textarea rows="10" class="form-control" name="home_map_text" placeholder="Contenuto" form="form-page" required><?= $datas->map_section->text ?></textarea>
                                 </div>
                                 <div class="col-6">
