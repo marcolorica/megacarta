@@ -2,6 +2,8 @@
     $pagina = $_GET['slug'];
     $datas = mc_get_page_datas($pagina);
 
+    var_dump($datas);die;
+
     $categories = mc_get_categories_catalogue();
 ?>
 
