@@ -74,7 +74,7 @@
                                 </div>
                                 <div class="col-6">
                                     <input type="file" style="display:none" name="chi_siamo_img_1" form="form-page" onchange="changeImg(this)">  
-                                    <img src="<?= $datas->first_section->img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 img-for-edit rounded <?= !$datas->first_section->img ? 'ph'  : '' ?>" onclick="jQuery(this).prev().prev().click()">
+                                    <img src="<?= $datas->first_section->img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 img-for-edit rounded <?= !$datas->first_section->img ? 'ph'  : '' ?>" onclick="jQuery(this).prev().click()">
                                 </div>
                             </div>
                         </div>
@@ -89,7 +89,7 @@
                                 </div>
                                 <div class="col-6">
                                     <input type="file" style="display:none" name="chi_siamo_img_2" form="form-page" onchange="changeImg(this)">
-                                    <img src="<?= $datas->second_section->img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 img-for-edit rounded <?= !$datas->second_section->img ? 'ph'  : '' ?>" onclick="jQuery(this).prev().prev().click()">
+                                    <img src="<?= $datas->second_section->img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 img-for-edit rounded <?= !$datas->second_section->img ? 'ph'  : '' ?>" onclick="jQuery(this).prev().click()">
                                 </div>
                             </div>
                         </div>
