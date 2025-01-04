@@ -1,6 +1,12 @@
 <?php get_header(); ?>
 <?php $chi_siamo = mc_get_page_datas('chi-siamo'); ?>
 
+<style>
+    .intestazione.mg-chi-siamo {
+        background-image: url(<?= get_option('mc_chi_siamo_main_img') ?>);
+    }
+</style>
+
 <section class="intestazione mg-chi-siamo">
     <div class="container-fluid">
         <div class="row">

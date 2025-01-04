@@ -1,5 +1,11 @@
 <?php get_header(); ?>
 
+<style>
+    .intestazione.mg-contacts {
+       background-image: url(<?= get_option('mc_contatti_main_img') ?>);
+    }
+</style>
+
 <section class="intestazione mg-contacts">
     <div class="container-fluid">
         <div class="row">

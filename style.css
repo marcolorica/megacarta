@@ -756,13 +756,13 @@ section.gallery-section .image-container > img {
 }
 
 .intestazione.mg-contacts {
-  background-image: url(assets/images/contatti-bg.jpg);
+  /* background-image: url(assets/images/contatti-bg.jpg); */
   background-position: top;
 }
 
-.intestazione.mg-chi-siamo {
+/* .intestazione.mg-chi-siamo {
   background-image: url(assets/images/chi-siamo-bg.jpg);
-}
+} */
 
 .mc-overlay {
   min-height: 80vh;
