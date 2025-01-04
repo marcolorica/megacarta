@@ -238,7 +238,7 @@ function mc_upload_image_in_theme($img_name, $img_tmp_name) {
             'message' => 'Errore: Il file deve essere un\'immagine (JPG, JPEG, PNG o GIF)'
         ];
 
-    if(!move_uploaded_file($file_tmp, $target_file))
+    if(!move_uploaded_file($img_tmp_name, $target_file))
         return [
             'status' => 'error',
             'message' => 'Errore nel caricamento dell\'immagine'
