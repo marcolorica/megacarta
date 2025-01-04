@@ -1117,3 +1117,13 @@ a {
   cursor: pointer;
   display: flex;
 }
+
+.img-for-edit {
+  aspect-ratio: 8/3;
+  object-fit: cover;
+}
+
+.img-for-edit.ph {
+  object-fit: contain;
+  background-color: #e9eef1;
+}
