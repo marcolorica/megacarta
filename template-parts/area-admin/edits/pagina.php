@@ -31,7 +31,7 @@
                     <?php if($pagina == 'home') : ?>
                         <div class="col-6">
                             <h4>Categorie in vetrina <span class="text-danger">*</span></h4>
-                            <div class="edit-categories">
+                            <!-- <div class="edit-categories">
                                 <ul>
                                     <?php foreach($categories as $c) : ?>
                                         <li>
@@ -53,10 +53,9 @@
                                         </li>
                                     <?php endforeach; ?>
                                 </ul>
-                            </div>
+                            </div> -->
 
                             <div class="accordion mb-4" id="accordionPanelsStayOpenExample">
-
                                 <?php foreach($categories as $cid => $c) : $cid = str_replace('c-', '', $cid); ?>
                                     <div class="accordion-item">
                                         <h2 class="accordion-header">
@@ -91,7 +90,6 @@
                                         </div>
                                     </div>
                                 <?php endforeach; ?>
-
                             </div>
 
                         </div>
