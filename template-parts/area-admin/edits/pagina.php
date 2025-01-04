@@ -39,47 +39,20 @@
                         <div class="col-6">
                             <h4 class="mb-3">Categorie in vetrina <span class="text-danger">*</span></h4>
 
-                            <div class="accordion mb-4" id="accordionEditPage">
-                                <?php
-                                    foreach($categories as $cid => $c) : 
-                                        $cid = str_replace('c-', '', $cid);
-                                        $opened = count($c->children) ? !empty(array_intersect($datas->categories ?: [], array_column(json_decode(json_encode($c->children), true), 'slug'))) : in_array($c->slug, $datas->categories ?: []);
+                            <?php
+                                foreach($categories as $cid => $c) : 
+                                    $cid = str_replace('c-', '', $cid);
                                 ?>
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header">
-                                            <button class="accordion-button <?= $opened ? '' : 'collapsed' ?>" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse<?= $cid ?>" aria-expanded="<?= $opened ? 'true' : 'false' ?>" aria-controls="panelsStayOpen-collapse<?= $cid ?>"><?= $c->name ?></button>
-                                        </h2>
-                                        <div id="panelsStayOpen-collapse<?= $cid ?>" class="accordion-collapse collapse <?= $opened ? 'show' : '' ?>">
-                                            <div class="accordion-body">
-                                                <?php foreach($c->children as $sid => $subc) : ?>
-                                                    <label for="cat-<?= "$cid-$sid" ?>">
-                                                        <input id="cat-<?= "$cid-$sid" ?>"
-                                                                type="checkbox"
-                                                                class="form-check me-2"
-                                                                name="home_categories[]"
-                                                                form="form-page"
-                                                                value="<?= $subc->slug ?>"
-                                                                <?= in_array($subc->slug, $datas->categories ?: []) ? 'checked' : '' ?>><?= $subc->name ?>
-                                                    </label>
-                                                <?php endforeach; ?>
-
-                                                <?php if(empty($c->children)) : ?>
-                                                    <label for="cat-<?= "$cid" ?>">
-                                                        <input id="cat-<?= "$cid" ?>"
-                                                                type="checkbox"
-                                                                class="form-check me-2"
-                                                                name="home_categories[]"
-                                                                form="form-page"
-                                                                value="<?= $c->slug ?>"
-                                                                <?= in_array($c->slug, $datas->categories ?: []) ? 'checked' : '' ?>><?= $c->name ?>
-                                                    </label>
-                                                <?php endif; ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php endforeach; ?>
-                            </div>
-
+                                    <label for="cat-<?= "$cid" ?>">
+                                        <input id="cat-<?= "$cid" ?>"
+                                                type="checkbox"
+                                                class="form-check me-2"
+                                                name="home_categories[]"
+                                                form="form-page"
+                                                value="<?= $c->slug ?>"
+                                                <?= in_array($c->slug, $datas->categories ?: []) ? 'checked' : '' ?>><?= $c->name ?>
+                                    </label>
+                            <?php endforeach; ?>
                         </div>
                     <?php endif; ?>
                         

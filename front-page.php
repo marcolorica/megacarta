@@ -1,6 +1,9 @@
 <?php get_header(); ?>
 
-<?php $cats = mc_get_categories_home(); ?>
+<?php
+    $home = mc_get_page_datas('home');
+    $categories = mc_get_categories_catalogue();
+?>
 
 <section class="intestazione">
     <div class="container-fluid">
@@ -22,7 +25,7 @@
             </div>
         </div>
         <div class="row">
-            <?php foreach($cats as $c): ?>
+            <?php foreach($categories as $c): if(in_array($c->slug, $home->categories ?: [])) ?>
                 <div class="col-12 col-md-4 mb-3">
                     <a href="/catalogo?categories[]=<?= $c->slug ?>" class="link-cat">
                         <div class="card-categoria">
@@ -45,10 +48,8 @@
         </div>
         <div class="row">
             <div class="col-12 col-md-6">
-                <h3>MEGACARTA SRL: La Tua Soluzione Completa per Rifornimenti di Carta, Plastica e Alluminio a Roma</h3>
-
-                <p>MEGACARTA SRL è una realtà consolidata e dinamica nel settore della distribuzione di forniture di carta, plastica e alluminio. Da anni ci impegniamo a garantire un servizio efficiente e di qualità ai nostri clienti, offrendo prodotti di alta gamma per rispondere a ogni esigenza del mercato. La nostra azienda si distingue per la vasta gamma di articoli che mette a disposizione, che variano dalla carta per uffici e attività commerciali, ai prodotti in plastica e alluminio per l’imballaggio e il confezionamento.</p>
-                <p>La nostra missione è fornire soluzioni rapide e personalizzate, mantenendo sempre al centro del nostro operato il cliente. Sappiamo quanto sia importante disporre di materiali affidabili e di qualità, per questo selezioniamo con cura i nostri fornitori e monitoriamo costantemente i processi di distribuzione. Grazie a un sistema logistico avanzato, siamo in grado di consegnare in tutta Roma, garantendo puntualità e flessibilità, anche in situazioni di richiesta urgente.</p>
+                <h3><?= $home->map_section->title ?></h3>
+                <p><?= $home->map_section->text ?></p>
             </div>
 
             <div class="col-12 col-md-6">
