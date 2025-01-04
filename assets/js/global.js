@@ -113,7 +113,10 @@ function changeImg(el) {
         let reader = new FileReader();
 
         reader.onload = (e) => {
-            $input.next().next().attr('src', e.target.result);
+            let $img = $input.next().next();
+
+            $img.removeClass('ph')
+                .attr('src', e.target.result);
         };
 
         reader.readAsDataURL(file);
