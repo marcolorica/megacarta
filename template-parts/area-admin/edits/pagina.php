@@ -31,7 +31,7 @@
                             <h4 class="mb-3">Sezione con mappa <span class="text-danger">*</span></h4>
                             
                             <input type="text" class="form-control mb-3" name="home_map_title" placeholder="Titolo" value="<?= $datas->map_section->title ?>" form="form-page" required>
-                            <textarea rows="10" class="form-control" name="home_map_text" placeholder="Contenuto" form="form-page" required><?= $datas->map_section->text ?></textarea>
+                            <textarea rows="13" class="form-control" name="home_map_text" placeholder="Contenuto" form="form-page" required><?= $datas->map_section->text ?></textarea>
                             <p class="text-secondary mt-3" style="font-size:13px;font-style:italic">Per modificare l'indirizzo della mappa vai a <a href="/area-admin/impostazioni">Impostazioni</a></p>
                         </div>
 
@@ -92,7 +92,7 @@
                             <div class="row">
                                 <div class="col-6">
                                     <input type="text" class="form-control mb-3" name="chi_siamo_title_1" placeholder="Titolo" form="form-page" value="<?= $datas->first_section->title ?>" required>
-                                    <textarea rows="10" class="form-control mb-5" name="chi_siamo_text_1" placeholder="Contenuto" form="form-page" required><?= $datas->first_section->text ?></textarea>
+                                    <textarea rows="13" class="form-control mb-5" name="chi_siamo_text_1" placeholder="Contenuto" form="form-page" required><?= $datas->first_section->text ?></textarea>
                                 </div>
                                 <div class="col-6">
                                     <input type="file" style="display:none" name="chi_siamo_img_1" form="form-page">  
@@ -107,7 +107,7 @@
                             <div class="row">
                                 <div class="col-6">
                                     <input type="text" class="form-control mb-3" name="chi_siamo_title_2" placeholder="Titolo" form="form-page" value="<?= $datas->second_section->title ?>" required>
-                                    <textarea rows="10" class="form-control mb-5" name="chi_siamo_text_2" placeholder="Contenuto" form="form-page" required><?= $datas->second_section->text ?></textarea>
+                                    <textarea rows="13" class="form-control mb-5" name="chi_siamo_text_2" placeholder="Contenuto" form="form-page" required><?= $datas->second_section->text ?></textarea>
                                 </div>
                                 <div class="col-6">
                                     <input type="file" style="display:none" name="chi_siamo_img_2" form="form-page">
@@ -119,8 +119,8 @@
                         <div class="col-12">
                             <h4 class="mb-3">Terza Sezione</h4>
 
-                            <textarea rows="10" class="form-control mb-3" name="chi_siamo_content_1" placeholder="Contenuto 1" form="form-page"><?= $datas->third_section->p1 ?></textarea>
-                            <textarea rows="10" class="form-control mb-5" name="chi_siamo_content_2" placeholder="Contenuto 2" form="form-page"><?= $datas->third_section->p2 ?></textarea>
+                            <textarea rows="13" class="form-control mb-3" name="chi_siamo_content_1" placeholder="Contenuto 1" form="form-page"><?= $datas->third_section->p1 ?></textarea>
+                            <textarea rows="13" class="form-control mb-5" name="chi_siamo_content_2" placeholder="Contenuto 2" form="form-page"><?= $datas->third_section->p2 ?></textarea>
                         </div>
                     <?php endif; ?>
                     
