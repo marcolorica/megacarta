@@ -146,3 +146,16 @@
         });
     </script>
 <?php unset($_SESSION['save_success']); endif; ?>
+
+<?php if(isset($_SESSION['error'])) : ?>
+    <script>
+        jQuery(document).ready(() => {
+            Swal.fire({
+                title: '<?= $_SESSION['error'] ?>',
+                icon: 'error',
+                showCancelButton: false,
+                confirmButtonText: 'Ok',
+            });
+        });
+    </script>
+<?php unset($_SESSION['error']); endif; ?>
