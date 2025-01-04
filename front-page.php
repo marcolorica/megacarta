@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="row">
-            <?php foreach($categories as $c): if(in_array($c->slug, $home->categories ?: [])) ?>
+            <?php foreach($categories as $c): if(in_array($c->slug, $home->categories ?: [])) : ?>
                 <div class="col-12 col-md-4 mb-3">
                     <a href="/catalogo?categories[]=<?= $c->slug ?>" class="link-cat">
                         <div class="card-categoria">
@@ -34,7 +34,7 @@
                         </div>
                     </a>
                 </div>
-            <?php endforeach; ?>
+            <?php endif; endforeach; ?>
         </div>
     </div>
 </section>
