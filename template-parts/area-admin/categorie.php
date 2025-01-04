@@ -11,13 +11,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
-                <h2 class="mb-3">Categorie</h2>
-            </div>
-            <div class="col-12">
-                <div class="input-group mb-3" id="adminSearch">
-                    <input type="text" class="form-control" placeholder="Cerca categorie..." form="form-mc" name="term">
-                    <button class="btn btn-outline-primary" type="submit" form="form-mc"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </div>
+                <h2 class="mb-5">Categorie</h2>
             </div>
 
             <div class="col-12 body-content">
