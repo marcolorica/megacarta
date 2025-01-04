@@ -102,7 +102,6 @@ function admin_save_page_edits() {
 
         case 'contatti':
             $to_update = [
-                'contatti_main_img',
                 'contacts_phone',
                 'contacts_whatsapp',
                 'contacts_email'
