@@ -243,4 +243,6 @@ function mc_upload_image_in_theme($img_name, $img_tmp_name) {
             'status' => 'error',
             'message' => 'Errore nel caricamento dell\'immagine'
         ];
+
+    return ['status' => 'success'];
 }
