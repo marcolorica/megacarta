@@ -24,10 +24,10 @@
                 <div class="row">
                     <?php if($pagina == 'home') : ?>
                         <div class="col-6">
-                            <input type="file" style="display:none" name="home_main_img" form="form-page">
+                            <input type="file" style="display:none" name="home_main_img" form="form-page" onchange="changeImg(this)">
                             
                             <h4 class="mb-3">Immagine principale <span class="text-danger">*</span></h4>
-                            <img src="<?= $datas->main_img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 mb-5 img-for-edit main-img rounded <?= !$datas->main_img ? 'ph'  : '' ?>">
+                            <img src="<?= $datas->main_img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 mb-5 img-for-edit main-img rounded <?= !$datas->main_img ? 'ph'  : '' ?>" onclick="jQuery(this).prev().prev().click()">
 
                             <h4 class="mb-3">Sezione con mappa <span class="text-danger">*</span></h4>
                             
@@ -58,10 +58,10 @@
                         
                     <?php if($pagina == 'chi-siamo') : ?>
                         <div class="col-12">
-                            <input type="file" style="display:none" name="chi_siamo_main_img" form="form-page">
+                            <input type="file" style="display:none" name="chi_siamo_main_img" form="form-page" onchange="changeImg(this)">
                             
                             <h4 class="mb-3">Immagine principale <span class="text-danger">*</span></h4>
-                            <img src="<?= $datas->main_img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 mb-5 img-for-edit main-img rounded <?= !$datas->main_img ? 'ph'  : '' ?>">
+                            <img src="<?= $datas->main_img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 mb-5 img-for-edit main-img rounded <?= !$datas->main_img ? 'ph'  : '' ?>" onclick="jQuery(this).prev().prev().click()">
                         </div>
 
                         <div class="col-12">
@@ -73,8 +73,8 @@
                                     <textarea rows="13" class="form-control mb-5" name="chi_siamo_text_1" placeholder="Contenuto" form="form-page" required><?= $datas->first_section->text ?></textarea>
                                 </div>
                                 <div class="col-6">
-                                    <input type="file" style="display:none" name="chi_siamo_img_1" form="form-page">  
-                                    <img src="<?= $datas->first_section->img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 img-for-edit rounded <?= !$datas->first_section->img ? 'ph'  : '' ?>">
+                                    <input type="file" style="display:none" name="chi_siamo_img_1" form="form-page" onchange="changeImg(this)">  
+                                    <img src="<?= $datas->first_section->img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 img-for-edit rounded <?= !$datas->first_section->img ? 'ph'  : '' ?>" onclick="jQuery(this).prev().prev().click()">
                                 </div>
                             </div>
                         </div>
@@ -88,8 +88,8 @@
                                     <textarea rows="13" class="form-control mb-5" name="chi_siamo_text_2" placeholder="Contenuto" form="form-page" required><?= $datas->second_section->text ?></textarea>
                                 </div>
                                 <div class="col-6">
-                                    <input type="file" style="display:none" name="chi_siamo_img_2" form="form-page">
-                                    <img src="<?= $datas->second_section->img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 img-for-edit rounded <?= !$datas->second_section->img ? 'ph'  : '' ?>">
+                                    <input type="file" style="display:none" name="chi_siamo_img_2" form="form-page" onchange="changeImg(this)">
+                                    <img src="<?= $datas->second_section->img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 img-for-edit rounded <?= !$datas->second_section->img ? 'ph'  : '' ?>" onclick="jQuery(this).prev().prev().click()">
                                 </div>
                             </div>
                         </div>
@@ -103,10 +103,10 @@
                     
                     <?php if($pagina == 'contatti') : ?>
                         <div class="col-6">
-                            <input type="file" style="display:none" name="contatti_main_img" form="form-page">
+                            <input type="file" style="display:none" name="contatti_main_img" form="form-page" onchange="changeImg(this)">
                             
                             <h4 class="mb-3">Immagine principale <span class="text-danger">*</span></h4>
-                            <img src="<?= $datas->main_img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 mb-5 img-for-edit main-img rounded <?= !$datas->main_img ? 'ph'  : '' ?>">
+                            <img src="<?= $datas->main_img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 mb-5 img-for-edit main-img rounded <?= !$datas->main_img ? 'ph'  : '' ?>" onclick="jQuery(this).prev().prev().click()">
                         </div>
 
                         <div class="col-6">

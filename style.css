@@ -1136,8 +1136,3 @@ a {
 .img-for-edit.ph:hover {
   filter: brightness(.6);
 }
-
-.img-for-edit.ph:hover::before {
-  content: "Carica immagine";
-  color: white;
-}

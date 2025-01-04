@@ -104,3 +104,18 @@ function deleteProduct(id) {
 function deleteCategory(id) {
     
 }
+
+function changeImg(el) {
+    let $input = jQuery(el);
+    let file = $input.files[0];
+    
+    if(file) {
+        let reader = new FileReader();
+
+        reader.onload = (e) => {
+            $input.next().next().attr('src', e.target.result);
+        };
+
+        reader.readAsDataURL(file);
+    }
+}
