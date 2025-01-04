@@ -1120,6 +1120,7 @@ a {
 
 .img-for-edit {
   object-fit: cover;
+  cursor: pointer;
 }
 
 .img-for-edit.main-img {
@@ -1127,12 +1128,11 @@ a {
 }
 
 .img-for-edit.ph {
-  cursor: pointer;
   transition: .3s;
   object-fit: contain;
   background-color: #e9eef1;
 }
 
-.img-for-edit.ph:hover {
+.img-for-edit:hover {
   filter: brightness(.6);
 }
