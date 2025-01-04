@@ -82,17 +82,17 @@
                         <div class="col-12">
                             <input type="file" style="display:none" name="main_img" form="form-page">
                             
-                            <h4>Immagine principale <span class="text-danger">*</span></h4>
-                            <img src="<?= $datas->main_img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 img-for-edit main-img rounded <?= !$datas->main_img ? 'ph'  : '' ?>">
+                            <h4 class="mb-3">Immagine principale <span class="text-danger">*</span></h4>
+                            <img src="<?= $datas->main_img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 mb-5 img-for-edit main-img rounded <?= !$datas->main_img ? 'ph'  : '' ?>">
                         </div>
 
                         <div class="col-12">
-                            <h4>Prima Sezione <span class="text-danger">*</span></h4>
+                            <h4 class="mb-3">Prima Sezione <span class="text-danger">*</span></h4>
 
                             <div class="row">
                                 <div class="col-6">
-                                    <input type="text" class="form-control" name="chi_siamo_title_1" placeholder="Titolo" form="form-page" value="<?= $datas->first_section->title ?>" required>
-                                    <textarea rows="10" class="form-control" name="chi_siamo_text_1" placeholder="Contenuto" form="form-page" required><?= $datas->first_section->text ?></textarea>
+                                    <input type="text" class="form-control mb-3" name="chi_siamo_title_1" placeholder="Titolo" form="form-page" value="<?= $datas->first_section->title ?>" required>
+                                    <textarea rows="10" class="form-control mb-5" name="chi_siamo_text_1" placeholder="Contenuto" form="form-page" required><?= $datas->first_section->text ?></textarea>
                                 </div>
                                 <div class="col-6">
                                     <input type="file" style="display:none" name="chi_siamo_img_1" form="form-page">  
@@ -102,12 +102,12 @@
                         </div>
 
                         <div class="col-12">
-                            <h4>Seconda Sezione <span class="text-danger">*</span></h4>
+                            <h4 class="mb-3">Seconda Sezione <span class="text-danger">*</span></h4>
 
                             <div class="row">
                                 <div class="col-6">
-                                    <input type="text" class="form-control" name="chi_siamo_title_2" placeholder="Titolo" form="form-page" value="<?= $datas->second_section->title ?>" required>
-                                    <textarea rows="10" class="form-control" name="chi_siamo_text_2" placeholder="Contenuto" form="form-page" required><?= $datas->second_section->text ?></textarea>
+                                    <input type="text" class="form-control mb-3" name="chi_siamo_title_2" placeholder="Titolo" form="form-page" value="<?= $datas->second_section->title ?>" required>
+                                    <textarea rows="10" class="form-control mb-5" name="chi_siamo_text_2" placeholder="Contenuto" form="form-page" required><?= $datas->second_section->text ?></textarea>
                                 </div>
                                 <div class="col-6">
                                     <input type="file" style="display:none" name="chi_siamo_img_2" form="form-page">
@@ -117,16 +117,16 @@
                         </div>
 
                         <div class="col-12">
-                            <h4>Terza Sezione</h4>
+                            <h4 class="mb-3">Terza Sezione</h4>
 
-                            <textarea rows="10" class="form-control" name="chi_siamo_content_1" placeholder="Contenuto 1" form="form-page"><?= $datas->third_section->p1 ?></textarea>
-                            <textarea rows="10" class="form-control" name="chi_siamo_content_2" placeholder="Contenuto 2" form="form-page"><?= $datas->third_section->p2 ?></textarea>
+                            <textarea rows="10" class="form-control mb-3" name="chi_siamo_content_1" placeholder="Contenuto 1" form="form-page"><?= $datas->third_section->p1 ?></textarea>
+                            <textarea rows="10" class="form-control mb-5" name="chi_siamo_content_2" placeholder="Contenuto 2" form="form-page"><?= $datas->third_section->p2 ?></textarea>
                         </div>
                     <?php endif; ?>
                     
                     <?php if($pagina == 'contatti') : ?>
                         <div class="col-12">
-                            <h4>Imposta i tuoi dati di contatto <span class="text-danger">*</span></h4>
+                            <h4 class="mb-3">Imposta i tuoi dati di contatto <span class="text-danger">*</span></h4>
     
                             <div class="socials mt-3 <?= wp_is_mobile() ? 'mobile' : '' ?>">
                                 <label class="phone d-block"><i class="fa-solid fa-phone"></i></label>
