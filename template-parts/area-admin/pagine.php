@@ -34,9 +34,10 @@
                         <div class="col-4">
                             <div class="card w-100 card-pagina">
                                 <div class="card-body">
-                                    <h5 class="card-title"><i class="<?= $page->icon ?> me-2"></i><?= $page->name ?></h5>
+                                    <h3 class="card-title"><i class="<?= $page->icon ?>"></i></h3>
+                                    <h1 class="card-title"><?= $page->name ?></h1>
                                     <p class="card-text text-center"><?= $page->text ?></p>
-                                    <a class="btn azione-mc btn-outline-primary w-100" href="/area-admin/pagine/pagina?slug=<?= $page->slug ?>"><i class="fa-solid fa-pencil fa-fw text-primary"></i></a>
+                                    <a class="btn azione-mc btn-outline-primary" href="/area-admin/pagine/pagina?slug=<?= $page->slug ?>"><i class="fa-solid fa-pencil fa-fw text-primary"></i></a>
                                 </div>
                             </div>
                         </div>
