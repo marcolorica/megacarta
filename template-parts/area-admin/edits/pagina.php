@@ -32,7 +32,7 @@
                             
                             <input type="text" class="form-control mb-3" name="home_map_title" placeholder="Titolo" value="<?= $datas->map_section->title ?>" form="form-page" required>
                             <textarea rows="10" class="form-control" name="home_map_text" placeholder="Contenuto" form="form-page" required><?= $datas->map_section->text ?></textarea>
-                            <p>Per modificare l'indirizzo della mappa vai a <a href="/area-admin/impostazioni">Impostazioni</a></p>
+                            <p class="text-secondary mt-3" style="font-size:13px;font-style:italic">Per modificare l'indirizzo della mappa vai a <a href="/area-admin/impostazioni">Impostazioni</a></p>
                         </div>
 
                         <div class="col-6">
