@@ -1,13 +1,46 @@
+<?php
+    $pages = [
+        (object) [
+            'name' => 'Home',
+            'slug' => 'home',
+            'icon' => 'fa-solid house',
+            'text' => 'Modifica la pagina principale'
+        ],
+        (object) [
+            'name' => 'Chi Siamo',
+            'slug' => 'chi-siamo',
+            'icon' => 'fa-solid map',
+            'text' => 'Modifica la pagina descrittiva dell\'azienda'
+        ],
+        (object) [
+            'name' => 'Contatti',
+            'slug' => 'contatti',
+            'icon' => 'fa-regular address-book',
+            'text' => 'Modifica la pagina che permette agli utenti di contattarti'
+        ]
+    ];
+?>
+
 <section class="admin-body pt-5">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
                 <h2 class="mb-3">Pagine</h2>
             </div>
-            <div class="col-12">
-                <div class="input-group mb-3" id="adminSearch">
-                    <input type="text" class="form-control" placeholder="Cerca pagine...">
-                    <button class="btn btn-outline-primary" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+
+            <div class="col-12 body-content">
+                <div class="row row-pagine">
+                    <?php foreach($pages as $page) : ?>
+                        <div class="col-4">
+                            <div class="card w-100">
+                                <div class="card-body">
+                                    <h5 class="card-title"><i class="<?= $page->icon ?> me-2"></i><?= $page->name ?></h5>
+                                    <p class="card-text"><?= $page->text ?></p>
+                                    <a class="btn azione-mc btn-outline-primary w-100" href="/area-admin/pagine/pagina?slug=<?= $page->slug ?>"><i class="fa-solid fa-pencil fa-fw text-primary"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
