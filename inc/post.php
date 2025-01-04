@@ -92,9 +92,9 @@ function admin_save_page_edits() {
                     $ext = explode('/', $file_type)[1];
                     $ext = $ext == 'jpeg' ? 'jpg' : $ext;
 
-                    $new_name = str_replace('_', '-', str_replace('_img', '', (str_replace('main', 'bg', $img_name)))) . $ext;
+                    $new_name = str_replace('_', '-', str_replace('_img', '', (str_replace('main', 'bg', $img_name)))) . '.' . $ext;
                     
-                    update_option('mc_' . $img_name, get_stylesheet_directory_uri() . "/assets/images/.$new_name");
+                    update_option('mc_' . $img_name, get_stylesheet_directory_uri() . "/assets/images/$new_name");
                 }
             }
             
