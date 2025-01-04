@@ -1127,6 +1127,17 @@ a {
 }
 
 .img-for-edit.ph {
+  cursor: pointer;
+  transition: .3s;
   object-fit: contain;
   background-color: #e9eef1;
+}
+
+.img-for-edit.ph:hover {
+  filter: brightness(.6);
+}
+
+.img-for-edit.ph:hover::before {
+  content: "Carica immagine";
+  color: white;
 }

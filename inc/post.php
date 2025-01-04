@@ -34,25 +34,59 @@ function admin_save_page_edits() {
     switch($pagina) {
         case 'home':
             $to_update = [
-                'home_main_img',
                 'home_categories',
                 'home_map_title',
                 'home_map_text'
             ];
 
+            $img = $_FILES['home_main_img'] ?? null;
+            $img = $img ? (object) $img : null;
+
+            if($img && !empty($img->name)) {
+                $upload = mc_upload_image_in_theme($$img->name, $img->tmp_name);
+
+                if($upload->status != 'success') {
+                    $_SESSION['error'] = $upload->message;
+                    wp_redirect('/area-admin/pagine/pagina?slug=' . $pagina);
+                    exit();
+                }
+                
+                update_option('mc_home_main_img', get_stylesheet_directory_uri() . "/assets/images/pages/homepage-bg." . explode('/', mime_content_type($img->tmp_name))[1]);
+            }
+
             break;
 
         case 'chi-siamo':
-            $to_update = [
+            $images = [
                 'chi_siamo_main_img',
+                'chi_siamo_img_1',
+                'chi_siamo_img_2',
+            ];
+
+            $to_update = [
                 'chi_siamo_title_1',
                 'chi_siamo_text_1',
-                'chi_siamo_img_1',
                 'chi_siamo_title_2',
                 'chi_siamo_text_2',
-                'chi_siamo_img_2',
                 'chi_siamo_content',
             ];
+
+            foreach($images as $img_name) {
+                $img = $_FILES[$img_name] ?? null;
+                $img = $img ? (object) $img : null;
+
+                if($img && !empty($img->name)) {
+                    $upload = mc_upload_image_in_theme($$img->name, $img->tmp_name);
+    
+                    if($upload->status != 'success') {
+                        $_SESSION['error'] = $upload->message;
+                        wp_redirect('/area-admin/pagine/pagina?slug=' . $pagina);
+                        exit();
+                    }
+                    
+                    update_option('mc_' . $img_name, get_stylesheet_directory_uri() . "/assets/images/pages/homepage-bg." . explode('/', mime_content_type($img->tmp_name))[1]);
+                }
+            }
             
             break;
 
@@ -63,6 +97,21 @@ function admin_save_page_edits() {
                 'contacts_whatsapp',
                 'contacts_email'
             ];
+
+            $img = $_FILES['contatti_main_img'] ?? null;
+            $img = $img ? (object) $img : null;
+
+            if($img && !empty($img->name)) {
+                $upload = mc_upload_image_in_theme($$img->name, $img->tmp_name);
+
+                if($upload->status != 'success') {
+                    $_SESSION['error'] = $upload->message;
+                    wp_redirect('/area-admin/pagine/pagina?slug=' . $pagina);
+                    exit();
+                }
+                
+                update_option('mc_contatti_main_img', get_stylesheet_directory_uri() . "/assets/images/pages/contatti-bg." . explode('/', mime_content_type($img->tmp_name))[1]);
+            }
             
             break;
     }

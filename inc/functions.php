@@ -219,3 +219,28 @@ function mc_get_page_datas($pagina) {
 
     return $return;
 }
+
+function mc_upload_image_in_theme($img_name, $img_tmp_name) {
+    $upload_dir = wp_upload_dir();
+    $upload_path = ABSPATH . 'assets/images/';
+    
+    if(!file_exists($upload_path))
+        mkdir($upload_path, 0755, true);
+
+    $target_file = $upload_path . basename($img_name);
+
+    $allowed_types = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
+    $file_type = mime_content_type($img_tmp_name);
+    
+    if(!in_array($file_type, $allowed_types))
+        return [
+            'status' => 'error',
+            'message' => 'Errore: Il file deve essere un\'immagine (JPG, JPEG, PNG o GIF)'
+        ];
+
+    if(!move_uploaded_file($file_tmp, $target_file))
+        return [
+            'status' => 'error',
+            'message' => 'Errore nel caricamento dell\'immagine'
+        ];
+}

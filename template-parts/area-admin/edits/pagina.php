@@ -24,7 +24,7 @@
                 <div class="row">
                     <?php if($pagina == 'home') : ?>
                         <div class="col-6">
-                            <input type="file" style="display:none" name="main_img" form="form-page">
+                            <input type="file" style="display:none" name="home_main_img" form="form-page">
                             
                             <h4 class="mb-3">Immagine principale <span class="text-danger">*</span></h4>
                             <img src="<?= $datas->main_img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 mb-5 img-for-edit main-img rounded <?= !$datas->main_img ? 'ph'  : '' ?>">
@@ -58,7 +58,7 @@
                         
                     <?php if($pagina == 'chi-siamo') : ?>
                         <div class="col-12">
-                            <input type="file" style="display:none" name="main_img" form="form-page">
+                            <input type="file" style="display:none" name="chi_siamo_main_img" form="form-page">
                             
                             <h4 class="mb-3">Immagine principale <span class="text-danger">*</span></h4>
                             <img src="<?= $datas->main_img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 mb-5 img-for-edit main-img rounded <?= !$datas->main_img ? 'ph'  : '' ?>">
@@ -103,7 +103,7 @@
                     
                     <?php if($pagina == 'contatti') : ?>
                         <div class="col-6">
-                            <input type="file" style="display:none" name="main_img" form="form-page">
+                            <input type="file" style="display:none" name="contatti_main_img" form="form-page">
                             
                             <h4 class="mb-3">Immagine principale <span class="text-danger">*</span></h4>
                             <img src="<?= $datas->main_img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 mb-5 img-for-edit main-img rounded <?= !$datas->main_img ? 'ph'  : '' ?>">
