@@ -52,7 +52,7 @@ function admin_save_page_edits() {
                     exit();
                 }
                 
-                update_option('mc_home_main_img', get_stylesheet_directory_uri() . "/assets/images/pages/homepage-bg." . explode('/', $file_type)[1]);
+                update_option('mc_home_main_img', get_stylesheet_directory_uri() . "/assets/images/homepage-bg." . explode('/', $file_type)[1]);
             }
 
             break;
@@ -85,7 +85,7 @@ function admin_save_page_edits() {
                         exit();
                     }
                     
-                    update_option('mc_' . $img_name, get_stylesheet_directory_uri() . "/assets/images/pages/homepage-bg." . explode('/', mime_content_type($img->tmp_name))[1]);
+                    update_option('mc_' . $img_name, get_stylesheet_directory_uri() . "/assets/images/chi-siamo-bg." . explode('/', mime_content_type($img->tmp_name))[1]);
                 }
             }
             
@@ -111,7 +111,7 @@ function admin_save_page_edits() {
                     exit();
                 }
                 
-                update_option('mc_contatti_main_img', get_stylesheet_directory_uri() . "/assets/images/pages/contatti-bg." . explode('/', mime_content_type($img->tmp_name))[1]);
+                update_option('mc_contatti_main_img', get_stylesheet_directory_uri() . "/assets/images/contatti-bg." . explode('/', mime_content_type($img->tmp_name))[1]);
             }
             
             break;
