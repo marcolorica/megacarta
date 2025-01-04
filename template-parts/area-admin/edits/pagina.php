@@ -54,6 +54,46 @@
                                     <?php endforeach; ?>
                                 </ul>
                             </div>
+
+                            <div class="accordion mb-4" id="accordionPanelsStayOpenExample">
+
+                                <?php foreach($categories as $cid => $c) : $cid = str_replace('c-', '', $cid); ?>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button <?= $mobile ? 'collapsed' : '' ?>" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse<?= $cid ?>" aria-expanded="<?= $mobile ? 'false' : 'true' ?>" aria-controls="panelsStayOpen-collapse<?= $cid ?>"><?= $c->name ?></button>
+                                        </h2>
+                                        <div id="panelsStayOpen-collapse<?= $cid ?>" class="accordion-collapse collapse <?= $mobile ? '' : 'show' ?>">
+                                            <div class="accordion-body">
+                                                <?php foreach($c->children as $sid => $subc) : ?>
+                                                    <label for="cat-<?= "$cid-$sid" ?>">
+                                                        <input id="cat-<?= "$cid-$sid" ?>"
+                                                                type="checkbox"
+                                                                class="form-check"
+                                                                name="home_categories[]"
+                                                                form="form-page"
+                                                                value="<?= $subc->slug ?>"
+                                                                <?= in_array($cid, $datas->categories ?: []) ? 'checked' : '' ?>><?= $subc->name ?>
+                                                    </label>
+                                                <?php endforeach; ?>
+
+                                                <?php if(empty($c->children)) : ?>
+                                                    <label for="cat-<?= "$cid" ?>">
+                                                        <input id="cat-<?= "$cid" ?>"
+                                                                type="checkbox"
+                                                                class="form-check"
+                                                                name="home_categories[]"
+                                                                form="form-page"
+                                                                value="<?= $c->slug ?>"
+                                                                <?= in_array($sid, $datas->categories ?: []) ? 'checked' : '' ?>><?= $c->name ?>
+                                                    </label>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php endforeach; ?>
+
+                            </div>
+
                         </div>
 
                         <div class="col-12">
