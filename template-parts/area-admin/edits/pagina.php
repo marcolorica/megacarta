@@ -21,47 +21,30 @@
             </div>
             <div class="col-12">
                 <div class="row">
-                    <div class="col-6">
-                        <input type="file" style="display:none" name="main_img" form="form-page">
-                        
-                        <h4>Immagine principale <span class="text-danger">*</span></h4>
-                        <img src="<?= $datas->main_img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100">
-                    </div>
-
                     <?php if($pagina == 'home') : ?>
                         <div class="col-6">
-                            <h4>Categorie in vetrina <span class="text-danger">*</span></h4>
-                            <!-- <div class="edit-categories">
-                                <ul>
-                                    <?php foreach($categories as $c) : ?>
-                                        <li>
-                                            <label for="c-<?= $c->id ?>">
-                                                <input id="c-<?= $c->id ?>" class="me-2" type="checkbox" name="home_categories[]" form="form-page" <?= in_array($c->id, $datas->categories ?: []) ? 'checked' : '' ?>><?= $c->name ?>
-                                            </label>
+                            <input type="file" style="display:none" name="main_img" form="form-page">
+                            
+                            <h4>Immagine principale <span class="text-danger">*</span></h4>
+                            <img src="<?= $datas->main_img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100">
 
-                                            <?php if(count($c->children)) : ?>
-                                                <ul>
-                                                    <?php foreach($c->children as $subc) : ?>
-                                                        <li>
-                                                            <label for="subc-<?= $subc->id ?>">
-                                                                <input id="subc-<?= $subc->id ?>" class="me-2" type="checkbox" name="home_categories[]" form="form-page" <?= in_array($subc->id, $datas->categories ?: []) ? 'checked' : '' ?>><?= $subc->name ?>
-                                                            </label>
-                                                        </li>
-                                                    <?php endforeach; ?>
-                                                </ul>
-                                            <?php endif; ?>
-                                        </li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            </div> -->
+                            <h4>Sezione con mappa <span class="text-danger">*</span></h4>
+                            
+                            <input type="text" class="form-control mb-3" name="home_map_title" placeholder="Titolo" value="<?= $datas->map_section->title ?>" form="form-page" required>
+                            <textarea rows="10" class="form-control" name="home_map_text" placeholder="Contenuto" form="form-page" required><?= $datas->map_section->text ?></textarea>
+                            <p>Per modificare l'indirizzo della mappa vai a <a href="/area-admin/impostazioni">Impostazioni</a></p>
+                        </div>
+
+                        <div class="col-6">
+                            <h4>Categorie in vetrina <span class="text-danger">*</span></h4>
 
                             <div class="accordion mb-4" id="accordionEditPage">
                                 <?php foreach($categories as $cid => $c) : $cid = str_replace('c-', '', $cid); ?>
                                     <div class="accordion-item">
                                         <h2 class="accordion-header">
-                                            <button class="accordion-button <?= $mobile ? 'collapsed' : '' ?>" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse<?= $cid ?>" aria-expanded="<?= $mobile ? 'false' : 'true' ?>" aria-controls="panelsStayOpen-collapse<?= $cid ?>"><?= $c->name ?></button>
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse<?= $cid ?>" aria-expanded="false" aria-controls="panelsStayOpen-collapse<?= $cid ?>"><?= $c->name ?></button>
                                         </h2>
-                                        <div id="panelsStayOpen-collapse<?= $cid ?>" class="accordion-collapse collapse <?= $mobile ? '' : 'show' ?>">
+                                        <div id="panelsStayOpen-collapse<?= $cid ?>" class="accordion-collapse collapse">
                                             <div class="accordion-body">
                                                 <?php foreach($c->children as $sid => $subc) : ?>
                                                     <label for="cat-<?= "$cid-$sid" ?>">
@@ -93,24 +76,16 @@
                             </div>
 
                         </div>
-
-                        <div class="col-12">
-                            <h4>Sezione con mappa <span class="text-danger">*</span></h4>
-                            
-                            <div class="row">
-                                <div class="col-6">
-                                    <input type="text" class="form-control mb-3" name="home_map_title" placeholder="Titolo" value="<?= $datas->map_section->title ?>" form="form-page" required>
-                                    <textarea rows="10" class="form-control" name="home_map_text" placeholder="Contenuto" form="form-page" required><?= $datas->map_section->text ?></textarea>
-                                </div>
-                                <div class="col-6">
-                                    <p>Per modificare la mappa vai a <a href="/area-admin/impostazioni">Impostazioni</a></p>
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2973.787048369707!2d12.632556876784765!3d41.811347671249194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13258632ef4dfd4b%3A0x98bb2a73478684b1!2sMEGA%20CARTA%20SRL!5e0!3m2!1sit!2sit!4v1727395814061!5m2!1sit!2sit" class="w-100" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                </div>
-                            </div>
-                        </div>
                     <?php endif; ?>
                         
                     <?php if($pagina == 'chi-siamo') : ?>
+                        <div class="col-12">
+                            <input type="file" style="display:none" name="main_img" form="form-page">
+                            
+                            <h4>Immagine principale <span class="text-danger">*</span></h4>
+                            <img src="<?= $datas->main_img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100">
+                        </div>
+
                         <div class="col-12">
                             <h4>Prima Sezione <span class="text-danger">*</span></h4>
 
