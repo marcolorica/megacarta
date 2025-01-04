@@ -23,7 +23,7 @@
                         <input type="file" style="display:none" name="main_img" form="form-page">
                         
                         <h4>Immagine principale <span class="text-red">*</span></h4>
-                        <img src="<?= $datas->main_img ?: '' ?>" class="w-100">
+                        <img src="<?= $datas->main_img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100">
                     </div>
 
                     <?php if($pagina == 'home') : ?>
@@ -81,7 +81,7 @@
                                 </div>
                                 <div class="col-6">
                                     <input type="file" style="display:none" name="chi_siamo_img_1" form="form-page">  
-                                    <img src="<?= $datas->first_section->img ?: '' ?>" class="w-100">
+                                    <img src="<?= $datas->first_section->img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100">
                                 </div>
                             </div>
                         </div>
@@ -96,7 +96,7 @@
                                 </div>
                                 <div class="col-6">
                                     <input type="file" style="display:none" name="chi_siamo_img_2" form="form-page">
-                                    <img src="<?= $datas->second_section->img ?: '' ?>" class="w-100">
+                                    <img src="<?= $datas->second_section->img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100">
                                 </div>
                             </div>
                         </div>
