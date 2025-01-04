@@ -1,9 +1,4 @@
-<?php
-    $request = (object) $_GET;
-
-    $term = isset($request->term) && strlen($request->term) ? $request->term : null;
-    $categories = mc_get_categories_catalogue($term);
-?>
+<?php $categories = mc_get_categories_catalogue(); ?>
 
 <form action="/area-admin/categorie" method="GET" id="form-mc"></form>
 

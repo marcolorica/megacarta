@@ -55,7 +55,7 @@ function mc_get_categories_home() {
 	return $res;
 }
 
-function mc_get_categories_catalogue($term = null) {
+function mc_get_categories_catalogue() {
     $result = [];
 
     $categories = get_terms('product_cat', [

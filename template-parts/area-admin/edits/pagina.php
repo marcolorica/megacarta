@@ -1,6 +1,8 @@
 <?php
     $pagina = $_GET['slug'];
     $datas = mc_get_page_datas($pagina);
+
+    $categories = mc_get_categories_catalogue();
 ?>
 
 <form action="<?= esc_url(admin_url('admin-post.php')); ?>" id="form-page" enctype="multipart/form-data">
@@ -19,7 +21,7 @@
             </div>
             <div class="col-12">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-6">
                         <input type="file" style="display:none" name="main_img" form="form-page">
                         
                         <h4>Immagine principale <span class="text-danger">*</span></h4>
@@ -27,7 +29,7 @@
                     </div>
 
                     <?php if($pagina == 'home') : ?>
-                        <div class="col-12">
+                        <div class="col-6">
                             <h4>Categorie in vetrina <span class="text-danger">*</span></h4>
                             <div class="edit-categories">
                                 <ul>
