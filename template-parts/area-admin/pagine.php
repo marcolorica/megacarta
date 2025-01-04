@@ -35,7 +35,7 @@
                             <div class="card w-100 card-pagina">
                                 <div class="card-body">
                                     <h3 class="card-title"><i class="<?= $page->icon ?>"></i></h3>
-                                    <h1 class="card-title"><?= $page->name ?></h1>
+                                    <h1 class="card-title text-center"><?= $page->name ?></h1>
                                     <p class="card-text text-center"><?= $page->text ?></p>
                                     <a class="btn azione-mc btn-outline-primary" href="/area-admin/pagine/pagina?slug=<?= $page->slug ?>"><i class="fa-solid fa-pencil fa-fw text-primary"></i></a>
                                 </div>
