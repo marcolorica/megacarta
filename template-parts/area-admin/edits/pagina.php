@@ -5,7 +5,7 @@
     $categories = mc_get_categories_catalogue();
 ?>
 
-<form action="<?= esc_url(admin_url('admin-post.php')); ?>" id="form-page" enctype="multipart/form-data">
+<form action="<?= esc_url(admin_url('admin-post.php')); ?>" id="form-page" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="action" value="save_page_edits">
     <input type="hidden" name="pagina" value="<?= $pagina ?>">
 </form>
