@@ -4,7 +4,7 @@
 
     $categories = mc_get_categories_catalogue();
 
-    var_dump($categories);die;
+    var_dump($datas);die;
 ?>
 
 <form action="<?= esc_url(admin_url('admin-post.php')); ?>" id="form-page" enctype="multipart/form-data">
@@ -38,7 +38,7 @@
                                     <?php foreach($categories as $c) : ?>
                                         <li>
                                             <label for="c-<?= $c->id ?>">
-                                                <input id="subc-<?= $c->id ?>" class="form-check me-2" type="checkbox" name="home_categories[]" form="form-page" <?= in_array($c->id, $datas->categories) ? 'checked' : '' ?>><?= $c->name ?>
+                                                <input id="c-<?= $c->id ?>" class="form-check me-2" type="checkbox" name="home_categories[]" form="form-page" <?= in_array($c->id, $datas->categories) ? 'checked' : '' ?>><?= $c->name ?>
                                             </label>
 
                                             <?php if(count($c->children)) : ?>
