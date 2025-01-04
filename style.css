@@ -1112,3 +1112,8 @@ a {
   bottom: 15px;
   right: 15px;
 }
+
+#accordionEditPage label {
+  cursor: pointer;
+  display: flex;
+}

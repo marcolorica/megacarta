@@ -55,7 +55,7 @@
                                 </ul>
                             </div> -->
 
-                            <div class="accordion mb-4" id="accordionPanelsStayOpenExample">
+                            <div class="accordion mb-4" id="accordionEditPage">
                                 <?php foreach($categories as $cid => $c) : $cid = str_replace('c-', '', $cid); ?>
                                     <div class="accordion-item">
                                         <h2 class="accordion-header">
