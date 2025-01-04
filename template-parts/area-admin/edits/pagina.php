@@ -140,10 +140,6 @@
                             </div>
                         </div>
                     <?php endif; ?>
-
-                    <div class="col-12 text-end">
-                        <button type="submit" class="btn btn-success" form="form-page">Salva</button>
-                    </div>
                 </div>
             </div>
         </div>
