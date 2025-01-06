@@ -36,7 +36,7 @@
                     <option value="piu-recenti" <?= $order = 'piu-recenti' ? 'selected' : '' ?>>Più recenti</option>
                     <option value="meno-recenti" <?= $order = 'meno-recenti' ? 'selected' : '' ?>>Meno recenti</option>
                     <option value="A-Z" <?= $order = 'A-Z' ? 'selected' : '' ?>>A - Z</option>
-                    <option value="A-Z" <?= $order = 'A-Z' ? 'selected' : '' ?>>Z - A</option>
+                    <option value="Z-A" <?= $order = 'Z-A' ? 'selected' : '' ?>>Z - A</option>
                 </select>
             </div>
 
