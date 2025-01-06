@@ -157,6 +157,8 @@ function admin_save_cat_edits() {
             'slug' => $slug
         ];
 
+        var_dump($to_update);die;
+
     if(term_exists($term_id, 'product_cat'))
         $result = wp_update_term($term_id, 'product_cat', $to_update);
 
