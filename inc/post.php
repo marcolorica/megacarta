@@ -208,7 +208,7 @@ function admin_save_settings() {
     ];
 
     foreach($to_update as $name) {
-        update_option('mc_' . $name, ($request->$name ?? null));
+        update_option('mc_' . $name, ($request->$name ? stripsplashes($request->$name) : null));
     }
 
     $_SESSION['save_success'] = true;
