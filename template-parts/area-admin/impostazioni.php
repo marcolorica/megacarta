@@ -19,7 +19,7 @@
             </div>
             <div class="col-6">
                 <h4 class="mb-3">Iframe Mappa Google</h4>
-                <textarea class="form-control" name="map_iframe" form="form-settings" placeholder="<iframe src=..." rows="13"><?= $settings->map_iframe ?></textarea>
+                <textarea class="form-control" name="map_iframe" form="form-settings" placeholder="<iframe src=..." rows="13"><?= stripsplashes($settings->map_iframe) ?></textarea>
             </div>
             <div class="col-12">
                 <div class="d-flex justify-content-between mb-3">
