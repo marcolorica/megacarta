@@ -18,20 +18,19 @@
                 <textarea class="form-control" name="map_iframe" form="form-settings" placeholder="<iframe src=..." rows="13"><?= $settings->map_iframe ?></textarea>
             </div>
             <div class="col-12">
-                <div class="d-flex">
+                <div class="d-flex justify-content-between mb-3">
                     <label><i class="fa-solid fa-location-dot me-2"></i>Indirizzo sede</label>
-                    <input type="text" class="form-control" name="address" value="<?= $settings->address ?>">
+                    <input type="text" class="form-control w-50" name="address" value="<?= $settings->address ?>" placeholder="Via Roma, 123">
                 </div>
-                <div class="d-flex">
+                <div class="d-flex justify-content-between mb-3">
                     <label><i class="fa-solid fa-id-card me-2"></i>Partita IVA</label>
-                    <input type="text" class="form-control" name="partita_iva" value="<?= $settings->partita_iva ?>">
+                    <input type="text" class="form-control w-50" name="partita_iva" value="<?= $settings->partita_iva ?>" placeholder="123456789">
                 </div>
-                <div class="d-flex">
+                <div class="d-flex justify-content-between mb-3">
                     <label><i class="fa-solid fa-building-columns me-2"></i>Dettagli bancari</label>
                     <!-- ... -->
                 </div>
             </div>
-            <div class="col-6"></div>
         </div>
     </div>
 </section>
