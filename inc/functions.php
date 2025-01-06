@@ -65,12 +65,12 @@ function mc_get_categories_catalogue($term_id = null) {
     return $term_id ? $result[array_keys($result)[0]] : $result;
 }
 
-function mc_get_products($term = null, $perPage = 10, $order = 'DESC', $numPage = 1, $categories = []) {
+function mc_get_products($term = null, $perPage = 10, $order = ['id', 'DESC'], $numPage = 1, $categories = []) {
 	$args = [
         'limit' => $perPage,
         'status' => 'publish',
-        'orderby' => 'id',
-        'order' => $order,
+        'orderby' => $order[0],
+        'order' => $order[1],
         'page' => $numPage
 	];
 
