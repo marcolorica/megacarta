@@ -27,7 +27,6 @@ function removeProductFromCart(sku) {
         jQuery('.col-cart-products').addClass('d-none');
         jQuery('.col-cart-empty').removeClass('d-none').addClass('d-flex');
     }
-
 }
 
 function changeCartTotals() {

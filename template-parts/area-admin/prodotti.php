@@ -70,7 +70,7 @@
                         <div class="col-2 d-flex justify-content-end align-items-center">
                             <a class="btn azione-mc btn-outline-success me-3" href="<?= get_permalink($p->id) ?>"><i class="fa-solid fa-eye fa-fw text-success"></i></a>
                             <a class="btn azione-mc btn-outline-primary me-3" href="/area-admin/prodotti/prodotto?id=<?= $p->id ?>"><i class="fa-solid fa-pencil fa-fw text-primary"></i></a>
-                            <a class="btn azione-mc btn-outline-danger" role="button" onclick="deleteProduct(<?= $p->id ?>)"><i class="fa-solid fa-trash-can fa-fw"></i></a>
+                            <a class="btn azione-mc btn-outline-danger" role="button" onclick="adminDeleteProduct(<?= $p->id ?>)"><i class="fa-solid fa-trash-can fa-fw"></i></a>
                         </div>
                     </div>
                 <?php endforeach; ?>

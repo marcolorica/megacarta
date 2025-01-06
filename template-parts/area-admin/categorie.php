@@ -23,7 +23,7 @@
                         </div>
                         <div class="col-2 d-flex justify-content-end align-items-center mb-3">
                             <a class="btn azione-mc btn-outline-primary me-3" href="/area-admin/categorie/categoria?id=<?= $c->id ?>"><i class="fa-solid fa-pencil fa-fw text-primary"></i></a>
-                            <a class="btn azione-mc btn-outline-danger" role="button" onclick="deleteCategory(<?= $c->id ?>)"><i class="fa-solid fa-trash-can fa-fw"></i></a>
+                            <a class="btn azione-mc btn-outline-danger" role="button" onclick="adminDeleteCategory(<?= $c->id ?>)"><i class="fa-solid fa-trash-can fa-fw"></i></a>
                         </div>
 
                         <?php foreach($c->children as $subc) : ?>
@@ -40,7 +40,7 @@
                                     </div>
                                     <div class="col-2 d-flex justify-content-end align-items-center">
                                         <a class="btn azione-mc btn-outline-primary me-3" href="/area-admin/categorie/categoria?id=<?= $subc->id ?>"><i class="fa-solid fa-pencil fa-fw text-primary"></i></a>
-                                        <a class="btn azione-mc btn-outline-danger" role="button" onclick="deleteCategory(<?= $subc->id ?>)"><i class="fa-solid fa-trash-can fa-fw"></i></a>
+                                        <a class="btn azione-mc btn-outline-danger" role="button" onclick="adminDeleteCategory(<?= $subc->id ?>)"><i class="fa-solid fa-trash-can fa-fw"></i></a>
                                     </div>
                                 </div>
                             </div>

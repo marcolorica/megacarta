@@ -6,6 +6,9 @@ add_action('wp_ajax_remove_cart_item',"remove_cart_item");
 add_action('wp_ajax_nopriv_update_cart_items',"update_cart_items");
 add_action('wp_ajax_update_cart_items',"update_cart_items");
 
+add_action('wp_ajax_admin_delete_product', 'admin_delete_product_ajax');
+add_action('wp_ajax_admin_delete_category', 'admin_delete_category_ajax');
+
 function update_cart_items() {
     $request = (object) $_POST;
 
@@ -34,6 +37,72 @@ function remove_cart_item() {
 
     echo json_encode([
         'status' => 'success',
+        'results' => '',
+    ]);
+
+    wp_die();
+}
+
+function admin_delete_product_ajax() {
+    $request = (object) $_POST;
+
+    if(isset($request->product_id) && is_numeric($request->product_id)) {
+        $product_id = intval($request->product_id);
+
+        $deleted = wp_delete_post($product_id, false);
+        
+        if(!$deleted) {
+            echo json_encode([
+                'status' => 'error',
+                'results' => '',
+            ]);
+
+            wp_die();
+        }
+    }
+
+    echo json_encode([
+        'status' => 'success',
+        'results' => '',
+    ]);
+
+    wp_die();
+}
+
+function admin_delete_category_ajax() {
+    $request = (object) $_POST;
+    $category_id = isset($request->category_id) && is_numeric($request->category_id) ? intval($request->category_id) : null;
+
+    if($category_id) {
+        $term = get_term($category_id, 'product_cat');
+        
+        if($term && !is_wp_error($term)) {
+
+            $args = array(
+                'taxonomy' => 'product_cat',
+                'parent' => $category_id,
+                'hide_empty' => false,
+            );
+
+            $subcategories = get_terms($args);
+            
+            foreach($subcategories as $subcategory) {
+                wp_delete_term($subcategory->term_id, 'product_cat');
+            }
+            
+            wp_delete_term($category_id, 'product_cat');
+
+            echo json_encode([
+                'status' => 'success',
+                'results' => '',
+            ]);
+
+            wp_die();
+        }
+    }
+
+    echo json_encode([
+        'status' => 'error',
         'results' => '',
     ]);
 
