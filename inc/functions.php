@@ -176,12 +176,11 @@ function mc_get_logo_src($white = false) {
 }
 
 function mc_get_cat_img($slug) {
-    $prefix = get_template_directory() . "/assets/images/categories/$slug";
+    $prefix = get_stylesheet_directory() . "/assets/images/categories/$slug";
 
     
     $png = file_exists("$prefix.png");
     $jpg = file_exists("$prefix.jpg");
-    var_dump($jpg, "$prefix.jpg");die;
     $webp = file_exists("$prefix.webp");
 
     $ext = $png ?: $jpg ?: $jpeg ?: $webp ?: null;
