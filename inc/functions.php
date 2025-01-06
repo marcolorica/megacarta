@@ -269,3 +269,37 @@ function mc_upload_image_in_theme($img_name, $img_tmp_name, $cat = false) {
 
     return (object) ['status' => 'success'];
 }
+
+function mc_get_product($product_id) {
+    $product = wc_get_product($product_id);
+
+    if(!$product)
+        return null;
+
+    $categories = wp_get_post_terms($product_id, 'product_cat', ['fields' => 'names']);
+
+    $variants = [];
+
+    // if($product->is_type('variable')) {
+    //     $children_ids = $product->get_children();
+    //     foreach ($children_ids as $child_id) {
+    //         $child_product = wc_get_product($child_id);
+    //         $variants[] = [
+    //             'id' => $child_product->get_id(),
+    //             'price' => $child_product->get_price(),
+    //             'attributes' => $child_product->get_attributes(),
+    //         ];
+    //     }
+    // }
+
+    return (object) [
+        'id' => $product_id,
+        'img' => mc_get_product_image($product_id),
+        'name' => $product->get_name(),
+        'code' => $product->get_sku(),
+        'price' => $product->get_price(),
+        'categories' => $categories,
+        'availability' => $product->is_in_stock() ? 'in stock' : 'out of stock',
+        'variants' => $variants
+    ];
+}

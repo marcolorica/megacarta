@@ -30,6 +30,8 @@
                 </div>
             </div>
 
+            <p><?= count($products->result) ?> prodotti di <?= $products->count ?></p>
+
             <div class="col-12 body-content">
                 <?php foreach($products->result as $sku => $p) : $p = (object) $p; ?>
                     <div class="row row-prodotto">
