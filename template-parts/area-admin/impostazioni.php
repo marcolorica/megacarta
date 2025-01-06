@@ -38,3 +38,16 @@
         </div>
     </div>
 </section>
+
+<?php if(isset($_SESSION['save_success'])) : ?>
+    <script>
+        jQuery(document).ready(() => {
+            Swal.fire({
+                title: 'Modifiche salvate!',
+                icon: 'success',
+                showCancelButton: false,
+                confirmButtonText: 'Ok',
+            });
+        });
+    </script>
+<?php unset($_SESSION['save_success']); endif; ?>
