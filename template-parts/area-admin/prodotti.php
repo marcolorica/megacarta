@@ -30,9 +30,9 @@
                 </div>
             </div>
 
-            <div class="d-flex justify-content-bewtween align-items-center">
+            <div class="d-flex justify-content-between align-items-center mb-3">
                 <span><?= count($products->result) ?> prodotti di <?= $products->count ?></span>
-                <select name="order" id="" class="admin-order">
+                <select name="order" form="form-mc" class="admin-order" onchange="jQuery('#form-mc').submit()">
                     <option value="piu-recenti" <?= $order = 'piu-recenti' ? 'selected' : '' ?>>Più recenti</option>
                     <option value="meno-recenti" <?= $order = 'meno-recenti' ? 'selected' : '' ?>>Meno recenti</option>
                     <option value="A-Z" <?= $order = 'A-Z' ? 'selected' : '' ?>>A - Z</option>
