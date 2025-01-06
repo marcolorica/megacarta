@@ -1,6 +1,6 @@
 <?php
 
-function mc_get_categories_catalogue() {
+function mc_get_categories_catalogue($term_id = null) {
     $result = [];
 
     $categories = get_terms('product_cat', [
@@ -19,14 +19,16 @@ function mc_get_categories_catalogue() {
             $path = get_stylesheet_directory() . "/assets/images/categories/$c->slug.webp";
             $url = get_stylesheet_directory_uri() . "/assets/images/categories/$c->slug.webp";
 
-            $result['c-'.$c->term_id] = (object) [
-                'id' => $c->term_id,
-                'name' => $c->name,
-                'slug' => $c->slug,
-                'count' => $c->count,
-                'img' => file_exists($path) ? $url : mc_get_logo_src(),
-                'children' => []
-            ];
+            if(!$term_id || $term_id == $c->term_id) 
+                $result['c-'.$c->term_id] = (object) [
+                    'id' => $c->term_id,
+                    'name' => $c->name,
+                    'slug' => $c->slug,
+                    'count' => $c->count,
+                    'parent' => $c->parent,
+                    'img' => file_exists($path) ? $url : ($term_id ? null: mc_get_logo_src()),
+                    'children' => []
+                ];
         }
     }
 
@@ -41,18 +43,32 @@ function mc_get_categories_catalogue() {
             $path = get_stylesheet_directory() . "/assets/images/categories/$subc->slug.webp";
             $url = get_stylesheet_directory_uri() . "/assets/images/categories/$subc->slug.webp";
 
-            $result['c-' . $subc->parent]->children[] = (object) [
-                'id' => $subc->term_id,
-                'name' => $subc->name,
-                'slug' => $subc->slug,
-                'count' => $subc->count,
-                'img' => file_exists($path) ? $url : mc_get_logo_src(),
-                'children' => []
-            ];
+            if(!$term_id) {
+                $result['c-' . $subc->parent]->children[] = (object) [
+                    'id' => $subc->term_id,
+                    'name' => $subc->name,
+                    'slug' => $subc->slug,
+                    'count' => $subc->count,
+                    'parent' => $subc->parent,
+                    'img' => file_exists($path) ? $url : mc_get_logo_src(),
+                    'children' => []
+                ];
+            }
+            else {
+                $result['c-'.$c->term_id] = (object) [
+                    'id' => $subc->term_id,
+                    'name' => $subc->name,
+                    'slug' => $subc->slug,
+                    'count' => $subc->count,
+                    'parent' => $subc->parent,
+                    'img' => file_exists($path) ? $url : null,
+                    'children' => []
+                ];
+            }
         }
     }
 
-    return $result;
+    return $term_id ? $result['c-' . $term_id] : $result;
 }
 
 function mc_get_products($term = null, $perPage = 10, $order = 'DESC', $numPage = 1, $categories = []) {

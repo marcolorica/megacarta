@@ -959,6 +959,10 @@ section.firma-footer {
   width: 50px;
 }
 
+.socials a {
+  text-decoration: none;
+}
+
 .socials .whatsapp i {
   background-color: green;
 }

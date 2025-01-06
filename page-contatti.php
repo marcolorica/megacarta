@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<?php $contatti = mc_get_page_datas('contatti'); ?> 
 
 <style>
     .intestazione.mg-contacts {
@@ -41,9 +42,9 @@
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2973.787048369707!2d12.632556876784765!3d41.811347671249194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13258632ef4dfd4b%3A0x98bb2a73478684b1!2sMEGA%20CARTA%20SRL!5e0!3m2!1sit!2sit!4v1727395814061!5m2!1sit!2sit" class="w-100" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 
                 <div class="socials mt-3 <?= wp_is_mobile() ? 'mobile' : '' ?>">
-                    <a href="/" class="phone d-block"><i class="fa-solid fa-phone"></i></a>
-                    <a href="/" class="whatsapp d-block"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="/" class="email d-block"><i class="fa-regular fa-envelope me-0"></i></a>
+                    <a href="tel:+39<?= $contatti->phone ?>" class="phone d-block"><i class="fa-solid fa-phone"></i></a>
+                    <a href="https://api.whatsapp.com/send?phone=<?= $contatti->whatsapp ?>" class="whatsapp d-block"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="mailto:<?= $contatti->email ?>" class="email d-block"><i class="fa-regular fa-envelope me-0"></i></a>
                 </div>
             </div>
         </div>
