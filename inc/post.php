@@ -5,6 +5,7 @@ add_action('admin_post_nopriv_admin_login', 'admin_login_action_handler');
 
 add_action('admin_post_save_page_edits', 'admin_save_page_edits');
 add_action('admin_post_save_cat_edits', 'admin_save_cat_edits');
+add_action('admin_post_save_settings', 'admin_save_settings');
 
 function admin_login_action_handler() {
     $request = (object) $_POST;
@@ -195,4 +196,18 @@ function admin_save_cat_edits() {
     $_SESSION['save_success'] = true;
     wp_redirect('/area-admin/categorie/categoria?id=' . $term_id);
     exit();
+}
+
+function admin_save_settings() {
+    $request = (object) $_POST;
+
+    $to_update = [
+        'map_iframe',
+        'address',
+        'partita_iva'
+    ];
+
+    foreach($to_update as $name) {
+        update_option('mc_' . $name, ($request->$name ?? null));
+    }
 }

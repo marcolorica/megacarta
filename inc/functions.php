@@ -262,6 +262,14 @@ function mc_get_page_datas($pagina) {
     return $return;
 }
 
+function mc_get_settings() {
+    return (object) [
+        'map_iframe' => get_option('mc_map_iframe'),
+        'address' => get_option('mc_address'),
+        'partita_iva' => get_option('mc_partita_iva')
+    ];
+}
+
 function mc_upload_image_in_theme($img_name, $img_tmp_name, $cat = false) {
     $upload_dir = wp_upload_dir();
     $upload_path = get_stylesheet_directory() . '/assets/images/' . ($cat ? 'categories/' : '');
