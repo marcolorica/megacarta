@@ -39,7 +39,7 @@
                             <option value="0">Seleziona categoria genitore</option>
 
                             <?php foreach($categories as $cid => $c) : $cid = str_replace('c-', '', $cid); if($cid != $term_id) : ?>
-                                <option value="<?= "$cid" ?>" <?= $c->parent == $cid ? 'selected' : '' ?>><?= $c->name ?></option>
+                                <option value="<?= $cid ?>" <?= $category->parent == $cid ? 'selected' : '' ?>><?= $c->name ?></option>
                             <?php endif; endforeach; ?>
                         </select>
                     </div>
