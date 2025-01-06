@@ -183,7 +183,7 @@ function mc_get_cat_img($slug) {
     $jpg = file_exists("$prefix.jpg");
     $webp = file_exists("$prefix.webp");
 
-    $ext = $png ?: $jpg ?: $jpeg ?: $webp ?: null;
+    $ext = $png ? 'png' : ($jpg ? 'jpg' : ($webp ? 'webp' : null));
 
     return get_stylesheet_directory_uri() . '/assets/images/' . ($ext ? "categories/$slug.$ext" : 'megacarta-logo.webp');
 }
