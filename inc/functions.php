@@ -26,7 +26,7 @@ function mc_get_categories_catalogue($term_id = null) {
                     'slug' => $c->slug,
                     'count' => $c->count,
                     'parent' => $c->parent,
-                    'img' => file_exists($path) ? $url : ($term_id ? null: mc_get_logo_src()),
+                    'img' => file_exists($path) ? $url : ($term_id ? null: mc_get_cat_img()),
                     'children' => []
                 ];
         }
@@ -50,7 +50,7 @@ function mc_get_categories_catalogue($term_id = null) {
                     'slug' => $subc->slug,
                     'count' => $subc->count,
                     'parent' => $subc->parent,
-                    'img' => file_exists($path) ? $url : mc_get_logo_src(),
+                    'img' => file_exists($path) ? $url : mc_get_cat_img(),
                     'children' => []
                 ];
             }
@@ -175,6 +175,16 @@ function mc_get_logo_src($white = false) {
     return get_stylesheet_directory_uri() . '/assets/images/megacarta-logo' . ($white ? '-white' : '') . '.webp';
 }
 
+function mc_get_cat_img($slug) {
+    $png = file_exists("$slug.png");
+    $jpg = file_exists("$slug.jpg");
+    $webp = file_exists("$slug.webp");
+
+    $ext = $png ?: ($jpg ?: ($webp ?: null));
+
+    return get_stylesheet_directory_uri() . '/assets/images/categories/' . ($ext ? "$slug.$ext" : 'megacarta-logo.webp');
+}
+
 function mc_get_page_datas($pagina) {
     $return = [];
 
@@ -236,9 +246,9 @@ function mc_get_page_datas($pagina) {
     return $return;
 }
 
-function mc_upload_image_in_theme($img_name, $img_tmp_name) {
+function mc_upload_image_in_theme($img_name, $img_tmp_name, $cat = false) {
     $upload_dir = wp_upload_dir();
-    $upload_path = ABSPATH . 'assets/images/';
+    $upload_path = ABSPATH . 'assets/images/' . ($cat ? 'categories/' : '');
     
     if(!file_exists($upload_path))
         mkdir($upload_path, 0755, true);

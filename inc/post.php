@@ -4,6 +4,7 @@ add_action('admin_post_admin_login', 'admin_login_action_handler');
 add_action('admin_post_nopriv_admin_login', 'admin_login_action_handler');
 
 add_action('admin_post_save_page_edits', 'admin_save_page_edits');
+add_action('admin_post_save_cat_edits', 'admin_save_cat_edits');
 
 function admin_login_action_handler() {
     $request = (object) $_POST;
@@ -44,7 +45,7 @@ function admin_save_page_edits() {
 
             if($img && !empty($img->name)) {
                 $file_type = mime_content_type($img->tmp_name);
-                $upload = mc_upload_image_in_theme($img->name, $img->tmp_name, $file_type);
+                $upload = mc_upload_image_in_theme($img->name, $img->tmp_name);
 
                 if($upload->status != 'success') {
                     $_SESSION['error'] = $upload->message;
@@ -135,5 +136,62 @@ function admin_save_page_edits() {
 
     $_SESSION['save_success'] = true;
     wp_redirect('/area-admin/pagine/pagina?slug=' . $pagina);
+    exit();
+}
+
+function admin_save_cat_edits() {
+    $request = (object) $_POST;
+
+    $term_id = $request->term_id;
+    $name = $request->name ?? null;
+    $slug = $request->name ? sanitize_title($request->name) : null;
+    $actual_slug = $request->actual_slug ?? null;
+    $parent = $request->parent ?? null;
+
+    $to_update = [];
+
+    if($name)
+        $to_update = [
+            'name' => $name,
+            'slug' => $slug
+        ];
+
+    if($parent)
+        $to_update = ['parent' => $parent];
+
+    if(term_exists($term_id, 'product_cat'))
+        $result = wp_update_term($term_id, 'product_cat', $to_update);
+
+    $img = $_FILES['cat_img'] ?? null;
+    $img = $img ? (object) $img : null;
+
+    if($img && !empty($img->name)) {
+        $file_type = mime_content_type($img->tmp_name);
+        $upload = mc_upload_image_in_theme($img->name, $img->tmp_name, $file_type, true);
+
+        if($upload->status != 'success') {
+            $_SESSION['error'] = $upload->message;
+            wp_redirect('/area-admin/pagine/pagina?slug=' . $pagina);
+            exit();
+        }
+    }
+    else {
+        $img_exists = mc_get_cat_img($actual_slug);
+
+        if($img_exists && $slug != $actual_slug) {
+            $image_dir = get_template_directory() . '/assets/images/';
+    
+            $ext = explode('.', $img_exists)[1];
+    
+            $old_image_path = $image_dir . $actual_slug . '.' . $ext;
+            $new_image_path = $image_dir . $slug . '.' . $ext;
+    
+            if(file_exists($old_image_path))
+                rename($old_image_path, $new_image_path);
+        }
+    }
+    
+    $_SESSION['save_success'] = true;
+    wp_redirect('/area-admin/categorie/categoria?id=' . $term_id);
     exit();
 }
