@@ -16,9 +16,6 @@ function mc_get_categories_catalogue($term_id = null) {
 
     foreach($categories as $c) {
         if(!isset($result['c-'.$c->term_id])) {
-            $path = get_stylesheet_directory() . "/assets/images/categories/$c->slug.webp";
-            $url = get_stylesheet_directory_uri() . "/assets/images/categories/$c->slug.webp";
-
             if(!$term_id || $term_id == $c->term_id) 
                 $result['c-'.$c->term_id] = (object) [
                     'id' => $c->term_id,
@@ -26,7 +23,7 @@ function mc_get_categories_catalogue($term_id = null) {
                     'slug' => $c->slug,
                     'count' => $c->count,
                     'parent' => $c->parent,
-                    'img' => file_exists($path) ? $url : ($term_id ? null: mc_get_cat_img($c->slug)),
+                    'img' => mc_get_cat_img($c->slug),
                     'children' => []
                 ];
         }
@@ -40,9 +37,6 @@ function mc_get_categories_catalogue($term_id = null) {
                 die;
             }
 
-            $path = get_stylesheet_directory() . "/assets/images/categories/$subc->slug.webp";
-            $url = get_stylesheet_directory_uri() . "/assets/images/categories/$subc->slug.webp";
-
             if(!$term_id) {
                 $result['c-' . $subc->parent]->children[] = (object) [
                     'id' => $subc->term_id,
@@ -50,7 +44,7 @@ function mc_get_categories_catalogue($term_id = null) {
                     'slug' => $subc->slug,
                     'count' => $subc->count,
                     'parent' => $subc->parent,
-                    'img' => file_exists($path) ? $url : mc_get_cat_img($subc->slug),
+                    'img' => mc_get_cat_img($subc->slug),
                     'children' => []
                 ];
             }
