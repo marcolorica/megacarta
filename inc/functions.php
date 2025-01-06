@@ -126,7 +126,8 @@ function mc_get_products($term = null, $perPage = 10, $_order = 'piu-recenti', $
 				'price' => $p->get_price(),
 				'url' => get_permalink($id),
 				'img' => $img ?: mc_get_logo_src(),
-				'cats' => $_cats
+				'cats' => $_cats,
+                'qty' => $product->is_in_stock(),
 			];
         }
     }
