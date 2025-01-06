@@ -84,12 +84,12 @@
 
                             <div class="row">
                                 <div class="col-6">
-                                    <input type="text" class="form-control mb-3" name="chi_siamo_title_2" placeholder="Titolo" form="form-page" value="<?= $datas->second_section->title ?>" required>
-                                    <textarea rows="13" class="form-control mb-5" name="chi_siamo_text_2" placeholder="Contenuto" form="form-page" required><?= $datas->second_section->text ?></textarea>
-                                </div>
-                                <div class="col-6">
                                     <input type="file" style="display:none" name="chi_siamo_img_2" form="form-page" onchange="changeImg(this, true)">
                                     <img src="<?= $datas->second_section->img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 img-for-edit rounded <?= !$datas->second_section->img ? 'ph'  : '' ?>" onclick="jQuery(this).prev().click()">
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" class="form-control mb-3" name="chi_siamo_title_2" placeholder="Titolo" form="form-page" value="<?= $datas->second_section->title ?>" required>
+                                    <textarea rows="13" class="form-control mb-5" name="chi_siamo_text_2" placeholder="Contenuto" form="form-page" required><?= $datas->second_section->text ?></textarea>
                                 </div>
                             </div>
                         </div>
