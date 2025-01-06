@@ -26,7 +26,7 @@ function mc_get_categories_catalogue($term_id = null) {
                     'slug' => $c->slug,
                     'count' => $c->count,
                     'parent' => $c->parent,
-                    'img' => file_exists($path) ? $url : ($term_id ? null: mc_get_cat_img()),
+                    'img' => file_exists($path) ? $url : ($term_id ? null: mc_get_cat_img($c->lsug)),
                     'children' => []
                 ];
         }
@@ -50,7 +50,7 @@ function mc_get_categories_catalogue($term_id = null) {
                     'slug' => $subc->slug,
                     'count' => $subc->count,
                     'parent' => $subc->parent,
-                    'img' => file_exists($path) ? $url : mc_get_cat_img(),
+                    'img' => file_exists($path) ? $url : mc_get_cat_img($subc->slug),
                     'children' => []
                 ];
             }
