@@ -1,7 +1,7 @@
 <?php $settings = mc_get_settings(); ?>
 
-<form action="<?= esc_url(admin_url('admin-post.php')); ?>" id="form-settings" method="POST" enctype="multipart/form-data">
-    <input type="hidden" name="action" value="admin_save_settings">
+<form action="<?= esc_url(admin_url('admin-post.php')); ?>" id="form-settings" method="POST">
+    <input type="hidden" name="action" value="save_settings">
 </form>
 
 <section class="admin-body pt-5">
