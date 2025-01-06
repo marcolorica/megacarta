@@ -65,11 +65,11 @@ function mc_get_categories_catalogue($term_id = null) {
     return $term_id ? $result[array_keys($result)[0]] : $result;
 }
 
-function mc_get_products($term = null, $perPage = 10, $order = 'piu-recenti', $numPage = 1, $categories = []) {
+function mc_get_products($term = null, $perPage = 10, $_order = 'piu-recenti', $numPage = 1, $categories = []) {
     $orderBy = 'id';
     $order = 'DESC';
 
-    switch($order) {
+    switch($_order) {
         case 'meno-recenti':
             $order = 'ASC';
             break;
