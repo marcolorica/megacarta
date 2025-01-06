@@ -167,7 +167,7 @@ function admin_save_cat_edits() {
 
     if($img && !empty($img->name)) {
         $file_type = mime_content_type($img->tmp_name);
-        $upload = mc_upload_image_in_theme($img->name, $img->tmp_name, true);
+        $upload = mc_upload_image_in_theme($slug, $img->tmp_name, true);
 
         if($upload->status != 'success') {
             $_SESSION['error'] = $upload->message;
