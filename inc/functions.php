@@ -178,9 +178,10 @@ function mc_get_logo_src($white = false) {
 function mc_get_cat_img($slug) {
     $png = file_exists("$slug.png");
     $jpg = file_exists("$slug.jpg");
+    $jpeg = file_exists("$slug.jpeg");
     $webp = file_exists("$slug.webp");
 
-    $ext = $png ?: ($jpg ?: ($webp ?: null));
+    $ext = $png ?: $jpg ?: $jpeg ?: $webp ?: null;
 
     return get_stylesheet_directory_uri() . '/assets/images/' . ($ext ? "categories/$slug.$ext" : 'megacarta-logo.webp');
 }
