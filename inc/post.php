@@ -148,6 +148,8 @@ function admin_save_cat_edits() {
     $cat_slug = $request->cat_slug ?? null;
     $parent = $request->cat_parent ?? null;
 
+    var_dump($parent);die;
+
     $to_update = [];
 
     if($name)
