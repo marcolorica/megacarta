@@ -180,8 +180,8 @@ function mc_get_cat_img($slug) {
 
     
     $png = file_exists("$prefix.png");
-    var_dump($png, "$prefix.png");die;
     $jpg = file_exists("$prefix.jpg");
+    var_dump($jpg, "$prefix.jpg");die;
     $webp = file_exists("$prefix.webp");
 
     $ext = $png ?: $jpg ?: $jpeg ?: $webp ?: null;
