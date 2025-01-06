@@ -143,19 +143,17 @@ function admin_save_cat_edits() {
     $request = (object) $_POST;
 
     $term_id = $request->term_id;
-    $name = $request->name ?? null;
-    $slug = $request->cat_name ? sanitize_title($request->cat_name) : null;
+    $name = $request->cat_name ?? null;
+    $slug = $name ? sanitize_title($name) : null;
     $cat_slug = $request->cat_slug ?? null;
     $parent = $request->cat_parent ?? 0;
 
-    $to_update = [];
     $to_update = ['parent' => intval($parent)];
 
-    if($name)
-        $to_update = [
-            'name' => $name,
-            'slug' => $slug
-        ];
+    if($name) {
+        $to_update['name'] = $name;
+        $to_update['slug'] = $slug;
+    }
 
         var_dump($to_update);die;
 
