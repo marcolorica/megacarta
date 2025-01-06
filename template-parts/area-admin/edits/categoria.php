@@ -38,9 +38,9 @@
                         <select type="text" class="form-select mb-5" name="cat_parent" value="<?= $category->name ?>" form="form-cat">
                             <option value="0">Seleziona categoria genitore</option>
 
-                            <?php foreach($categories as $cid => $c) : $cid = str_replace('c-', '', $cid); ?>
+                            <?php foreach($categories as $cid => $c) : $cid = str_replace('c-', '', $cid); if($cid != $term_id) : ?>
                                 <option value="<?= "$cid" ?>" <?= $c->parent == $cid ? 'selected' : '' ?>><?= $c->name ?></option>
-                            <?php endforeach; ?>
+                            <?php endif; endforeach; ?>
                         </select>
                     </div>
                 </div>
