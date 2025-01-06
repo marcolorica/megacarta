@@ -182,7 +182,7 @@ function mc_get_cat_img($slug) {
 
     $ext = $png ?: ($jpg ?: ($webp ?: null));
 
-    return get_stylesheet_directory_uri() . '/assets/images/categories/' . ($ext ? "$slug.$ext" : 'megacarta-logo.webp');
+    return get_stylesheet_directory_uri() . '/assets/images/' . ($ext ? "categories/$slug.$ext" : 'megacarta-logo.webp');
 }
 
 function mc_get_page_datas($pagina) {
