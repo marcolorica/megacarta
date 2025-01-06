@@ -50,7 +50,7 @@ function mc_get_categories_catalogue($term_id = null) {
                 ];
             }
             else {
-                $result['c-'.$c->term_id] = (object) [
+                $result['c-'.$subc->term_id] = (object) [
                     'id' => $subc->term_id,
                     'name' => $subc->name,
                     'slug' => $subc->slug,
@@ -63,7 +63,7 @@ function mc_get_categories_catalogue($term_id = null) {
         }
     }
 
-    return $term_id ? $result['c-' . $term_id] : $result;
+    return $term_id ? $result[array_keys($result)[0]] : $result;
 }
 
 function mc_get_products($term = null, $perPage = 10, $order = 'DESC', $numPage = 1, $categories = []) {
