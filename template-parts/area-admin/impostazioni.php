@@ -12,7 +12,7 @@
             </div>
 
             <div class="col-12 text-center">
-                <h2 class="mb-3">Impostazioni</h2>
+                <h2 class="mb-5">Impostazioni</h2>
             </div>
             <div class="col-6 mb-5">
                <?= $settings->map_iframe ?>
