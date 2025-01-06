@@ -42,6 +42,7 @@ html {
 
 .row.row-prodotto::before {
     content: "";
+    position: absolute;
     background: lightgrey;
     width: 15px;
     height: 15px;
