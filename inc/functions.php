@@ -31,11 +31,11 @@ function mc_get_categories_catalogue($term_id = null) {
 
     foreach($subCategories as $subc) {
         if($subc->parent != 0) {
-            if(!$term_id && !isset($result['c-' . $subc->parent])) {
-                var_dump($subc->name);
-                var_dump($result);
-                die;
-            }
+            if(!$term_id && !isset($result['c-' . $subc->parent]))
+                continue;
+            // var_dump($subc->name);
+            // var_dump($result);
+            // die;
 
             if(!$term_id) {
                 $result['c-' . $subc->parent]->children[] = (object) [
