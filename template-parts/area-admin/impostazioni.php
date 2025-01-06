@@ -14,10 +14,10 @@
             <div class="col-12 text-center">
                 <h2 class="mb-3">Impostazioni</h2>
             </div>
-            <div class="col-6">
+            <div class="col-6 mb-5">
                <?= $settings->map_iframe ?>
             </div>
-            <div class="col-6">
+            <div class="col-6 mb-5">
                 <h4 class="mb-3">Iframe Mappa Google</h4>
                 <textarea class="form-control" name="map_iframe" form="form-settings" placeholder="<iframe src=..." rows="13"><?= $settings->map_iframe ?></textarea>
             </div>
