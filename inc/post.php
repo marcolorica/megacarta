@@ -146,18 +146,16 @@ function admin_save_cat_edits() {
     $name = $request->name ?? null;
     $slug = $request->cat_name ? sanitize_title($request->cat_name) : null;
     $cat_slug = $request->cat_slug ?? null;
-    $parent = $request->cat_parent ?? null;
+    $parent = $request->cat_parent ?? 0;
 
     $to_update = [];
+    $to_update = ['parent' => intval($parent)];
 
     if($name)
         $to_update = [
             'name' => $name,
             'slug' => $slug
         ];
-
-    if($parent)
-        $to_update = ['parent' => intval($parent)];
 
     if(term_exists($term_id, 'product_cat'))
         $result = wp_update_term($term_id, 'product_cat', $to_update);
