@@ -31,7 +31,16 @@
             </div>
 
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <span><?= count($products->result) ?> prodotti di <?= $products->count ?></span>
+                <div class="d-flex">
+                    <select class="admin-order" name="per_page" form="form-mc" onchange="jQuery('#form-mc').submit()">
+                        <option value="10" <?= $perPage == 10 ? 'selected' : '' ?>>10</option>
+                        <option value="25" <?= $perPage == 25 ? 'selected' : '' ?>>25</option>
+                        <option value="50" <?= $perPage == 50 ? 'selected' : '' ?>>50</option>
+                        <option value="100"> <?= $perPage == 100 ? 'selected' : '' ?>100</option>
+                        <option value="200"> <?= $perPage == 200 ? 'selected' : '' ?>200</option>
+                    </select>
+                    <span>prodotti di <?= $products->count ?></span>
+                </div>
                 <select name="order" form="form-mc" class="admin-order" onchange="jQuery('#form-mc').submit()">
                     <option value="piu-recenti" <?= $order == 'piu-recenti' ? 'selected' : '' ?>>Più recenti</option>
                     <option value="meno-recenti" <?= $order == 'meno-recenti' ? 'selected' : '' ?>>Meno recenti</option>
