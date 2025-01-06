@@ -26,7 +26,7 @@ function mc_get_categories_catalogue($term_id = null) {
                     'slug' => $c->slug,
                     'count' => $c->count,
                     'parent' => $c->parent,
-                    'img' => file_exists($path) ? $url : ($term_id ? null: mc_get_cat_img($c->lsug)),
+                    'img' => file_exists($path) ? $url : ($term_id ? null: mc_get_cat_img($c->slug)),
                     'children' => []
                 ];
         }
@@ -179,10 +179,9 @@ function mc_get_cat_img($slug) {
     $prefix = get_template_directory() . "/assets/images/categories/$slug";
 
     
-    $png = file_exists("$prefix/$slug.png");
-    var_dump($png, "$prefix/$slug.png");die;
-    $jpg = file_exists("$prefix/$slug.jpg");
-    $webp = file_exists("$prefix/$slug.webp");
+    $png = file_exists("$prefix.png");
+    $jpg = file_exists("$prefix.jpg");
+    $webp = file_exists("$prefix.webp");
 
     $ext = $png ?: $jpg ?: $jpeg ?: $webp ?: null;
 
