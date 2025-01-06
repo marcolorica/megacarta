@@ -172,7 +172,7 @@ function mg_is_admin_area() {
 }
 
 function mc_get_logo_src($white = false) {
-    return get_stylesheet_directory_uri() . '/assets/images/megacarta-logo' . ($white ? '-white' : '') . '.webp';
+    return get_stylesheet_directory() . '/assets/images/megacarta-logo' . ($white ? '-white' : '') . '.webp';
 }
 
 function mc_get_cat_img($slug) {
@@ -182,7 +182,7 @@ function mc_get_cat_img($slug) {
 
     $ext = $png ?: $jpg ?: $jpeg ?: $webp ?: null;
 
-    return get_stylesheet_directory_uri() . '/assets/images/' . ($ext ? "categories/$slug.$ext" : 'megacarta-logo.webp');
+    return get_stylesheet_directory() . '/assets/images/' . ($ext ? "categories/$slug.$ext" : 'megacarta-logo.webp');
 }
 
 function mc_get_page_datas($pagina) {
