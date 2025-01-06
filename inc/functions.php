@@ -31,6 +31,7 @@ function mc_get_categories_catalogue($term_id = null) {
 
     foreach($subCategories as $subc) {
         if($subc->parent != 0) {
+            var_dump($term_id);die;
             if(!$term_id && !isset($result['c-' . $subc->parent]))
                 continue;
             // var_dump($subc->name);
