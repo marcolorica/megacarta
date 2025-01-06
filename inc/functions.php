@@ -178,7 +178,9 @@ function mc_get_logo_src($white = false) {
 function mc_get_cat_img($slug) {
     $prefix = get_template_directory() . "/assets/images/categories/$slug";
 
+    
     $png = file_exists("$prefix/$slug.png");
+    var_dump($png, "$prefix/$slug.png");die;
     $jpg = file_exists("$prefix/$slug.jpg");
     $webp = file_exists("$prefix/$slug.webp");
 
