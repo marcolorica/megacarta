@@ -176,7 +176,7 @@ function mc_get_logo_src($white = false) {
 }
 
 function mc_get_cat_img($slug) {
-    $prefix = get_stylesheet_directory_uri() . "/assets/images/categories/$slug";
+    $prefix = get_stylesheet_directory() . "/assets/images/categories/$slug";
 
     $png = file_exists("$prefix/$slug.png");
     $jpg = file_exists("$prefix/$slug.jpg");
