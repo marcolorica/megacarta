@@ -181,7 +181,7 @@ function mc_get_cat_img($slug) {
     
     $png = file_exists("$prefix.png");
     $jpg = file_exists("$prefix.jpg");
-    // var_dump($jpg, get_template_directory() . "/assets/images/catalogo-bg.webp");
+    var_dump($jpg, "$prefix.jpg");die;
     $webp = file_exists("$prefix.webp");
 
     $ext = $png ?: $jpg ?: $jpeg ?: $webp ?: null;
