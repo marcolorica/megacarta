@@ -95,3 +95,9 @@ html {
     width: 15px;
     top: 50%;
 }
+
+.admin-order {
+    background: transparent;
+    border: navajowhite;
+    text-align: right;
+}
