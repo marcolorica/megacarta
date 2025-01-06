@@ -32,7 +32,7 @@
 
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <div class="d-flex">
-                    <select class="admin-order" name="per_page" form="form-mc" onchange="jQuery('#form-mc').submit()">
+                    <select class="admin-order me-2" name="per_page" form="form-mc" onchange="jQuery('#form-mc').submit()">
                         <option value="10" <?= $perPage == 10 ? 'selected' : '' ?>>10</option>
                         <option value="25" <?= $perPage == 25 ? 'selected' : '' ?>>25</option>
                         <option value="50" <?= $perPage == 50 ? 'selected' : '' ?>>50</option>
