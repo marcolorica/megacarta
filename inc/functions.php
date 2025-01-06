@@ -263,11 +263,17 @@ function mc_get_page_datas($pagina) {
 }
 
 function mc_get_settings() {
-    return (object) [
+    // return (object) [
+    //     'map_iframe' => get_option('mc_map_iframe'),
+    //     'address' => get_option('mc_address'),
+    //     'partita_iva' => get_option('mc_partita_iva')
+    // ];
+
+    var_dump((object) [
         'map_iframe' => get_option('mc_map_iframe'),
         'address' => get_option('mc_address'),
         'partita_iva' => get_option('mc_partita_iva')
-    ];
+    ]);die;
 }
 
 function mc_upload_image_in_theme($img_name, $img_tmp_name, $cat = false) {
