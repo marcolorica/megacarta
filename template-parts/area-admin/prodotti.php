@@ -3,10 +3,10 @@
 
     $term = isset($request->term) && strlen($request->term) ? $request->term : null;
     $perPage = isset($request->per_page) ? (int) $request->per_page : 10;
-    $order = isset($request->order) ? $request->order : 'piu-recenti';
-    $numPage = isset($request->num_page) ? $request->num_page : 1;
+    $order = $request->order ?? 'piu-recenti';
+    $numPage = $request->num_page ?? 1;
 
-    $categories = isset($request->categories) ? $request->categories : [];
+    $categories = $request->categories ?? [];
 
     $products = mc_get_products($term, $perPage, $order, $numPage, $categories);
     $maxPages = ceil($products->count / $perPage);
@@ -33,10 +33,10 @@
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <span><?= count($products->result) ?> prodotti di <?= $products->count ?></span>
                 <select name="order" form="form-mc" class="admin-order" onchange="jQuery('#form-mc').submit()">
-                    <option value="piu-recenti" <?= $order = 'piu-recenti' ? 'selected' : '' ?>>Più recenti</option>
-                    <option value="meno-recenti" <?= $order = 'meno-recenti' ? 'selected' : '' ?>>Meno recenti</option>
-                    <option value="A-Z" <?= $order = 'A-Z' ? 'selected' : '' ?>>A - Z</option>
-                    <option value="Z-A" <?= $order = 'Z-A' ? 'selected' : '' ?>>Z - A</option>
+                    <option value="piu-recenti" <?= $order == 'piu-recenti' ? 'selected' : '' ?>>Più recenti</option>
+                    <option value="meno-recenti" <?= $order == 'meno-recenti' ? 'selected' : '' ?>>Meno recenti</option>
+                    <option value="A-Z" <?= $order == 'A-Z' ? 'selected' : '' ?>>A - Z</option>
+                    <option value="Z-A" <?= $order == 'Z-A' ? 'selected' : '' ?>>Z - A</option>
                 </select>
             </div>
 
