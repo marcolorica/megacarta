@@ -172,17 +172,19 @@ function mg_is_admin_area() {
 }
 
 function mc_get_logo_src($white = false) {
-    return get_stylesheet_directory() . '/assets/images/megacarta-logo' . ($white ? '-white' : '') . '.webp';
+    return get_stylesheet_directory_uri() . '/assets/images/megacarta-logo' . ($white ? '-white' : '') . '.webp';
 }
 
 function mc_get_cat_img($slug) {
-    $png = file_exists("$slug.png");
-    $jpg = file_exists("$slug.jpg");
-    $webp = file_exists("$slug.webp");
+    $prefix = get_stylesheet_directory_uri() . "/assets/images/categories/$slug";
+
+    $png = file_exists("$prefix/$slug.png");
+    $jpg = file_exists("$prefix/$slug.jpg");
+    $webp = file_exists("$prefix/$slug.webp");
 
     $ext = $png ?: $jpg ?: $jpeg ?: $webp ?: null;
 
-    return get_stylesheet_directory() . '/assets/images/' . ($ext ? "categories/$slug.$ext" : 'megacarta-logo.webp');
+    return get_stylesheet_directory_uri() . '/assets/images/' . ($ext ? "categories/$slug.$ext" : 'megacarta-logo.webp');
 }
 
 function mc_get_page_datas($pagina) {
