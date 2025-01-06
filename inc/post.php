@@ -144,9 +144,9 @@ function admin_save_cat_edits() {
 
     $term_id = $request->term_id;
     $name = $request->name ?? null;
-    $slug = $request->name ? sanitize_title($request->name) : null;
-    $actual_slug = $request->actual_slug ?? null;
-    $parent = $request->parent ?? null;
+    $slug = $request->cat_name ? sanitize_title($request->cat_name) : null;
+    $cat_slug = $request->cat_slug ?? null;
+    $parent = $request->cat_parent ?? null;
 
     $to_update = [];
 
@@ -176,14 +176,14 @@ function admin_save_cat_edits() {
         }
     }
     else {
-        $img_exists = mc_get_cat_img($actual_slug);
+        $img_exists = mc_get_cat_img($cat_slug);
 
-        if($img_exists && $slug != $actual_slug) {
+        if($img_exists && $slug != $cat_slug) {
             $image_dir = get_template_directory() . '/assets/images/';
     
             $ext = explode('.', $img_exists)[1];
     
-            $old_image_path = $image_dir . $actual_slug . '.' . $ext;
+            $old_image_path = $image_dir . $cat_slug . '.' . $ext;
             $new_image_path = $image_dir . $slug . '.' . $ext;
     
             if(file_exists($old_image_path))

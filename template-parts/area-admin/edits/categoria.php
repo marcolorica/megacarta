@@ -8,7 +8,7 @@
 <form action="<?= esc_url(admin_url('admin-post.php')); ?>" id="form-cat" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="action" value="save_cat_edits">
     <input type="hidden" name="term_id" value="<?= $term_id ?>">
-    <input type="hidden" name="actual_slug" value="<?= $category->slug ?>">
+    <input type="hidden" name="cat_slug" value="<?= $category->slug ?>">
 </form>
 
 <section class="admin-body pt-5">
@@ -35,7 +35,7 @@
                         <input type="text" class="form-control mb-5" name="cat_name" placeholder="Nome" value="<?= $category->name ?>" form="form-cat" required>
 
                         <h4 class="mb-3">Categoria Genitore <span class="text-danger">*</span></h4>
-                        <select type="text" class="form-select mb-5" name="cat_name" placeholder="Nome" value="<?= $category->name ?>" form="form-cat">
+                        <select type="text" class="form-select mb-5" name="cat_parent" value="<?= $category->name ?>" form="form-cat">
                             <option value="0">Seleziona categoria genitore</option>
 
                             <?php foreach($categories as $cid => $c) : $cid = str_replace('c-', '', $cid); ?>
