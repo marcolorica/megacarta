@@ -252,7 +252,7 @@ function mc_get_page_datas($pagina) {
 
 function mc_upload_image_in_theme($img_name, $img_tmp_name, $cat = false) {
     $upload_dir = wp_upload_dir();
-    $upload_path = ABSPATH . 'assets/images/' . ($cat ? 'categories/' : '');
+    $upload_path = get_stylesheet_directory() . 'assets/images/' . ($cat ? 'categories/' : '');
     
     if(!file_exists($upload_path))
         mkdir($upload_path, 0755, true);
