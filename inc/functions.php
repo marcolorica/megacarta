@@ -65,12 +65,30 @@ function mc_get_categories_catalogue($term_id = null) {
     return $term_id ? $result[array_keys($result)[0]] : $result;
 }
 
-function mc_get_products($term = null, $perPage = 10, $order = ['id', 'DESC'], $numPage = 1, $categories = []) {
+function mc_get_products($term = null, $perPage = 10, $order = 'piu-recenti', $numPage = 1, $categories = []) {
+    $orderBy = 'id';
+    $order = 'DESC';
+
+    switch($order) {
+        case 'meno-recenti':
+            $order = 'ASC';
+            break;
+
+        case 'A-Z':
+            $orderBy = 'title';
+            $orderBy = 'ASC';
+            break;
+
+        case 'A-Z':
+            $orderBy = 'title';
+            break;
+    }
+
 	$args = [
         'limit' => $perPage,
         'status' => 'publish',
-        'orderby' => $order[0],
-        'order' => $order[1],
+        'orderby' => $orderBy,
+        'order' => $order,
         'page' => $numPage
 	];
 

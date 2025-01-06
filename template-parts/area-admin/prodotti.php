@@ -3,7 +3,7 @@
 
     $term = isset($request->term) && strlen($request->term) ? $request->term : null;
     $perPage = isset($request->per_page) ? (int) $request->per_page : 10;
-    $order = isset($request->order) ? explode('+', $request->order) : ['id', 'DESC'];
+    $order = isset($request->order) ? $request->order : 'piu-recenti';
     $numPage = isset($request->num_page) ? $request->num_page : 1;
 
     $categories = isset($request->categories) ? $request->categories : [];
@@ -32,7 +32,12 @@
 
             <div class="d-flex justify-content-bewtween align-items-center">
                 <span><?= count($products->result) ?> prodotti di <?= $products->count ?></span>
-                <select name="" id="" class="admin-order-by"></select>
+                <select name="order" id="" class="admin-order">
+                    <option value="piu-recenti" <?= $order = 'piu-recenti' ? 'selected' : '' ?>>Più recenti</option>
+                    <option value="meno-recenti" <?= $order = 'meno-recenti' ? 'selected' : '' ?>>Meno recenti</option>
+                    <option value="A-Z" <?= $order = 'A-Z' ? 'selected' : '' ?>>A - Z</option>
+                    <option value="A-Z" <?= $order = 'A-Z' ? 'selected' : '' ?>>Z - A</option>
+                </select>
             </div>
 
             <div class="col-12 body-content">
