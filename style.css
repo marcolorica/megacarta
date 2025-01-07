@@ -1122,6 +1122,10 @@ a {
   display: flex;
 }
 
+.label-home.child {
+  padding-left: 20px;
+}
+
 .img-for-edit {
   object-fit: cover;
   cursor: pointer;

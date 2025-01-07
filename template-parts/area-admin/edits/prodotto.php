@@ -52,10 +52,10 @@
                     </div>
 
                     <div class="col-6">
-                        <h4 class="mb-3">Categorie <span class="text-danger">*</span></h4>
+                        <h4>Categorie <span class="text-danger">*</span></h4>
 
                         <?php foreach($categories as $cid => $c) : $cid = str_replace('c-', '', $cid); ?>
-                            <label for="cat-<?= "$cid" ?>" class="label-home">
+                            <label for="cat-<?= "$cid" ?>" class="label-home mt-3">
                                 <input id="cat-<?= "$cid" ?>"
                                         type="checkbox"
                                         class="form-check me-2"
