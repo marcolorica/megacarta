@@ -262,7 +262,10 @@ function admin_save_product_edits() {
 		$product->set_description($request->product_name);
 		$product->set_regular_price($request->product_price);
 		$product->set_status('publish');
+
+        $product->set_manage_stock(true);
 		$product->set_stock_quantity(intval($request->product_qty));
+
         $product->update_meta_data('oem', $new_oem);
         $product->update_meta_data('mc_variants', $variants);
 		$product_id = $product->save();
@@ -276,7 +279,10 @@ function admin_save_product_edits() {
 		$product->set_description($request->product_name);
 		$product->set_regular_price($request->product_price);
 		$product->set_status('publish');
+    
+        $product->set_manage_stock(true);
 		$product->set_stock_quantity(intval($request->product_qty));
+
         $product->update_meta_data('oem', $new_oem);
         $product->update_meta_data('mc_variants', $variants);
 
