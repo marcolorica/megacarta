@@ -240,10 +240,10 @@ function admin_save_product_edits() {
             'img' => null
         ];
 
-        if($img && !empty($img->name[$i])) {
-            $img_name = $img->name[$i]['img'];
-            $img_tmp_name = $img->tmp_name[$i]['img'];
+        $img_name = $img && isset($img->name[$i]) && isset($img->name[$i]['img']) && !empty($img->name[$i]['img']) ? $img->name[$i]['img'] : null;
+        $img_tmp_name = $img && isset($img->tmp_name[$i]) && isset($img->tmp_name[$i]['img']) && !empty($img->tmp_name[$i]['img']) ? $img->tmp_name[$i]['img'] : null;
 
+        if($img_name && $img_tmp_name) {
             $file_type = mime_content_type($img_tmp_name);
             $upload = mc_upload_image_in_theme($img_name, $img_tmp_name, 'products/variants/');
 
