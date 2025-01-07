@@ -317,7 +317,7 @@ function admin_save_product_edits() {
         }
     }
 
-    $_SESSION['save_success'] = true;
+    $_SESSION['save_success'] = !$old_oem ? 'Prodotto creato!' : 'Modifiche salvate!';
     wp_redirect('/area-admin/prodotti/prodotto?id=' . $product_id);
     exit();
 }
