@@ -26,7 +26,7 @@
                         <input type="file" style="display:none" name="product_img" form="form-product" onchange="changeImg(this)">
                         
                         <h4 class="mb-3">Immagine principale <span class="text-danger">*</span></h4>
-                        <img src="<?= $product->img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 mb-5 img-for-edit main-img rounded <?= !$product->img ? 'ph'  : '' ?>" onclick="jQuery(this).prev().prev().click()">
+                        <img src="<?= $product->img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 mb-5 img-for-edit mc-square rounded <?= !$product->img ? 'ph'  : '' ?>" onclick="jQuery(this).prev().prev().click()">
                     </div>
                     
                     <div class="col-6">

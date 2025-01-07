@@ -1127,6 +1127,10 @@ a {
   cursor: pointer;
 }
 
+.img-for-edit.mc-square {
+  aspect-ratio: 1/1;
+}
+
 .img-for-edit.main-img {
   aspect-ratio: 8/3;
 }
