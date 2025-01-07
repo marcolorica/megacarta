@@ -286,7 +286,7 @@ function admin_save_product_edits() {
     }
 
     $categories = isset($request->product_categories) ? (is_array($request->product_categories) ? $categories : [$request->product_categories]) : [];
-    var_dump($categories);die;
+    var_dump($request->product_categories);die;
     wp_set_object_terms($product_id, $categories, 'product_cat');
 
     $img = $_FILES['product_img'] ?? null;
