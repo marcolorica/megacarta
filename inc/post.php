@@ -227,6 +227,8 @@ function admin_save_product_edits() {
     $variants = [];
     $_variants = $request->product_variants ?? [];
 
+    $only_variants = isset($request->only_variants) && $request->only_variants == 'on' ? 1 : 0;
+
     foreach($_variants as $i => $v) {
         $v = (object) $v;
 
@@ -280,6 +282,8 @@ function admin_save_product_edits() {
 
         $product->update_meta_data('oem', $new_oem);
         $product->update_meta_data('mc_variants', $variants);
+        $product->update_meta_data('mc_only_variants', $only_variants);
+
 		$product_id = $product->save();
     }
     else {
@@ -297,6 +301,7 @@ function admin_save_product_edits() {
 
         $product->update_meta_data('oem', $new_oem);
         $product->update_meta_data('mc_variants', $variants);
+        $product->update_meta_data('mc_only_variants', $only_variants);
 
 		$product->save();
     }
