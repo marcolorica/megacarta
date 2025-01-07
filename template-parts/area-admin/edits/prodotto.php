@@ -39,8 +39,8 @@
                         <div class="row">
                             <div class="col-6">
                                 <h4 class="mb-3">Prezzo <span class="text-danger">*</span></h4>
-                                <div class="input-group">
-                                    <span class="input-group-text align-items-start">€</span>
+                                <div class="input-group align-items-start">
+                                    <span class="input-group-text">€</span>
                                     <input type="number" step="0.01" name="product_price" class="form-control mb-5" placeholder="Prezzo" required>
                                 </div>
                             </div>
