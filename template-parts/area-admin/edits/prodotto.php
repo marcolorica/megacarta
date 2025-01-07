@@ -49,15 +49,6 @@
                                 <input type="number" step="0.01" name="product_qty" class="form-control mb-5" placeholder="Quantità" required>
                             </div>
                         </div>
-
-                        <h4 class="mb-3">Categorie <span class="text-danger">*</span></h4>
-                        <select type="text" class="form-select mb-5" name="cat_parent" value="<?= $category->name ?>" form="form-product">
-                            <option value="0">Seleziona categoria genitore</option>
-
-                            <?php foreach($categories as $cid => $c) : $cid = str_replace('c-', '', $cid); if($cid != $term_id) : ?>
-                                <option value="<?= $cid ?>" <?= $category->parent == $cid ? 'selected' : '' ?>><?= $c->name ?></option>
-                            <?php endif; endforeach; ?>
-                        </select>
                     </div>
 
                     <div class="col-6">
