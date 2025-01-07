@@ -304,7 +304,6 @@ function mc_get_product($product_id) {
         return null;
 
     $categories = wp_get_post_terms($product_id, 'product_cat', ['fields' => 'slugs']);
-    var_dump($categories);die;
     $variants = [];
 
     // if($product->is_type('variable')) {
