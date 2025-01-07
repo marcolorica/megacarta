@@ -123,12 +123,12 @@
                                         <img src="<?= $v->img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 img-for-edit mc-square rounded <?= !$v->img ? 'ph'  : '' ?>" onclick="jQuery(this).prev().click()">
                                     </div>
                                     <div class="col-4 d-flex justify-content-center align-items-center">
-                                        <input type="text" class="form-control product-variant-name" placeholder="Nome variante" form="form-product" name="product_variants[<?= $i ?>][name]" value="<?= $v->name ?>">
+                                        <input type="text" class="form-control product-variant-name" placeholder="Nome variante" form="form-product" name="product_variants[<?= $i ?>][name]" value="<?= $v->name ?>" required>
                                     </div>
                                     <div class="col-4 d-flex justify-content-center align-items-center">
                                         <div class="input-group align-items-start">
                                             <span class="input-group-text">€</span>
-                                            <input type="number" step="0.01" class="form-control product-variant-price" placeholder="Prezzo" name="product_variants[<?= $i ?>][price]" value="<?= $v->price ?>" form="form-product">
+                                            <input type="number" step="0.01" class="form-control product-variant-price" placeholder="Prezzo" name="product_variants[<?= $i ?>][price]" value="<?= $v->price ?>" form="form-product" required>
                                         </div>
                                     </div>
                                     <div class="col-2  d-flex justify-content-center align-items-center">
