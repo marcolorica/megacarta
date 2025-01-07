@@ -64,6 +64,18 @@
                                         value="<?= $c->slug ?>"
                                         <?= in_array($c->slug, $product->categories ?: []) ? 'checked' : '' ?>><?= $c->name ?>
                             </label>
+                            
+                            <?php foreach($c->children as $subcid => $subc) : $subcid = str_replace('c-', '', $subcid); ?>
+                                <label for="subcat-<?= "$subcid" ?>" class="label-home child">
+                                    <input id="subcat-<?= "$subcid" ?>"
+                                            type="checkbox"
+                                            class="form-check me-2"
+                                            name="product_categories[]"
+                                            form="form-product"
+                                            value="<?= $subc->slug ?>"
+                                            <?= in_array($subc->slug, $product->categories ?: []) ? 'checked' : '' ?>><?= $subc->name ?>
+                                </label>
+                            <?php endforeach; ?>
                         <?php endforeach; ?>
                     </div>
 
