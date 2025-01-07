@@ -33,25 +33,25 @@
 
                     <div class="col-6">
                         <h4 class="mb-3">Nome <span class="text-danger">*</span></h4>
-                        <input type="text" class="form-control mb-5" name="product_name" placeholder="Nome" value="<?= $product->name ?>" form="form-product" required>
+                        <input type="text" class="form-control mb-5" name="product_name" placeholder="Nome" value="<?= $product ? $product->name : '' ?>" form="form-product" required>
 
                         <div class="row">
                             <div class="col-6">
                                 <h4 class="mb-3">Codice fornitore <span class="text-danger">*</span></h4>
-                                <input type="text" class="form-control mb-5" name="product_oem" placeholder="Codice fornitore" value="<?= $product->oem ?>" form="form-product" required>
+                                <input type="text" class="form-control mb-5" name="product_oem" placeholder="Codice fornitore" value="<?= $product ? $product->oem : '' ?>" form="form-product" required>
                                 
                                 <h4 class="mb-3">Prezzo <span class="text-danger">*</span></h4>
                                 <div class="input-group align-items-start">
                                     <span class="input-group-text">€</span>
-                                    <input type="number" step="0.01" name="product_price" class="form-control mb-5" placeholder="Prezzo" required>
+                                    <input type="number" step="0.01" name="product_price" class="form-control mb-5" placeholder="Prezzo" value="<?= $product ? $product->price : '' ?>" required>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <h4 class="mb-3">Codice MEGACARTA <span class="text-danger">*</span></h4>
-                                <input type="text" class="form-control mb-5" name="product_code" placeholder="Codice" value="<?= $product->code ?>" form="form-product" required>
+                                <input type="text" class="form-control mb-5" name="product_code" placeholder="Codice" value="<?= $product ? $product->code : '' ?>" form="form-product" required>
 
                                 <h4 class="mb-3">Disponibilità <span class="text-danger">*</span></h4>
-                                <input type="number" step="0.01" name="product_qty" class="form-control mb-5" placeholder="Quantità" required>
+                                <input type="number" step="0.01" name="product_qty" class="form-control mb-5" placeholder="Quantità" value="<?= $product ? $product->qty : '' ?>" required>
                             </div>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                                         class="form-check me-2"
                                         name="product_categories[]"
                                         form="form-product"
-                                        value="<?= $c->slug ?>"
+                                        value="<?= $c->id ?>"
                                         <?= in_array($c->slug, $product->categories ?: []) ? 'checked' : '' ?>><?= $c->name ?>
                             </label>
                             
@@ -77,7 +77,7 @@
                                             class="form-check me-2"
                                             name="product_categories[]"
                                             form="form-product"
-                                            value="<?= $subc->slug ?>"
+                                            value="<?= $subc->id ?>"
                                             <?= in_array($subc->slug, $product->categories ?: []) ? 'checked' : '' ?>><?= $subc->name ?>
                                 </label>
                             <?php endforeach; ?>

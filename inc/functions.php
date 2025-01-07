@@ -316,7 +316,7 @@ function mc_get_product($product_id) {
         'code' => $product->get_sku(),
         'price' => $product->get_price(),
         'categories' => wp_get_post_terms($product_id, 'product_cat', ['fields' => 'slugs']),
-        'availability' => $product->is_in_stock() ? 'in stock' : 'out of stock',
+        'qty' => $product->get_stock_quantity(),
         'only_variants' => $product->get_meta('mc_only_variants'),
         'variants' => mc_get_product_variants($product_id)
     ];
