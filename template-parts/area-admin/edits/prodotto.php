@@ -51,7 +51,7 @@
                                 <input type="text" class="form-control mb-5" name="product_code" placeholder="Codice" value="<?= $product ? $product->code : '' ?>" form="form-product" required>
 
                                 <h4 class="mb-3">Disponibilità <span class="text-danger">*</span></h4>
-                                <input type="number" step="0.01" name="product_qty" class="form-control mb-5" placeholder="Quantità" value="<?= $product ? $product->qty : '' ?>" required>
+                                <input type="number" step="0.01" name="product_qty" class="form-control mb-5" placeholder="Quantità" value="<?= $product ? $product->qty : '' ?>" form="form-product" required>
                             </div>
                         </div>
                     </div>
@@ -59,9 +59,9 @@
                     <div class="col-6 mb-5">
                         <h4>Categorie <span class="text-danger">*</span></h4>
 
-                        <?php foreach($categories as $cid => $c) : $cid = str_replace('c-', '', $cid); ?>
-                            <label for="cat-<?= "$cid" ?>" class="label-home mt-3">
-                                <input id="cat-<?= "$cid" ?>"
+                        <?php foreach($categories as $c) : ?>
+                            <label for="cat-<?= $c->id ?>" class="label-home mt-3">
+                                <input id="cat-<?= $c->id ?>"
                                         type="checkbox"
                                         class="form-check me-2"
                                         name="product_categories[]"
@@ -70,9 +70,9 @@
                                         <?= in_array($c->slug, $product->categories ?: []) ? 'checked' : '' ?>><?= $c->name ?>
                             </label>
                             
-                            <?php foreach($c->children as $subcid => $subc) : $subcid = str_replace('c-', '', $subcid); ?>
-                                <label for="subcat-<?= "$subcid" ?>" class="label-home child">
-                                    <input id="subcat-<?= "$subcid" ?>"
+                            <?php foreach($c->children as $subc) : ?>
+                                <label for="subcat-<?= $subc->id ?>" class="label-home child">
+                                    <input id="subcat-<?= $subc->id ?>"
                                             type="checkbox"
                                             class="form-check me-2"
                                             name="product_categories[]"
