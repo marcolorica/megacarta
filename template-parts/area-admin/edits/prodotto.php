@@ -26,27 +26,27 @@
                         <input type="file" style="display:none" name="product_img" form="form-product" onchange="changeImg(this)">
                         
                         <h4 class="mb-3">Immagine principale <span class="text-danger">*</span></h4>
-                        <img src="<?= $product->img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 mb-3 img-for-edit main-img rounded <?= !$product->img ? 'ph'  : '' ?>" onclick="jQuery(this).prev().prev().click()">
+                        <img src="<?= $product->img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 mb-5 img-for-edit main-img rounded <?= !$product->img ? 'ph'  : '' ?>" onclick="jQuery(this).prev().prev().click()">
                     </div>
                     
                     <div class="col-6">
                         <h4 class="mb-3">Nome <span class="text-danger">*</span></h4>
-                        <input type="text" class="form-control mb-3" name="product_name" placeholder="Nome" value="<?= $product->name ?>" form="form-product" required>
+                        <input type="text" class="form-control mb-5" name="product_name" placeholder="Nome" value="<?= $product->name ?>" form="form-product" required>
 
                         <h4 class="mb-3">Codice <span class="text-danger">*</span></h4>
-                        <input type="text" class="form-control mb-3" name="product_code" placeholder="Nome" value="<?= $product->code ?>" form="form-product" required>
+                        <input type="text" class="form-control mb-5" name="product_code" placeholder="Nome" value="<?= $product->code ?>" form="form-product" required>
 
                         <div class="row">
                             <div class="col-6">
                                 <h4 class="mb-3">Prezzo <span class="text-danger">*</span></h4>
-                                <div class="input-group align-items-start">
-                                    <span class="input-group-text">€</span>
-                                    <input type="number" step="0.01" name="product_price" class="form-control mb-3" placeholder="Prezzo" required>
+                                <div class="input-group">
+                                    <span class="input-group-text align-items-start">€</span>
+                                    <input type="number" step="0.01" name="product_price" class="form-control mb-5" placeholder="Prezzo" required>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <h4 class="mb-3">Disponibilità <span class="text-danger">*</span></h4>
-                                <input type="number" step="0.01" name="product_qty" class="form-control mb-3" placeholder="Quantità" required>
+                                <input type="number" step="0.01" name="product_qty" class="form-control mb-5" placeholder="Quantità" required>
                             </div>
                         </div>
                     </div>
