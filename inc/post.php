@@ -243,8 +243,11 @@ function admin_save_product_edits() {
         ];
 
         if($img && !empty($img->name[$i])) {
-            $file_type = mime_content_type($img->tmp_name[$i]);
-            $upload = mc_upload_image_in_theme($img->name[$i], $img->tmp_name[$i], 'products/variants/');
+            $img_name = $img->name[$i]['img'];
+            $img_tmp_name = $img->tmp_name[$i]['img'];
+
+            $file_type = mime_content_type($img_tmp_name);
+            $upload = mc_upload_image_in_theme($img_name, $img_tmp_name, 'products/variants/');
 
             if($upload->status != 'success') {
                 $_SESSION['error'] = $upload->message;
@@ -252,7 +255,7 @@ function admin_save_product_edits() {
                 exit();
             }
 
-            $_variant->img = get_stylesheet_directory_uri() . '/assets/images/products/variants/' . $img->name[$i];
+            $_variant->img = get_stylesheet_directory_uri() . '/assets/images/products/variants/' . $img_name;
         }
 
         $variants[] = $_variant;
