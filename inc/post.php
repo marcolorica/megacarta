@@ -245,7 +245,7 @@ function admin_save_product_edits() {
 
             foreach($existent_variants as $existent_variant) {
                 if($existent_variant->id == $v->id)
-                    $v->img = $existent_variant->img;
+                    $_variant->img = $existent_variant->img;
             }
         }
 
