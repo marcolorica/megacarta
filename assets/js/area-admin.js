@@ -82,25 +82,25 @@ function adminDeletCategory(cat_id, has_children) {
 }
 
 function addProductVariant(el) {
-    let html_template = $('.template-row-product-variant').html();
+    let html_template = jQuery('.template-row-product-variant').html();
 
-    let $newRow = $('<div class="row row-product-variant mb-3"></div>');
+    let $newRow = jQuery('<div class="row row-product-variant mb-3"></div>');
     $newRow.html(html_template);
 
-    $newRow.insertBefore($(el))
+    $newRow.insertBefore(jQuery(el))
 
     calculateArrayNameIndexVariants();
 }
 
 function removeVariantRow(el) {
-    $(el).parent().parent().remove();
+    jQuery(el).parent().parent().remove();
     calculateArrayNameIndexVariants();
 }
 
 function calculateArrayNameIndexVariants() {
-    $('.row-product-variant').each((i, el) => {
-        $(el).find('.product-variant-name').attr('name', 'product_variants[' + i + '][name]').attr('required', true).attr('form', 'form-product');
-        $(el).find('.product-variant-file-img').attr('name', 'product_variants[' + i + '][img]').attr('required', true).attr('form', 'form-product');
-        $(el).find('.product-variant-price').attr('name', 'product_variants[' + i + '][price]').attr('required', true).attr('form', 'form-product');
+    jQuery('.row-product-variant').each((i, el) => {
+        jQuery(el).find('.product-variant-name').attr('name', 'product_variants[' + i + '][name]').attr('required', true).attr('form', 'form-product');
+        jQuery(el).find('.product-variant-file-img').attr('name', 'product_variants[' + i + '][img]').attr('required', true).attr('form', 'form-product');
+        jQuery(el).find('.product-variant-price').attr('name', 'product_variants[' + i + '][price]').attr('required', true).attr('form', 'form-product');
     });
 }
