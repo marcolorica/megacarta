@@ -328,5 +328,5 @@ function mc_get_product_variants($product_id) {
     if(!$product)
         return null;
 
-    return $product->get_meta('mc_variations') ?: [];
+    return $product->get_meta('mc_variants') ?: [];
 }

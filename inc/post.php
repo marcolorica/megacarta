@@ -256,6 +256,8 @@ function admin_save_product_edits() {
         $variants[] = $_variant;
     }
 
+    
+
     if(!$product_id) {
         $product = new WC_Product_Simple();
 		$product->set_name($request->product_code);
