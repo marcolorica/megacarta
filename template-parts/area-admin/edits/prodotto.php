@@ -51,7 +51,7 @@
                         </div>
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-6 mb-5">
                         <h4>Categorie <span class="text-danger">*</span></h4>
 
                         <?php foreach($categories as $cid => $c) : $cid = str_replace('c-', '', $cid); ?>
@@ -79,7 +79,7 @@
                         <?php endforeach; ?>
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-6 mb-5">
                         <h4 class="mb-3">Varianti</h4>
 
                     </div>
