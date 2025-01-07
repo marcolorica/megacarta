@@ -234,11 +234,20 @@ function admin_save_product_edits() {
         $img = $img ? (object) $img : null;
 
         $_variant = (object) [
-            'id' => uniqid(),
+            'id' => $v->id ?? uniqid(),
             'name' => $v->name,
             'price' => $v->price,
             'img' => null
         ];
+
+        if($product_id) {
+            $existent_variants = mc_get_product_variants($product_id);
+
+            foreach($existent_variants as $existent_variant) {
+                if($existent_variant->id == $v->id)
+                    $v->img = $existent_variant->img;
+            }
+        }
 
         $img_name = $img && isset($img->name[$i]) && isset($img->name[$i]['img']) && !empty($img->name[$i]['img']) ? $img->name[$i]['img'] : null;
         $img_tmp_name = $img && isset($img->tmp_name[$i]) && isset($img->tmp_name[$i]['img']) && !empty($img->tmp_name[$i]['img']) ? $img->tmp_name[$i]['img'] : null;

@@ -93,6 +93,8 @@
                         </label>
 
                         <div class="template-row-product-variant" style="display:none">
+                            <input type="hidden" class="product-variant-id" value="">
+
                             <div class="col-2">
                                 <input type="file" style="display:none" class="product-variant-file-img" onchange="changeImg(this, true)">
                                 <img src="<?= get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 img-for-edit mc-square rounded ph" onclick="jQuery(this).prev().click()">
@@ -114,12 +116,14 @@
                         <?php if($product) : ?>
                             <?php foreach($product->variants as $i => $v) : ?>
                                 <div class="row row-product-variant mb-3">
+                                    <input type="hidden" class="product-variant-id" form="form-product" name="product_variants[<?= $i ?>][id]" value="<?= $v->id ?>">
+
                                     <div class="col-2">
                                         <input type="file" name="product_variants[<?= $i ?>][img]" style="display:none" class="product-variant-file-img" form="form-product" onchange="changeImg(this, true)">
                                         <img src="<?= $v->img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 img-for-edit mc-square rounded <?= !$v->img ? 'ph'  : '' ?>" onclick="jQuery(this).prev().click()">
                                     </div>
                                     <div class="col-4 d-flex justify-content-center align-items-center">
-                                        <input type="text" class="form-control product-variant-name" placeholder="Nome variante" form="form-product" name="product_variants[<?= $i ?>][name]" value="<?= $v->name ?>" form="form-product">
+                                        <input type="text" class="form-control product-variant-name" placeholder="Nome variante" form="form-product" name="product_variants[<?= $i ?>][name]" value="<?= $v->name ?>">
                                     </div>
                                     <div class="col-4 d-flex justify-content-center align-items-center">
                                         <div class="input-group align-items-start">

@@ -99,6 +99,7 @@ function removeVariantRow(el) {
 
 function calculateArrayNameIndexVariants() {
     jQuery('.row-product-variant').each((i, el) => {
+        jQuery(el).find('.product-variant-id').attr('name', 'product_variants[' + i + '][id]').attr('required', true).attr('form', 'form-product');
         jQuery(el).find('.product-variant-name').attr('name', 'product_variants[' + i + '][name]').attr('required', true).attr('form', 'form-product');
         jQuery(el).find('.product-variant-file-img').attr('name', 'product_variants[' + i + '][img]').attr('required', true).attr('form', 'form-product');
         jQuery(el).find('.product-variant-price').attr('name', 'product_variants[' + i + '][price]').attr('required', true).attr('form', 'form-product');
