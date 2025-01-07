@@ -3,8 +3,6 @@
 
     $product = $product_id ? mc_get_product($product_id) : null;
     $categories = mc_get_categories_catalogue();
-
-    var_dump($product->variants);die;
 ?>
 
 <form action="<?= esc_url(admin_url('admin-post.php')); ?>" id="form-product" method="POST" enctype="multipart/form-data">

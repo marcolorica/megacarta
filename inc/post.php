@@ -229,6 +229,8 @@ function admin_save_product_edits() {
 
     foreach($_variants as $i => $v) {
         $v = (object) $v;
+
+        var_dump($_FILES['product_variants']);die;
         
         $img = $_FILES['product_variants'][$i] ?? null;
         $img = $img ? (object) $img : null;
