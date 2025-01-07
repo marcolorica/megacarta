@@ -87,8 +87,8 @@
                     <div class="col-6 mb-5">
                         <h4 class="mb-3">Varianti</h4>
 
-                        <label for="only-variants" class="mb-3">
-                            <input type="checkbox" class="me-2" name="only_variants" <?= $product->only_variants ?>>
+                        <label for="only-variants" class="d-block mb-3">
+                            <input type="checkbox" class="me-2" name="only_variants" <?= $product->only_variants ?> form="form-product">
                             <span>Vendi solo tramite varianti</span>
                         </label>
 
