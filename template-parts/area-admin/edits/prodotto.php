@@ -3,6 +3,8 @@
 
     $product = $product_id ? mc_get_product($product_id) : null;
     $categories = mc_get_categories_catalogue();
+
+    print_r($product);die;
 ?>
 
 <form action="<?= esc_url(admin_url('admin-post.php')); ?>" id="form-product" method="POST" enctype="multipart/form-data">
@@ -43,7 +45,7 @@
                                 <h4 class="mb-3">Prezzo <span class="text-danger">*</span></h4>
                                 <div class="input-group align-items-start">
                                     <span class="input-group-text">€</span>
-                                    <input type="number" step="0.01" name="product_price" class="form-control mb-5" placeholder="Prezzo" value="<?= $product ? $product->price : '' ?>" required>
+                                    <input type="number" step="0.01" name="product_price" class="form-control mb-5" placeholder="Prezzo" value="<?= $product ? $product->price : '' ?>" form="form-product" required>
                                 </div>
                             </div>
                             <div class="col-6">
