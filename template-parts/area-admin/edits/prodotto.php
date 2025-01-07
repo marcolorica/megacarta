@@ -92,15 +92,15 @@
                             <span>Vendi solo tramite varianti</span>
                         </label>
 
-                        <div class="template-row-product-variant">
+                        <div class="template-row-product-variant" style="display:none">
                             <div class="col-2">
                                 <input type="file" style="display:none" class="product-variant-file-img" onchange="changeImg(this, true)">
                                 <img src="<?= get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 mb-5 img-for-edit mc-square rounded ph" onclick="jQuery(this).prev().click()">
                             </div>
-                            <div class="col-4">
+                            <div class="col-4  d-flex justify-content-center align-items-center">
                                 <input type="text" class="form-control product-variant-name" placeholder="Nome variante">
                             </div>
-                            <div class="col-4">
+                            <div class="col-4  d-flex justify-content-center align-items-center">
                                 <div class="input-group align-items-start">
                                     <span class="input-group-text">€</span>
                                     <input type="number" step="0.01" class="form-control product-variant-price" placeholder="Prezzo variante">
@@ -118,10 +118,10 @@
                                         <input type="file" name="product_variants[<?= $i ?>][img]" style="display:none" class="product-variant-file-img" form="form-product" onchange="changeImg(this, true)">
                                         <img src="<?= $v->img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 mb-5 img-for-edit mc-square rounded <?= !$v->img ? 'ph'  : '' ?>" onclick="jQuery(this).prev().click()">
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-4 d-flex justify-content-center align-items-center">
                                         <input type="text" class="form-control product-variant-name" placeholder="Nome variante" form="form-product" name="product_variants[<?= $i ?>][name]" value="<?= $v->name ?>" form="form-product">
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-4 d-flex justify-content-center align-items-center">
                                         <div class="input-group align-items-start">
                                             <span class="input-group-text">€</span>
                                             <input type="number" step="0.01" class="form-control product-variant-price" placeholder="Prezzo variante" name="product_variants[<?= $i ?>][price]" value="<?= $v->price ?>" form="form-product">
