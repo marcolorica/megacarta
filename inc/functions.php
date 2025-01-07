@@ -305,7 +305,7 @@ function mc_upload_image_in_theme($img_name, $img_tmp_name, $dir = '') {
 function mc_get_product($product_id) {
     $product = wc_get_product($product_id);
 
-    var_dump($product->get_stock_quantity());die;
+    var_dump('ao', $product->get_stock_quantity());die;
 
     if(!$product)
         return null;
