@@ -312,6 +312,7 @@ function mc_get_product($product_id) {
         'id' => $product_id,
         'img' => mc_get_product_image($product_id),
         'name' => $product->get_name(),
+        'oem' => $product->get_meta('oem'),
         'code' => $product->get_sku(),
         'price' => $product->get_price(),
         'categories' => wp_get_post_terms($product_id, 'product_cat', ['fields' => 'slugs']),

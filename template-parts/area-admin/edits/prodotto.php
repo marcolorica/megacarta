@@ -103,7 +103,7 @@
                             <div class="col-4 d-flex justify-content-center align-items-center">
                                 <div class="input-group align-items-start">
                                     <span class="input-group-text">€</span>
-                                    <input type="number" step="0.01" class="form-control product-variant-price" placeholder="Prezzo variante">
+                                    <input type="number" step="0.01" class="form-control product-variant-price" placeholder="Prezzo">
                                 </div>
                             </div>
                             <div class="col-2 d-flex justify-content-center align-items-center">
@@ -124,7 +124,7 @@
                                     <div class="col-4 d-flex justify-content-center align-items-center">
                                         <div class="input-group align-items-start">
                                             <span class="input-group-text">€</span>
-                                            <input type="number" step="0.01" class="form-control product-variant-price" placeholder="Prezzo variante" name="product_variants[<?= $i ?>][price]" value="<?= $v->price ?>" form="form-product">
+                                            <input type="number" step="0.01" class="form-control product-variant-price" placeholder="Prezzo" name="product_variants[<?= $i ?>][price]" value="<?= $v->price ?>" form="form-product">
                                         </div>
                                     </div>
                                     <div class="col-2  d-flex justify-content-center align-items-center">
