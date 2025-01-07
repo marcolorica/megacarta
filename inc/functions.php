@@ -304,19 +304,7 @@ function mc_get_product($product_id) {
         return null;
 
     $categories = wp_get_post_terms($product_id, 'product_cat', ['fields' => 'slugs']);
-    $variants = [];
-
-    // if($product->is_type('variable')) {
-    //     $children_ids = $product->get_children();
-    //     foreach ($children_ids as $child_id) {
-    //         $child_product = wc_get_product($child_id);
-    //         $variants[] = [
-    //             'id' => $child_product->get_id(),
-    //             'price' => $child_product->get_price(),
-    //             'attributes' => $child_product->get_attributes(),
-    //         ];
-    //     }
-    // }
+    $variants = mc_get_product_variants($product_id);
 
     return (object) [
         'id' => $product_id,
@@ -328,4 +316,13 @@ function mc_get_product($product_id) {
         'availability' => $product->is_in_stock() ? 'in stock' : 'out of stock',
         'variants' => $variants
     ];
+}
+
+function mc_get_product_variants($product_id) {
+    $product = wc_get_product($product_id);
+
+    if(!$product)
+        return null;
+
+    return [];
 }
