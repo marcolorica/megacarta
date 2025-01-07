@@ -230,9 +230,7 @@ function admin_save_product_edits() {
     foreach($_variants as $i => $v) {
         $v = (object) $v;
 
-        var_dump($_FILES['product_variants']);die;
-        
-        $img = $_FILES['product_variants'][$i] ?? null;
+        $img = $_FILES['product_variants'] ?? null;
         $img = $img ? (object) $img : null;
 
         $_variant = (object) [
@@ -242,9 +240,9 @@ function admin_save_product_edits() {
             'img' => null
         ];
 
-        if($img && !empty($img->name)) {
-            $file_type = mime_content_type($img->tmp_name);
-            $upload = mc_upload_image_in_theme($img->name, $img->tmp_name, 'products/variants/');
+        if($img && !empty($img->name[$i])) {
+            $file_type = mime_content_type($img->tmp_name[$i]);
+            $upload = mc_upload_image_in_theme($img->name[$i], $img->tmp_name[$i], 'products/variants/');
 
             if($upload->status != 'success') {
                 $_SESSION['error'] = $upload->message;
@@ -252,7 +250,7 @@ function admin_save_product_edits() {
                 exit();
             }
 
-            $_variant->img = get_stylesheet_directory_uri() . '/assets/images/products/variants/' . $img->name;
+            $_variant->img = get_stylesheet_directory_uri() . '/assets/images/products/variants/' . $img->name[$i];
         }
 
         $variants[] = $_variant;
