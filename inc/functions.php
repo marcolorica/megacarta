@@ -156,9 +156,15 @@ function mc_get_product_image($product_id) {
         $oem = $product->get_meta('oem');
         
         if($oem) {
-            $path = get_stylesheet_directory() . "/assets/images/products/$oem.webp";
-            $url = get_stylesheet_directory_uri() . "/assets/images/products/$oem.webp";
-            return file_exists($path) ? $url : null;
+            $prefix = get_stylesheet_directory() . "/assets/images/products/$oem";
+
+            $png = file_exists("$prefix.png");
+            $jpg = file_exists("$prefix.jpg");
+            $webp = file_exists("$prefix.webp");
+
+            $ext = $png ? 'png' : ($jpg ? 'jpg' : ($webp ? 'webp' : null));
+
+            return $ext ? get_stylesheet_directory_uri() . "/assets/images/products/$oem.$ext" : null;
         }
     }
 
@@ -191,7 +197,6 @@ function mc_get_logo_src($white = false) {
 function mc_get_cat_img($slug) {
     $prefix = get_stylesheet_directory() . "/assets/images/categories/$slug";
 
-    
     $png = file_exists("$prefix.png");
     $jpg = file_exists("$prefix.jpg");
     $webp = file_exists("$prefix.webp");
@@ -270,9 +275,9 @@ function mc_get_settings() {
     ];
 }
 
-function mc_upload_image_in_theme($img_name, $img_tmp_name, $cat = false) {
+function mc_upload_image_in_theme($img_name, $img_tmp_name, $dir = '') {
     $upload_dir = wp_upload_dir();
-    $upload_path = get_stylesheet_directory() . '/assets/images/' . ($cat ? 'categories/' : '');
+    $upload_path = get_stylesheet_directory() . '/assets/images/' . $dir;
     
     if(!file_exists($upload_path))
         mkdir($upload_path, 0755, true);
@@ -303,18 +308,16 @@ function mc_get_product($product_id) {
     if(!$product)
         return null;
 
-    $categories = wp_get_post_terms($product_id, 'product_cat', ['fields' => 'slugs']);
-    $variants = mc_get_product_variants($product_id);
-
     return (object) [
         'id' => $product_id,
         'img' => mc_get_product_image($product_id),
         'name' => $product->get_name(),
         'code' => $product->get_sku(),
         'price' => $product->get_price(),
-        'categories' => $categories,
+        'categories' => wp_get_post_terms($product_id, 'product_cat', ['fields' => 'slugs']),
         'availability' => $product->is_in_stock() ? 'in stock' : 'out of stock',
-        'variants' => $variants
+        'only_variants' => $product->get_meta('mc_only_variants'),
+        'variants' => mc_get_product_variants($product_id)
     ];
 }
 
@@ -324,5 +327,5 @@ function mc_get_product_variants($product_id) {
     if(!$product)
         return null;
 
-    return [];
+    return $product->get_meta('mc_variations') ?: [];
 }

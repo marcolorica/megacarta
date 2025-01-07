@@ -29,15 +29,17 @@
                         <img src="<?= $product->img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 mb-5 img-for-edit mc-square rounded <?= !$product->img ? 'ph'  : '' ?>" onclick="jQuery(this).prev().prev().click()">
                     </div>
                     
+                    
+
                     <div class="col-6">
                         <h4 class="mb-3">Nome <span class="text-danger">*</span></h4>
                         <input type="text" class="form-control mb-5" name="product_name" placeholder="Nome" value="<?= $product->name ?>" form="form-product" required>
 
-                        <h4 class="mb-3">Codice <span class="text-danger">*</span></h4>
-                        <input type="text" class="form-control mb-5" name="product_code" placeholder="Nome" value="<?= $product->code ?>" form="form-product" required>
-
                         <div class="row">
                             <div class="col-6">
+                                <h4 class="mb-3">Codice fornitore <span class="text-danger">*</span></h4>
+                                <input type="text" class="form-control mb-5" name="product_oem" placeholder="Codice fornitore" value="<?= $product->oem ?>" form="form-product" required>
+                                
                                 <h4 class="mb-3">Prezzo <span class="text-danger">*</span></h4>
                                 <div class="input-group align-items-start">
                                     <span class="input-group-text">€</span>
@@ -45,6 +47,9 @@
                                 </div>
                             </div>
                             <div class="col-6">
+                                <h4 class="mb-3">Codice MEGACARTA <span class="text-danger">*</span></h4>
+                                <input type="text" class="form-control mb-5" name="product_code" placeholder="Codice" value="<?= $product->code ?>" form="form-product" required>
+
                                 <h4 class="mb-3">Disponibilità <span class="text-danger">*</span></h4>
                                 <input type="number" step="0.01" name="product_qty" class="form-control mb-5" placeholder="Quantità" required>
                             </div>
@@ -82,6 +87,54 @@
                     <div class="col-6 mb-5">
                         <h4 class="mb-3">Varianti</h4>
 
+                        <label for="only-variants" class="mb-3">
+                            <input type="checkbox" class="me-2" name="only_variants" <?= $product->only_variants ?>>
+                            <span>Vendi solo tramite varianti</span>
+                        </label>
+
+                        <div class="template-row-product-variant">
+                            <div class="col-2">
+                                <input type="file" style="display:none" class="product-variant-file-img" onchange="changeImg(this, true)">
+                                <img src="<?= get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 mb-5 img-for-edit mc-square rounded ph" onclick="jQuery(this).prev().click()">
+                            </div>
+                            <div class="col-4">
+                                <input type="text" class="form-control product-variant-name" placeholder="Nome variante">
+                            </div>
+                            <div class="col-4">
+                                <div class="input-group align-items-start">
+                                    <span class="input-group-text">€</span>
+                                    <input type="number" step="0.01" class="form-control product-variant-price" placeholder="Prezzo variante">
+                                </div>
+                            </div>
+                            <div class="col-2 text-center">
+                                <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                        </div>
+
+                        <?php if($product) : ?>
+                            <?php foreach($product->variants as $i => $v) : ?>
+                                <div class="row row-product-variant mb-3">
+                                    <div class="col-2">
+                                        <input type="file" name="product_variants[<?= $i ?>][img]" style="display:none" class="product-variant-file-img" form="form-product" onchange="changeImg(this, true)">
+                                        <img src="<?= $v->img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 mb-5 img-for-edit mc-square rounded <?= !$v->img ? 'ph'  : '' ?>" onclick="jQuery(this).prev().click()">
+                                    </div>
+                                    <div class="col-4">
+                                        <input type="text" class="form-control product-variant-name" placeholder="Nome variante" form="form-product" name="product_variants[<?= $i ?>][name]" value="<?= $v->name ?>" form="form-product">
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="input-group align-items-start">
+                                            <span class="input-group-text">€</span>
+                                            <input type="number" step="0.01" class="form-control product-variant-price" placeholder="Prezzo variante" name="product_variants[<?= $i ?>][price]" value="<?= $v->price ?>" form="form-product">
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-center">
+                                        <button class="btn btn-danger" onclick="removeVariantRow(this)"><i class="fa-solid fa-trash"></i></button>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+
+                        <button class="btn btn-success" onclick="addProductVariant(this)">Aggiungi variante</button>
                     </div>
                 </div>
             </div>

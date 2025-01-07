@@ -94,33 +94,3 @@ function changeMcCategories() {
     jQuery('input[name=num_page]').val(1);
     jQuery('#form-mc').submit();
 }
-
-//admin action
-function deleteProduct(id) {
-
-}
-
-function deleteCategory(id) {
-    
-}
-
-function changeImg(el, noTitle) {
-    let $input = jQuery(el);
-    let file = $input.get(0).files[0];
-    
-    if(file) {
-        let reader = new FileReader();
-
-        reader.onload = (e) => {
-            let $img = $input.next();
-            
-            if(!noTitle)
-                $img = $img.next();
-
-            $img.removeClass('ph')
-                .attr('src', e.target.result);
-        };
-
-        reader.readAsDataURL(file);
-    }
-}

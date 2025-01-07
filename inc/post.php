@@ -3,6 +3,7 @@
 add_action('admin_post_admin_login', 'admin_login_action_handler');
 add_action('admin_post_nopriv_admin_login', 'admin_login_action_handler');
 
+add_action('admin_post_save_product_edits', 'admin_save_product_edits');
 add_action('admin_post_save_page_edits', 'admin_save_page_edits');
 add_action('admin_post_save_cat_edits', 'admin_save_cat_edits');
 add_action('admin_post_save_settings', 'admin_save_settings');
@@ -169,7 +170,7 @@ function admin_save_cat_edits() {
         $ext = explode('/', $file_type)[1];
         $ext = $ext == 'jpeg' ? 'jpg' : $ext;
 
-        $upload = mc_upload_image_in_theme("$slug.$ext", $img->tmp_name, true);
+        $upload = mc_upload_image_in_theme("$slug.$ext", $img->tmp_name, 'categories/');
 
         if($upload->status != 'success') {
             $_SESSION['error'] = $upload->message;
@@ -213,5 +214,108 @@ function admin_save_settings() {
 
     $_SESSION['save_success'] = true;
     wp_redirect('/area-admin/impostazioni');
+    exit();
+}
+
+function admin_save_product_edits() {
+    $request = (object) $_POST;
+
+    $product_id = $request->product_id ?? null;
+    $new_oem = $request->product_oem;
+    $old_oem = null;
+
+    $variants = [];
+    $_variants = $request->product_variants ?? [];
+
+    foreach($_variants as $i => $v) {
+        $v = (object) $v;
+        
+        $img = $_FILES['product_variants'][$i] ?? null;
+        $img = $img ? (object) $img : null;
+
+        $_variant = (object) [
+            'id' => uniqid(),
+            'name' => $v->name,
+            'price' => $v->price,
+            'img' => null
+        ];
+
+        if($img && !empty($img->name)) {
+            $file_type = mime_content_type($img->tmp_name);
+            $upload = mc_upload_image_in_theme($img->name, $img->tmp_name, 'products/variants/');
+
+            if($upload->status != 'success') {
+                $_SESSION['error'] = $upload->message;
+                wp_redirect('/area-admin/prodotti/prodotto' . ($product_id ? '?id=' . $product_id : ''));
+                exit();
+            }
+
+            $_variant->img = get_stylesheet_directory_uri() . '/assets/images/products/variants/' . $img->name;
+        }
+
+        $variants[] = $_variant;
+    }
+
+    if(!$product_id) {
+        $product = new WC_Product_Simple();
+		$product->set_name($request->product_code);
+		$product->set_description($request->product_name);
+		$product->set_regular_price($request->product_price);
+		$product->set_status('publish');
+        $product->update_meta_data('oem', $new_oem);
+        $product->update_meta_data('mc_variants', $variants);
+		$product_id = $product->save();
+    }
+    else {
+        $product = wc_get_product($product_id);
+
+        $old_oem = $product->get_meta('oem');
+
+        $product->set_name($request->product_code);
+		$product->set_description($request->product_name);
+		$product->set_regular_price($request->product_price);
+		$product->set_status('publish');
+        $product->update_meta_data('oem', $new_oem);
+        $product->update_meta_data('mc_variants', $variants);
+
+		$product->save();
+    }
+
+    wp_set_object_terms($product_id, $request->product_categories, 'product_cat');
+
+    $img = $_FILES['product_img'] ?? null;
+    $img = $img ? (object) $img : null;
+
+    if($img && !empty($img->name)) {
+        $file_type = mime_content_type($img->tmp_name);
+        $ext = explode('/', $file_type)[1];
+        $ext = $ext == 'jpeg' ? 'jpg' : $ext;
+
+        $upload = mc_upload_image_in_theme("$new_oem.$ext", $img->tmp_name, 'products/');
+
+        if($upload->status != 'success') {
+            $_SESSION['error'] = $upload->message;
+            wp_redirect('/area-admin/prodotti/prodotto?id=' . $product_id);
+            exit();
+        }
+    }
+    else if($product_id) {
+        $img_exists = mc_get_product_image($product_id);
+
+        if($img_exists && $old_oem != $new_oem) {
+            $image_dir = get_template_directory() . '/assets/images/products/';
+    
+            $ext = explode('.', $img_exists)[1];
+    
+            $old_image_path = $image_dir . $old_oem . '.' . $ext;
+            $new_image_path = $image_dir . $new_oem . '.' . $ext;
+    
+            if(file_exists($old_image_path))
+                rename($old_image_path, $new_image_path);
+        }
+    }
+
+    $_SESSION['save_success'] = true;
+    wp_redirect('/area-admin/prodotti/prodotto?id=' . $product_id);
     exit();
 }

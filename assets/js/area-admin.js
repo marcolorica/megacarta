@@ -1,3 +1,24 @@
+function changeImg(el, noTitle) {
+    let $input = jQuery(el);
+    let file = $input.get(0).files[0];
+    
+    if(file) {
+        let reader = new FileReader();
+
+        reader.onload = (e) => {
+            let $img = $input.next();
+            
+            if(!noTitle)
+                $img = $img.next();
+
+            $img.removeClass('ph')
+                .attr('src', e.target.result);
+        };
+
+        reader.readAsDataURL(file);
+    }
+}
+
 function adminDeleteProduct(product_id) {
     Swal.fire({
         title: 'Attenzione!',
@@ -57,5 +78,29 @@ function adminDeletCategory(cat_id, has_children) {
                 }
             });
         }
+    });
+}
+
+function addProductVariant(el) {
+    let html_template = $('.template-row-product-variant').html();
+
+    let $newRow = $('<div class="row row-product-variant mb-3"></div>');
+    $newRow.html(html_template);
+
+    $newRow.insertBefore($(el))
+
+    calculateArrayNameIndexVariants();
+}
+
+function removeVariantRow(el) {
+    $(el).parent().parent().remove();
+    calculateArrayNameIndexVariants();
+}
+
+function calculateArrayNameIndexVariants() {
+    $('.row-product-variant').each((i, el) => {
+        $(el).find('.product-variant-name').attr('name', 'product_variants[' + i + '][name]').attr('required', true).attr('form', 'form-product');
+        $(el).find('.product-variant-file-img').attr('name', 'product_variants[' + i + '][img]').attr('required', true).attr('form', 'form-product');
+        $(el).find('.product-variant-price').attr('name', 'product_variants[' + i + '][price]').attr('required', true).attr('form', 'form-product');
     });
 }
