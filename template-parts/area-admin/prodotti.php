@@ -55,7 +55,7 @@
                         <div class="col-1 d-flex justify-content-center align-items-center text-center">
                             <img src="<?= $p->img ?>" class="w-100">
                         </div>
-                        <div class="col-2 d-flex justify-content-center align-items-center text-center">
+                        <div class="col-2 d-flex justify-content-center align-items-center text-center flex-column">
                             <p class="p-code"><?= $sku ?></p>
                             
                             <?php if(count($p->variants)) : ?>

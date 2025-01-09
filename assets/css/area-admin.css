@@ -74,6 +74,10 @@ html {
     font-weight: bold;
 }
 
+.p-variants {
+    font-size: 13px;
+}
+
 .p-variants,
 .p-categories {
     color: grey;
