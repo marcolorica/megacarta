@@ -21,7 +21,7 @@
         let only_variants = parseInt(jQuery('input[name=only_variants]').val());
 
         let $thisV = jQuery(el);
-        let $inp = jQuery('input[name=mc_variant]');
+        let $inp = jQuery('input[name=mc_variant_id]');
 
         if($thisV.hasClass('selected')) {
             if(!only_variants) {

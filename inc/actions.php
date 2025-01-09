@@ -47,7 +47,7 @@ function mg_product_variants() {
 }
 
 function mc_input_variant_handle() {
-    ?> <input type="hidden" name="mc_variant" value=""> <?php
+    ?> <input type="hidden" name="mc_variant_id" value=""> <?php
 }
 
 //DA STUDIARE
