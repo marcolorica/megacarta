@@ -3,6 +3,7 @@
 add_action('wp_enqueue_scripts', 'mc_wp_enqueue_scripts');
 add_action('after_setup_theme','mc_add_woocommerce_support');
 add_action('template_redirect', 'mc_restrict_admin_area_access');
+add_action('woocommerce_before_add_to_cart_button', 'mc_input_variant_handle');
 
 function mc_wp_enqueue_scripts() {
 	wp_enqueue_style('mc-style', get_stylesheet_directory_uri() . '/style.css', [], md5(uniqid()));
@@ -41,4 +42,8 @@ function mc_restrict_admin_area_access() {
 
 function mg_product_variants() {
 	get_template_part('template-parts/wc/product-variants');
+}
+
+function mc_input_variant_handle() {
+    ?> <input type="hidden" name="mc_variant" value=""> <?php
 }
