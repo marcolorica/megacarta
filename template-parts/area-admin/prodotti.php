@@ -57,6 +57,10 @@
                         </div>
                         <div class="col-2 d-flex justify-content-center align-items-center text-center">
                             <p class="p-code"><?= $sku ?></p>
+                            
+                            <?php if(count($p->variants)) : ?>
+                                <span class="p-variants"><?= count($p->variants) ?> varianti</span>
+                            <?php endif; ?>
                         </div>
                         <div class="col-3 d-flex align-items-center">
                             <p class="p-title"><?= $p->name ?></p>
