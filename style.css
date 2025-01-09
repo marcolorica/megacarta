@@ -1182,3 +1182,8 @@ a {
   color: #970713;
   font-weight: 600;
 }
+
+.mg-variant img {
+  width: 30px;
+  margin-right: 10px;
+}
