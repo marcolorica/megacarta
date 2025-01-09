@@ -125,6 +125,16 @@
 								add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
 							?>
 
+							<div class="w-100 d-flex align-items-center <?= $mobile ? 'px-3' : '' ?>">
+								<p style="font-size:1.2em !important;" class="mb-2"><?= $product->get_description() ?></p>
+							</div>
+
+							<?php
+								add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
+								add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50 );
+								do_action( 'woocommerce_single_product_summary' );
+							?>
+
 							<?php if(count($mg_product->variants)) : ?>
 								<div class="mg-variants">
 									<?php foreach($mg_product->variants as $i => $v) : ?>
@@ -138,16 +148,6 @@
 									<?php endforeach; ?>
 								</div>
 							<?php endif; ?>
-
-							<div class="w-100 d-flex align-items-center <?= $mobile ? 'px-3' : '' ?>">
-								<p style="font-size:1.2em !important;" class="mb-2"><?= $product->get_description() ?></p>
-							</div>
-
-							<?php
-								add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
-								add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50 );
-								do_action( 'woocommerce_single_product_summary' );
-							?>
 						</div>
 					
 						<?php
