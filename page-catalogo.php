@@ -17,6 +17,12 @@
     $mobile = wp_is_mobile();
 ?>
 
+<style>
+    .intestazione {
+        background-image: url(assets/images/catalogo-bg.webp);
+    }
+</style>
+
 <section class="intestazione">
     <div class="container-fluid">
         <div class="row">
