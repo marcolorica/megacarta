@@ -33,6 +33,7 @@
             jQuery('.mg-variant').removeClass('selected');
             $thisV.addClass('selected');
             
+            console.log($inp, id)
             $inp.val(id);
         }
     }
