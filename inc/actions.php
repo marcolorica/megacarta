@@ -3,7 +3,9 @@
 add_action('wp_enqueue_scripts', 'mc_wp_enqueue_scripts');
 add_action('after_setup_theme','mc_add_woocommerce_support');
 add_action('template_redirect', 'mc_restrict_admin_area_access');
+
 add_action('woocommerce_before_add_to_cart_button', 'mc_input_variant_handle');
+add_action('woocommerce_add_order_item_meta', 'mc_variant_in_order', 10, 2);
 
 function mc_wp_enqueue_scripts() {
 	wp_enqueue_style('mc-style', get_stylesheet_directory_uri() . '/style.css', [], md5(uniqid()));
@@ -46,4 +48,10 @@ function mg_product_variants() {
 
 function mc_input_variant_handle() {
     ?> <input type="hidden" name="mc_variant" value=""> <?php
+}
+
+//DA STUDIARE
+function mc_variant_in_order($item_id, $values) {
+    if(isset($values['mc_variant_id']))
+        wc_add_order_item_meta($item_id, 'Variante', $values['mc_variant_id']);
 }
