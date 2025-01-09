@@ -38,9 +38,11 @@
 
 	$mobile = wp_is_mobile();
 
-	if($mobile) {
+    $mg_product = mc_get_product(get_the_ID());
 ?>
-	<style>
+
+<style>
+	<?php if($mobile) : ?>
 		body.single-product .summary {
 			padding: 1em;
 		}
@@ -62,9 +64,7 @@
 		.woocommerce-variation-price span.price {
 			font-size: 2em !important;
 		}
-	</style>
-<?php } else { ?>
-	<style>
+	<?php else : ?>
 		.woocommerce div.product p.price, 
 		.woocommerce div.product span.price {
 			font-size: 4em;
@@ -73,8 +73,8 @@
 		.woocommerce-variation-price span.price {
 			font-size: 3em !important;
 		}
-	</style>
-<?php } ?>
+	<?php endif; ?>
+</style>
 
 <style media="screen">
 	.single-content p, .single-content li, .single-content span{
@@ -124,6 +124,20 @@
 								add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
 								add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
 							?>
+
+							<?php if(count($mg_product->variants)) : ?>
+								<div class="mg-variants">
+									<?php foreach($mg_product->variants as $i => $v) : ?>
+										<div class="mg-variant" onclick="setVariant(<?= $v->id ?>)">
+											<?php if($v->img) : ?>
+												<img src="<?= $v->img ?>">
+											<?php endif; ?>
+											<span class="v-name"><?= $v->name ?></span>
+											<span class="v-price"><?= $v->price ?></span>
+										</div>
+									<?php endforeach; ?>
+								</div>
+							<?php endif; ?>
 
 							<div class="w-100 d-flex align-items-center <?= $mobile ? 'px-3' : '' ?>">
 								<p style="font-size:1.2em !important;" class="mb-2"><?= $product->get_description() ?></p>
