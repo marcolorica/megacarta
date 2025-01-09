@@ -1187,3 +1187,11 @@ a {
   width: 30px;
   margin-right: 10px;
 }
+
+html {
+  margin: 0 !important;
+}
+
+#wpadminbar {
+  display: none !important;
+}
