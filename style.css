@@ -1155,6 +1155,10 @@ a {
   padding: 10px;
   margin: 0 10px 10px 0;
   cursor: pointer;
+}
+
+.mg-variant,
+.mg-variant * {
   transition: .3s;
 }
 
