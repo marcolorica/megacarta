@@ -3,7 +3,7 @@
 <?php if(count($mg_product->variants)) : ?>
     <div class="mg-variants mb-4">
         <?php foreach($mg_product->variants as $i => $v) : ?>
-            <div class="mg-variant <?= $mg_product->only_variants && !$i ? 'selected' : '' ?>" onclick="setVariant(<?= $v->id ?>)">
+            <div class="mg-variant <?= $mg_product->only_variants && !$i ? 'selected' : '' ?>" onclick="setVariant(this, <?= $v->id ?>)">
                 <?php if($v->img) : ?>
                     <img src="<?= $v->img ?>">
                 <?php endif; ?>
@@ -13,3 +13,10 @@
         <?php endforeach; ?>
     </div>
 <?php endif; ?>
+
+<script>
+    function setVariant(el, id) {
+        jQuery('.mg-variant').removeClass('selected');
+        jQuery(el).addClass('selected');
+    }
+</script>
