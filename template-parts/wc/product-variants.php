@@ -8,7 +8,7 @@
                     <img src="<?= $v->img ?>">
                 <?php endif; ?>
                 <span class="v-name me-2"><?= $v->name ?></span>
-                <span class="v-price"><?= $v->price ?></span>
+                <span class="v-price">€<?= number_format($v->price, 2, ',', '.') ?></span>
             </div>
         <?php endforeach; ?>
     </div>
