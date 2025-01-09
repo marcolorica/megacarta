@@ -1,4 +1,4 @@
-<?php $mg_product = mc_get_product(get_the_ID()); var_dump($mg_product->variants[0]);die; ?>
+<?php $mg_product = mc_get_product(get_the_ID()); ?>
 
 <input type="hidden" name="only_variants" value="<?= $mg_product->only_variants ?>">
 

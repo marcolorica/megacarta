@@ -236,7 +236,7 @@ function admin_save_product_edits() {
         $img = $img ? (object) $img : null;
 
         $_variant = (object) [
-            'id' => $v->id ?? uniqid(),
+            'id' => isset($v->id) && strlen($v->id) ? $v->id : uniqid(),
             'name' => $v->name,
             'price' => $v->price,
             'img' => null
