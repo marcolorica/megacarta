@@ -312,7 +312,7 @@ function mc_get_product($product_id) {
     return (object) [
         'id' => $product_id,
         'img' => mc_get_product_image($product_id),
-        'name' => $product->get_name(),
+        'name' => $product->get_description(),
         'oem' => $product->get_meta('oem'),
         'code' => $product->get_sku(),
         'price' => $product->get_price(),
