@@ -37,8 +37,6 @@
     $general_font_size = $font_sizes[$general_font_size];
 
 	$mobile = wp_is_mobile();
-
-    $mg_product = mc_get_product(get_the_ID());
 ?>
 
 <style>
@@ -130,24 +128,12 @@
 							</div>
 
 							<?php
+								add_action( 'woocommerce_single_product_summary', 'mg_product_variants', 25);
+
 								add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
 								add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50 );
 								do_action( 'woocommerce_single_product_summary' );
 							?>
-
-							<?php if(count($mg_product->variants)) : ?>
-								<div class="mg-variants">
-									<?php foreach($mg_product->variants as $i => $v) : ?>
-										<div class="mg-variant" onclick="setVariant(<?= $v->id ?>)">
-											<?php if($v->img) : ?>
-												<img src="<?= $v->img ?>">
-											<?php endif; ?>
-											<span class="v-name"><?= $v->name ?></span>
-											<span class="v-price"><?= $v->price ?></span>
-										</div>
-									<?php endforeach; ?>
-								</div>
-							<?php endif; ?>
 						</div>
 					
 						<?php

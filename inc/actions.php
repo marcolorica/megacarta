@@ -38,3 +38,7 @@ function mc_restrict_admin_area_access() {
 		exit;
     }
 }
+
+function mg_product_variants() {
+	get_template_part('template-parts/wc/product-variants');
+}
