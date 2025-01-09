@@ -1163,9 +1163,10 @@ a {
 }
 
 .mg-variant.selected {
-  border: 2px solid #970713;
+  border: 1px solid #970713;
   color: #970713;
   font-weight: bold;
+  box-shadow: 0px 0px 0px 1px #970713 inset;
 }
 
 .mg-variant .v-name {
