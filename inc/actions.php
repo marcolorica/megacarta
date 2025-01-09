@@ -33,7 +33,7 @@ function mc_add_woocommerce_support() {
 }
 
 function mc_restrict_admin_area_access() {
-    if(!is_user_logged_in() && is_admin_area()) {
+    if(!is_user_logged_in() && mg_is_admin_area()) {
 		wp_redirect('/admin');
 		exit;
     }
