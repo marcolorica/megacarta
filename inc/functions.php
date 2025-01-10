@@ -15,17 +15,16 @@ function mc_get_categories_catalogue($term_id = null) {
     ]);
 
     foreach($categories as $c) {
-        if(!isset($result['c-'.$c->term_id])) {
-            if(!$term_id || $term_id == $c->term_id) 
-                $result['c-'.$c->term_id] = (object) [
-                    'id' => $c->term_id,
-                    'name' => $c->name,
-                    'slug' => $c->slug,
-                    'count' => $c->count,
-                    'parent' => $c->parent,
-                    'img' => mc_get_cat_img($c->slug),
-                    'children' => []
-                ];
+        if(!isset($result['c-'.$c->term_id]) && (!$term_id || $term_id == $c->term_id)) {
+            $result['c-'.$c->term_id] = (object) [
+                'id' => $c->term_id,
+                'name' => $c->name,
+                'slug' => $c->slug,
+                'count' => $c->count,
+                'parent' => $c->parent,
+                'img' => mc_get_cat_img($c->slug),
+                'children' => []
+            ];
         }
     }
 
@@ -48,7 +47,7 @@ function mc_get_categories_catalogue($term_id = null) {
                     'children' => []
                 ];
             }
-            else {
+            else if($term_id == $subc->term_id) {
                 $result['c-'.$subc->term_id] = (object) [
                     'id' => $subc->term_id,
                     'name' => $subc->name,
