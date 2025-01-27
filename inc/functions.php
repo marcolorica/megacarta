@@ -224,7 +224,7 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
         ];
     }
 
-	return (object) ['result' => $res, 'count' => $total_orders->found_posts];
+	return (object) ['result' => $orders, 'count' => $total_orders->found_posts];
 }
 
 function mc_get_product_image($product_id) {
