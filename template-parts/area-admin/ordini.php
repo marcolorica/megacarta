@@ -70,5 +70,33 @@
                 <?php endforeach; ?>
             </div>
         </div>
+
+        <div class="row row-pagination admin mt-3">
+            <div class="col-12 d-flex justify-content-end p-0" style="gap: 10px">
+                <button class="btn btn-primary" onclick="changeMcPage('prev')" <?= $numPage > 1 ? '' : 'disabled' ?>><i class="fa-solid fa-chevron-left"></i></button>
+
+                <?php if($numPage > 2) : ?>
+                    <span onclick="changeMcPage(null, 1)">1</span>
+                    <span class="points">...</span>
+                <?php endif; ?>
+
+                <?php if($numPage > 1) : ?>
+                    <span class="prev-page" onclick="changeMcPage('prev')"><?= $numPage - 1 ?></span>
+                <?php endif; ?>
+
+                <span class="actual-page"><?= $numPage ?></span>
+
+                <?php if($numPage < $maxPages) : ?>
+                    <span class="next-page" onclick="changeMcPage('next')"><?= $numPage + 1 ?></span>
+                <?php endif; ?>
+
+                <?php if($numPage < ($maxPages - 1)) : ?>
+                    <span class="points">...</span>
+                    <span onclick="changeMcPage(null, <?= $maxPages ?>)"><?= $maxPages ?></span>
+                <?php endif; ?>
+
+                <button class="btn btn-primary" onclick="changeMcPage('next')" <?= $numPage < $maxPages ? '' : 'disabled' ?>><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </div>
     </div>
 </section>
