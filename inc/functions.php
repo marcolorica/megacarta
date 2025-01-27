@@ -214,6 +214,16 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
 
     $total_orders = new WP_Query($args);
 
+    for($i = 0; $i < 10; $i++) {
+        $orders[] = (object) [
+            'id' => $i,
+            'customer' => 'Marco Lorica',
+            'status' => 'In consegna',
+            'tot' => 150,
+            'products' => 6
+        ];
+    }
+
 	return (object) ['result' => $res, 'count' => $total_orders->found_posts];
 }
 

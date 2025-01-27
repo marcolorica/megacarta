@@ -46,6 +46,30 @@
                     <option value="Z-A" <?= $order == 'Z-A' ? 'selected' : '' ?>>Z - A</option>
                 </select>
             </div>
+
+            <div class="col-12 body-content">
+                <?php foreach($orders->result as $o) : $o = (object) $o; ?>
+                    <div class="row row-prodotto">
+                        <div class="col-3 d-flex justify-content-center align-items-center text-center flex-column">
+                            <p class="p-code"><?= $o->customer ?></p>
+                        </div>
+                        <div class="col-3 d-flex align-items-center">
+                            <p class="p-title"><?= $o->status ?></p>
+                        </div>
+                        <div class="col-2 d-flex justify-content-center align-items-center text-center">
+                            <p class="p-price">€<?= number_format($o->tot, 2, ',', '.'); ?></p>
+                        </div>
+                        <div class="col-2 d-flex justify-content-center align-items-center text-center">
+                            <p class="p-categories"><?= $o->products ?></p>
+                        </div>
+                        <div class="col-2 d-flex justify-content-end align-items-center">
+                            <a class="btn azione-mc btn-outline-success me-3" href="#"><i class="fa-solid fa-eye fa-fw text-success"></i></a>
+                            <a class="btn azione-mc btn-outline-primary me-3" href="/area-admin/ordini/ordine?id=<?= $o->id ?>"><i class="fa-solid fa-pencil fa-fw text-primary"></i></a>
+                            <a class="btn azione-mc btn-outline-danger" role="button" onclick="adminDeleteOrder(<?= $o->id ?>)"><i class="fa-solid fa-trash-can fa-fw"></i></a>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
         </div>
     </div>
 </section>
