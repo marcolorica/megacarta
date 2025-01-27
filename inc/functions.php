@@ -149,6 +149,74 @@ function mc_get_products($term = null, $perPage = 10, $_order = 'piu-recenti', $
 	return (object) ['result' => $res, 'count' => count($total_products)];
 }
 
+function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $numPage = 1) {
+    $orders = [];
+
+    $args = [
+        'post_type' => 'shop_order',
+        'post_status' => array_keys(wc_get_order_statuses())
+    ];
+
+    $orderBy = 'id';
+    $order = 'DESC';
+
+    // switch($_order) {
+    //     case 'meno-recenti':
+    //         $order = 'ASC';
+    //         break;
+
+    //     case 'A-Z':
+    //         $orderBy = 'title';
+    //         $orderBy = 'ASC';
+    //         break;
+
+    //     case 'A-Z':
+    //         $orderBy = 'title';
+    //         break;
+    // }
+
+    // $args['orderby'] = $orderBy;
+    $args['limit'] = $perPage;
+    $args['order'] = $order;
+    $args['page'] = $numPage;
+
+    if($term)
+        $args['s'] = $term;
+    
+    $query = new WP_Query($args);
+    
+    if($query->have_posts()) {
+        while($query->have_posts()) {
+            $query->the_post();
+            
+            $order = wc_get_order($order_id);
+            
+            $orders[] = (object) [
+                'id' => get_the_ID(),
+                'customer' => $order->get_billing_first_name() . ' ' . $order->get_billing_last_name(),
+                'status' => $order->get_status(),
+                'tot' => $order->get_total(),
+                'products' => $order->get_items()
+            ];
+        }
+    }
+    
+    wp_reset_postdata();
+
+    $args_total = [
+        'post_type' => 'shop_order',
+        'post_status' => array_keys(wc_get_order_statuses()),
+        'posts_per_page' => -1
+    ];
+
+    if($term)
+        $args_total['s'] = $term;
+
+    $total_orders = new WP_Query($args);
+
+	return (object) ['result' => $res, 'count' => $total_orders->found_posts];
+}
+
 function mc_get_product_image($product_id) {
     $product = wc_get_product($product_id);
 
