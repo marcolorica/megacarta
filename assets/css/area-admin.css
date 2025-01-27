@@ -32,6 +32,7 @@ html {
     min-height: 100vh;
 }
 
+.row-ordine,
 .row-prodotto {
     border: 1px solid lightgrey;
     border-radius: 10px;

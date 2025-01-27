@@ -49,8 +49,8 @@
 
             <div class="col-12 body-content">
                 <?php foreach($orders->result as $o) : $o = (object) $o; ?>
-                    <div class="row row-prodotto">
-                        <div class="col-3 d-flex justify-content-center align-items-center text-center flex-column">
+                    <div class="row row-ordine">
+                        <div class="col-3 d-flex justify-content-center align-items-start flex-column">
                             <p class="p-code"><?= $o->customer ?></p>
                         </div>
                         <div class="col-3 d-flex align-items-center">
@@ -60,7 +60,7 @@
                             <p class="p-price">€<?= number_format($o->tot, 2, ',', '.'); ?></p>
                         </div>
                         <div class="col-2 d-flex justify-content-center align-items-center text-center">
-                            <p class="p-categories"><?= $o->products ?></p>
+                            <p class="p-categories"><?= $o->products ?> prodotti</p>
                         </div>
                         <div class="col-2 d-flex justify-content-end align-items-center">
                             <a class="btn azione-mc btn-outline-success me-3" href="#"><i class="fa-solid fa-eye fa-fw text-success"></i></a>
