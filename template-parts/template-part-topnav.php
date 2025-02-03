@@ -17,6 +17,10 @@
 
 <?php if($cartItemsCount) : ?>
     <style>
+        .cart-icon {
+            position: relative;
+        }
+        
         .cart-icon::after {
             content: "<?= $cartItemsCount; ?>";
             display: flex;
