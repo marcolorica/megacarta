@@ -42,6 +42,8 @@ function changeCartTotals() {
     let keys = [];
     let qtys = [];
 
+    let productsCount = 0;
+
     jQuery('.row-cart-product').each((i, row) => {
         let qty = jQuery(row).find('input[type=number]').val();
         let price = parseFloat(jQuery(row).attr('data-price'));
@@ -54,10 +56,13 @@ function changeCartTotals() {
 
         total += product_total;
 
+        productsCount++;
+
         jQuery(row).find('.product-total').text(product_total.toFixed(2));
     });
 
     jQuery('.cart-total').text(total.toFixed(2));
+    jQuery('.cart-icon::after').attr('content', productsCount);
 
     jQuery.ajax({
         url: args_mc.ajax_url,
