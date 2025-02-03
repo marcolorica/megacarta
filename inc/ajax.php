@@ -9,6 +9,9 @@ add_action('wp_ajax_update_cart_items',"update_cart_items");
 add_action('wp_ajax_admin_delete_product', 'admin_delete_product_ajax');
 add_action('wp_ajax_admin_delete_category', 'admin_delete_category_ajax');
 
+add_action('wp_ajax_nopriv_get_cart_items',"get_cart_items");
+add_action('wp_ajax_get_cart_items',"get_cart_items");
+
 function update_cart_items() {
     $request = (object) $_POST;
 
