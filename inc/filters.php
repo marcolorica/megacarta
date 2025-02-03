@@ -6,7 +6,7 @@ add_filter( 'woocommerce_get_availability_text', 'filter_woocommerce_product_ava
 add_filter('woocommerce_add_cart_item_data', 'filter_woocommerce_order_product_variants', 10, 2);
 add_filter('woocommerce_get_item_data', 'filter_woocommerce_cart_product_variants', 10, 2);
 
-add_filter('woocommerce_cart_item_thumbnail', 'filter_woocommerce_cart_item_img', 10, 3);
+add_filter('woocommerce_cart_item_name', 'filter_woocommerce_cart_item_img', 10, 3);
 
 function filter_woocommerce_placeholder_img_src($src) {
     global $product;
