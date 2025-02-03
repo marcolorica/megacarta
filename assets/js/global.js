@@ -94,3 +94,32 @@ function changeMcCategories() {
     jQuery('input[name=num_page]').val(1);
     jQuery('#form-mc').submit();
 }
+
+function replaceReviewOrderProductsImages() {
+    $descs = jQuery('.wc-block-components-order-summary-item__description');
+
+    if($descs.length) {
+        jQuery.ajax({
+            url: args_mc.ajax_url,
+            method: "POST",
+            dataType: 'json',
+            data: {
+                action: 'mc_get_cart_items'
+            },
+            success: (response) => {
+                let cartItems = response.products;
+
+                cartItems.forEach((c) => {
+                    $descs.each((i, d) => {
+                        let code = jQuery(d).find('.wc-block-components-product-name').text();
+                        
+                        if(c.code == code) {
+                            let $image = jQuery(d).prev().find('img');
+                            $image.attr('src', c.src);
+                        }
+                    });
+                })
+            }
+        });
+    }
+}

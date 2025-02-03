@@ -108,3 +108,29 @@ function admin_delete_category_ajax() {
 
     wp_die();
 }
+
+function get_cart_items() {
+    $request = (object) $_POST;
+
+    $cart = WC()->cart->get_cart();
+
+    $items = [];
+
+    foreach($cart as $key => $item ) {
+        $product = $item['data'];
+
+        if($product) {
+            $items[] = [
+                'code' => $product->get_sku(),
+                'src' => mc_get_product_image($product->get_id()),
+            ];
+        }
+    }
+
+    echo json_encode([
+        'status' => 'success',
+        'products' => $items,
+    ]);
+
+    wp_die();
+}
