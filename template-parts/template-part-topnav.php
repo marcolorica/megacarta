@@ -57,7 +57,7 @@
                     <a class="nav-link text-white" href="/contatti">Contatti</a>
                 </li>
                 <li class="nav-item d-block d-md-none">
-                    <a class="nav-link text-white" href="/carrello"><i class="fa-solid fa-cart-shopping me-2"></i>Carrello</a>
+                    <a id="cart-icon" class="nav-link text-white" href="/carrello"><i class="fa-solid fa-cart-shopping me-2"></i>Carrello</a>
                 </li>
             </ul>
 
