@@ -5,7 +5,7 @@
     $perPage = isset($request->per_page) ? (int) $request->per_page : 10;
     $numPage = isset($request->num_page) ? $request->num_page : 1;
     
-    var_dump(mc_get_cart_count());die;
+    var_dump();die;
     if(!mg_is_admin_area()) :
 ?>
 
