@@ -4,7 +4,8 @@
     $term = isset($request->term) && strlen($request->term) ? $request->term : null;
     $perPage = isset($request->per_page) ? (int) $request->per_page : 10;
     $numPage = isset($request->num_page) ? $request->num_page : 1;
-
+    
+    mc_get_cart_count();die;
     if(!mg_is_admin_area()) :
 ?>
 
