@@ -4,6 +4,8 @@
     $term = isset($request->term) && strlen($request->term) ? $request->term : null;
     $perPage = isset($request->per_page) ? (int) $request->per_page : 10;
     $numPage = isset($request->num_page) ? $request->num_page : 1;
+
+    $cartItemsCount = mc_get_cart_count();
     
     if(!mg_is_admin_area()) :
 ?>
@@ -13,11 +15,25 @@
     <input type="hidden" name="num_page" value="<?= $numPage ?>">
 </form>
 
-<style>
-    #cart-icon::after {
-        content: "<?= mc_get_cart_count(); ?>";
-    }
-</style>
+<?php if($cartItemsCount) : ?>
+    <style>
+        #cart-icon::after {
+            content: "<?= $cartItemsCount; ?>";
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            aspect-ratio: 1/1;
+            position: absolute;
+            bottom: 5px;
+            left: 15px;
+            padding: 5px;
+            border-radius: 100%;
+            background: #970713;
+            border: 1px solid white;
+            font-size: 10px;
+        }
+    </style>
+<?php endif; ?>
 
 <nav class="navbar navbar-expand-lg bg-mc">
     <div class="container">
