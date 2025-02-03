@@ -1,5 +1,13 @@
 jQuery(document).ready(() => {
+    let stop = 0;
 
+    let int = setInterval(() => {
+        stop++;
+        replaceReviewOrderProductsImages();
+
+        if(stop > 3)
+            clearInterval(int);
+    }, 1500);
 });
 
 //cart
