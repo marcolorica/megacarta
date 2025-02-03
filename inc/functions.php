@@ -410,5 +410,5 @@ function mc_get_product_variants($product_id) {
 }
 
 function mc_get_cart_count() {
-    WC()->cart->get_cart_contents_count();
+    return WC()->cart->get_cart_contents_count();
 }
