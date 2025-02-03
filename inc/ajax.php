@@ -125,7 +125,7 @@ function get_cart_items() {
         if($product) {
             $items[] = [
                 'code' => $product->get_sku(),
-                'src' => mc_get_product_image($product->get_id()),
+                'src' => mc_get_product_image($product->get_id()) ?: wc_placeholder_img_src('woocommerce_single'),
             ];
         }
     }

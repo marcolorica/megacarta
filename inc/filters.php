@@ -6,8 +6,6 @@ add_filter( 'woocommerce_get_availability_text', 'filter_woocommerce_product_ava
 add_filter('woocommerce_add_cart_item_data', 'filter_woocommerce_order_product_variants', 10, 2);
 add_filter('woocommerce_get_item_data', 'filter_woocommerce_cart_product_variants', 10, 2);
 
-add_filter('woocommerce_cart_item_thumbnail', 'filter_woocommerce_cart_item_img', 10, 3);
-
 function filter_woocommerce_placeholder_img_src($src) {
     global $product;
 
@@ -44,10 +42,4 @@ function filter_woocommerce_cart_product_variants($item_data, $cart_item) {
     }
     
     return $item_data;
-}
-
-
-function filter_woocommerce_cart_item_img($image, $cart_item, $cart_item_key) {
-    $product_id = $cart_item['product_id'];
-    return '<img src="' . esc_url(mc_get_product_image($product_id)) . '" alt="' . esc_attr($product->get_name()) . '" />';
 }
