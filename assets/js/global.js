@@ -104,7 +104,7 @@ function replaceReviewOrderProductsImages() {
             method: "POST",
             dataType: 'json',
             data: {
-                action: 'mc_get_cart_items'
+                action: 'get_cart_items'
             },
             success: (response) => {
                 let cartItems = response.products;
