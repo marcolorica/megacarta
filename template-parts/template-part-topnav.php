@@ -13,6 +13,12 @@
     <input type="hidden" name="num_page" value="<?= $numPage ?>">
 </form>
 
+<style>
+    #cart-icon::after {
+        content: "<?= mc_get_cart_count(); ?>";
+    }
+</style>
+
 <nav class="navbar navbar-expand-lg bg-mc">
     <div class="container">
         <a class="navbar-brand my-2 mx-3" href="/">

@@ -408,3 +408,7 @@ function mc_get_product_variants($product_id) {
 
     return $product->get_meta('mc_variants') ?: [];
 }
+
+function mc_get_cart_count() {
+    WC()->cart->get_cart_contents_count();
+}

@@ -5,7 +5,6 @@
                 <h2 class="mb-3">Dettagli ordine</h2>
             </div>
             <div class="col-12">
-                <!-- PORCODIO -->
             </div>
         </div>
     </div>

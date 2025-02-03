@@ -79,7 +79,7 @@
                     <h4 class="text-end">Totale Carrello</h4>
                     <p class="fw-bold" style="font-size:40px">€<span class="cart-total"><?= $cartTotal ?></span></p>
                 </div>
-                <a href="#" class="btn btn-danger text-white"><i class="fa-solid fa-shopping-cart fa-xs me-2"></i>Procedi con l'ordine</a>
+                <a href="/pagamento" class="btn btn-danger text-white"><i class="fa-solid fa-shopping-cart fa-xs me-2"></i>Procedi con l'ordine</a>
             </div>
             <div class="col-12 flex-column py-4 justify-content-center align-items-center col-cart-empty d-<?= count($cartProducts) ? 'none' : 'flex' ?>">
                 <i class="fa-solid fa-cart-flatbed"></i>
