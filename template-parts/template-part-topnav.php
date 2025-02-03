@@ -17,7 +17,7 @@
 
 <?php if($cartItemsCount) : ?>
     <style>
-        #cart-icon::after {
+        .cart-icon::after {
             content: "<?= $cartItemsCount; ?>";
             display: flex;
             justify-content: center;
@@ -57,7 +57,7 @@
                     <a class="nav-link text-white" href="/contatti">Contatti</a>
                 </li>
                 <li class="nav-item d-block d-md-none">
-                    <a id="cart-icon" class="nav-link text-white ok" href="/carrello"><i class="fa-solid fa-cart-shopping me-2"></i>Carrello</a>
+                    <a class="nav-link text-white cart-icon" href="/carrello"><i class="fa-solid fa-cart-shopping me-2"></i>Carrello</a>
                 </li>
             </ul>
 
@@ -67,7 +67,7 @@
             </form>
 
             <span class="navbar-text ms-3 d-none d-md-inline">
-                <a href="/carrello" style="text-decoration:none">
+                <a href="/carrello" class="cart-icon" style="text-decoration:none">
                     <i class="fa-solid fa-cart-shopping fa-lg text-white"></i>
                 </a>
             </span>
