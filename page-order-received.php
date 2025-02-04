@@ -3,8 +3,9 @@
 
     $order_key = $_GET['key'] ?? null;
     $order_id = $oredr_key ? wc_get_order_id_by_order_key($order_key) : null;
-    $order = wc_get_order($order_id);
-    
+    var_dump($order_key, $order_id);die;
+    $order = $order_id ? wc_get_order($order_id) : null;
+
     $customerName = $order ? $order->get_billing_first_name() : '';
 ?>
 
