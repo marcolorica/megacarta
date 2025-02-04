@@ -4,7 +4,7 @@
     $order_id = intval($url_parts[count($url_parts) - 1]);
 
     $order = wc_get_order($order_id);
-    $customer_name = $order ? $order->get_billing_first_name() : '';
+    $customerName = $order ? $order->get_billing_first_name() : '';
 ?>
 
 <section>
