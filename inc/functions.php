@@ -153,9 +153,7 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
     $orders = [];
 
     $args = [
-        'post_type' => 'shop_order',
-        'post_status' => array_keys(wc_get_order_statuses()),
-        'posts_per_page' => -1
+        'status' => array_keys(wc_get_order_statuses())
     ];
 
     $orderBy = 'id';
@@ -176,32 +174,24 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
     //         break;
     // }
 
-    // $args['orderby'] = $orderBy;
-    // $args['limit'] = $perPage;
-    // $args['order'] = $order;
-    // $args['page'] = $numPage;
+    $args['orderby'] = $orderBy;
+    $args['limit'] = $perPage;
+    $args['order'] = $order;
+    $args['page'] = $numPage;
 
     if($term)
         $args['s'] = $term;
     
-    $query = new WP_Query($args);
+    $_orders = wc_get_orders($args);
 
-    var_dump($args, $query->have_posts());die;
-    
-    if($query->have_posts()) {
-        while($query->have_posts()) {
-            $query->the_post();
-            
-            $order = wc_get_order($order_id);
-            
-            $orders[] = (object) [
-                'id' => get_the_ID(),
-                'customer' => $order->get_billing_first_name() . ' ' . $order->get_billing_last_name(),
-                'status' => $order->get_status(),
-                'tot' => $order->get_total(),
-                'products' => $order->get_items()
-            ];
-        }
+    foreach($_orders as $order) {
+        $orders[] = (object) [
+            'id' => get_the_ID(),
+            'customer' => $order->get_billing_first_name() . ' ' . $order->get_billing_last_name(),
+            'status' => $order->get_status(),
+            'tot' => $order->get_total(),
+            'products' => $order->get_items()
+        ];
     }
     
     wp_reset_postdata();
