@@ -196,7 +196,7 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
 
         $args['meta_key'] = '_billing_address_index';
         $args['meta_value'] = $term;
-        $args['meta_key'] = 'LIKE';
+        $args['meta_compare'] = 'LIKE';
     }
 
     $query = new WC_Order_Query($args);
