@@ -187,7 +187,7 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
         $args['meta_query'] = [
             // 'relation' => 'OR',
             [
-                'key'     => '_billing_first_name',
+                'key'     => 'billing_first_name',
                 'value'   => $term,
                 'compare' => 'LIKE'
             ],
