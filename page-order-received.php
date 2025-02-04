@@ -1,7 +1,8 @@
 <?php
     get_header();
 
-    $order_key = $_GET['key'] ? str_replace('wc_order_', '', $_GET['key']) : null;
+    // $order_key = $_GET['key'] ? str_replace('wc_order_', '', $_GET['key']) : null;
+    $order_key = $_GET['key'] ?? null;
     $order_id = $order_key ? wc_get_order_id_by_order_key($order_key) : null;
     $order = $order_id ? wc_get_order($order_id) : null;
     var_dump($order_key, $order_id);die;
