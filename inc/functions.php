@@ -180,7 +180,7 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
     $args['paged'] = $numPage;
 
     if($term) {
-        $args['meta_key'] = 'billing_first_name';
+        $args['meta_key'] = '_billing_first_name';
         $args['meta_compare'] = 'LIKE';
         $args['meta_value'] = $term;
 
