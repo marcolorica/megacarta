@@ -179,24 +179,24 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
     $args['order'] = $order;
     $args['paged'] = $numPage;
 
-    if($term)
-        $args['order_term'] = $term;
+    if($term) {
+        // $args['order_term'] = $term;
         // $args['meta_compare'] = 'LIKE';
         // $args['meta_value'] = $term;
 
-        // $args['meta_query'] = [
-        //     'relation' => 'OR',
-        //     [
-        //         'key'     => '_billing_first_name',
-        //         'value'   => $term,
-        //         'compare' => 'LIKE'
-        //     ],
-        //     [
-        //         'key'     => '_billing_last_name',
-        //         'value'   => $term,
-        //         'compare' => 'LIKE'
-        //     ]
-        // ];
+        $args['meta_query'] = [
+            'relation' => 'OR',
+            [
+                'key'     => '_billing_first_name',
+                'value'   => $term,
+                'compare' => 'LIKE'
+            ],
+            [
+                'key'     => '_billing_last_name',
+                'value'   => $term,
+                'compare' => 'LIKE'
+            ]
+        ];
 
         // $args['meta_query'] = [
         //     'key'     => '_billing_first_name',
@@ -204,8 +204,10 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
         //     'compare' => 'LIKE'
         // ];
 
-    // $query = new WC_Order_Query($args);
-    $_orders = wc_get_orders($args);
+        
+    }
+    $query = new WC_Order_Query($args);
+    $_orders = $query->get_orders();
 
     $statuses = wc_get_order_statuses();
     $statusColors = [
