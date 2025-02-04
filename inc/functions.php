@@ -188,12 +188,25 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
     $_orders = wc_get_orders($args);
 
     $statuses = wc_get_order_statuses();
+    $statusColors = [
+        'pending' => 'yellow',
+        'processing' => 'lightgreen',
+        'on-hold' => 'yellow',
+        'completed' => 'green',
+        'cancelled' => 'red',
+        'refunded' => 'orange',
+        'failed' => 'red',
+        'checkout-draft' => 'lightblue'
+    ];
 
     foreach($_orders as $order) {
+        $status = $order->get_status();
+
         $orders[] = (object) [
             'id' => get_the_ID(),
             'customer' => $order->get_billing_first_name() . ' ' . $order->get_billing_last_name(),
-            'status' => $statuses['wc-' . $order->get_status()],
+            'status' => $statuses['wc-' . $status],
+            'statusColor' => $statusColors[$status],
             'tot' => $order->get_total(),
             'products' => $order->get_items()
         ];

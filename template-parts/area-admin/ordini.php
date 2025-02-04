@@ -58,7 +58,11 @@
                             <p class="p-code"><?= $o->customer ?></p>
                         </div>
                         <div class="col-3 d-flex align-items-center">
-                            <p class="p-title"><?= $o->status ?></p>
+                            <p class="p-title">
+                                <span class="order-status <?= $o->statusColor ?>">
+                                    <?= $o->status ?>
+                                </span>
+                            </p>
                         </div>
                         <div class="col-2 d-flex justify-content-center align-items-center text-center">
                             <p class="p-price">€<?= number_format($o->tot, 2, ',', '.'); ?></p>
