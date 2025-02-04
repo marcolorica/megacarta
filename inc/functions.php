@@ -159,28 +159,31 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
     $orderBy = 'id';
     $order = 'DESC';
 
-    // switch($_order) {
-    //     case 'meno-recenti':
-    //         $order = 'ASC';
-    //         break;
+    switch($_order) {
+        case 'meno-recenti':
+            $order = 'ASC';
+            break;
 
-    //     case 'A-Z':
-    //         $orderBy = 'title';
-    //         $orderBy = 'ASC';
-    //         break;
+        case 'A-Z':
+            $orderBy = 'name';
+            $orderBy = 'ASC';
+            break;
 
-    //     case 'A-Z':
-    //         $orderBy = 'title';
-    //         break;
-    // }
+        case 'A-Z':
+            $orderBy = 'name';
+            break;
+    }
 
     $args['orderby'] = $orderBy;
     $args['limit'] = $perPage;
     $args['order'] = $order;
     $args['paged'] = $numPage;
 
-    if($term)
-        $args['s'] = $term;
+    if($term) {
+        $args['meta_key'] = 'billing_first_name';
+        $args['meta_compare'] = 'LIKE';
+        $args['meta_value'] = "%$term%";
+    }
     
     $_orders = wc_get_orders($args);
 
