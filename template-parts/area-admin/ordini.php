@@ -23,8 +23,8 @@
             </div>
             <div class="col-12">
                 <div class="input-group mb-3" id="adminSearch">
-                    <input type="text" class="form-control" placeholder="Cerca ordini...">
-                    <button class="btn btn-outline-primary" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <input type="text" class="form-control" name="term" placeholder="Cerca ordini..." form="form-mc">
+                    <button class="btn btn-outline-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
             </div>
 
@@ -60,7 +60,7 @@
                             <p class="p-price">€<?= number_format($o->tot, 2, ',', '.'); ?></p>
                         </div>
                         <div class="col-2 d-flex justify-content-center align-items-center text-center">
-                            <p class="p-categories"><?= $o->products ?> prodotti</p>
+                            <p class="p-categories"><?= count($o->products) ?> prodotti</p>
                         </div>
                         <div class="col-2 d-flex justify-content-end align-items-center">
                             <a class="btn azione-mc btn-outline-success me-3" href="/area-admin/ordini/ordine?id=<?= $o->id ?>"><i class="fa-solid fa-eye fa-fw text-success"></i></a>
