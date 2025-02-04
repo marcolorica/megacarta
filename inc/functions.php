@@ -177,7 +177,7 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
     $args['orderby'] = $orderBy;
     $args['limit'] = $perPage;
     $args['order'] = $order;
-    $args['paged'] = $numPage;
+    $args['page'] = $numPage;
 
     if($term) {
         $args['meta_query'] = [
