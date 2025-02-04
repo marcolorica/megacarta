@@ -78,7 +78,7 @@ function mc_get_products($term = null, $perPage = 10, $_order = 'piu-recenti', $
             $orderBy = 'ASC';
             break;
 
-        case 'A-Z':
+        case 'Z-A':
             $orderBy = 'title';
             break;
     }
@@ -169,7 +169,7 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
             $orderBy = 'ASC';
             break;
 
-        case 'A-Z':
+        case 'Z-A':
             $orderBy = 'name';
             break;
     }
@@ -180,32 +180,21 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
     $args['paged'] = $numPage;
 
     if($term) {
-        // $args['order_term'] = $term;
-        // $args['meta_compare'] = 'LIKE';
-        // $args['meta_value'] = $term;
-
         $args['meta_query'] = [
-            // 'relation' => 'OR',
+            'relation' => 'OR',
             [
                 'key'     => '_billing_first_name',
                 'value'   => $term,
-                'compare' => '='
+                'compare' => 'LIKE'
             ],
-            // [
-            //     'key'     => '_billing_last_name',
-            //     'value'   => $term,
-            //     'compare' => 'LIKE'
-            // ]
+            [
+                'key'     => '_billing_last_name',
+                'value'   => $term,
+                'compare' => 'LIKE'
+            ]
         ];
-
-        // $args['meta_query'] = [
-        //     'key'     => '_billing_first_name',
-        //     'value'   => $term,
-        //     'compare' => 'LIKE'
-        // ];
-
-        
     }
+
     $query = new WC_Order_Query($args);
     $_orders = $query->get_orders();
 
