@@ -177,7 +177,7 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
     $args['orderby'] = $orderBy;
     $args['limit'] = $perPage;
     $args['order'] = $order;
-    $args['page'] = $numPage;
+    $args['paged'] = $numPage;
 
     if($term)
         $args['s'] = $term;
@@ -204,17 +204,7 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
     if($term)
         $args_total['s'] = $term;
 
-    $total_orders = new WP_Query($args);
-
-    // for($i = 0; $i < 10; $i++) {
-    //     $orders[] = (object) [
-    //         'id' => $i,
-    //         'customer' => 'Marco Lorica',
-    //         'status' => 'In consegna',
-    //         'tot' => 150,
-    //         'products' => 6
-    //     ];
-    // }
+    $total_orders = wc_get_orders($args);
 
 	return (object) ['result' => $orders, 'count' => count($total_orders)];
 }
