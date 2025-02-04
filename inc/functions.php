@@ -189,7 +189,7 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
             [
                 'key'     => 'billing_first_name',
                 'value'   => $term,
-                'compare' => 'LIKE'
+                'compare' => '='
             ],
             // [
             //     'key'     => '_billing_last_name',
