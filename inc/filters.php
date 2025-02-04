@@ -6,6 +6,8 @@ add_filter( 'woocommerce_get_availability_text', 'filter_woocommerce_product_ava
 add_filter('woocommerce_add_cart_item_data', 'filter_woocommerce_order_product_variants', 10, 2);
 add_filter('woocommerce_get_item_data', 'filter_woocommerce_cart_product_variants', 10, 2);
 
+add_filter('woocommerce_thankyou_redirect', 'filter_woocommerce_thank_you_redirect', 10, 2);
+
 function filter_woocommerce_placeholder_img_src($src) {
     global $product;
 
@@ -43,3 +45,23 @@ function filter_woocommerce_cart_product_variants($item_data, $cart_item) {
     
     return $item_data;
 }
+
+
+// function filter_woocommerce_thank_you_redirect($redirect_url, $order) {
+//     // Verifica che l'ordine sia valido
+//     if (!$order) {
+//         return $redirect_url;
+//     }
+
+//     // Ottieni il nome completo del cliente
+//     $customer_name = $order->get_billing_first_name() . ' ' . $order->get_billing_last_name();
+    
+//     // Codifica il nome del cliente per utilizzarlo nell'URL (evita caratteri speciali)
+//     $encoded_name = urlencode($customer_name);
+
+//     // Puoi aggiungere il nome del cliente come parametro dell'URL
+//     $new_redirect_url = 'https://esempio.com/pagina-personalizzata?customer_name=' . $encoded_name;
+
+//     // Restituisce il nuovo URL di reindirizzamento
+//     return $new_redirect_url;
+// }
