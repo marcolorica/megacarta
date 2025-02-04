@@ -202,6 +202,8 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
     $query = new WC_Order_Query($args);
     $_orders = $query->get_orders();
 
+    var_dump($_orders);die;
+
     $statuses = wc_get_order_statuses();
     $statusColors = [
         'pending' => 'warning',
