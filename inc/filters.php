@@ -49,8 +49,6 @@ function filter_woocommerce_cart_product_variants($item_data, $cart_item) {
 function filter_woocommerce_orders_query($query, $query_vars) {
     $term = isset($query_vars['order_term']) ? esc_attr($query_vars['order_term']) : null;
 
-    var_dump($term);die;
-
     if($term)
         $query['meta_query'][] = [
             'relation' => 'OR',

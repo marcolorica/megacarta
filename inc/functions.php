@@ -204,8 +204,8 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
         //     'compare' => 'LIKE'
         // ];
 
-    $query = new WC_Order_Query($args);
-    $_orders = $query->get_orders();
+    // $query = new WC_Order_Query($args);
+    $_orders = wc_get_orders($args);
 
     $statuses = wc_get_order_statuses();
     $statusColors = [
