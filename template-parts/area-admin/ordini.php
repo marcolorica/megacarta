@@ -10,10 +10,6 @@
     $maxPages = ceil($orders->count / $perPage);
 ?>
 
-<pre>
-    <?php print_r(wc_get_order_statuses()); ?>
-</pre>
-
 <form action="/area-admin/ordini" method="GET" id="form-mc">
     <input type="hidden" name="per_page" value="<?= $perPage ?>">
     <input type="hidden" name="num_page" value="<?= $numPage ?>">
