@@ -55,7 +55,7 @@
                         </div>
                         <div class="col-3 d-flex align-items-center">
                             <p class="p-title">
-                                <span class="order-status <?= $o->statusColor ?>">
+                                <span class="order-status text-bg-<?= $o->statusColor ?>">
                                     <?= $o->status ?>
                                 </span>
                             </p>

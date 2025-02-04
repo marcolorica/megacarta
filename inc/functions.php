@@ -189,14 +189,14 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
 
     $statuses = wc_get_order_statuses();
     $statusColors = [
-        'pending' => 'yellow',
-        'processing' => 'lightgreen',
-        'on-hold' => 'yellow',
-        'completed' => 'green',
-        'cancelled' => 'red',
-        'refunded' => 'orange',
-        'failed' => 'red',
-        'checkout-draft' => 'lightblue'
+        'pending' => 'warning',
+        'processing' => 'success',
+        'on-hold' => 'warning',
+        'completed' => 'success',
+        'cancelled' => 'danger',
+        'refunded' => 'danger',
+        'failed' => 'danger',
+        'checkout-draft' => 'info'
     ];
 
     foreach($_orders as $order) {
