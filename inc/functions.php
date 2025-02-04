@@ -179,10 +179,10 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
     $args['order'] = $order;
     $args['paged'] = $numPage;
 
-    if($term) {
-        $args['meta_query'] = 'billing_first_name';
-        $args['meta_compare'] = 'LIKE';
-        $args['meta_value'] = $term;
+    if($term)
+        $args['order_term'] = $term;
+        // $args['meta_compare'] = 'LIKE';
+        // $args['meta_value'] = $term;
 
         // $args['meta_query'] = [
         //     'relation' => 'OR',
@@ -203,7 +203,6 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
         //     'value'   => $term,
         //     'compare' => 'LIKE'
         // ];
-    }
 
     $query = new WC_Order_Query($args);
     $_orders = $query->get_orders();
