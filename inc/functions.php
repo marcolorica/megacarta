@@ -198,6 +198,8 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
         //     ]
         // ]
     }
+
+    var_dump($args);die;
     
     $_orders = wc_get_orders($args);
 
