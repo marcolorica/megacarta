@@ -154,7 +154,8 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
 
     $args = [
         'post_type' => 'shop_order',
-        'post_status' => array_keys(wc_get_order_statuses())
+        'post_status' => array_keys(wc_get_order_statuses()),
+        'posts_per_page' => -1
     ];
 
     $orderBy = 'id';
