@@ -187,11 +187,13 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
     
     $_orders = wc_get_orders($args);
 
+    $statuses = wc_get_order_statuses();
+
     foreach($_orders as $order) {
         $orders[] = (object) [
             'id' => get_the_ID(),
             'customer' => $order->get_billing_first_name() . ' ' . $order->get_billing_last_name(),
-            'status' => $order->get_status(),
+            'status' => $statuses['wc_' . $order->get_status()],
             'tot' => $order->get_total(),
             'products' => $order->get_items()
         ];
