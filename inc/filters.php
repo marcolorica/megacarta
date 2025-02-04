@@ -6,7 +6,7 @@ add_filter( 'woocommerce_get_availability_text', 'filter_woocommerce_product_ava
 add_filter('woocommerce_add_cart_item_data', 'filter_woocommerce_order_product_variants', 10, 2);
 add_filter('woocommerce_get_item_data', 'filter_woocommerce_cart_product_variants', 10, 2);
 
-add_filter( 'woocommerce_order_data_store_cpt_get_orders_query', 'filter_woocommerce_orders_query', 10, 2 );
+add_filter( 'woocommerce_order_data_store_cpt_get_orders_query', 'filter_woocommerce_orders_query', 10, 2);
 
 function filter_woocommerce_placeholder_img_src($src) {
     global $product;
@@ -48,6 +48,8 @@ function filter_woocommerce_cart_product_variants($item_data, $cart_item) {
 
 function filter_woocommerce_orders_query($query, $query_vars) {
     $term = isset($query_vars['order_term']) ? esc_attr($query_vars['order_term']) : null;
+
+    var_dump($term);die;
 
     if($term)
         $query['meta_query'][] = [
