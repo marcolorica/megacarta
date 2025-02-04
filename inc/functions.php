@@ -193,7 +193,7 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
         $orders[] = (object) [
             'id' => get_the_ID(),
             'customer' => $order->get_billing_first_name() . ' ' . $order->get_billing_last_name(),
-            'status' => $statuses['wc_' . $order->get_status()],
+            'status' => $statuses['wc-' . $order->get_status()],
             'tot' => $order->get_total(),
             'products' => $order->get_items()
         ];
