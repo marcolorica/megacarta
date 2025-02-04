@@ -196,11 +196,9 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
                 'value'   => $term,
                 'compare' => 'LIKE'
             ]
-            ];
+        ];
     }
 
-    var_dump($args);die;
-    
     $query = new WC_Order_Query($args);
     $_orders = $query->get_orders();
 
