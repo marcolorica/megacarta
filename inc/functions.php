@@ -176,9 +176,9 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
     // }
 
     // $args['orderby'] = $orderBy;
-    $args['limit'] = $perPage;
-    $args['order'] = $order;
-    $args['page'] = $numPage;
+    // $args['limit'] = $perPage;
+    // $args['order'] = $order;
+    // $args['page'] = $numPage;
 
     if($term)
         $args['s'] = $term;
