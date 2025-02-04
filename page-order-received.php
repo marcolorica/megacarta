@@ -1,9 +1,10 @@
 <?php
     get_header();
-    $url_parts = explode('/', $_SERVER['REQUEST_URI']);
-    $order_id = intval($url_parts[count($url_parts) - 1]);
 
+    $order_key = $_GET['key'] ?? null;
+    $order_id = $oredr_key ? wc_get_order_id_by_order_key($order_key) : null;
     $order = wc_get_order($order_id);
+    
     $customerName = $order ? $order->get_billing_first_name() : '';
 ?>
 
