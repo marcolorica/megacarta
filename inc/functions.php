@@ -197,9 +197,8 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
     wp_reset_postdata();
 
     $args_total = [
-        'post_type' => 'shop_order',
-        'post_status' => array_keys(wc_get_order_statuses()),
-        'posts_per_page' => -1
+        'status' => array_keys(wc_get_order_statuses()),
+        'limit' => -1
     ];
 
     if($term)
@@ -217,7 +216,7 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
     //     ];
     // }
 
-	return (object) ['result' => $orders, 'count' => $total_orders->found_posts];
+	return (object) ['result' => $orders, 'count' => count($total_orders)];
 }
 
 function mc_get_product_image($product_id) {
