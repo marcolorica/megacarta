@@ -25,7 +25,7 @@
             </div>
             <div class="col-12">
                 <div class="input-group mb-3" id="adminSearch">
-                    <input type="text" class="form-control" placeholder="Cerca prodotti..." form="form-mc" name="term">
+                    <input type="text" class="form-control" placeholder="Cerca prodotti..." form="form-mc" name="term" value="<?= $term ?: '' ?>">
                     <button class="btn btn-outline-primary" type="submit" form="form-mc"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
             </div>

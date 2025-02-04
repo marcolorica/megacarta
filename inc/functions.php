@@ -180,9 +180,19 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
     $args['paged'] = $numPage;
 
     if($term) {
-        $args['meta_key'] = 'billing_first_name';
-        $args['meta_compare'] = 'LIKE';
-        $args['meta_value'] = "%$term%";
+        $args['meta_query'] = [
+            'relation' => 'OR',
+            [
+                'key'     => '_billing_first_name',
+                'value'   => $term,
+                'compare' => 'LIKE'
+            ],
+            [
+                'key'     => '_billing_last_name',
+                'value'   => $term,
+                'compare' => 'LIKE'
+            ]
+            ];
     }
     
     $_orders = wc_get_orders($args);
