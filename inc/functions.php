@@ -184,6 +184,8 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
         $args['s'] = $term;
     
     $query = new WP_Query($args);
+
+    var_dump($query->have_posts());die;
     
     if($query->have_posts()) {
         while($query->have_posts()) {
