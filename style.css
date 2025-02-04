@@ -17,10 +17,11 @@ body {
   font-family: Poppins !important;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 footer {
-  margin-top: auto;
+  margin-top: auto !important;
 }
 
 .container {
@@ -919,7 +920,7 @@ section.gallery-section .image-container > img {
 #syrus-theme-footer,
 section.firma-footer {
   background-color: var(--main-color) !important;
-  margin: 0 !important;
+  margin: 0;
 }
 
 .p-info {

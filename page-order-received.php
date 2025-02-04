@@ -8,7 +8,7 @@
     $customerName = $order ? $order->get_billing_first_name() : '';
 ?>
 
-<section>
+<section class="mt-5 pt-5">
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
