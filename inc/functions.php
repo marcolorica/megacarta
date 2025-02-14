@@ -421,3 +421,20 @@ function mc_get_product_variants($product_id) {
 function mc_get_cart_count() {
     return WC()->cart->get_cart_contents_count();
 }
+
+function upTo20PercentsProductPrices() {
+    $query = new WC_Product_Query(['status' => 'publish']);
+    $products = $query->get_products();
+
+    if(!empty($products)) {
+        foreach($products as $product) {
+            var_dump($product->get_sku());die;
+            $actual_price = $product->get_price();
+            $new_price = $actual_price + ($actual_price / 100 * 20);
+
+            $product->set_regular_price($new_price);
+            $product->save();
+
+        }
+    }
+}
