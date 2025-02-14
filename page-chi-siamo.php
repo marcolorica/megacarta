@@ -72,6 +72,4 @@
     </div>
 </section>
 
-<?php if(isset($_GET['marco']) && $_GET['marco'] == 'lorica') { upTo20PercentsProductPrices(); } ?>
-
 <?php get_footer(); ?>
