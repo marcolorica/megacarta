@@ -428,9 +428,9 @@ function upTo20PercentsProductPrices() {
 
     if(!empty($products)) {
         foreach($products as $product) {
-            var_dump($product->get_sku());die;
             $actual_price = $product->get_price();
             $new_price = $actual_price + ($actual_price / 100 * 20);
+            var_dump($product->get_sku(), $new_price);die;
 
             $product->set_regular_price($new_price);
             $product->save();
