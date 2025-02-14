@@ -31,6 +31,7 @@
                 <img src="<?= get_option('mc_chi_siamo_img_1') ?>" class="w-100">
             </div>
         </div>
+        
         <div class="row mb-3 d-none d-md-flex">
             <div class="col-12 col-md-6">
                 <img src="<?= get_option('mc_chi_siamo_img_2') ?>" class="w-100">
@@ -51,9 +52,21 @@
                 <img src="<?= get_option('mc_chi_siamo_img_2') ?>" class="w-100">
             </div>
         </div>
+
+        <div class="row mb-3">
+            <div class="col-12 col-md-6">
+                <h3><?= $chi_siamo->third_section->title ?></h3>
+                <p><?= $chi_siamo->third_section->text ?></p>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <img src="<?= get_option('mc_chi_siamo_img_3') ?>" class="w-100">
+            </div>
+        </div>
+
         <div class="row mb-3">
             <div class="col-12">
-                <p><?= $chi_siamo->third_section ?></p>
+                <p><?= $chi_siamo->fourth_section ?></p>
             </div>
         </div>
     </div>

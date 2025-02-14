@@ -313,7 +313,10 @@ function mc_get_page_datas($pagina) {
             $title_2 = get_option('mc_chi_siamo_title_2');
             $text_2 = get_option('mc_chi_siamo_text_2');
 
-            $text_3 = get_option('mc_chi_siamo_content');
+            $title_3 = get_option('mc_chi_siamo_title_3');
+            $text_3 = get_option('mc_chi_siamo_text_3');
+
+            $text_4 = get_option('mc_chi_siamo_content');
 
             $return = (object) [
                 'title' => 'Chi Siamo',
@@ -328,7 +331,12 @@ function mc_get_page_datas($pagina) {
                     'text' => $text_2 ? stripslashes($text_2) : '',
                     'img' => get_option('mc_chi_siamo_img_2'),
                 ],
-                'third_section' => $text_3 ? stripslashes($text_3) : '',
+                'third_section' => (object) [
+                    'title' => $title_3 ? stripslashes($title_3) : '',
+                    'text' => $text_3 ? stripslashes($text_3) : '',
+                    'img' => get_option('mc_chi_siamo_img_3'),
+                ],
+                'fourth_section' => $text_4 ? stripslashes($text_4) : '',
             ];
             break;
 

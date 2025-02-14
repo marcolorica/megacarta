@@ -19,7 +19,7 @@
 
 <style>
     .intestazione {
-        background-image: url(https://bi.marcolorica.it/wp-content/themes/megacarta-theme/assets/images/catalogo-bg.webp);
+        background-image: url(assets/images/catalogo-bg.webp);
     }
 </style>
 

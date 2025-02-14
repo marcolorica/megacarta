@@ -95,9 +95,24 @@
                         </div>
 
                         <div class="col-12">
-                            <h4 class="mb-3">Terza Sezione</h4>
+                            <h4 class="mb-3">Terza Sezione <span class="text-danger">*</span></h4>
 
-                            <textarea rows="13" class="form-control mb-3" name="chi_siamo_content" placeholder="Contenuto" form="form-page"><?= $datas->third_section ?></textarea>
+                            <div class="row">
+                                <div class="col-6">
+                                    <input type="file" style="display:none" name="chi_siamo_img_3" form="form-page" onchange="changeImg(this, true)">
+                                    <img src="<?= $datas->third_section->img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 img-for-edit rounded <?= !$datas->third_section->img ? 'ph'  : '' ?>" onclick="jQuery(this).prev().click()">
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" class="form-control mb-3" name="chi_siamo_title_3" placeholder="Titolo" form="form-page" value="<?= $datas->third_section->title ?>" required>
+                                    <textarea rows="13" class="form-control mb-5" name="chi_siamo_text_3" placeholder="Contenuto" form="form-page" required><?= $datas->third_section->text ?></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <h4 class="mb-3">Quarta Sezione</h4>
+
+                            <textarea rows="13" class="form-control mb-3" name="chi_siamo_content" placeholder="Contenuto" form="form-page"><?= $datas->fourth_section ?></textarea>
                         </div>
                     <?php endif; ?>
                     

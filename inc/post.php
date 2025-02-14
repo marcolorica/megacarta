@@ -68,6 +68,7 @@ function admin_save_page_edits() {
                 'chi_siamo_main_img',
                 'chi_siamo_img_1',
                 'chi_siamo_img_2',
+                'chi_siamo_img_3',
             ];
 
             $to_update = [
@@ -75,6 +76,8 @@ function admin_save_page_edits() {
                 'chi_siamo_text_1',
                 'chi_siamo_title_2',
                 'chi_siamo_text_2',
+                'chi_siamo_title_3',
+                'chi_siamo_text_3',
                 'chi_siamo_content',
             ];
 
