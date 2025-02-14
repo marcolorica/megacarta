@@ -121,8 +121,8 @@
                         </div>
                         <div class="col-7 col-md-9 d-flex d-md-block align-items-center">
                             <a class="w-100" href="<?= $p->url ?>">
-                                <p class="product-title"><?= $code ?></p>
-                                <p class="product-desc"><?= $p->name ?></p>
+                                <p class="product-title"><?= $p->name ?></p>
+                                <p class="product-desc"><?= $code ?></p>
                                 <p class="mg-price text-success">€<?= number_format($p->price, 2, ',', '.') ?></p>
                             </a>
                         </div>
