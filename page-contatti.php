@@ -7,7 +7,7 @@
     }
 </style>
 
-<section class="intestazione mg-contacts">
+<!-- <section class="intestazione mg-contacts">
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 p-0">
@@ -17,9 +17,9 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
-<section class="contacts mt-4 mb-5">
+<section class="contacts mt-4 mb-5 pt-4" style="min-height: 100vh">
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6 text-end mb-5">
