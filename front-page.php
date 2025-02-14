@@ -49,7 +49,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
-                <h2>Spediamo in tutta Roma!</h2>
+                <h2>Consegnamo in tutta Roma!</h2>
             </div>
         </div>
         <div class="row">
