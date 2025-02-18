@@ -105,3 +105,21 @@ function calculateArrayNameIndexVariants() {
         jQuery(el).find('.product-variant-price').attr('name', 'product_variants[' + i + '][price]').attr('required', true).attr('form', 'form-product');
     });
 }
+
+function openOrderStatusModal(order_id) {
+    jQuery.ajax({
+        url: args_mc.ajax_url,
+        method: "POST",
+        dataType: 'json',
+        data: {
+            action: 'admin_get_order_status_modal',
+            order_id
+        },
+        success: (response) => {
+            if(response.status == 'success') {
+                jQuery('.global-modals-container').html(response.html);
+                jQuery()
+            }
+        }
+    });
+}

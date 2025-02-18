@@ -531,3 +531,18 @@ function cat_to_slug($cat, $subcat = null) {
     
     return $cat;
 }
+
+function upTo20PercentsProductPrices() {
+    $query = new WC_Product_Query(['status' => 'publish']);
+    $products = $query->get_products();
+
+    if(!empty($products)) {
+        foreach($products as $product) {
+            $actual_price = $product->get_price();
+            $new_price = $actual_price + ($actual_price / 100 * 20);
+
+            $product->set_regular_price($new_price);
+            $product->save();
+        }
+    }
+}

@@ -422,17 +422,18 @@ function mc_get_cart_count() {
     return WC()->cart->get_cart_contents_count();
 }
 
-function upTo20PercentsProductPrices() {
-    $query = new WC_Product_Query(['status' => 'publish']);
-    $products = $query->get_products();
+function mc_return_ajax_json($response = []) {
+    echo json_encode($response);
+    wp_die();
+}
 
-    if(!empty($products)) {
-        foreach($products as $product) {
-            $actual_price = $product->get_price();
-            $new_price = $actual_price + ($actual_price / 100 * 20);
+function mc_get_template_part($template, $args = []) {
+    if(!empty($args))
+        extract($args);
 
-            $product->set_regular_price($new_price);
-            $product->save();
-        }
-    }
+    ob_start();
+
+    include locate_template("template-parts/area-   admin/$template.php");
+
+    return ob_get_clean();
 }

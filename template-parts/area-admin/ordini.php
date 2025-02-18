@@ -54,7 +54,7 @@
                             <p class="p-code"><?= $o->customer ?></p>
                         </div>
                         <div class="col-3 d-flex align-items-center">
-                            <div class="p-title d-flex align-items-center">
+                            <div class="p-title d-flex align-items-center" onclick="openOrderStatusModal(<?= $o->id ?>)">
                                 <span class="badge text-bg-<?= $o->statusColor ?>"><?= $o->status ?></span>
                                 <i class="fa-solid fa-chevron-down fa-xs ms-3"></i>
                             </div>
@@ -99,3 +99,5 @@
         </div>
     </div>
 </section>
+
+<div class="global-modals-container"></div>

@@ -9,6 +9,9 @@ add_action('wp_ajax_update_cart_items',"update_cart_items");
 add_action('wp_ajax_admin_delete_product', 'admin_delete_product_ajax');
 add_action('wp_ajax_admin_delete_category', 'admin_delete_category_ajax');
 
+add_action('wp_ajax_admin_get_order_status_modal', 'admin_get_order_status_modal_ajax');
+add_action('wp_ajax_admin_update_order_status', 'admin_update_order_status_ajax');
+
 add_action('wp_ajax_nopriv_get_cart_items',"get_cart_items");
 add_action('wp_ajax_get_cart_items',"get_cart_items");
 
@@ -24,12 +27,10 @@ function update_cart_items() {
         }
     }
 
-    echo json_encode([
+    mc_return_ajax_json([
         'status' => 'success',
         'results' => '',
     ]);
-
-    wp_die();
 }
 
 function remove_cart_item() {
@@ -38,12 +39,10 @@ function remove_cart_item() {
     $itemKey = isset($request->itemKey) ? $request->itemKey : null;
     WC()->cart->remove_cart_item($itemKey);
 
-    echo json_encode([
+    mc_return_ajax_json([
         'status' => 'success',
         'results' => '',
     ]);
-
-    wp_die();
 }
 
 function admin_delete_product_ajax() {
@@ -64,12 +63,10 @@ function admin_delete_product_ajax() {
         }
     }
 
-    echo json_encode([
+    mc_return_ajax_json([
         'status' => 'success',
         'results' => '',
     ]);
-
-    wp_die();
 }
 
 function admin_delete_category_ajax() {
@@ -95,7 +92,7 @@ function admin_delete_category_ajax() {
             
             wp_delete_term($category_id, 'product_cat');
 
-            echo json_encode([
+            mc_return_ajax_json([
                 'status' => 'success',
                 'results' => '',
             ]);
@@ -104,12 +101,10 @@ function admin_delete_category_ajax() {
         }
     }
 
-    echo json_encode([
+    mc_return_ajax_json([
         'status' => 'error',
         'results' => '',
     ]);
-
-    wp_die();
 }
 
 function get_cart_items() {
@@ -130,10 +125,52 @@ function get_cart_items() {
         }
     }
 
-    echo json_encode([
+    mc_return_ajax_json([
         'status' => 'success',
         'products' => $items,
     ]);
+}
 
-    wp_die();
+function admin_get_order_status_modal_ajax() {
+    $request = (object) $_POST;
+
+    $order_id = $request->order_id ?? null;
+    $order = wc_get_order($order_id);
+
+    $html = mc_get_template_part('modals/order', ['order' => $order]);
+
+    mc_return_ajax_json([
+        'status' => 'success',
+        'result' => $html,
+    ]);
+}
+
+function admin_update_order_status_ajax() {
+    $request = (object) $_POST;
+
+    $order_id = $request->order_id ?? null;
+    $new_status = $request->new_status ?? null;
+
+    if(!$order_id || $new_status)
+        mc_return_ajax_json([
+            'status' => 'error',
+            'message' => 'Richiesta incompleta',
+        ]);
+
+
+    $order = wc_get_order($order_id);
+    
+    if(!$order)
+        mc_return_ajax_json([
+            'status' => 'error',
+            'message' => 'Ordine non trovato',
+        ]);
+
+    $order->update_status($new_status, 'Status aggiornato tramite ajax');
+
+    mc_return_ajax_json([
+        'status' => 'success',
+        'message' => 'Status aggiornato con successo',
+    ]);
+    
 }
