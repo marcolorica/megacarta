@@ -135,7 +135,7 @@ function admin_get_order_status_modal_ajax() {
     $request = (object) $_POST;
 
     $order_id = $request->order_id ?? null;
-    $order = wc_get_order($order_id);
+    $order = wc_get_order(intval($order_id));
 
     $html = mc_get_template_part('modals/order', ['order' => $order]);
 
