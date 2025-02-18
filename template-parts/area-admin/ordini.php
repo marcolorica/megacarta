@@ -60,14 +60,11 @@
                                 </span>
                             </p>
                         </div>
-                        <div class="col-2 d-flex justify-content-center align-items-center text-center">
-                            <p class="p-price">€<?= number_format($o->tot, 2, ',', '.'); ?></p>
-                        </div>
-                        <div class="col-2 d-flex justify-content-center align-items-center text-center">
+                        <div class="col-3 d-flex justify-content-center align-items-center text-center">
                             <p class="p-categories"><?= count($o->products) ?> prodotti</p>
                         </div>
-                        <div class="col-2 d-flex justify-content-end align-items-center">
-                            <a class="btn azione-mc btn-outline-success me-3" href="/area-admin/ordini/ordine?id=<?= $o->id ?>"><i class="fa-solid fa-eye fa-fw text-success"></i></a>
+                        <div class="col-3 d-flex justify-content-start align-items-end text-end">
+                            <p class="p-price">€<?= number_format($o->tot, 2, ',', '.'); ?></p>
                         </div>
                     </div>
                 <?php endforeach; ?>
