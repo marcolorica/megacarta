@@ -433,7 +433,7 @@ function mc_get_template_part($template, $args = []) {
 
     ob_start();
 
-    include locate_template("template-parts/area-   admin/$template.php");
+    include locate_template("template-parts/area-admin/$template.php");
 
     return ob_get_clean();
 }
