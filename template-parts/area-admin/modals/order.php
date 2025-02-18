@@ -6,7 +6,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <select id="order_status" class="form-select">
+                <select id="order_status" class="form-select" data-original-value="<?= $order->status ?>" onchange="changeOrderStatus(this)">
                     <option <?= $order->status == 'pending' ? 'selected' : '' ?> value="pending">In attesa di pagamento</option>
                     <option <?= $order->status == 'processing' ? 'selected' : '' ?> value="processing">In lavorazione</option>
                     <option <?= $order->status == 'on-hold' ? 'selected' : '' ?> value="on-hold"> In attesa</option>
@@ -15,7 +15,7 @@
                     <option <?= $order->status == 'refunded' ? 'selected' : '' ?> value="refunded">Rimborsato</option>
                     <option <?= $order->status == 'failed' ? 'selected' : '' ?> value="failed">Fallito</option>
                 </select>
-                <p><a href="/admin/ordini/ordine/<?= $order->id ?>">Visualizza più dettagli <i class="fa-solid fa-arrow-right ms-3 fa-sm"></i></a></p>
+                <a href="/admin/ordini/ordine/<?= $order->id ?>" class="text-primary">Visualizza più dettagli <i class="fa-solid fa-arrow-right ms-2 fa-sm"></i></a>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" onclick="saveOrderStatus(this)" disabled>Salva</button>

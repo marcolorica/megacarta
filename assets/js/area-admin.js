@@ -123,3 +123,22 @@ function openOrderStatusModal(order_id) {
         }
     });
 }
+
+function changeOrderStatus(select) {
+    let $select = jQuery(select);
+    let $btn = $select.parent().next().find('button');
+    
+    let originalValue = $select.attr('data-original-value');
+    let actualValue = $select.val();
+
+    if(originalValue != actualValue) {
+        $btn.prop('disabled', true);
+    }
+    else {
+        $btn.prop('disabled', true);
+    }
+}
+
+function saveOrderStatus(btn) {
+    
+}
