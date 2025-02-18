@@ -118,7 +118,7 @@ function openOrderStatusModal(order_id) {
         success: (response) => {
             if(response.status == 'success') {
                 jQuery('.global-modals-container').html(response.html);
-                jQuery()
+                jQuery('#orderStatusModal').modal('show');
             }
         }
     });
