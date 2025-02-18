@@ -56,7 +56,7 @@
                         <div class="col-3 d-flex align-items-center">
                             <div class="p-title">
                                 <span class="badge text-bg-<?= $o->statusColor ?>"><?= $o->status ?></span>
-                                <i class="fa-solid fa-chevron-drown fa-xs ms-auto"></i>
+                                <i class="fa-solid fa-chevron-down fa-xs ms-auto"></i>
                             </div>
                         </div>
                         <div class="col-3 d-flex justify-content-center align-items-center text-center">
