@@ -54,9 +54,9 @@
                             <p class="p-code"><?= $o->customer ?></p>
                         </div>
                         <div class="col-3 d-flex align-items-center">
-                            <div class="p-title">
+                            <div class="p-title d-flex align-items-center">
                                 <span class="badge text-bg-<?= $o->statusColor ?>"><?= $o->status ?></span>
-                                <i class="fa-solid fa-chevron-down fa-xs ms-auto"></i>
+                                <i class="fa-solid fa-chevron-down fa-xs ms-3"></i>
                             </div>
                         </div>
                         <div class="col-3 d-flex justify-content-center align-items-center text-center">
