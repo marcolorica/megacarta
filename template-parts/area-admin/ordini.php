@@ -63,7 +63,7 @@
                         <div class="col-3 d-flex justify-content-center align-items-center text-center">
                             <p class="p-categories"><?= count($o->products) ?> prodotti</p>
                         </div>
-                        <div class="col-3 d-flex justify-content-start align-items-end text-end">
+                        <div class="col-3 d-flex justify-content-end align-items-start text-end">
                             <p class="p-price">€<?= number_format($o->tot, 2, ',', '.'); ?></p>
                         </div>
                     </div>
