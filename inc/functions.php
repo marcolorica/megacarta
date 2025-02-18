@@ -204,7 +204,7 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
         $status = $order->get_status();
 
         $orders[] = (object) [
-            'id' => get_the_ID(),
+            'id' => $order->id,
             'customer' => $order->get_billing_first_name() . ' ' . $order->get_billing_last_name(),
             'status' => $statuses['wc-' . $status],
             'statusColor' => $statusColors[$status],
