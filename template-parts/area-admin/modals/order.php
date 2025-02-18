@@ -7,14 +7,13 @@
             </div>
             <div class="modal-body">
                 <select id="order_status">
-                    <option value="pending"></option>
-                    <option value="processing"></option>
-                    <option value="on-hold"></option>
-                    <option value="completed"></option>
-                    <option value="cancelled"></option>
-                    <option value="refunded"></option>
-                    <option value="failed"></option>
-                    <option value="checkout-draft"></option>
+                    <option <?= $order->status == 'pending' ? 'selected' : '' ?> value="pending">In attesa di pagamento</option>
+                    <option <?= $order->status == 'processing' ? 'selected' : '' ?> value="processing">In lavorazione</option>
+                    <option <?= $order->status == 'on-hold' ? 'selected' : '' ?> value="on-hold"> In attesa</option>
+                    <option <?= $order->status == 'completed' ? 'selected' : '' ?> value="completed">Completato</option>
+                    <option <?= $order->status == 'cancelled' ? 'selected' : '' ?> value="cancelled">Annullato</option>
+                    <option <?= $order->status == 'refunded' ? 'selected' : '' ?> value="refunded">Rimborsato</option>
+                    <option <?= $order->status == 'failed' ? 'selected' : '' ?> value="failed">Fallito</option>
                 </select>
             </div>
             <div class="modal-footer">
