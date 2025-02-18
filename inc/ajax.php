@@ -141,7 +141,7 @@ function admin_get_order_status_modal_ajax() {
 
     mc_return_ajax_json([
         'status' => 'success',
-        'result' => $order,
+        'result' => $order_id,
     ]);
 }
 
