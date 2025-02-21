@@ -15,6 +15,9 @@
                     <option <?= $order->status == 'refunded' ? 'selected' : '' ?> value="refunded">Rimborsato</option>
                     <option <?= $order->status == 'failed' ? 'selected' : '' ?> value="failed">Fallito</option>
                 </select>
+
+                <label class="d-flex"><input type="checkbox" name="order_send_email" class="form-check me-2">Invia email al cliente per il cambio di stato</label>
+
                 <a href="/admin/ordini/ordine/<?= $order->id ?>" class="text-primary">Visualizza più dettagli <i class="fa-solid fa-arrow-right ms-2 fa-sm"></i></a>
             </div>
             <div class="modal-footer">
