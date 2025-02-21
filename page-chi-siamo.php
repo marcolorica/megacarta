@@ -72,4 +72,6 @@
     </div>
 </section>
 
+<?php marcoTest('import_new_images'); ?>
+
 <?php get_footer(); ?>
