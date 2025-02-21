@@ -450,19 +450,6 @@ function marcoTest($func) {
 }
 
 function import_new_images() {
-    $args = [
-        'posts_per_page' => 1,
-        'post_type'      => 'product',
-        'post_status'    => 'publish',
-        'meta_key'       => '_sku',
-        'meta_value'     => 'HVARPFR'
-    ];
-
-    $query = new WP_Query($args);
-
-    var_dump($query->have_posts());die;
-
-
     $uploads = wp_upload_dir();
     $csvPath = $uploads['basedir'] . '/megacarta1.csv';
     $newImagesPath = get_stylesheet_directory() . '/assets/images/new-images';
@@ -485,9 +472,18 @@ function import_new_images() {
             $nameArr = explode('::', $newImage);
             $sku = $nameArr[0];
 
-            $product_id = wc_get_product_id_by_sku($sku);
+            $args = [
+                'posts_per_page' => 1,
+                'post_type'      => 'product',
+                'post_status'    => 'publish',
+                'meta_key'       => '_sku',
+                'meta_value'     => $sku
+            ];
+        
+            $query = new WP_Query($args);
+            $product = $query->have_posts();
 
-            if($product_id) {
+            if($product) {
                 $ext = substr($newImage, strlen($newImage) - 3, strlen($newImage));
                 $ext = in_array($ext, ['png', 'jpg']) ? $ext : 'webp';
 
