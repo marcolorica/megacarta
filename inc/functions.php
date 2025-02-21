@@ -495,7 +495,6 @@ function import_new_images() {
 function check_oems() {
     $args = [
         'status' => 'publish',
-        'return' => 'ids',
         'limit' => -1
     ];
 
