@@ -471,6 +471,7 @@ function import_new_images() {
 
             $nameArr = explode('::', $newImage);
             $sku = $nameArr[0];
+            $oem = $nameArr[1];
 
             $args = [
                 'posts_per_page' => 1,
@@ -487,7 +488,7 @@ function import_new_images() {
                 $ext = substr($newImage, strlen($newImage) - 3, strlen($newImage));
                 $ext = in_array($ext, ['png', 'jpg']) ? $ext : 'webp';
 
-                $newName = "$sku.$ext";
+                $newName = "$oem.$ext";
                 $res = copy("$newImagesPath/$newImage", "$destinationPath/$newName");
 
                 if($res) {
