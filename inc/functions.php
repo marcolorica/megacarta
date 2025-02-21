@@ -450,58 +450,27 @@ function marcoTest($func) {
 }
 
 function import_new_images() {
-    $uploads = wp_upload_dir();
-    $csvPath = $uploads['basedir'] . '/megacarta1.csv';
     $newImagesPath = get_stylesheet_directory() . '/assets/images/new-images';
-    $destinationPath = get_stylesheet_directory() . '/assets/images/products';
+    $destinationPath = get_stylesheet_directory() . '/assets/images/new-images/to-copy';
 
-    $not = [];
-    $notFound = [];
-    $notCopied = [];
     $ok = [];
-    $exists = [];
+    $notCopied = [];
 
     $newImages = scandir($newImagesPath);
 
     foreach($newImages as $newImage) {
         if($newImage != '.' && $newImage != '..') {
-            if(!str_contains($newImage, '::')) {
-                $not[] = $newImage;
-                continue;
-            }
-
             $nameArr = explode('::', $newImage);
             $sku = $nameArr[0];
             $oem = $nameArr[1];
 
-            $args = [
-                'posts_per_page' => 1,
-                'post_type'      => 'product',
-                'post_status'    => 'publish',
-                'meta_key'       => '_sku',
-                'meta_value'     => $sku
-            ];
-        
-            $query = new WP_Query($args);
-            $product = $query->have_posts();
+            $res = copy("$newImagesPath/$newImage", "$destinationPath/$oem");
 
-            if($product) {
-                if(file_exists("$destinationPath/$oem")) {
-                    $exists[] = $newImage;
-                }
-                else {
-                    $res = copy("$newImagesPath/$newImage", "$destinationPath/$oem");
-    
-                    if($res) {
-                        $ok[] = $newImage;
-                    }
-                    else {
-                        $notCopied[] = $newImage;
-                    }
-                }
+            if($res) {
+                $ok[] = $newImage;
             }
             else {
-                $notFound[] = $newImage;
+                $notCopied[] = $newImage;
             }
         }
     }
@@ -514,35 +483,11 @@ function import_new_images() {
         echo '</pre>';
     }
 
-    echo '<p>Immagini che non hanno i due punti nel nome: ' . count($not) . '</p>';
-
-    if(count($not)) {
-        echo '<pre>';
-        print_r($not);
-        echo '</pre>';
-    }
-
-    echo '<p>Immagini per le quali non è stato trovato il prodotto: ' . count($notFound) . '</p>';
-
-    if(count($notFound)) {
-        echo '<pre>';
-        print_r($notFound);
-        echo '</pre>';
-    }
-
     echo '<p>Immagini per le quali non è riuscita la copia: ' . count($notCopied) . '</p>';
 
     if(count($notCopied)) {
         echo '<pre>';
         print_r($notCopied);
-        echo '</pre>';
-    }
-
-    echo '<p>Immagini che esistevano già: ' . count($exists) . '</p>';
-
-    if(count($exists)) {
-        echo '<pre>';
-        print_r($exists);
         echo '</pre>';
     }
 }
