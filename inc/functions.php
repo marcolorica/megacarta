@@ -450,7 +450,19 @@ function marcoTest($func) {
 }
 
 function import_new_images() {
-    var_dump(get_product_by_sku('HVARPFR'));die;
+    $args = [
+        'posts_per_page' => 1,
+        'post_type'      => 'product',
+        'post_status'    => 'publish',
+        'meta_key'       => '_sku',
+        'meta_value'     => 'HVARPFR'
+    ];
+
+    $query = new WP_Query($args);
+
+    var_dump($query->have_posts());die;
+
+
     $uploads = wp_upload_dir();
     $csvPath = $uploads['basedir'] . '/megacarta1.csv';
     $newImagesPath = get_stylesheet_directory() . '/assets/images/new-images';
