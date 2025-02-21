@@ -493,7 +493,7 @@ function import_new_images() {
 }
 
 function check_oems() {
-    $args_total = [
+    $args = [
         'status' => 'publish',
         'return' => 'ids',
         'limit' => -1
@@ -508,7 +508,7 @@ function check_oems() {
         $oems[] = $p->get_meta('oem');
     }
 
-    $_oems = array_unique($oem);
+    $_oems = array_unique($oems);
 
-    var_dump(count($oem), count($_oems));
+    var_dump(count($oems), count($_oems));
 }
