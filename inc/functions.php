@@ -486,16 +486,11 @@ function import_new_images() {
             $product = $query->have_posts();
 
             if($product) {
-                $ext = substr($newImage, strlen($newImage) - 3, strlen($newImage));
-                $ext = in_array($ext, ['png', 'jpg']) ? $ext : 'webp';
-
-                $newName = "$oem.$ext";
-
                 if(file_exists("$destinationPath/$newName")) {
                     $exists[] = $newImage;
                 }
                 else {
-                    $res = copy("$newImagesPath/$newImage", "$destinationPath/$newName");
+                    $res = copy("$newImagesPath/$newImage", "$destinationPath/$oem");
     
                     if($res) {
                         $ok[] = $newImage;
