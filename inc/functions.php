@@ -495,8 +495,23 @@ function import_new_images() {
     }
 
     echo '<p>OK: ' . count($ok) . '</p>';
+    if(count($ok)) {
+        echo '<pre>';
+        print_r($ok);
+        echo '</pre>';
+    }
     echo '<p>Immagini che non hanno i due punti nel nome: ' . count($not) . '</p>';
+    if(count($not)) {
+        echo '<pre>';
+        print_r($not);
+        echo '</pre>';
+    }
     echo '<p>Immagini per le quali non è stato trovato il prodotto: ' . count($notFound) . '</p>';
+    if(count($notFound)) {
+        echo '<pre>';
+        print_r($notFound);
+        echo '</pre>';
+    }
     echo '<p>Immagini per le quali non è riuscita la copia: ' . count($notCopied) . '</p>';
 
     if(count($notCopied)) {
