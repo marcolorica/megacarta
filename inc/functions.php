@@ -507,7 +507,10 @@ function check_oems() {
         $oems[] = $p->get_meta('oem');
     }
 
-    $_oems = array_unique($oems);
+    $counts = array_count_values($oems);
+    $duplicates = array_filter($counts, function($count) {
+        return $count > 1;
+    });
 
-    var_dump(count($oems), count($_oems));
+    var_dump(array_keys($duplicates));
 }
