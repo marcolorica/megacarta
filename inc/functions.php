@@ -459,6 +459,7 @@ function import_new_images() {
     $notFound = [];
     $notCopied = [];
     $ok = [];
+    $exists = [];
 
     $newImages = scandir($newImagesPath);
 
@@ -489,13 +490,19 @@ function import_new_images() {
                 $ext = in_array($ext, ['png', 'jpg']) ? $ext : 'webp';
 
                 $newName = "$oem.$ext";
-                $res = copy("$newImagesPath/$newImage", "$destinationPath/$newName");
 
-                if($res) {
-                    $ok[] = $newImage;
+                if(file_exists("$destinationPath/$newName")) {
+                    $exists[] = $newImage;
                 }
                 else {
-                    $notCopied[] = $newImage;
+                    $res = copy("$newImagesPath/$newImage", "$destinationPath/$newName");
+    
+                    if($res) {
+                        $ok[] = $newImage;
+                    }
+                    else {
+                        $notCopied[] = $newImage;
+                    }
                 }
             }
             else {
@@ -505,28 +512,42 @@ function import_new_images() {
     }
 
     echo '<p>OK: ' . count($ok) . '</p>';
+
     if(count($ok)) {
         echo '<pre>';
         print_r($ok);
         echo '</pre>';
     }
+
     echo '<p>Immagini che non hanno i due punti nel nome: ' . count($not) . '</p>';
+
     if(count($not)) {
         echo '<pre>';
         print_r($not);
         echo '</pre>';
     }
+
     echo '<p>Immagini per le quali non è stato trovato il prodotto: ' . count($notFound) . '</p>';
+
     if(count($notFound)) {
         echo '<pre>';
         print_r($notFound);
         echo '</pre>';
     }
+
     echo '<p>Immagini per le quali non è riuscita la copia: ' . count($notCopied) . '</p>';
 
     if(count($notCopied)) {
         echo '<pre>';
         print_r($notCopied);
+        echo '</pre>';
+    }
+
+    echo '<p>Immagini che esistevano già: ' . count($exists) . '</p>';
+
+    if(count($exists)) {
+        echo '<pre>';
+        print_r($exists);
         echo '</pre>';
     }
 }
