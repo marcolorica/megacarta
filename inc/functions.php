@@ -491,3 +491,24 @@ function import_new_images() {
         echo '</pre>';
     }
 }
+
+function check_oems() {
+    $args_total = [
+        'status' => 'publish',
+        'return' => 'ids',
+        'limit' => -1
+    ];
+
+    $query = new WC_Product_Query($args);
+    $products = $query->get_products();
+
+	$oems = [];
+    
+    foreach($products as $p) {
+        $oems[] = $p->get_meta('oem');
+    }
+
+    $_oems = array_unique($oem);
+
+    var_dump(count($oem), count($_oems));
+}
