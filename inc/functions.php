@@ -458,8 +458,10 @@ function import_new_images() {
 
     $newImages = scandir($newImagesPath);
 
-    var_dump($newImages);die;
     foreach($newImages as $newImage) {
+        if($newImage != '.' && $newImage != '..') {
+            var_dump($newImage);die;
+        }
     }
 
     // if(file_exists($csvPath)) {
