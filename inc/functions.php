@@ -486,7 +486,7 @@ function import_new_images() {
             $product = $query->have_posts();
 
             if($product) {
-                if(file_exists("$destinationPath/$newName")) {
+                if(file_exists("$destinationPath/$oem")) {
                     $exists[] = $newImage;
                 }
                 else {
