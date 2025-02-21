@@ -443,7 +443,7 @@ function marcoTest($func) {
         $param = isset($_GET['marco']) && $_GET['marco'] == 'lorica';
     
         if($param) {
-            call_user_func($param);
+            call_user_func($func);
             die;
         }
     }
