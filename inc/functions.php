@@ -453,9 +453,12 @@ function import_new_images() {
     $uploads = wp_upload_dir();
     $csvPath = $uploads['basedir'] . '/megacarta1.csv';
     $newImagesPath = get_stylesheet_directory() . '/assets/images/new-images';
+    $destinationPath = get_stylesheet_directory() . '/assets/images/products';
 
     $not = [];
     $notFound = [];
+    $notCopied = [];
+    $ok = [];
 
     $newImages = scandir($newImagesPath);
 
@@ -473,65 +476,32 @@ function import_new_images() {
 
             if($product_id) {
                 $ext = substr($newImage, strlen($newImage) - 3, strlen($newImage));
-                var_dump($ext);die;
+                $ext = in_array($ext, ['png', 'jpg']) ? $ext : 'webp';
+
+                $newName = "$sku.$ext";
+                $res = copy("$newImagesPath/$newImage", "$destinationPath/$newName");
+
+                if($res) {
+                    $ok[] = $newImage;
+                }
+                else {
+                    $notCopied[] = $newImage;
+                }
             }
             else {
                 $notFound[] = $newImage;
             }
-
         }
     }
 
-    // if(file_exists($csvPath)) {
-    //     if(($handle = fopen($csvPath, "r")) !== false) {
-    //         while(($data = fgetcsv($handle, 10000, ",")) !== false) {
-    //             $code = $data[0];
+    echo '<p>OK: ' . count($ok) . '</p>';
+    echo '<p>Immagini che non hanno i due punti nel nome: ' . count($not) . '</p>';
+    echo '<p>Immagini per le quali non è stato trovato il prodotto: ' . count($notFound) . '</p>';
+    echo '<p>Immagini per le quali non è riuscita la copia: ' . count($notCopied) . '</p>';
 
-    //             if($code != 'Codice') {
-
-    //                 if(!str_contains($code, '::')) {
-
-    //                 }
-
-    //                 $product = new WC_Product_Simple();
-    //                 $product->set_sku($code);
-    //                 $product->set_name($code);
-    //                 $product->set_description($name);
-    //                 $product->set_regular_price($price);
-    //                 $product->set_status('publish');
-
-    //                 $product->update_meta_data('oem', $oem);
-    //                 $product->update_meta_data('um', $um);
-    //                 $product->update_meta_data('qt_pz', $qtPz);
-    //                 $product_id = $product->save();
-
-    //                 $category_id = null;
-    //                 $subcategory_id = null;
-
-    //                 foreach($categories as $c) {
-    //                     if(strtolower($c->name) == strtolower($cat))
-    //                         $category_id = $c->term_id;
-    //                 }
-                    
-    //                 if($subCat) {
-    //                     foreach($subCategories as $parent => $childs) {
-    //                         $parent_id = intval(str_replace('c-', '', $parent));
-            
-    //                         foreach($childs as $ch) {
-    //                             if(strtolower($ch->name) == strtolower($subCat) && $parent_id == $category_id) {
-    //                                 $subcategory_id = $ch->term_id;
-    //                                 break;
-    //                             }
-    //                         }
-    //                     }
-    //                 }
-    //                 else {
-    //                     $subcategory_id = $category_id;
-    //                 }
-
-    //                 wp_set_object_terms($product_id, [$subcategory_id], 'product_cat');
-    //             }
-    //         }
-    //     }
-    // }
+    if(count($notCopied)) {
+        echo '<pre>';
+        print_r($notCopied);
+        echo '</pre>';
+    }
 }
