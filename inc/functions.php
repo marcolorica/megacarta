@@ -455,12 +455,30 @@ function import_new_images() {
     $newImagesPath = get_stylesheet_directory() . '/assets/images/new-images';
 
     $not = [];
+    $notFound = [];
 
     $newImages = scandir($newImagesPath);
 
     foreach($newImages as $newImage) {
         if($newImage != '.' && $newImage != '..') {
-            var_dump($newImage);die;
+            if(!str_contains($newImage, '::')) {
+                $not[] = $newImage;
+                continue;
+            }
+
+            $nameArr = explode('::', $newImage);
+            $sku = $nameArr[0];
+
+            $product_id = wc_get_product_id_by_sku($sku);
+
+            if($product_id) {
+                $ext = substr($newImage, strlen($newImage) - 3, strlen($newImage));
+                var_dump($ext);die;
+            }
+            else {
+                $notFound[] = $newImage;
+            }
+
         }
     }
 
