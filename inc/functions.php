@@ -452,7 +452,7 @@ function marcoTest($func) {
 function import_new_images() {
     $uploads = wp_upload_dir();
     $csvPath = $uploads['basedir'] . '/megacarta1.csv';
-    $newImagesPath = get_stylesheet_directory_uri() . '/assets/images/new-images';
+    $newImagesPath = get_stylesheet_directory() . '/assets/images/new-images';
 
     $not = [];
 
