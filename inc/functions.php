@@ -358,7 +358,8 @@ function mc_get_settings() {
     return (object) [
         'map_iframe' => get_option('mc_map_iframe'),
         'address' => get_option('mc_address'),
-        'partita_iva' => get_option('mc_partita_iva')
+        'partita_iva' => get_option('mc_partita_iva'),
+        'partita_iva' => get_option('mc_bank_details')
     ];
 }
 
@@ -438,7 +439,19 @@ function mc_get_template_part($template, $args = []) {
     return ob_get_clean();
 }
 
-function marcoTest($func) {
+function mc_send_email($recipient, $html = "", $subject = null, $from = null, $simple = false) {
+    $headers = [];
+    
+    if($from)
+        $headers[] = 'Reply-To: ' . $from;
+
+    if(!$simple)
+        $headers = ['Content-Type: text/html; charset=UTF-8'];
+
+    wp_mail($recipient, $subject, $html, $headers);
+}
+
+function mc_test_func($func) {
     if(strlen($func)) {
         $param = isset($_GET['marco']) && $_GET['marco'] == 'lorica';
     
@@ -447,70 +460,4 @@ function marcoTest($func) {
             die;
         }
     }
-}
-
-function import_new_images() {
-    $newImagesPath = get_stylesheet_directory() . '/assets/images/new-images';
-    $destinationPath = get_stylesheet_directory() . '/assets/images/new-images/to-copy';
-
-    $ok = [];
-    $notCopied = [];
-
-    $newImages = scandir($newImagesPath);
-
-    foreach($newImages as $newImage) {
-        if($newImage != '.' && $newImage != '..') {
-            $nameArr = explode('::', $newImage);
-            $sku = $nameArr[0];
-            $oem = $nameArr[1];
-
-            $res = copy("$newImagesPath/$newImage", "$destinationPath/$oem");
-
-            if($res) {
-                $ok[] = $newImage;
-            }
-            else {
-                $notCopied[] = $newImage;
-            }
-        }
-    }
-
-    echo '<p>OK: ' . count($ok) . '</p>';
-
-    if(count($ok)) {
-        echo '<pre>';
-        print_r($ok);
-        echo '</pre>';
-    }
-
-    echo '<p>Immagini per le quali non è riuscita la copia: ' . count($notCopied) . '</p>';
-
-    if(count($notCopied)) {
-        echo '<pre>';
-        print_r($notCopied);
-        echo '</pre>';
-    }
-}
-
-function check_oems() {
-    $args = [
-        'status' => 'publish',
-        'limit' => -1
-    ];
-
-    $query = new WC_Product_Query($args);
-    $products = $query->get_products();
-
-	$oems = [];
-    
-    foreach($products as $p) {
-        $oems[] = $p->get_meta('oem');
-    }
-
-    $counts = array_count_values($oems);
-    $duplicates = array_filter($counts, function($count) {
-        return $count > 1;
-    });
-
-    var_dump(array_keys($duplicates));
 }

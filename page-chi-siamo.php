@@ -72,6 +72,6 @@
     </div>
 </section>
 
-<?php marcoTest('check_oems'); ?>
+<?php //mc_test_func('check_oems'); ?>
 
 <?php get_footer(); ?>

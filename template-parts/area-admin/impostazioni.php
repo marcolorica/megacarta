@@ -22,17 +22,17 @@
                 <textarea class="form-control" name="map_iframe" form="form-settings" placeholder="<iframe src=..." rows="13"><?= $settings->map_iframe ?></textarea>
             </div>
             <div class="col-12">
-                <div class="d-flex justify-content-between mb-3">
+                <div class="col-12 mb-3">
                     <label><i class="fa-solid fa-location-dot me-2"></i>Indirizzo sede</label>
                     <input type="text" class="form-control w-50" name="address" form="form-settings" value="<?= $settings->address ?>" placeholder="Via Roma, 123">
                 </div>
-                <div class="d-flex justify-content-between mb-3">
+                <div class="col-12 mb-3">
                     <label><i class="fa-solid fa-id-card me-2"></i>Partita IVA</label>
                     <input type="text" class="form-control w-50" name="partita_iva" form="form-settings" value="<?= $settings->partita_iva ?>" placeholder="123456789">
                 </div>
-                <div class="d-flex justify-content-between mb-3">
+                <div class="col-6 mb-3">
                     <label><i class="fa-solid fa-building-columns me-2"></i>Dettagli bancari</label>
-                    <!-- ... -->
+                    <textarea class="form-control" name="bank_details" placeholder="IT60X0542811101000000123456..." form="form-settings"><?= $settings->bank_details ?></textarea>
                 </div>
             </div>
         </div>

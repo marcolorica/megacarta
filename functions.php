@@ -546,3 +546,69 @@ function upTo20PercentsProductPrices() {
         }
     }
 }
+
+function import_new_images() {
+    $newImagesPath = get_stylesheet_directory() . '/assets/images/new-images';
+    $destinationPath = get_stylesheet_directory() . '/assets/images/new-images/to-copy';
+
+    $ok = [];
+    $notCopied = [];
+
+    $newImages = scandir($newImagesPath);
+
+    foreach($newImages as $newImage) {
+        if($newImage != '.' && $newImage != '..') {
+            $nameArr = explode('::', $newImage);
+            $sku = $nameArr[0];
+            $oem = $nameArr[1];
+
+            $res = copy("$newImagesPath/$newImage", "$destinationPath/$oem");
+
+            if($res) {
+                $ok[] = $newImage;
+            }
+            else {
+                $notCopied[] = $newImage;
+            }
+        }
+    }
+
+    echo '<p>OK: ' . count($ok) . '</p>';
+
+    if(count($ok)) {
+        echo '<pre>';
+        print_r($ok);
+        echo '</pre>';
+    }
+
+    echo '<p>Immagini per le quali non è riuscita la copia: ' . count($notCopied) . '</p>';
+
+    if(count($notCopied)) {
+        echo '<pre>';
+        print_r($notCopied);
+        echo '</pre>';
+    }
+}
+
+function check_oems() {
+    $args = [
+        'status' => 'publish',
+        'limit' => -1
+    ];
+
+    $query = new WC_Product_Query($args);
+    $products = $query->get_products();
+
+	$oems = [];
+    
+    foreach($products as $p) {
+        $oems[] = $p->get_meta('oem');
+    }
+
+    $counts = array_count_values($oems);
+    $duplicates = array_filter($counts, function($count) {
+        return $count > 1;
+    });
+
+    var_dump(array_keys($duplicates));
+}
