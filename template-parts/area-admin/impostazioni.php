@@ -14,15 +14,11 @@
             <div class="col-12 text-center">
                 <h2 class="mb-5">Impostazioni</h2>
             </div>
-
-            <div class="col-6 mb-5">
-               <?= $settings->map_iframe ?>
-               
-               <label class="mt-3 mb-2"><i class="fa-solid fa-location-dot me-2"></i>Indirizzo sede</label>
-               <input type="text" class="form-control" name="address" form="form-settings" value="<?= $settings->address ?>" placeholder="Via Roma, 63">
-            </div>
             
             <div class="col-6 mb-5">
+                <label class="mt-3 mb-2"><i class="fa-solid fa-location-dot me-2"></i>Indirizzo sede</label>
+                <input type="text" class="form-control" name="address" form="form-settings" value="<?= $settings->address ?>" placeholder="Via Roma, 63">
+
                 <label class="mb-2"><i class="fa-solid fa-map-location-dot me-2"></i>Iframe Mappa Google</label>
                 <textarea class="form-control mb-3" name="map_iframe" form="form-settings" placeholder="<iframe src=..." rows="9"><?= $settings->map_iframe ?></textarea>
                 
@@ -31,6 +27,10 @@
                 
                 <label class="mb-2"><i class="fa-solid fa-building-columns me-2"></i>Dettagli bancari</label>
                 <textarea class="form-control" name="bank_details" placeholder="IT60X0542811101000000123456..." form="form-settings" rows="7"><?= $settings->bank_details ?></textarea>
+            </div>
+
+            <div class="col-6 mb-5">
+               <?= $settings->map_iframe ?>
             </div>
         </div>
     </div>
