@@ -29,7 +29,7 @@
                 <label class="mb-2"><i class="fa-solid fa-id-card me-2"></i>Partita IVA</label>
                 <input type="text" class="form-control mb-3" name="partita_iva" form="form-settings" value="<?= $settings->partita_iva ?>" placeholder="123456789">
                 
-                <label><i class="fa-solid fa-building-columns me-2"></i>Dettagli bancari</label>
+                <label class="mb-2"><i class="fa-solid fa-building-columns me-2"></i>Dettagli bancari</label>
                 <textarea class="form-control" name="bank_details" placeholder="IT60X0542811101000000123456..." form="form-settings" rows="7"><?= $settings->bank_details ?></textarea>
             </div>
         </div>
