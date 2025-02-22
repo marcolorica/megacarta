@@ -18,28 +18,19 @@
             <div class="col-6 mb-5">
                <?= $settings->map_iframe ?>
                
-               <label class="mt-3"><i class="fa-solid fa-location-dot me-2"></i>Indirizzo sede</label>
-               <input type="text" class="form-control w-50" name="address" form="form-settings" value="<?= $settings->address ?>" placeholder="Via Roma, 63">
+               <label class="mt-3 mb-2"><i class="fa-solid fa-location-dot me-2"></i>Indirizzo sede</label>
+               <input type="text" class="form-control" name="address" form="form-settings" value="<?= $settings->address ?>" placeholder="Via Roma, 63">
             </div>
             
             <div class="col-6 mb-5">
-                <h4 class="mb-3">Iframe Mappa Google</h4>
-                <textarea class="form-control" name="map_iframe" form="form-settings" placeholder="<iframe src=..." rows="9"><?= $settings->map_iframe ?></textarea>
+                <label class="mb-2"><i class="fa-solid fa-map-location-dot me-2"></i>Iframe Mappa Google</h4>
+                <textarea class="form-control mb-3" name="map_iframe" form="form-settings" placeholder="<iframe src=..." rows="9"><?= $settings->map_iframe ?></textarea>
                 
-                <label><i class="fa-solid fa-id-card me-2"></i>Partita IVA</label>
-                <input type="text" class="form-control w-50" name="partita_iva" form="form-settings" value="<?= $settings->partita_iva ?>" placeholder="123456789">
+                <label class="mb-2"><i class="fa-solid fa-id-card me-2"></i>Partita IVA</label>
+                <input type="text" class="form-control mb-3" name="partita_iva" form="form-settings" value="<?= $settings->partita_iva ?>" placeholder="123456789">
                 
                 <label><i class="fa-solid fa-building-columns me-2"></i>Dettagli bancari</label>
                 <textarea class="form-control" name="bank_details" placeholder="IT60X0542811101000000123456..." form="form-settings" rows="7"><?= $settings->bank_details ?></textarea>
-            </div>
-            
-            <div class="col-6 mb-3">
-            </div>
-            
-            <div class="col-12 mb-3">
-                </div>
-                
-                <div class="col-6 mb-3">
             </div>
         </div>
     </div>
