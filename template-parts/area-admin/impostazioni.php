@@ -4,7 +4,7 @@
     <input type="hidden" name="action" value="save_settings">
 </form>
 
-<section class="admin-body pt-5">
+<section class="admin-body form-settings pt-5">
     <div class="container">
         <div class="row">
             <div class="col-12 text-end">

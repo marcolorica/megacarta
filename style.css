@@ -698,7 +698,7 @@ section.gallery-section .image-container > img {
   object-fit: cover;
 }
 
-[form=form-settings] ~ label {
+.form-settings label {
   font-size: 19px;
 }
 
