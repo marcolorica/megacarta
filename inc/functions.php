@@ -359,7 +359,7 @@ function mc_get_settings() {
         'map_iframe' => get_option('mc_map_iframe'),
         'address' => get_option('mc_address'),
         'partita_iva' => get_option('mc_partita_iva'),
-        'partita_iva' => get_option('mc_bank_details')
+        'bank_details' => get_option('mc_bank_details')
     ];
 }
 

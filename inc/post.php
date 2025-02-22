@@ -208,7 +208,8 @@ function admin_save_settings() {
     $to_update = [
         'map_iframe',
         'address',
-        'partita_iva'
+        'partita_iva',
+        'bank_details'
     ];
 
     foreach($to_update as $name) {
