@@ -17,7 +17,7 @@
             
             <div class="col-6 mb-5">
                 <label class="mb-2"><i class="fa-solid fa-location-dot me-2"></i>Indirizzo sede</label>
-                <input type="text" class="form-control" name="address" form="form-settings" value="<?= $settings->address ?>" placeholder="Via Roma, 63">
+                <input type="text" class="form-control mb-3" name="address" form="form-settings" value="<?= $settings->address ?>" placeholder="Via Roma, 63">
 
                 <label class="mb-2"><i class="fa-solid fa-map-location-dot me-2"></i>Iframe Mappa Google</label>
                 <textarea class="form-control mb-3" name="map_iframe" form="form-settings" placeholder="<iframe src=..." rows="9"><?= $settings->map_iframe ?></textarea>
