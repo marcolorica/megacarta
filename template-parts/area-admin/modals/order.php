@@ -29,7 +29,7 @@
                 </select> -->
 
                 <label for="" class="label-status"><span class="badge"><?= $statuses[$order->status] ?></span></label>
-                <input type="range" class="form-range mb-3" min="0" max="6" step="1" id="statusRange">
+                <input type="range" class="form-range mb-3" min="0" max="6" step="1" id="statusRange" onkeypress="onKeyPressOrderStatusRange(e)">
 
                 <label class="d-flex justify-content-center align-items-center"><input type="checkbox" name="order_send_email" class="form-check me-2">Invia email al cliente per il cambio di stato</label>
 
