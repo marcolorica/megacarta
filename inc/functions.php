@@ -297,7 +297,50 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
 }
 
 function mc_get_order($order_id) {
+    $order = wc_get_order($order_id);
+    
+    if(!$order)
+        return null;
+    
+    $return = (object) [
+        'id' => $order_id,
+        'status' => $order->get_status(),
+        'created' => $order->get_date_created()->date('Y/m/d H:i'),
+        'modified' => $order->get_date_modified()->date('Y/m/d H:i'),
+        'total' => $order->get_total(),
+        'payment_method' => $order->get_payment_method(),
+        'billing' => $order->get_address('billing'),
+        'shipping' => $order->get_address('shipping'),
+        'customer_id' => $order->get_customer_id(),
+        'customer_email' => $order->get_billing_email(),
+        'customer_phone' => $order->get_billing_phone(),
+        'items' => array_map(function($item) {
+            $product = $item->get_product();
+            
+            return (object) [
+                'product_id' => $item->get_product_id(),
+                'product_name' => $item->get_name(),
+                'quantity' => $item->get_quantity(),
+                'subtotal' => $item->get_subtotal(),
+                'total' => $item->get_total(),
+                'sku' => $product ? $product->get_sku() : '',
+            ];
+        }, $order->get_items())
+    ];
+    
+    return $return;
+}
 
+function mc_get_order_statuses() {
+    return [
+        "pending" => "In attesa di pagamento",
+        "processing" => "In lavorazione",
+        "on-hold" => " In attesa",
+        "completed" => "Completato",
+        "cancelled" => "Annullato",
+        "refunded" => "Rimborsato",
+        "failed" => "Fallito"
+    ];
 }
 
 

@@ -1,26 +1,67 @@
 <?php
-    $statuses = [
-        "pending" => "In attesa di pagamento",
-        "processing" => "In lavorazione",
-        "on-hold" => " In attesa",
-        "completed" => "Completato",
-        "cancelled" => "Annullato",
-        "refunded" => "Rimborsato",
-        "failed" => "Fallito"
-    ];
+    $order_id = $_GET['id'] ?? null;
+
+    $order = $order_id ? mc_get_order($order_id) : null;
+    $statuses = mc_get_order_statuses();
 ?>
 
-<!-- <select id="order_status" class="form-select mb-3" data-original-value="<?= $order->status ?>" onchange="changeOrderStatus(this)">
-    <option <?= $order->status == 'pending' ? 'selected' : '' ?> value="pending">In attesa di pagamento</option>
-    <option <?= $order->status == 'processing' ? 'selected' : '' ?> value="processing">In lavorazione</option>
-    <option <?= $order->status == 'on-hold' ? 'selected' : '' ?> value="on-hold"> In attesa</option>
-    <option <?= $order->status == 'completed' ? 'selected' : '' ?> value="completed">Completato</option>
-    <option <?= $order->status == 'cancelled' ? 'selected' : '' ?> value="cancelled">Annullato</option>
-    <option <?= $order->status == 'refunded' ? 'selected' : '' ?> value="refunded">Rimborsato</option>
-    <option <?= $order->status == 'failed' ? 'selected' : '' ?> value="failed">Fallito</option>
-</select> -->
+<form action="<?= esc_url(admin_url('admin-post.php')); ?>" id="form-order" method="POST">
+    <input type="hidden" name="action" value="save_order_edits">
+    <input type="hidden" name="order_id" value="<?= $order ? $order_id : '' ?>">
+</form>
 
-<label for="" class="label-status"><span class="badge"><?= $statuses[$order->status] ?></span></label>
-<input type="range" class="form-range mb-3" min="0" max="6" step="1" id="statusRange" onkeypress="onKeyPressOrderStatusRange(e)">
+<section class="admin-body pt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-end">
+                <button type="submit" class="btn btn-success" form="form-order">Salva</button>
+            </div>
 
-<label class="d-flex justify-content-center align-items-center"><input type="checkbox" name="order_send_email" class="form-check me-2">Invia email al cliente per il cambio di stato</label>
+            <div class="col-12 text-center">
+                <h2 class="mb-5">Ordine #<?= $order->id ?></h2>
+            </div>
+
+            <div class="col-12">
+                <h4 class="mb-3">Stato dell'ordine</h4>
+                <label for="" class="label-status"><span class="badge"><?= $statuses[$order->status] ?></span></label>
+                <input type="range" class="form-range mb-3" min="0" max="6" step="1" id="statusRange" onkeypress="onKeyPressOrderStatusRange(e)">
+            </div>
+            
+            <div class="col-6">
+                <h4 class="mb-3">Cliente</h4>
+                <!-- qui cliente -->
+            </div>
+
+            <div class="col-6">
+                <h4 class="mb-3">Prodotti</h4>
+                <!-- qui prodotti con table + totale -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<?php if(isset($_SESSION['save_success'])) : ?>
+    <script>
+        jQuery(document).ready(() => {
+            Swal.fire({
+                title: '<?= $_SESSION['save_success'] ?>',
+                icon: 'success',
+                showCancelButton: false,
+                confirmButtonText: 'Ok',
+            });
+        });
+    </script>
+<?php unset($_SESSION['save_success']); endif; ?>
+
+<?php if(isset($_SESSION['error'])) : ?>
+    <script>
+        jQuery(document).ready(() => {
+            Swal.fire({
+                title: '<?= $_SESSION['error'] ?>',
+                icon: 'error',
+                showCancelButton: false,
+                confirmButtonText: 'Ok',
+            });
+        });
+    </script>
+<?php unset($_SESSION['error']); endif; ?>
