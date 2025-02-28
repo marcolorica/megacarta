@@ -19,6 +19,11 @@
 
 <section class="admin-body py-5">
     <div class="container">
+        <div class="row py-4">
+            <div class="col-12 text-end">
+                <a href="/area-admin/prodotti/prodotto" class="btn btn-success"><i class="fa-solid fa-plus me-2"></i>Crea nuovo</a>
+            </div>
+        </div>
         <div class="row">
             <div class="col-12 text-center">
                 <h2 class="mb-3">Prodotti</h2>

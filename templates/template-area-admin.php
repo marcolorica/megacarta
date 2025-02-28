@@ -15,7 +15,7 @@
 ?>
 
 <?php if(in_array($pagename, $macros)) : ?> 
-    <nav class="navbar navbar-expand-lg" style="border-bottom: 1px solid lightgray">
+    <nav class="navbar navbar-expand-lg bg-white" style="border-bottom: 1px solid lightgray">
         <div class="container">
             <a class="navbar-brand my-2 mx-3" href="/">
                 <img src="<?= mc_get_logo_src(); ?>" alt="MEGACARTA" class="mg-logo" width="60" height="60" class="d-inline-block align-text-top">
@@ -77,7 +77,7 @@
         }
     ?>
 
-    <nav class="navbar navbar-expand-lg" style="border-bottom: 1px solid lightgray">
+    <nav class="navbar navbar-expand-lg bg-white" style="border-bottom: 1px solid lightgray">
         <div class="container">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarAdmin" aria-controls="navbarAdmin" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
