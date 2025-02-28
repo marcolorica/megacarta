@@ -1,5 +1,6 @@
 <?php
 
+//prodotti
 function mc_get_categories_catalogue($term_id = null) {
     $result = [];
 
@@ -149,6 +150,73 @@ function mc_get_products($term = null, $perPage = 10, $_order = 'piu-recenti', $
 	return (object) ['result' => $res, 'count' => count($total_products)];
 }
 
+function mc_get_product_image($product_id) {
+    $product = wc_get_product($product_id);
+
+    if($product) {
+        $oem = $product->get_meta('oem');
+        
+        if($oem) {
+            $prefix = get_stylesheet_directory() . "/assets/images/products/$oem";
+
+            $png = file_exists("$prefix.png");
+            $jpg = file_exists("$prefix.jpg");
+            $webp = file_exists("$prefix.webp");
+
+            $ext = $png ? 'png' : ($jpg ? 'jpg' : ($webp ? 'webp' : null));
+
+            return $ext ? get_stylesheet_directory_uri() . "/assets/images/products/$oem.$ext" : null;
+        }
+    }
+
+    return null;
+}
+
+function mc_get_product($product_id) {
+    $product = wc_get_product($product_id);
+
+    if(!$product)
+        return null;
+
+    return (object) [
+        'id' => $product_id,
+        'img' => mc_get_product_image($product_id),
+        'name' => $product->get_description(),
+        'oem' => $product->get_meta('oem'),
+        'code' => $product->get_sku(),
+        'price' => $product->get_price(),
+        'categories' => wp_get_post_terms($product_id, 'product_cat', ['fields' => 'slugs']),
+        'qty' => $product->get_stock_quantity(),
+        'only_variants' => $product->get_meta('mc_only_variants'),
+        'variants' => mc_get_product_variants($product_id)
+    ];
+}
+
+function mc_get_product_variants($product_id) {
+    $product = wc_get_product($product_id);
+
+    if(!$product)
+        return null;
+
+    return $product->get_meta('mc_variants') ?: [];
+}
+
+
+//categorie
+function mc_get_cat_img($slug) {
+    $prefix = get_stylesheet_directory() . "/assets/images/categories/$slug";
+
+    $png = file_exists("$prefix.png");
+    $jpg = file_exists("$prefix.jpg");
+    $webp = file_exists("$prefix.webp");
+
+    $ext = $png ? 'png' : ($jpg ? 'jpg' : ($webp ? 'webp' : null));
+
+    return get_stylesheet_directory_uri() . '/assets/images/' . ($ext ? "categories/$slug.$ext" : 'megacarta-logo.webp');
+}
+
+
+//ordini
 function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $numPage = 1) {
     $orders = [];
 
@@ -228,63 +296,12 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
 	return (object) ['result' => $orders, 'count' => count($total_orders)];
 }
 
-function mc_get_product_image($product_id) {
-    $product = wc_get_product($product_id);
+function mc_get_order($order_id) {
 
-    if($product) {
-        $oem = $product->get_meta('oem');
-        
-        if($oem) {
-            $prefix = get_stylesheet_directory() . "/assets/images/products/$oem";
-
-            $png = file_exists("$prefix.png");
-            $jpg = file_exists("$prefix.jpg");
-            $webp = file_exists("$prefix.webp");
-
-            $ext = $png ? 'png' : ($jpg ? 'jpg' : ($webp ? 'webp' : null));
-
-            return $ext ? get_stylesheet_directory_uri() . "/assets/images/products/$oem.$ext" : null;
-        }
-    }
-
-    return null;
 }
 
-function mg_is_admin_area() {
-    global $post;
 
-    $check = false;
-
-    if($post) {
-        $check = get_the_title($post) == 'Area Admin';
-    
-        if(!$check && $post->post_parent) {
-            $check = get_the_title($post->post_parent) == 'Area Admin';
-    
-            if(!$check && get_post($post->post_parent)->post_parent)
-                $check = get_the_title(get_post($post->post_parent)->post_parent) == 'Area Admin';
-        }
-    }
-
-    return $check;
-}
-
-function mc_get_logo_src($white = false) {
-    return get_stylesheet_directory_uri() . '/assets/images/megacarta-logo' . ($white ? '-white' : '') . '.webp';
-}
-
-function mc_get_cat_img($slug) {
-    $prefix = get_stylesheet_directory() . "/assets/images/categories/$slug";
-
-    $png = file_exists("$prefix.png");
-    $jpg = file_exists("$prefix.jpg");
-    $webp = file_exists("$prefix.webp");
-
-    $ext = $png ? 'png' : ($jpg ? 'jpg' : ($webp ? 'webp' : null));
-
-    return get_stylesheet_directory_uri() . '/assets/images/' . ($ext ? "categories/$slug.$ext" : 'megacarta-logo.webp');
-}
-
+//pagine
 function mc_get_page_datas($pagina) {
     $return = [];
 
@@ -354,6 +371,8 @@ function mc_get_page_datas($pagina) {
     return $return;
 }
 
+
+//impostazioni
 function mc_get_settings() {
     return (object) [
         'map_iframe' => get_option('mc_map_iframe'),
@@ -361,6 +380,31 @@ function mc_get_settings() {
         'partita_iva' => get_option('mc_partita_iva'),
         'bank_details' => get_option('mc_bank_details')
     ];
+}
+
+
+//generali
+function mc_get_logo_src($white = false) {
+    return get_stylesheet_directory_uri() . '/assets/images/megacarta-logo' . ($white ? '-white' : '') . '.webp';
+}
+
+function mg_is_admin_area() {
+    global $post;
+
+    $check = false;
+
+    if($post) {
+        $check = get_the_title($post) == 'Area Admin';
+    
+        if(!$check && $post->post_parent) {
+            $check = get_the_title($post->post_parent) == 'Area Admin';
+    
+            if(!$check && get_post($post->post_parent)->post_parent)
+                $check = get_the_title(get_post($post->post_parent)->post_parent) == 'Area Admin';
+        }
+    }
+
+    return $check;
 }
 
 function mc_upload_image_in_theme($img_name, $img_tmp_name, $dir = '') {
@@ -388,35 +432,6 @@ function mc_upload_image_in_theme($img_name, $img_tmp_name, $dir = '') {
         ];
 
     return (object) ['status' => 'success'];
-}
-
-function mc_get_product($product_id) {
-    $product = wc_get_product($product_id);
-
-    if(!$product)
-        return null;
-
-    return (object) [
-        'id' => $product_id,
-        'img' => mc_get_product_image($product_id),
-        'name' => $product->get_description(),
-        'oem' => $product->get_meta('oem'),
-        'code' => $product->get_sku(),
-        'price' => $product->get_price(),
-        'categories' => wp_get_post_terms($product_id, 'product_cat', ['fields' => 'slugs']),
-        'qty' => $product->get_stock_quantity(),
-        'only_variants' => $product->get_meta('mc_only_variants'),
-        'variants' => mc_get_product_variants($product_id)
-    ];
-}
-
-function mc_get_product_variants($product_id) {
-    $product = wc_get_product($product_id);
-
-    if(!$product)
-        return null;
-
-    return $product->get_meta('mc_variants') ?: [];
 }
 
 function mc_get_cart_count() {

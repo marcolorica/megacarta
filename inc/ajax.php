@@ -131,20 +131,6 @@ function get_cart_items() {
     ]);
 }
 
-function admin_get_order_status_modal_ajax() {
-    $request = (object) $_POST;
-
-    $order_id = $request->order_id ?? null;
-    $order = wc_get_order(intval($order_id));
-
-    $html = mc_get_template_part('modals/order', ['order' => $order]);
-
-    mc_return_ajax_json([
-        'status' => 'success',
-        'result' => $html,
-    ]);
-}
-
 function admin_update_order_status_ajax() {
     $request = (object) $_POST;
 

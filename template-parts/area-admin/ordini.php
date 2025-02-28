@@ -99,5 +99,3 @@
         </div>
     </div>
 </section>
-
-<div class="global-modals-container"></div>
