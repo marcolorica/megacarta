@@ -1,4 +1,6 @@
 jQuery(document).ready(() => {
+    initFixedTopnav();
+
     let stop = 0;
 
     let int = setInterval(() => {
@@ -9,6 +11,25 @@ jQuery(document).ready(() => {
             clearInterval(int);
     }, 1500);
 });
+
+//topnav
+function initFixedTopnav() {
+    let $topnav = $('nav.navbar');
+
+    if($topnav.length) {
+        let $firstSection = $('section').first();
+        let scrollTop = $(window).scrollTop();
+
+        if(scrollTop) {
+            $topnav.addClass('sticky');
+            $firstSection.css('margin-top', $topnav.outerHeight());
+        }
+        else {
+            $topnav.removeClass('sticky');
+            $firstSection.css('margin-top', 0);
+        }
+    }
+}
 
 //cart
 function removeProductFromCart(sku) {
