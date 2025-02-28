@@ -19,7 +19,7 @@
 
 <style>
     .intestazione {
-        background-image: url(assets/images/catalogo-bg.webp);
+        background-image: url(assets/images/catalogo.webp);
     }
 </style>
 
