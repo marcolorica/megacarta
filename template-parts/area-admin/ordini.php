@@ -53,17 +53,17 @@
                         <div class="col-3 d-flex justify-content-center align-items-start flex-column">
                             <p class="p-code"><?= $o->customer ?></p>
                         </div>
-                        <div class="col-3 d-flex align-items-center">
-                            <div class="p-title d-flex align-items-center" onclick="openOrderStatusModal(<?= $o->id ?>)">
-                                <span class="badge text-bg-<?= $o->statusColor ?>"><?= $o->status ?></span>
-                                <i class="fa-solid fa-chevron-down fa-xs ms-3"></i>
-                            </div>
+                        <div class="col-2 d-flex align-items-center">
+                            <span class="badge text-bg-<?= $o->statusColor ?>"><?= $o->status ?></span>
                         </div>
-                        <div class="col-3 d-flex justify-content-center align-items-center text-center">
+                        <div class="col-2 d-flex justify-content-center align-items-center text-center">
                             <p class="p-categories"><?= count($o->products) ?> prodotti</p>
                         </div>
                         <div class="col-3 d-flex justify-content-end align-items-start text-end">
                             <p class="p-price">€<?= number_format($o->tot, 2, ',', '.'); ?></p>
+                        </div>
+                        <div class="col-2 d-flex justify-content-end align-items-center">
+                            <a class="btn azione-mc btn-outline-success me-3" href="/area-admin/ordini/ordine?id=<?= $o->id ?>"><i class="fa-solid fa-eye fa-fw text-success"></i></a>
                         </div>
                     </div>
                 <?php endforeach; ?>

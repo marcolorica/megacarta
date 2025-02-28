@@ -165,14 +165,3 @@ function replaceReviewOrderProductsImages() {
         });
     }
 }
-
-// onkeypress
-function onKeyPressOrderStatusRange(e) {
-    if(e.charCode < 48 || e.charCode > 57)
-      return false;
-    
-    if(this.value * 10 + e.charCode - 48 > this.max)
-       return false;
-
-    return true;
-}
