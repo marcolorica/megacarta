@@ -14,11 +14,11 @@ jQuery(document).ready(() => {
 
 //topnav
 function initFixedTopnav() {
-    let $topnav = $('nav.navbar');
+    let $topnav = jQuery('nav.navbar');
 
     if($topnav.length) {
-        let $firstSection = $('section').first();
-        let scrollTop = $(window).scrollTop();
+        let $firstSection = jQuery('section').first();
+        let scrollTop = jQuery(window).scrollTop();
 
         if(scrollTop) {
             $topnav.addClass('sticky');
