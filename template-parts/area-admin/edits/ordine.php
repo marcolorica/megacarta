@@ -1,8 +1,6 @@
 <?php
     $order_id = $_GET['id'] ?? null;
-
     $order = $order_id ? mc_get_order($order_id) : null;
-    $statuses = mc_get_order_statuses();
 ?>
 
 <form action="<?= esc_url(admin_url('admin-post.php')); ?>" id="form-order" method="POST">
@@ -23,7 +21,7 @@
 
             <div class="col-12">
                 <h4 class="mb-3">Stato dell'ordine</h4>
-                <label for="" class="label-status"><span class="badge"><?= $statuses[$order->status] ?></span></label>
+                <label for="" class="label-status"><span class="badge text-bg-<?= $order->status->color ?>"><?= $order->status->label ?></span></label>
                 <input type="range" class="form-range mb-3" min="0" max="6" step="1" id="statusRange" onkeypress="onKeyPressOrderStatusRange(e)">
             </div>
             

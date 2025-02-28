@@ -54,7 +54,7 @@
                             <p class="p-code"><?= $o->customer ?></p>
                         </div>
                         <div class="col-2 d-flex align-items-center">
-                            <span class="badge text-bg-<?= $o->statusColor ?>"><?= $o->status ?></span>
+                            <span class="badge text-bg-<?= $o->status->color ?>"><?= $o->status->label ?></span>
                         </div>
                         <div class="col-2 d-flex justify-content-center align-items-center text-center">
                             <p class="p-categories"><?= count($o->products) ?> prodotti</p>

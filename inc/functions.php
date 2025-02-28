@@ -256,26 +256,13 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
     $query = new WC_Order_Query($args);
     $_orders = $query->get_orders();
 
-    $statuses = wc_get_order_statuses();
-    $statusColors = [
-        'pending' => 'warning',
-        'processing' => 'success',
-        'on-hold' => 'warning',
-        'completed' => 'success',
-        'cancelled' => 'danger',
-        'refunded' => 'danger',
-        'failed' => 'danger',
-        'checkout-draft' => 'info'
-    ];
+    $statuses = mc_get_order_statuses();
 
     foreach($_orders as $order) {
-        $status = $order->get_status();
-
         $orders[] = (object) [
             'id' => $order->id,
             'customer' => $order->get_billing_first_name() . ' ' . $order->get_billing_last_name(),
-            'status' => $statuses['wc-' . $status],
-            'statusColor' => $statusColors[$status],
+            'status' => mc_get_order_status($order->get_status()),
             'tot' => $order->get_total(),
             'products' => $order->get_items()
         ];
@@ -304,16 +291,18 @@ function mc_get_order($order_id) {
     
     $return = (object) [
         'id' => $order_id,
-        'status' => $order->get_status(),
+        'status' => mc_get_order_status($order->get_status()),
         'created' => $order->get_date_created()->date('Y/m/d H:i'),
         'modified' => $order->get_date_modified()->date('Y/m/d H:i'),
         'total' => $order->get_total(),
         'payment_method' => $order->get_payment_method(),
         'billing' => $order->get_address('billing'),
         'shipping' => $order->get_address('shipping'),
-        'customer_id' => $order->get_customer_id(),
-        'customer_email' => $order->get_billing_email(),
-        'customer_phone' => $order->get_billing_phone(),
+        'customer' => (object) [
+            'id' => $order->get_customer_id(),
+            'email' => $order->get_billing_email(),
+            'phone' => $order->get_billing_phone()
+        ],
         'items' => array_map(function($item) {
             $product = $item->get_product();
             
@@ -323,7 +312,7 @@ function mc_get_order($order_id) {
                 'quantity' => $item->get_quantity(),
                 'subtotal' => $item->get_subtotal(),
                 'total' => $item->get_total(),
-                'sku' => $product ? $product->get_sku() : '',
+                'sku' => $product ? $product->get_sku() : ''
             ];
         }, $order->get_items())
     ];
@@ -331,16 +320,45 @@ function mc_get_order($order_id) {
     return $return;
 }
 
-function mc_get_order_statuses() {
-    return [
-        "pending" => "In attesa di pagamento",
-        "processing" => "In lavorazione",
-        "on-hold" => " In attesa",
-        "completed" => "Completato",
-        "cancelled" => "Annullato",
-        "refunded" => "Rimborsato",
-        "failed" => "Fallito"
+function mc_get_order_status($status, $all = false) {
+    $status = str_replace('-', '_', $status);
+
+    $statuses = (object) [
+        'pending' => (object) [
+            'label' => 'In attesa di pagamento',
+            'color' => 'warning'
+        ],
+        'processing' => (object) [
+            'label' => 'In lavorazione',
+            'color' => 'success'
+        ],
+        'on_hold' => (object) [
+            'label' => ' In attesa',
+            'color' => 'warning'
+        ],
+        'completed' => (object) [
+            'label' => 'Completato',
+            'color' => 'success'
+        ],
+        'cancelled' => (object) [
+            'label' => 'Annuldangerlato',
+            'color' => ''
+        ],
+        'refunded' => (object) [
+            'label' => 'Rimborsato',
+            'color' => 'danger'
+        ],
+        'failed' => (object) [
+            'label' => 'Fallito',
+            'color' => 'danger'
+        ],
+        'checkout_draft' => (object) [
+            'label' => '',
+            'color' => 'info'
+        ]
     ];
+
+    return $all ? $statuses : $statuses->$status;
 }
 
 
