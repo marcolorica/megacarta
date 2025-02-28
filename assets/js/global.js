@@ -22,11 +22,15 @@ function initFixedTopnav() {
 
         if(scrollTop) {
             $topnav.addClass('sticky');
-            $firstSection.css('margin-top', $topnav.outerHeight());
+
+            if($firstSection.length)
+                $firstSection.css('margin-top', $topnav.outerHeight());
         }
         else {
             $topnav.removeClass('sticky');
-            $firstSection.css('margin-top', 0);
+
+            if($firstSection.length)
+                $firstSection.css('margin-top', 0);
         }
     }
 }
