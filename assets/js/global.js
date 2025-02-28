@@ -14,25 +14,29 @@ jQuery(document).ready(() => {
 
 //topnav
 function initFixedTopnav() {
-    let $topnav = jQuery('nav.navbar');
-
-    if($topnav.length) {
-        let $firstSection = jQuery('section').first();
-        let scrollTop = jQuery(window).scrollTop();
-
-        if(scrollTop) {
-            $topnav.addClass('sticky');
-
-            if($firstSection.length)
-                $firstSection.css('margin-top', $topnav.outerHeight());
+    jQuery(window).on('scroll', () => {
+        let $topnav = jQuery('nav.navbar');
+    
+        if($topnav.length) {
+            let $firstSection = jQuery('section').first();
+            let scrollTop = jQuery(window).scrollTop();
+    
+            console.log(scrollTop)
+    
+            if(scrollTop) {
+                $topnav.addClass('sticky');
+    
+                if($firstSection.length)
+                    $firstSection.css('margin-top', $topnav.outerHeight());
+            }
+            else {
+                $topnav.removeClass('sticky');
+    
+                if($firstSection.length)
+                    $firstSection.css('margin-top', 0);
+            }
         }
-        else {
-            $topnav.removeClass('sticky');
-
-            if($firstSection.length)
-                $firstSection.css('margin-top', 0);
-        }
-    }
+    });
 }
 
 //cart
