@@ -758,7 +758,11 @@ section.gallery-section .image-container > img {
 
 
 
-
+.navbar.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 
 .intestazione {
   /* background-image: url(assets/images/homepage-bg.jpg); */
