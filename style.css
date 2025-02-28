@@ -873,6 +873,17 @@ section.gallery-section .image-container > img {
   padding: 25px;
 }
 
+.wp-post-image,
+.row-cart-product,
+.products .img-container img {
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+.wp-post-image {
+  padding: 10px;
+}
+
 /* .products .p-img {
   border-right: 1px solid lightgray;
 } */
