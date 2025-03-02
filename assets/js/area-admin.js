@@ -112,6 +112,8 @@ function statusOrderRangeChanged(el) {
     
     jQuery('.label-status').removeClass('actual');
     jQuery('.label-status span[data-status-value=' + statusValue + ']').parent().addClass('actual');
+
+    toggleSendCustomerEmail();
 }
 
 function changeOrderStatusRange(label) {
@@ -122,4 +124,16 @@ function changeOrderStatusRange(label) {
 
     $input.val(newValue);
     $input.trigger('change');
+}
+
+function toggleSendCustomerEmail() {
+    let $input = jQuery('#statusRange');
+    let $sendEmailDiv = jQuery('#sendCustomerEmail');
+
+    if($input.val() != $input.attr('data-original-value')) {
+        $sendEmailDiv.slideDown();
+    }
+    else {
+        $sendEmailDiv.slideUp();
+    }
 }
