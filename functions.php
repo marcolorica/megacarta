@@ -548,27 +548,161 @@ function upTo20PercentsProductPrices() {
 }
 
 function import_new_images() {
-    $newImagesPath = get_stylesheet_directory() . '/assets/images/new-images';
-    $destinationPath = get_stylesheet_directory() . '/assets/images/new-images/to-copy';
+    $destinationPath = get_stylesheet_directory() . '/assets/images/products';
 
     $ok = [];
-    $notCopied = [];
+    $notOk = [];
 
-    $newImages = scandir($newImagesPath);
+    $evaluate = [
+        (object) [
+            'oem' => '97057',
+            'ext' => '',
+            'news' => [
+                '97064',
+                '97071',
+                '97095'
+            ]
+        ],
+        (object) [
+            'oem' => '95522',
+            'ext' => '',
+            'news' => [
+                '87904',
+                '87905'
+            ]
+        ],
+        (object) [
+            'oem' => '29120',
+            'ext' => '',
+            'news' => [
+                '29236',
+                '29137',
+                '63613'
+            ]
+        ],
+        (object) [
+            'oem' => '119LN01',
+            'ext' => '',
+            'news' => [
+                '119LN02',
+                '119LN03',
+                '119LN03B',
+                '119LN04B',
+            ]
+        ],
+        (object) [
+            'oem' => '63279',
+            'ext' => '',
+            'news' => [
+                '36981',
+                '63361',
+                '66115'
+            ]
+        ],
+        (object) [
+            'oem' => '60367',
+            'ext' => '',
+            'news' => [
+                '60366'
+            ]
+        ],
+        (object) [
+            'oem' => '542050',
+            'ext' => '',
+            'news' => [
+                '544060'
+            ]
+        ],
+        (object) [
+            'oem' => '542060',
+            'ext' => '',
+            'news' => [
+                '544160'
+            ]
+        ],
+        (object) [
+            'oem' => 'H071000',
+            'ext' => '',
+            'news' => [
+                'H020250',
+                'H030375',
+                'H040500',
+                'H060750'
+            ]
+        ],
+        (object) [
+            'oem' => 'ST1000TP',
+            'ext' => '',
+            'news' => [
+                'ST1500TP',
+                'ST0750TP',
+                'OK375',
+                'OK500'
+            ]
+        ],
+        (object) [
+            'oem' => 'OK250',
+            'ext' => '',
+            'news' => [
+                'OK1050',
+                'OK600',
+                'OK750'
+            ]
+        ],
+        (object) [
+            'oem' => 'ST2',
+            'ext' => '',
+            'news' => [
+                'DS2116F30',
+                'DS2114F30',
+                'DS1409F30',
+                'DS1610F30',
+                'DS1911F30',
+                'DS1105F30',
+                'DS1406F30',
+                'DS1906F30',
+                'ST3',
+                'ST4'
+            ]
+        ],
+        (object) [
+            'oem' => '93974',
+            'ext' => '',
+            'news' => [
+                '98092',
+                '98665'
+            ]
+        ],
+        (object) [
+            'oem' => '28321',
+            'ext' => '',
+            'news' => [
+                '28413'
+            ]
+        ],
+        (object) [
+            'oem' => 'BC100CAR109PP',
+            'ext' => '',
+            'news' => [
+                'BC230CAR109PP',
+                'BC260CAR109PP',
+                'BC365CAR109PP',
+                'BC450CAR109PP'
+            ]
+        ]
+    ];
+    
+    foreach($evaluate as $oem) {
+        $sourcePath = "$destinationPath/$oem->name.$oem->ext";
+        
+        foreach($oem->news as $new) {
+            $destPath = "$destinationPath/$new.$oem->ext";
+            
+            if(file_exists($sourcePath)) {
+                $copy = copy($sourcePath, $destPath);
 
-    foreach($newImages as $newImage) {
-        if($newImage != '.' && $newImage != '..') {
-            $nameArr = explode('::', $newImage);
-            $sku = $nameArr[0];
-            $oem = $nameArr[1];
-
-            $res = copy("$newImagesPath/$newImage", "$destinationPath/$oem");
-
-            if($res) {
-                $ok[] = $newImage;
-            }
-            else {
-                $notCopied[] = $newImage;
+                $arr = $copy ? 'ok' : 'notOk';
+                $$arr[] = $new;
             }
         }
     }
@@ -576,17 +710,13 @@ function import_new_images() {
     echo '<p>OK: ' . count($ok) . '</p>';
 
     if(count($ok)) {
-        echo '<pre>';
-        print_r($ok);
-        echo '</pre>';
+        echo '<pre>'; print_r($ok); echo '</pre>';
     }
 
-    echo '<p>Immagini per le quali non è riuscita la copia: ' . count($notCopied) . '</p>';
+    echo '<p>Immagini per le quali non è riuscita la copia: ' . count($notOk) . '</p>';
 
-    if(count($notCopied)) {
-        echo '<pre>';
-        print_r($notCopied);
-        echo '</pre>';
+    if(count($notOk)) {
+        echo '<pre>'; print_r($notOk); echo '</pre>';
     }
 }
 

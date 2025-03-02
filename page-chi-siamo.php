@@ -72,6 +72,6 @@
     </div>
 </section>
 
-<?php //mc_test_func('check_oems'); ?>
+<?php mc_test_func('import_new_images'); ?>
 
 <?php get_footer(); ?>
