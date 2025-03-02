@@ -20,8 +20,6 @@
             </div>
 
             <div class="col-12">
-                <h4 class="mb-3">Stato dell'ordine</h4>
-
                 <input type="range" class="form-range mt-5" min="0" max="7" step="1" value="<?= $order->status->value ?>" data-status-value="<?= $order->status->value ?>" id="statusRange" oninput="statusOrderRangeChanged(this)" onchange="statusOrderRangeChanged(this)">
                 
                 <div class="order-statuses">
