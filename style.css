@@ -886,7 +886,7 @@ section.gallery-section .image-container > img {
 
 .order-statuses {
   position: relative;
-  padding: 2em 0;
+  padding: 4em 0 2em 0;
 }
 
 .order-statuses .label-status {

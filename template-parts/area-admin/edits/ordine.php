@@ -22,6 +22,13 @@
             <div class="col-12">
                 <input type="range" class="form-range mt-5" min="0" max="7" step="1" value="<?= $order->status->value ?>" data-original-value="<?= $order->status->value ?>" id="statusRange" oninput="statusOrderRangeChanged(this)" onchange="statusOrderRangeChanged(this)">
                 
+                <div id="sendCustomerEmail" class="w-100" style="display:none">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <input type="checkbox" name="send_customer_email" class="form-check-input me-2">
+                        <label>Invia email al cliente per il cambio stato dell'ordine</label>
+                    </div>
+                </div>
+
                 <div class="order-statuses">
                     <?php $i = 0; foreach(mc_get_order_status(null) as $slug => $status) : ?>
                         <label class="label-status <?= $order->status->label == $status->label ? 'actual' : '' ?>" style="left: <?= number_format(($i * 14.29), 2, '.', ',') ?>%" onclick="changeOrderStatusRange(this)">
@@ -29,13 +36,6 @@
                         </label>
                     <?php $i++; endforeach; ?>
                 </div>    
-                
-                <div id="sendCustomerEmail" class="w-100" style="display:none">
-                    <div class="justify-content-center align-items-center">
-                        <input type="checkbox" class="form-check-input me-2">
-                        <label>Invia email al cliente per il cambio stato dell'ordine</label>
-                    </div>
-                </div>
             </div>
             
             <div class="col-6">

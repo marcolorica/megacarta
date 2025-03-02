@@ -129,11 +129,16 @@ function changeOrderStatusRange(label) {
 function toggleSendCustomerEmail() {
     let $input = jQuery('#statusRange');
     let $sendEmailDiv = jQuery('#sendCustomerEmail');
+    let $checkbox = $sendEmailDiv.find('input[type=checkbox]');
 
     if($input.val() != $input.attr('data-original-value')) {
         $sendEmailDiv.slideDown();
+        $checkbox.prop('checked', true);
     }
     else {
         $sendEmailDiv.slideUp();
+        $checkbox.prop('checked', false);
     }
+
+    $checkbox.rigger('change');
 }
