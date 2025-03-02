@@ -71,7 +71,7 @@
                             <p class="p-title"><?= $p->name ?></p>
                         </div>
                         <div class="col-2 d-flex justify-content-center align-items-center text-center">
-                            <p class="p-price">€<?= number_format($p->price, 2, ',', '.'); ?></p>
+                            <p class="p-price"><?= $p->price ?></p>
                         </div>
                         <div class="col-2 d-flex justify-content-center align-items-center text-center">
                             <p class="p-categories"><?= implode(',', $p->cats) ?></p>

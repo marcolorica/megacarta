@@ -14,7 +14,7 @@
 
         $sku = $product->get_name();
         $name = $product->get_description();
-        $price = $product->get_price();
+        $price = mc_format_price($product->get_price());
         $qty = $cart_item['quantity'];
         $url = $product->get_permalink();
 
@@ -62,14 +62,14 @@
                         <div class="col-6">
                             <p class="m-0"><a href="<?= $product->url ?>"><?= $sku ?></a></p>
                             <!-- <p class="mb-0 fw-bold me-2 mb-2"></p> -->
-                            <p class="mb-0 fs-4 me-2 mb-2">€<?= $product->price ?></p>
+                            <p class="mb-0 fs-4 me-2 mb-2"><?= $product->price ?></p>
                             <div class="qty mb-2">
                                 <input type="number" class="form-control w-<?= $mobile ? 100 : 25 ?>" value="<?= $product->qty ?>" oninput="changeCartTotals()" onkeyup="changeCartTotals()" onchange="changeCartTotals()">
                             </div>
                             <p class="remove-product"><a class="text-danger" role="button" onclick="removeProductFromCart('<?= $sku ?>')"><i class="fa-solid fa-trash me-2"></i>Rimuovi</a></p>
                         </div>
                         <div class="col-3">
-                            <p style="font-size: 20px;">€<span class="product-total"><?= $product->qty * $product->price ?></span></p>
+                            <p style="font-size: 20px;">€<span class="product-total"><?= mc_format_price($product->qty * $product->price, true) ?></span></p>
                         </div>
                     </div>
                 <?php } ?>
@@ -77,7 +77,7 @@
             <div class="col-12 col-md-4 d-<?= count($cartProducts) ? 'flex' : 'none' ?> col-cart-products flex-column align-items-end justify-content-between">
                 <div class="w-100 text-end">
                     <h4 class="text-end">Totale Carrello</h4>
-                    <p class="fw-bold" style="font-size:40px">€<span class="cart-total"><?= $cartTotal ?></span></p>
+                    <p class="fw-bold" style="font-size:40px"><span class="cart-total"><?= mc_format_price($cartTotal) ?></span></p>
                 </div>
                 <a href="/pagamento" class="btn btn-danger text-white"><i class="fa-solid fa-shopping-cart fa-xs me-2"></i>Procedi con l'ordine</a>
             </div>

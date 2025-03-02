@@ -119,7 +119,7 @@
             </div>
 
             <div class="col-6">
-                <h1 class="order-price mb-3">€<?= $order->total ?></h1>
+                <h1 class="order-price mb-3"><?= $order->total ?></h1>
 
                 <table class="table table-striped">
                     <thead>
@@ -136,12 +136,12 @@
                                 <td><?= $product->sku ?></td>
                                 <td><?= $product->name ?></td>
                                 <td><?= $product->qty ?></td>
-                                <td>€<?= $product->subtotal ?></td>
+                                <td><?= $product->subtotal ?></td>
                             </tr>
                         <?php endforeach; ?>
                         <tr>
                             <td class="text-end" colspan="4"></td>
-                            <td>€<?= $order->total ?></td>
+                            <td><?= $order->total ?></td>
                         </tr>
                     </tbody>
                 </table>

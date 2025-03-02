@@ -123,7 +123,7 @@ function mc_get_products($term = null, $perPage = 10, $_order = 'piu-recenti', $
 			$res[$p->name] = (object) [
                 'id' => $id,
 				'name' => $p->get_description(),
-				'price' => $p->get_price(),
+				'price' => mc_format_price($p->get_price()),
 				'url' => get_permalink($id),
 				'img' => $img ?: mc_get_logo_src(),
 				'cats' => $_cats,
@@ -261,7 +261,7 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
             'id' => $order->id,
             'customer' => $order->get_billing_first_name() . ' ' . $order->get_billing_last_name(),
             'status' => mc_get_order_status($order->get_status()),
-            'tot' => number_format($order->get_total(), 2, ',', '.'),
+            'tot' => mc_format_price($order->get_total()),
             'products' => $order->get_items()
         ];
     }
@@ -292,7 +292,7 @@ function mc_get_order($order_id) {
         'status' => mc_get_order_status($order->get_status()),
         'created' => $order->get_date_created()->date('Y/m/d H:i'),
         'modified' => $order->get_date_modified()->date('Y/m/d H:i'),
-        'total' => $order->get_total(),
+        'total' => mc_format_price($order->get_total()),
         'payment_method' => $order->get_payment_method(),
         'customer' => (object) ([
             'id' => $order->get_customer_id(),
@@ -306,8 +306,8 @@ function mc_get_order($order_id) {
                 'id' => $item->get_product_id(),
                 'name' => $item->get_name(),
                 'qty' => $item->get_quantity(),
-                'subtotal' => $item->get_subtotal(),
-                'total' => $item->get_total(),
+                'subtotal' => mc_format_price($item->get_subtotal()),
+                'total' => mc_format_price($item->get_total()),
                 'sku' => $product ? $product->get_sku() : ''
             ];
         }, $order->get_items())
@@ -534,6 +534,10 @@ function mc_send_email($recipient, $html = "", $subject = null, $from = null, $s
 
 function mc_format_data($datetime, $format) {
     return date($format, strtotime($datetime));
+}
+
+function mc_format_price($price) {
+    return '€' . number_format($price, 2, ',', '.');
 }
 
 function mc_test_func($func) {
