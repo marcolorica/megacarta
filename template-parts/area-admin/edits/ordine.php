@@ -43,26 +43,22 @@
             </div>
 
             <div class="col-6">
-                <h5><?= mc_format_data($order->created, 'd/m/Y H:i') ?></h5>
-                <h4 class="mb-3">Cliente</h4>
+                <h5 style="color:grey"><?= mc_format_data($order->created, 'd/m/Y H:i') ?></h5>
 
                 <div class="row">
                     <div class="col-6">
                         <label for="">Nome</label>
-                        <input type="text" class="form-control" value="<?= $order->customer->billing->first_name ?>" readonly>
+                        <input type="text" class="form-control mb-3" value="<?= $order->customer->billing->first_name ?>" readonly>
                     </div>
                     <div class="col-6">
                         <label for="">Cogome</label>
-                        <input type="text" class="form-control" value="<?= $order->customer->billing->last_name ?>" readonly>
+                        <input type="text" class="form-control mb-3" value="<?= $order->customer->billing->last_name ?>" readonly>
                     </div>
                 </div>
                 <p>Indirizzo di fatturazione</p>
             </div>
             <div class="col-6">
-                <h1>€<?= $order->total ?></h1>
-
-                <h4 class="mb-3">Prodotti</h4>
-
+                <h1 class="order-price">€<?= $order->total ?></h1>
             </div>
         </div>
     </div>

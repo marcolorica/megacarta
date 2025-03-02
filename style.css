@@ -905,6 +905,13 @@ section.gallery-section .image-container > img {
   position: absolute;
 }
 
+.order-price {
+  text-align: end;
+  color: green;
+  font-weight: 600;
+  font-size: 50px;
+}
+
 /* .products .p-img {
   border-right: 1px solid lightgray;
 } */
