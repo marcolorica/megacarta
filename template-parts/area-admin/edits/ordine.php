@@ -23,11 +23,11 @@
                 <h4 class="mb-3">Stato dell'ordine</h4>
                 
                 <div class="order-statuses">
-                    <?php foreach(mc_get_order_status(null) as $i => $status) : ?>
+                    <?php $i = 0; foreach(mc_get_order_status(null) as $slug => $status) : ?>
                         <label class="label-status <?= $order->status->label == $status->label ? 'active' : '' ?>" style="left: <?= $i * 14,29 ?>%">
                             <span class="badge text-bg-<?= $status->color ?>"><?= $status->label ?></span>
                         </label>
-                    <?php endforeach; ?>
+                    <?php $i++; endforeach; ?>
                 </div>
                 
                 <input type="range" class="form-range mb-3" min="0" max="6" step="1" id="statusRange" onkeypress="onKeyPressOrderStatusRange(e)">
