@@ -41,7 +41,11 @@
             <div class="col-6">
                 <h5 style="color:grey"><?= mc_format_data($order->created, 'd/m/Y H:i') ?></h5>
 
-                <div class="row pt-4">
+                <div class="row pt-5">
+                    <div class="col-12">
+                        <h3 class="mt-4">Indirizzo di fatturazione</h3>
+                    </div>
+
                     <div class="col-6">
                         <label for="">Nome</label>
                         <input type="text" class="form-control mb-3" value="<?= $order->customer->billing->first_name ?>" readonly>
@@ -73,7 +77,7 @@
                     </div>
 
                     <div class="col-12">
-                        <h5>Indirizzo di spedizione</h5>
+                        <h3 class="mt-4">Indirizzo di spedizione</h3>
                     </div>
 
                     <div class="col-6">
