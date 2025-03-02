@@ -21,10 +21,14 @@
 
             <div class="col-12">
                 <h4 class="mb-3">Stato dell'ordine</h4>
-                <div class="mc-status">
-                    <label for="" class="label-status"><span class="badge text-bg-<?= $order->status->color ?>"><?= $order->status->label ?></span></label>
-                    <input type="range" class="form-range mb-3" min="0" max="6" step="1" id="statusRange" onkeypress="onKeyPressOrderStatusRange(e)">
+                
+                <div class="order-statuses">
+                    <?php foreach(mc_get_statuses(null, true) as $status) : ?>
+                        <label class="label-status <?= $order->status->label == $status->label ? 'active' : '' ?>"><span class="badge text-bg-<?= $status->color ?>"><?= $status->label ?></span></label>
+                    <?php endforeach; ?>
                 </div>
+                
+                <input type="range" class="form-range mb-3" min="0" max="6" step="1" id="statusRange" onkeypress="onKeyPressOrderStatusRange(e)">
             </div>
             
             <div class="col-6">

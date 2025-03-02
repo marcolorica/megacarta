@@ -319,7 +319,7 @@ function mc_get_order($order_id) {
 }
 
 function mc_get_order_status($status, $all = false) {
-    $status = str_replace('-', '_', $status);
+    $status = $status ? str_replace('-', '_', $status) : null;
 
     $statuses = (object) [
         'pending' => (object) [
