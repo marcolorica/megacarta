@@ -23,7 +23,7 @@
                 <h4 class="mb-3">Stato dell'ordine</h4>
                 
                 <div class="order-statuses">
-                    <?php foreach(mc_get_order_status(null, true) as $status) : ?>
+                    <?php foreach(mc_get_order_status(null) as $status) : ?>
                         <label class="label-status <?= $order->status->label == $status->label ? 'active' : '' ?>"><span class="badge text-bg-<?= $status->color ?>"><?= $status->label ?></span></label>
                     <?php endforeach; ?>
                 </div>

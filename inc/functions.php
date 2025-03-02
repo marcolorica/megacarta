@@ -318,7 +318,7 @@ function mc_get_order($order_id) {
     return $return;
 }
 
-function mc_get_order_status($status, $all = false) {
+function mc_get_order_status($status) {
     $status = $status ? str_replace('-', '_', $status) : null;
 
     $statuses = (object) [
@@ -356,7 +356,7 @@ function mc_get_order_status($status, $all = false) {
         ]
     ];
 
-    return $all ? $statuses : $statuses->$status;
+    return $status ? $statuses->$status : $statuses;
 }
 
 
