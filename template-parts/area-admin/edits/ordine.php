@@ -18,8 +18,8 @@
             <div class="col-12 text-center">
                 <h2 class="mb-5">Ordine #<?= $order->id ?></h2>
             </div>
-
-            <div class="col-12" style="position:relative">
+                
+            <div class="col-8" style="position:relative">
                 <input type="range" class="form-range mt-5" min="0" max="7" step="1" value="<?= $order->status->value ?>" data-original-value="<?= $order->status->value ?>" id="statusRange" oninput="statusOrderRangeChanged(this)" onchange="statusOrderRangeChanged(this)">
                 
                 <div id="sendCustomerEmail" class="w-100" style="display:none">
@@ -35,10 +35,8 @@
                             <span data-status-value="<?= $status->value ?>" class="badge text-bg-<?= $status->color ?>"><?= $status->label ?></span>
                         </label>
                     <?php $i++; endforeach; ?>
-                </div>    
-            </div>
+                </div>
 
-            <div class="col-6">
                 <h5 style="color:grey"><?= mc_format_data($order->created, 'd/m/Y H:i') ?></h5>
 
                 <div class="row pt-3">
@@ -62,6 +60,7 @@
                         <label for="">Dettagli</label>
                         <textarea class="form-control mb-3" rows="6" readonly><?= $order->customer->billing->address_2 ?></textarea>
                     </div>
+
                     <div class="col-6">
                         <label for="">Cogome</label>
                         <input type="text" class="form-control mb-3" value="<?= $order->customer->billing->last_name ?>" readonly>
@@ -75,44 +74,48 @@
                         <label for="">Provincia</label>
                         <input type="text" class="form-control mb-3" value="<?= $order->customer->billing->state ?>" readonly>
                     </div>
+                </div>
 
+                <div class="row pt-3">
                     <div class="col-12">
                         <h3 class="mt-4">Indirizzo di spedizione</h3>
                     </div>
-
+    
                     <div class="col-6">
                         <label for="">Nome</label>
                         <input type="text" class="form-control mb-3" value="<?= $order->customer->shipping->first_name ?>" readonly>
-
+    
                         <label for="">Email</label>
                         <input type="email" class="form-control mb-3" value="<?= $order->customer->shipping->email ?>" readonly>
-
+    
                         <label for="">Indirizzo</label>
                         <input type="text" class="form-control mb-3" value="<?= $order->customer->shipping->address_1 ?>" readonly>
-
+    
                         <label for="">Città</label>
                         <input type="text" class="form-control mb-3" value="<?= $order->customer->shipping->city ?>" readonly>
-
+    
                         <label for="">Dettagli</label>
                         <textarea class="form-control mb-3" rows="6" readonly><?= $order->customer->shipping->address_2 ?></textarea>
                     </div>
+
                     <div class="col-6">
                         <label for="">Cogome</label>
                         <input type="text" class="form-control mb-3" value="<?= $order->customer->shipping->last_name ?>" readonly>
-
+    
                         <label for="">Telefono</label>
                         <input type="email" class="form-control mb-3" value="<?= $order->customer->shipping->phone ?>" readonly>
-
+    
                         <label for="">CAP</label>
                         <input type="text" class="form-control mb-3" value="<?= $order->customer->shipping->postcode ?>" readonly>
-
+    
                         <label for="">Provincia</label>
                         <input type="text" class="form-control mb-3" value="<?= $order->customer->shipping->state ?>" readonly>
                     </div>
                 </div>
+
             </div>
 
-            <div class="col-6">
+            <div class="col-4">
                 <h1 class="order-price mb-3">€<?= $order->total ?></h1>
 
                 <table class="table table-striped">
