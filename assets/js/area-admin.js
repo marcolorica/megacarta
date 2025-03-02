@@ -130,14 +130,17 @@ function toggleSendCustomerEmail() {
     let $input = jQuery('#statusRange');
     let $sendEmailDiv = jQuery('#sendCustomerEmail');
     let $checkbox = $sendEmailDiv.find('input[type=checkbox]');
+    let $btnSave = jQuery('#btn-save');
 
     if($input.val() != $input.attr('data-original-value')) {
         $sendEmailDiv.slideDown();
         $checkbox.prop('checked', true);
+        $btnSave.show();
     }
     else {
         $sendEmailDiv.slideUp();
         $checkbox.prop('checked', false);
+        $btnSave.hide();
     }
 
     $checkbox.rigger('change');
