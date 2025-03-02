@@ -339,8 +339,8 @@ function mc_get_order_status($status) {
             'color' => 'success'
         ],
         'cancelled' => (object) [
-            'label' => 'Annuldangerlato',
-            'color' => ''
+            'label' => 'Annullato',
+            'color' => 'danger'
         ],
         'refunded' => (object) [
             'label' => 'Rimborsato',
@@ -351,7 +351,7 @@ function mc_get_order_status($status) {
             'color' => 'danger'
         ],
         'checkout_draft' => (object) [
-            'label' => '',
+            'label' => 'In bozza',
             'color' => 'info'
         ]
     ];
