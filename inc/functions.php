@@ -294,13 +294,11 @@ function mc_get_order($order_id) {
         'modified' => $order->get_date_modified()->date('Y/m/d H:i'),
         'total' => $order->get_total(),
         'payment_method' => $order->get_payment_method(),
-        'billing' => $order->get_address('billing'),
-        'shipping' => $order->get_address('shipping'),
-        'customer' => (object) [
+        'customer' => (object) ([
             'id' => $order->get_customer_id(),
-            'email' => $order->get_billing_email(),
-            'phone' => $order->get_billing_phone()
-        ],
+            'billing' => (object) $order->get_address('billing'),
+            'shipping' => (object) $order->get_address('shipping')
+        ]),
         'items' => array_map(function($item) {
             $product = $item->get_product();
             
