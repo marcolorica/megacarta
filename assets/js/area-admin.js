@@ -112,4 +112,12 @@ function statusOrderRangeChanged(el) {
     
     jQuery('.label-status').removeClass('actual');
     jQuery('.label-status span[data-status-value=' + statusValue + ']').parent().addClass('actual');
-} span
+}
+
+function changeOrderStatusRange(label) {
+    $label = jQuery(label);
+    $input = jQuery('#statusRange');
+
+    $input.val(newValue);
+    $input.trigger('change');
+}
