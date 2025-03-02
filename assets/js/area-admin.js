@@ -115,8 +115,10 @@ function statusOrderRangeChanged(el) {
 }
 
 function changeOrderStatusRange(label) {
-    $label = jQuery(label);
-    $input = jQuery('#statusRange');
+    let $label = jQuery(label);
+    let $input = jQuery('#statusRange');
+    
+    let newValue = $label.find('span').attr('data-status-value');
 
     $input.val(newValue);
     $input.trigger('change');
