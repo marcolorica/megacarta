@@ -21,8 +21,10 @@
 
             <div class="col-12">
                 <h4 class="mb-3">Stato dell'ordine</h4>
-                <label for="" class="label-status"><span class="badge text-bg-<?= $order->status->color ?>"><?= $order->status->label ?></span></label>
-                <input type="range" class="form-range mb-3" min="0" max="6" step="1" id="statusRange" onkeypress="onKeyPressOrderStatusRange(e)">
+                <div class="mc-status">
+                    <label for="" class="label-status"><span class="badge text-bg-<?= $order->status->color ?>"><?= $order->status->label ?></span></label>
+                    <input type="range" class="form-range mb-3" min="0" max="6" step="1" id="statusRange" onkeypress="onKeyPressOrderStatusRange(e)">
+                </div>
             </div>
             
             <div class="col-6">
