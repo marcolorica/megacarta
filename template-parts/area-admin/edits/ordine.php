@@ -19,7 +19,7 @@
                 <h2 class="mb-5">Ordine #<?= $order->id ?></h2>
             </div>
 
-            <div class="col-12">
+            <div class="col-12" style="position:relative">
                 <input type="range" class="form-range mt-5" min="0" max="7" step="1" value="<?= $order->status->value ?>" data-original-value="<?= $order->status->value ?>" id="statusRange" oninput="statusOrderRangeChanged(this)" onchange="statusOrderRangeChanged(this)">
                 
                 <div id="sendCustomerEmail" class="w-100" style="display:none">

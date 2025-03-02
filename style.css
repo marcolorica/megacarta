@@ -901,6 +901,10 @@ section.gallery-section .image-container > img {
   opacity: 1;
 }
 
+#sendCustomerEmail {
+  position: absolute;
+}
+
 /* .products .p-img {
   border-right: 1px solid lightgray;
 } */
