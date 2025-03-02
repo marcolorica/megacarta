@@ -8,6 +8,8 @@
     <input type="hidden" name="order_id" value="<?= $order ? $order_id : '' ?>">
 </form>
 
+<pre><?= print_r($order->items); ?></pre>
+
 <section class="admin-body pt-5">
     <div class="container">
         <div class="row">
@@ -41,7 +43,7 @@
             <div class="col-6">
                 <h5 style="color:grey"><?= mc_format_data($order->created, 'd/m/Y H:i') ?></h5>
 
-                <div class="row">
+                <div class="row pt-4">
                     <div class="col-6">
                         <label for="">Nome</label>
                         <input type="text" class="form-control mb-3" value="<?= $order->customer->billing->first_name ?>" readonly>
@@ -107,8 +109,9 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-6">
-                <h1 class="order-price">€<?= $order->total ?></h1>
+                <h1 class="order-price mb-3">€<?= $order->total ?></h1>
 
                 <table class="table table-striped">
                     <thead>
