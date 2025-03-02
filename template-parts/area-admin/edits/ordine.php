@@ -58,10 +58,8 @@
 
                         <label for="">Città</label>
                         <input type="text" class="form-control mb-3" value="<?= $order->customer->billing->city ?>" readonly>
-
-                        <label for="">Dettagli</label>
-                        <textarea class="form-control mb-3" rows="6" readonly><?= $order->customer->billing->address_2 ?></textarea>
                     </div>
+
                     <div class="col-6">
                         <label for="">Cogome</label>
                         <input type="text" class="form-control mb-3" value="<?= $order->customer->billing->last_name ?>" readonly>
@@ -74,6 +72,11 @@
 
                         <label for="">Provincia</label>
                         <input type="text" class="form-control mb-3" value="<?= $order->customer->billing->state ?>" readonly>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="">Dettagli</label>
+                        <textarea class="form-control mb-3" rows="6" readonly><?= $order->customer->billing->address_2 ?></textarea>
                     </div>
 
                     <div class="col-12">
@@ -92,10 +95,8 @@
 
                         <label for="">Città</label>
                         <input type="text" class="form-control mb-3" value="<?= $order->customer->shipping->city ?>" readonly>
-
-                        <label for="">Dettagli</label>
-                        <textarea class="form-control mb-3" rows="6" readonly><?= $order->customer->shipping->address_2 ?></textarea>
                     </div>
+                    
                     <div class="col-6">
                         <label for="">Cogome</label>
                         <input type="text" class="form-control mb-3" value="<?= $order->customer->shipping->last_name ?>" readonly>
@@ -108,6 +109,11 @@
 
                         <label for="">Provincia</label>
                         <input type="text" class="form-control mb-3" value="<?= $order->customer->shipping->state ?>" readonly>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="">Dettagli</label>
+                        <textarea class="form-control mb-3" rows="6" readonly><?= $order->customer->shipping->address_2 ?></textarea>
                     </div>
                 </div>
             </div>
