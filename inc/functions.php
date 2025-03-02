@@ -322,16 +322,20 @@ function mc_get_order_status($status) {
     $status = $status ? str_replace('-', '_', $status) : null;
 
     $statuses = (object) [
+        'checkout_draft' => (object) [
+            'label' => 'In bozza',
+            'color' => 'info'
+        ],
         'pending' => (object) [
             'label' => 'In attesa di pagamento',
             'color' => 'warning'
         ],
         'processing' => (object) [
             'label' => 'In lavorazione',
-            'color' => 'success'
+            'color' => 'warning'
         ],
         'on_hold' => (object) [
-            'label' => ' In attesa',
+            'label' => 'In attesa',
             'color' => 'warning'
         ],
         'completed' => (object) [
@@ -349,10 +353,6 @@ function mc_get_order_status($status) {
         'failed' => (object) [
             'label' => 'Fallito',
             'color' => 'danger'
-        ],
-        'checkout_draft' => (object) [
-            'label' => 'In bozza',
-            'color' => 'info'
         ]
     ];
 
