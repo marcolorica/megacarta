@@ -891,7 +891,7 @@ section.gallery-section .image-container > img {
 
 .order-statuses .label-status {
   position: absolute;
-  transform: translate(0, -50%);
+  transform: translate(-50%);
 }
 
 /* .products .p-img {

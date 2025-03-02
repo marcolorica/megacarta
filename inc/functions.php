@@ -261,7 +261,7 @@ function mc_get_orders($term = null, $perPage = 10, $_order = 'piu-recenti', $nu
             'id' => $order->id,
             'customer' => $order->get_billing_first_name() . ' ' . $order->get_billing_last_name(),
             'status' => mc_get_order_status($order->get_status()),
-            'tot' => $order->get_total(),
+            'tot' => number_format($order->get_total(), 2, ',', '.'),
             'products' => $order->get_items()
         ];
     }
@@ -357,7 +357,7 @@ function mc_get_order_status($status) {
     ];
 
     $statuses = $status ? (object) $statuses : $statuses;
-    
+
     return $status ? $statuses->$status : $statuses;
 }
 

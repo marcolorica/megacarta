@@ -30,7 +30,7 @@
                     <?php $i++; endforeach; ?>
                 </div>
                 
-                <input type="range" class="form-range mb-3" min="0" max="6" step="1" id="statusRange" onkeypress="onKeyPressOrderStatusRange(e)">
+                <input type="range" class="form-range mb-3" min="0" max="7" step="1" id="statusRange" onkeypress="onKeyPressOrderStatusRange(e)">
             </div>
             
             <div class="col-6">
