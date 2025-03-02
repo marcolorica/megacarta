@@ -8,7 +8,7 @@
     <input type="hidden" name="order_id" value="<?= $order ? $order_id : '' ?>">
 </form>
 
-<section class="admin-body pt-5">
+<section class="admin-body py-5">
     <div class="container">
         <div class="row">
             <div class="col-12 text-end">
@@ -41,7 +41,7 @@
             <div class="col-6">
                 <h5 style="color:grey"><?= mc_format_data($order->created, 'd/m/Y H:i') ?></h5>
 
-                <div class="row pt-5">
+                <div class="row pt-3">
                     <div class="col-12">
                         <h3 class="mt-4">Indirizzo di fatturazione</h3>
                     </div>
