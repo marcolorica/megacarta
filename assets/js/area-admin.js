@@ -110,6 +110,6 @@ function statusOrderRangeChanged(el) {
     let $input = jQuery(el);
     let statusValue = $input.val();
     
-    jQuery('.status-label').removeClass('active');
-    jQuery('.status-label[data-status-value=' + statusValue + ']').addClass('active');
+    jQuery('.status-label').removeClass('actual');
+    jQuery('.status-label[data-status-value=' + statusValue + ']').addClass('actual');
 }
