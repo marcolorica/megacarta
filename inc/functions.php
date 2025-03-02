@@ -430,7 +430,6 @@ function mc_get_page_datas($pagina) {
     return $return;
 }
 
-
 //impostazioni
 function mc_get_settings() {
     return (object) [

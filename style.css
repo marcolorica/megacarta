@@ -884,6 +884,16 @@ section.gallery-section .image-container > img {
   padding: 10px;
 }
 
+.order-statuses {
+  position: relative;
+  padding-bottom: 2em;
+}
+
+.order-statuses .label-status {
+  position: absolute;
+  transform: translate(0, -50%);
+}
+
 /* .products .p-img {
   border-right: 1px solid lightgray;
 } */
