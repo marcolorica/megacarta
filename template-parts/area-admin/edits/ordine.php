@@ -96,7 +96,7 @@
                         <label for="">Città</label>
                         <input type="text" class="form-control mb-3" value="<?= $order->customer->shipping->city ?>" readonly>
                     </div>
-                    
+
                     <div class="col-6">
                         <label for="">Cogome</label>
                         <input type="text" class="form-control mb-3" value="<?= $order->customer->shipping->last_name ?>" readonly>
@@ -136,7 +136,7 @@
                                 <td><?= $product->sku ?></td>
                                 <td><?= $product->name ?></td>
                                 <td><?= $product->qty ?></td>
-                                <td>€<?= $peoduct->subtotal ?></td>
+                                <td>€<?= $product->subtotal ?></td>
                             </tr>
                         <?php endforeach; ?>
                         <tr>
