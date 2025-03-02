@@ -534,6 +534,10 @@ function mc_send_email($recipient, $html = "", $subject = null, $from = null, $s
     wp_mail($recipient, $subject, $html, $headers);
 }
 
+function mc_format_data($datetime, $format) {
+    return date($format, strtotime($datetime));
+}
+
 function mc_test_func($func) {
     if(strlen($func)) {
         $param = isset($_GET['marco']) && $_GET['marco'] == 'lorica';

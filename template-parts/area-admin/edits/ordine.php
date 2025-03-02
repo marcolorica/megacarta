@@ -41,6 +41,13 @@
                     <?php $i++; endforeach; ?>
                 </div>    
             </div>
+
+            <div class="col-6">
+                <h5><?= mc_format_data($order->created, 'd/m/Y H:i') ?></h5>
+            </div>
+            <div class="col-6">
+                <h1>€<?= $order_>total ?></h1>
+            </div>
             
             <div class="col-6">
                 <h4 class="mb-3">Cliente</h4>
