@@ -22,12 +22,12 @@
             <div class="col-12">
                 <h4 class="mb-3">Stato dell'ordine</h4>
 
-                <input type="range" class="form-range mt-5" min="0" max="7" step="1" data-status-value="<?= $order->status->value ?>" id="statusRange" onkeypress="onKeyPressOrderStatusRange(e)">
+                <input type="range" class="form-range mt-5" min="0" max="7" step="1" data-status-value="<?= $order->status->value ?>" id="statusRange" oninput="statusOrderRangeChanged(this)" onkeypress="onKeyPressOrderStatusRange(e)">
                 
                 <div class="order-statuses">
                     <?php $i = 0; foreach(mc_get_order_status(null) as $slug => $status) : ?>
-                        <label class="label-status <?= $order->status->label == $status->label ? 'ok' : '' ?>" style="left: <?= number_format(($i * 14.29), 2, '.', ',') ?>%">
-                            <span class="badge text-bg-<?= $status->color ?>"><?= $status->label ?></span>
+                        <label class="label-status <?= $order->status->label == $status->label ? 'actual' : '' ?>" style="left: <?= number_format(($i * 14.29), 2, '.', ',') ?>%">
+                            <span data-status-value="<?= $status->label ?>" class="badge text-bg-<?= $status->color ?>"><?= $status->label ?></span>
                         </label>
                     <?php $i++; endforeach; ?>
                 </div>                

@@ -105,3 +105,11 @@ function calculateArrayNameIndexVariants() {
         jQuery(el).find('.product-variant-price').attr('name', 'product_variants[' + i + '][price]').attr('required', true).attr('form', 'form-product');
     });
 }
+
+function statusOrderRangeChanged(el) {
+    let $input = jQuery(el);
+    let statusValue = $input.val();
+    
+    jQuery('.status-label').removeClass('active');
+    jQuery('.status-label[data-status-value=' + statusValue + ']').addClass('active');
+}
