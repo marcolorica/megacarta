@@ -60,7 +60,7 @@
                             <p class="p-categories"><?= count($o->products) ?> prodotti</p>
                         </div>
                         <div class="col-3 d-flex justify-content-end align-items-start text-end">
-                            <p class="p-price">€<?= number_format($o->tot, 2, ',', '.'); ?></p>
+                            <p class="p-price">€<?= $o->tot ?></p>
                         </div>
                         <div class="col-2 d-flex justify-content-end align-items-center">
                             <a class="btn azione-mc btn-outline-success me-3" href="/area-admin/ordini/ordine?id=<?= $o->id ?>"><i class="fa-solid fa-eye fa-fw text-success"></i></a>
