@@ -26,7 +26,7 @@
                 
                 <div class="order-statuses">
                     <?php $i = 0; foreach(mc_get_order_status(null) as $slug => $status) : ?>
-                        <label class="label-status <?= $order->status->label == $status->label ? 'active' : '' ?>" style="left: <?= number_format(($i * 14.29), 2, '.', ',') ?>%">
+                        <label class="label-status <?= $order->status->label == $status->label ? 'ok' : '' ?>" style="left: <?= number_format(($i * 14.29), 2, '.', ',') ?>%">
                             <span class="badge text-bg-<?= $status->color ?>"><?= $status->label ?></span>
                         </label>
                     <?php $i++; endforeach; ?>
