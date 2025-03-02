@@ -509,6 +509,12 @@ function mc_return_ajax_json($response = []) {
     wp_die();
 }
 
+function mc_post_return($status, $message, $redirect) {
+    $_SESSION[$status] = $message;
+    wp_redirect($redirect);
+    exit();
+}
+
 function mc_get_template_part($template, $args = []) {
     if(!empty($args))
         extract($args);
@@ -545,7 +551,8 @@ function mc_test_func($func) {
         $param = isset($_GET['marco']) && $_GET['marco'] == 'lorica';
     
         if($param) {
-            call_user_func($func);
+            // call_user_func($func);
+            mc_send_email('marcolinoh.ml@gmail.com', "ok", 'ciao', null, $simple = true);
             die;
         }
     }

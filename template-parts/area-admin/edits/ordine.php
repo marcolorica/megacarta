@@ -5,7 +5,7 @@
 
 <form action="<?= esc_url(admin_url('admin-post.php')); ?>" id="form-order" method="POST">
     <input type="hidden" name="action" value="save_order_edits">
-    <input type="hidden" name="order_id" value="<?= $order ? $order_id : '' ?>">
+    <input type="hidden" name="order_id" value="<?= $order_id ?>">
 </form>
 
 <section class="admin-body py-5">
@@ -20,14 +20,14 @@
             </div>
 
             <div class="col-12" style="position:relative">
-                <input type="range" class="form-range mt-5" min="0" max="7" step="1" value="<?= $order->status->value ?>" data-original-value="<?= $order->status->value ?>" id="statusRange" oninput="statusOrderRangeChanged(this)" onchange="statusOrderRangeChanged(this)">
+                <input type="range" name="new_status" class="form-range mt-5" min="0" max="7" step="1" value="<?= $order->status->value ?>" data-original-value="<?= $order->status->value ?>" id="statusRange" form="form-ordine" oninput="statusOrderRangeChanged(this)" onchange="statusOrderRangeChanged(this)">
                 
-                <div id="sendCustomerEmail" class="w-100" style="display:none">
+                <!-- <div id="sendCustomerEmail" class="w-100" style="display:none">
                     <div class="d-flex justify-content-center align-items-center">
-                        <input type="checkbox" name="send_customer_email" class="form-check-input me-2">
+                        <input type="checkbox" name="send_email" class="form-check-input me-2" form="form-ordine">
                         <label>Invia email al cliente per il cambio stato dell'ordine</label>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="order-statuses">
                     <?php $i = 0; foreach(mc_get_order_status(null) as $slug => $status) : ?>

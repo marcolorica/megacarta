@@ -23,9 +23,7 @@ function admin_login_action_handler() {
         exit();
     }
 
-    $_SESSION['error_login'] = true;
-    wp_redirect('/admin');
-    exit();
+    mc_post_return('error_login', true, '/admin');
 }
 
 function admin_save_page_edits() {
@@ -49,11 +47,8 @@ function admin_save_page_edits() {
                 $file_type = mime_content_type($img->tmp_name);
                 $upload = mc_upload_image_in_theme($img->name, $img->tmp_name);
 
-                if($upload->status != 'success') {
-                    $_SESSION['error'] = $upload->message;
-                    wp_redirect('/area-admin/pagine/pagina?slug=' . $pagina);
-                    exit();
-                }
+                if($upload->status != 'success')
+                    mc_post_return('error', $upload->message, '/area-admin/pagine/pagina?slug=' . $pagina);
 
                 $ext = explode('/', $file_type)[1];
                 $ext = $ext == 'jpeg' ? 'jpg' : $ext;
@@ -89,11 +84,8 @@ function admin_save_page_edits() {
                     $file_type = mime_content_type($img->tmp_name);
                     $upload = mc_upload_image_in_theme($img->name, $img->tmp_name);
     
-                    if($upload->status != 'success') {
-                        $_SESSION['error'] = $upload->message;
-                        wp_redirect('/area-admin/pagine/pagina?slug=' . $pagina);
-                        exit();
-                    }
+                    if($upload->status != 'success')
+                        mc_post_return('error', $upload->message, '/area-admin/pagine/pagina?slug=' . $pagina);
 
                     $ext = explode('/', $file_type)[1];
                     $ext = $ext == 'jpeg' ? 'jpg' : $ext;
@@ -120,11 +112,8 @@ function admin_save_page_edits() {
                     $file_type = mime_content_type($img->tmp_name);
                     $upload = mc_upload_image_in_theme($img->name, $img->tmp_name);
 
-                if($upload->status != 'success') {
-                    $_SESSION['error'] = $upload->message;
-                    wp_redirect('/area-admin/pagine/pagina?slug=' . $pagina);
-                    exit();
-                }
+                if($upload->status != 'success')
+                    mc_post_return('error', $upload->message, '/area-admin/pagine/pagina?slug=' . $pagina);
 
                 $ext = explode('/', $file_type)[1];
                 $ext = $ext == 'jpeg' ? 'jpg' : $ext;
@@ -139,9 +128,7 @@ function admin_save_page_edits() {
         update_option('mc_' . $name, ($request->$name ?? null));
     }
 
-    $_SESSION['save_success'] = true;
-    wp_redirect('/area-admin/pagine/pagina?slug=' . $pagina);
-    exit();
+    mc_post_return('save_success', true, '/area-admin/pagine/pagina?slug=' . $pagina);
 }
 
 function admin_save_cat_edits() {
@@ -175,11 +162,8 @@ function admin_save_cat_edits() {
 
         $upload = mc_upload_image_in_theme("$slug.$ext", $img->tmp_name, 'categories/');
 
-        if($upload->status != 'success') {
-            $_SESSION['error'] = $upload->message;
-            wp_redirect('/area-admin/pagine/pagina?slug=' . $pagina);
-            exit();
-        }
+        if($upload->status != 'success')
+            mc_post_return('error', $upload->message, '/area-admin/categorie/cateoria?id=' . $term_id);
     }
     else {
         $img_exists = mc_get_cat_img($cat_slug);
@@ -196,29 +180,8 @@ function admin_save_cat_edits() {
                 rename($old_image_path, $new_image_path);
         }
     }
-    
-    $_SESSION['save_success'] = true;
-    wp_redirect('/area-admin/categorie/categoria?id=' . $term_id);
-    exit();
-}
 
-function admin_save_settings() {
-    $request = (object) $_POST;
-
-    $to_update = [
-        'map_iframe',
-        'address',
-        'partita_iva',
-        'bank_details'
-    ];
-
-    foreach($to_update as $name) {
-        update_option('mc_' . $name, ($request->$name ? stripslashes($request->$name) : null));
-    }
-
-    $_SESSION['save_success'] = true;
-    wp_redirect('/area-admin/impostazioni');
-    exit();
+    mc_post_return('save_success', true, '/area-admin/categorie/categoria?id=' . $term_id);
 }
 
 function admin_save_product_edits() {
@@ -262,11 +225,8 @@ function admin_save_product_edits() {
             $file_type = mime_content_type($img_tmp_name);
             $upload = mc_upload_image_in_theme($img_name, $img_tmp_name, 'products/variants/');
 
-            if($upload->status != 'success') {
-                $_SESSION['error'] = $upload->message;
-                wp_redirect('/area-admin/prodotti/prodotto' . ($product_id ? '?id=' . $product_id : ''));
-                exit();
-            }
+            if($upload->status != 'success')
+                mc_post_return('error', $upload->message, '/area-admin/prodotti/prodotto?id=' . $product_id);
 
             $_variant->img = get_stylesheet_directory_uri() . '/assets/images/products/variants/' . $img_name;
         }
@@ -327,11 +287,9 @@ function admin_save_product_edits() {
 
         $upload = mc_upload_image_in_theme("$new_oem.$ext", $img->tmp_name, 'products/');
 
-        if($upload->status != 'success') {
-            $_SESSION['error'] = $upload->message;
-            wp_redirect('/area-admin/prodotti/prodotto?id=' . $product_id);
-            exit();
-        }
+        if($upload->status != 'success')
+            mc_post_return('error', $upload->message, '/area-admin/prodotti/prodotto?id=' . $product_id);
+
     }
     else if($product_id) {
         $img_exists = mc_get_product_image($product_id);
@@ -349,7 +307,78 @@ function admin_save_product_edits() {
         }
     }
 
-    $_SESSION['save_success'] = !$old_oem ? 'Prodotto creato!' : 'Modifiche salvate!';
-    wp_redirect('/area-admin/prodotti/prodotto?id=' . $product_id);
+    mc_post_return('save_success', ($old_oem ? 'Prodotto creato!' : 'Modifiche salvate!'), '/area-admin/prodotti/prodotto?id=' . $product_id);
+}
+
+function admin_save_order_edits() {
+    $request = (object) $_POST;
+
+    $order_id = $request->order_id ?? null;
+    $new_status = $request->new_status ?? null;
+    $send_email = isset($request->send_email) && $request->send_email ? 1 : 0;
+
+    if(!$order_id || $new_status)
+        mc_post_return('error', "Qualcosa è andato storto", '/area-admin/ordini/ordine?id=' . $order_id);
+
+    $order = wc_get_order($order_id);
+    
+    if(!$order)
+        mc_post_return('error', "Ordine non trovato", '/area-admin/ordini/ordine?id=' . $order_id);
+
+    switch(intval($new_status)) {
+        case 0:
+            $new_status = 'checkout_draft';
+            break;
+
+        case 1:
+            $new_status = 'pending';
+            break;
+
+        case 2:
+            $new_status = 'processing';
+            break;
+
+        case 3:
+            $new_status = 'on_hold';
+            break;
+
+        case 4:
+            $new_status = 'completed';
+            break;
+
+        case 5:
+            $new_status = 'cancelled';
+            break;
+
+        case 6:
+            $new_status = 'refunded';
+            break;
+
+        case 7:
+            $new_status = 'failed';
+            break;
+    }
+
+    $order->update_status($new_status, 'Status aggiornato il ' . mc_format_data(time(), 'd/m/Y H:i'));
+
+    mc_post_return('save_success', "Stato dell'ordine aggiornato!", '/area-admin/ordini/ordine?id=' . $order_id);
+}
+
+function admin_save_settings() {
+    $request = (object) $_POST;
+
+    $to_update = [
+        'map_iframe',
+        'address',
+        'partita_iva',
+        'bank_details'
+    ];
+
+    foreach($to_update as $name) {
+        update_option('mc_' . $name, ($request->$name ? stripslashes($request->$name) : null));
+    }
+
+    $_SESSION['save_success'] = true;
+    wp_redirect('/area-admin/impostazioni');
     exit();
 }

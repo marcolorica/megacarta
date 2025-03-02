@@ -128,20 +128,20 @@ function changeOrderStatusRange(label) {
 
 function toggleSendCustomerEmail() {
     let $input = jQuery('#statusRange');
-    let $sendEmailDiv = jQuery('#sendCustomerEmail');
-    let $checkbox = $sendEmailDiv.find('input[type=checkbox]');
+    // let $sendEmailDiv = jQuery('#sendCustomerEmail');
+    // let $checkbox = $sendEmailDiv.find('input[type=checkbox]');
     let $btnSave = jQuery('#btnSave');
 
     if($input.val() != $input.attr('data-original-value')) {
-        $sendEmailDiv.slideDown();
-        $checkbox.prop('checked', true);
+        // $sendEmailDiv.slideDown();
+        // $checkbox.prop('checked', true);
         $btnSave.addClass('show');
     }
     else {
-        $sendEmailDiv.slideUp();
-        $checkbox.prop('checked', false);
+        // $sendEmailDiv.slideUp();
+        // $checkbox.prop('checked', false);
         $btnSave.removeClass('show');
     }
 
-    $checkbox.trigger('change');
+    // $checkbox.trigger('change');
 }
