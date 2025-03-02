@@ -49,16 +49,95 @@
                     <div class="col-6">
                         <label for="">Nome</label>
                         <input type="text" class="form-control mb-3" value="<?= $order->customer->billing->first_name ?>" readonly>
+
+                        <label for="">Email</label>
+                        <input type="email" class="form-control mb-3" value="<?= $order->customer->billing->email ?>" readonly>
+
+                        <label for="">Indirizzo</label>
+                        <input type="text" class="form-control mb-3" value="<?= $order->customer->billing->address_1 ?>" readonly>
+
+                        <label for="">Città</label>
+                        <input type="text" class="form-control mb-3" value="<?= $order->customer->billing->city ?>" readonly>
+
+                        <label for="">Dettagli</label>
+                        <textarea class="form-control mb-3" rows="6" readonly><?= $order->customer->billing->email ?>"</textarea>
                     </div>
                     <div class="col-6">
                         <label for="">Cogome</label>
                         <input type="text" class="form-control mb-3" value="<?= $order->customer->billing->last_name ?>" readonly>
+
+                        <label for="">Telefono</label>
+                        <input type="email" class="form-control mb-3" value="<?= $order->customer->billing->phone ?>" readonly>
+
+                        <label for="">CAP</label>
+                        <input type="text" class="form-control mb-3" value="<?= $order->customer->billing->postcode ?>" readonly>
+
+                        <label for="">Provincia</label>
+                        <input type="text" class="form-control mb-3" value="<?= $order->customer->billing->state ?>" readonly>
+                    </div>
+
+                    <div class="col-12">
+                        <h5>Indirizzo di spedizione</h5>
+                    </div>
+
+                    <div class="col-6">
+                        <label for="">Nome</label>
+                        <input type="text" class="form-control mb-3" value="<?= $order->customer->shipping->first_name ?>" readonly>
+
+                        <label for="">Email</label>
+                        <input type="email" class="form-control mb-3" value="<?= $order->customer->shipping->email ?>" readonly>
+
+                        <label for="">Indirizzo</label>
+                        <input type="text" class="form-control mb-3" value="<?= $order->customer->shipping->address_1 ?>" readonly>
+
+                        <label for="">Città</label>
+                        <input type="text" class="form-control mb-3" value="<?= $order->customer->shipping->city ?>" readonly>
+
+                        <label for="">Dettagli</label>
+                        <textarea class="form-control mb-3" rows="6" readonly><?= $order->customer->shipping->email ?>"</textarea>
+                    </div>
+                    <div class="col-6">
+                        <label for="">Cogome</label>
+                        <input type="text" class="form-control mb-3" value="<?= $order->customer->shipping->last_name ?>" readonly>
+
+                        <label for="">Telefono</label>
+                        <input type="email" class="form-control mb-3" value="<?= $order->customer->shipping->phone ?>" readonly>
+
+                        <label for="">CAP</label>
+                        <input type="text" class="form-control mb-3" value="<?= $order->customer->shipping->postcode ?>" readonly>
+
+                        <label for="">Provincia</label>
+                        <input type="text" class="form-control mb-3" value="<?= $order->customer->shipping->state ?>" readonly>
                     </div>
                 </div>
-                <p>Indirizzo di fatturazione</p>
             </div>
             <div class="col-6">
                 <h1 class="order-price">€<?= $order->total ?></h1>
+
+                <table class="table table-striped">
+                    <thead>
+                        <th>#</th>
+                        <th>Codice</th>
+                        <th>Prdootto</th>
+                        <th>Quantità</th>
+                        <th>Subtotale</th>
+                    </thead>
+                    <tbody>
+                        <?php foreach($order->items as $i => $product) : ?>
+                            <tr>
+                                <td><?= $i + 1 ?></td>
+                                <td><?= $product->sku ?></td>
+                                <td><?= $product->name ?></td>
+                                <td><?= $product->qty ?></td>
+                                <td>€<?= $peoduct->subtotal ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                        <tr>
+                            <td class="text-end" colspan="4"></td>
+                            <td>€<?= $order->total ?></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
