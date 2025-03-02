@@ -897,7 +897,7 @@ section.gallery-section .image-container > img {
 }
 
 .order-statuses .label-status.active,
-input[data-status-value=2] + .order-statuses .label-status:nth-child(2) {
+input[data-status-value=2] ~ .order-statuses .label-status:nth-child(2) {
   opacity: 1;
 }
 
