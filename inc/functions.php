@@ -321,7 +321,7 @@ function mc_get_order($order_id) {
 function mc_get_order_status($status) {
     $status = $status ? str_replace('-', '_', $status) : null;
 
-    $statuses = (object) [
+    $statuses = [
         'checkout_draft' => (object) [
             'label' => 'In bozza',
             'color' => 'info'
@@ -356,6 +356,8 @@ function mc_get_order_status($status) {
         ]
     ];
 
+    $statuses = $status ? (object) $statuses : $statuses;
+    
     return $status ? $statuses->$status : $statuses;
 }
 
