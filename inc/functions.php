@@ -303,9 +303,9 @@ function mc_get_order($order_id) {
             $product = $item->get_product();
             
             return (object) [
-                'product_id' => $item->get_product_id(),
-                'product_name' => $item->get_name(),
-                'quantity' => $item->get_quantity(),
+                'id' => $item->get_product_id(),
+                'name' => $item->get_name(),
+                'qty' => $item->get_quantity(),
                 'subtotal' => $item->get_subtotal(),
                 'total' => $item->get_total(),
                 'sku' => $product ? $product->get_sku() : ''
