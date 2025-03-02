@@ -21,6 +21,8 @@
 
             <div class="col-12">
                 <h4 class="mb-3">Stato dell'ordine</h4>
+
+                <input type="range" class="form-range mt-5" min="0" max="7" step="1" data-status-value="<?= $order->status->value ?>" id="statusRange" onkeypress="onKeyPressOrderStatusRange(e)">
                 
                 <div class="order-statuses">
                     <?php $i = 0; foreach(mc_get_order_status(null) as $slug => $status) : ?>
@@ -28,9 +30,7 @@
                             <span class="badge text-bg-<?= $status->color ?>"><?= $status->label ?></span>
                         </label>
                     <?php $i++; endforeach; ?>
-                </div>
-                
-                <input type="range" class="form-range mb-3" min="0" max="7" step="1" id="statusRange" onkeypress="onKeyPressOrderStatusRange(e)">
+                </div>                
             </div>
             
             <div class="col-6">

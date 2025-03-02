@@ -886,12 +886,19 @@ section.gallery-section .image-container > img {
 
 .order-statuses {
   position: relative;
-  padding-bottom: 2em;
+  padding: 2em 0;
 }
 
 .order-statuses .label-status {
   position: absolute;
   transform: translate(-50%);
+  opacity: 0.1;
+  top: -100%;
+}
+
+.order-statuses .label-status.active,
+input[data-status-value=0] + .order-statuses .label-status:nth-child(0) {
+  opacity: 1;
 }
 
 /* .products .p-img {

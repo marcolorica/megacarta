@@ -324,35 +324,43 @@ function mc_get_order_status($status) {
     $statuses = [
         'checkout_draft' => (object) [
             'label' => 'In bozza',
-            'color' => 'info'
+            'color' => 'info',
+            'value' => 0
         ],
         'pending' => (object) [
             'label' => 'In attesa di pagamento',
-            'color' => 'warning'
+            'color' => 'warning',
+            'value' => 1
         ],
         'processing' => (object) [
             'label' => 'In lavorazione',
-            'color' => 'warning'
+            'color' => 'warning',
+            'value' => 2
         ],
         'on_hold' => (object) [
             'label' => 'In attesa',
-            'color' => 'warning'
+            'color' => 'warning',
+            'value' => 3
         ],
         'completed' => (object) [
             'label' => 'Completato',
-            'color' => 'success'
+            'color' => 'success',
+            'value' => 4
         ],
         'cancelled' => (object) [
             'label' => 'Annullato',
-            'color' => 'danger'
+            'color' => 'danger',
+            'value' => 5
         ],
         'refunded' => (object) [
             'label' => 'Rimborsato',
-            'color' => 'danger'
+            'color' => 'danger',
+            'value' => 6
         ],
         'failed' => (object) [
             'label' => 'Fallito',
-            'color' => 'danger'
+            'color' => 'danger',
+            'value' => 7
         ]
     ];
 
