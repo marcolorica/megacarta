@@ -3,10 +3,6 @@
     $order = $order_id ? mc_get_order($order_id) : null;
 ?>
 
-<pre>
-    <?= print_r($order); ?>
-</pre>
-
 <form action="<?= esc_url(admin_url('admin-post.php')); ?>" id="form-order" method="POST">
     <input type="hidden" name="action" value="save_order_edits">
     <input type="hidden" name="order_id" value="<?= $order ? $order_id : '' ?>">
