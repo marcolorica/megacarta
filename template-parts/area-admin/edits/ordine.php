@@ -8,8 +8,6 @@
     <input type="hidden" name="order_id" value="<?= $order ? $order_id : '' ?>">
 </form>
 
-<pre><?= print_r($order->items); ?></pre>
-
 <section class="admin-body pt-5">
     <div class="container">
         <div class="row">
