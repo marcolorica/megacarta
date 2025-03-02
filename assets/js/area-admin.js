@@ -135,12 +135,12 @@ function toggleSendCustomerEmail() {
     if($input.val() != $input.attr('data-original-value')) {
         $sendEmailDiv.slideDown();
         $checkbox.prop('checked', true);
-        $btnSave.show();
+        $btnSave.addClass('show');
     }
     else {
         $sendEmailDiv.slideUp();
         $checkbox.prop('checked', false);
-        $btnSave.hide();
+        $btnSave.removeClass('show');
     }
 
     $checkbox.rigger('change');

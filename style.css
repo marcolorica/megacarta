@@ -912,6 +912,14 @@ section.gallery-section .image-container > img {
   font-size: 50px;
 }
 
+#btnSave {
+  visibility: hidden;
+}
+
+#btnSave.show {
+  visibility: visible;
+}
+
 /* .products .p-img {
   border-right: 1px solid lightgray;
 } */
