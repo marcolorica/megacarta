@@ -555,7 +555,7 @@ function import_new_images() {
 
     $evaluate = [
         (object) [
-            'oem' => '97057',
+            'name' => '97057',
             'ext' => 'jpg',
             'news' => [
                 '97064',
@@ -564,7 +564,7 @@ function import_new_images() {
             ]
         ],
         (object) [
-            'oem' => '95522',
+            'name' => '95522',
             'ext' => 'png',
             'news' => [
                 '87904',
@@ -572,7 +572,7 @@ function import_new_images() {
             ]
         ],
         (object) [
-            'oem' => '29120',
+            'name' => '29120',
             'ext' => 'jpg',
             'news' => [
                 '29236',
@@ -581,7 +581,7 @@ function import_new_images() {
             ]
         ],
         (object) [
-            'oem' => '119LN01',
+            'name' => '119LN01',
             'ext' => 'jpg',
             'news' => [
                 '119LN02',
@@ -591,7 +591,7 @@ function import_new_images() {
             ]
         ],
         (object) [
-            'oem' => '63279',
+            'name' => '63279',
             'ext' => 'webp',
             'news' => [
                 '36981',
@@ -600,28 +600,28 @@ function import_new_images() {
             ]
         ],
         (object) [
-            'oem' => '60367',
+            'name' => '60367',
             'ext' => 'jpg',
             'news' => [
                 '60366'
             ]
         ],
         (object) [
-            'oem' => '542050',
+            'name' => '542050',
             'ext' => 'jpg',
             'news' => [
                 '544060'
             ]
         ],
         (object) [
-            'oem' => '542060',
+            'name' => '542060',
             'ext' => 'webp',
             'news' => [
                 '544160'
             ]
         ],
         (object) [
-            'oem' => 'H071000',
+            'name' => 'H071000',
             'ext' => 'jpg',
             'news' => [
                 'H020250',
@@ -631,7 +631,7 @@ function import_new_images() {
             ]
         ],
         (object) [
-            'oem' => 'ST1000TP',
+            'name' => 'ST1000TP',
             'ext' => 'jpg',
             'news' => [
                 'ST1500TP',
@@ -641,7 +641,7 @@ function import_new_images() {
             ]
         ],
         (object) [
-            'oem' => 'OK250',
+            'name' => 'OK250',
             'ext' => 'jpg',
             'news' => [
                 'OK1050',
@@ -650,7 +650,7 @@ function import_new_images() {
             ]
         ],
         (object) [
-            'oem' => 'ST2',
+            'name' => 'ST2',
             'ext' => 'webp',
             'news' => [
                 'DS2116F30',
@@ -666,7 +666,7 @@ function import_new_images() {
             ]
         ],
         (object) [
-            'oem' => '93974',
+            'name' => '93974',
             'ext' => 'jpg',
             'news' => [
                 '98092',
@@ -674,14 +674,14 @@ function import_new_images() {
             ]
         ],
         (object) [
-            'oem' => '28321',
+            'name' => '28321',
             'ext' => 'jpg',
             'news' => [
                 '28413'
             ]
         ],
         (object) [
-            'oem' => 'BC100CAR109PP',
+            'name' => 'BC100CAR109PP',
             'ext' => 'jpg',
             'news' => [
                 'BC230CAR109PP',
