@@ -12,7 +12,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-end">
-                <button id="btn-save" type="submit" class="btn btn-success" form="form-order">Salva</button>
+                <button id="btnSave" type="submit" class="btn btn-success" form="form-order">Salva</button>
             </div>
 
             <div class="col-12 text-center">
