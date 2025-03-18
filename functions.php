@@ -442,7 +442,7 @@ function new_import_products() {
                     if($product) {
                         $product->set_sku($sku);
                         $product->set_name($name);
-                        $product->set_description($code);
+                        $product->set_description($descs[$sku]);
                         
                         $product->set_price($price);
                         $product->set_regular_price($price);
