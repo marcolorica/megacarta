@@ -448,10 +448,6 @@ function new_import_products() {
                         $product->set_regular_price($price);
                         
                         $product->save();
-
-                        var_dump($price);
-                        die;
-
                     } else {
                         $notSkus[] = $code;
                     }
