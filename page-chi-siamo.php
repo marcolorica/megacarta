@@ -72,6 +72,6 @@
     </div>
 </section>
 
-<?php mc_test_func('new_import_products'); ?>
+<?php mc_test_func('missing_imgs'); ?>
 
 <?php get_footer(); ?>
