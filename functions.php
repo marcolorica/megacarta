@@ -443,7 +443,6 @@ function new_import_products() {
                         $product->set_sku($sku);
                         $product->set_name($name);
 
-                        var_dump($descs[$sku]);die;
                         $product->set_description($descs[$sku]);
                         
                         $product->set_price($price);
