@@ -436,7 +436,10 @@ function new_import_products() {
                 $price += ($price / 100 * 20);
 
                 if($sku != 'Codice') {
-                    $product = wc_get_product(wc_get_product_id_by_sku($sku));
+                    // $product = wc_get_product(wc_get_product_id_by_sku($sku));
+                    $product = wc_get_product(wc_get_product_id_by_sku('IA800TNT2'));
+
+                    var_dump($product);die;
 
                     if($product) {
                         $product->set_sku($sku);
