@@ -416,8 +416,8 @@ function new_import_products() {
     if(file_exists($descsPath)) {
         if(($handle = fopen($descsPath, "r")) !== false) {
             while(($data = fgetcsv($handle, 10000, ",")) !== false) {
-                $codes = $data[0];
-                $desc = explode('-', str_replace(' ', '', $data[1]));
+                $codes = explode('-', str_replace(' ', '', $data[0]));
+                $desc = $data[1];
 
                 foreach($codes as $code) {
                     $descs[$code] = $desc;
