@@ -439,7 +439,8 @@ function new_import_products() {
                 $name = $data[3];
 
                 $price = $data[8] ? (float) $data[8] : 0;
-                $price *= ($price / 100 * 20);
+                $price += ($price / 100 * 20);
+
 
                 if($sku != 'Cod Megacarta') {
                     $product = wc_get_product(wc_get_product_id_by_sku($sku));
@@ -453,6 +454,10 @@ function new_import_products() {
                         $product->set_regular_price($price);
                         
                         $product->save();
+
+                        var_dump($price);
+                        die;
+
                     } else {
                         $notSkus[] = $code;
                     }
