@@ -1,7 +1,7 @@
 <?php
     $product_id = $_GET['id'] ?? null;
 
-    $product = $product_id ? mc_get_product($product_id) : null;var_dump($product);die;
+    $product = $product_id ? mc_get_product($product_id) : null;
     $categories = mc_get_categories_catalogue();
 ?>
 
