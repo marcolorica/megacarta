@@ -805,7 +805,7 @@ function missing_imgs() {
     $query = new WC_Product_Query(['status' => 'publish']);
     $products = $query->get_products();
 
-	$res = [];
+	$not = [];
 
     $baseDir = get_stylesheet_directory_uri();
 
@@ -818,6 +818,7 @@ function missing_imgs() {
         }
     }
 
+    var_dump($not);die;
 }
 
 // array(0) { } array(11) { [0]=> string(5) "AR75L" [1]=> string(5) "AR86L" [2]=> string(5) "AR98L" [3]=> string(9) "BIOCCULEG" [4]=> string(10) "BIOFRCHLEG" [5]=> string(9) "BIOCLTLEG" [6]=> string(10) "TTV3040SCZ" [7]=> string(7) "TT238PP" [8]=> string(11) "IGNM/L/SBLU" [9]=> string(5) "DIACC" [10]=> string(7) "LSCPEST" } 
