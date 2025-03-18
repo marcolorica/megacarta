@@ -317,85 +317,80 @@ function populate_products() {
 
 function new_import_products() {
     $uploads = wp_upload_dir();
-    $csvPath = $uploads['basedir'] . '/megacarta1.csv';
+    $csvPath = $uploads['basedir'] . '/megacarta-prods.csv';
 
-    $categories = get_terms('product_cat', [
-        'hide_empty' => 0,
-        'orderby' => 'ASC',
-        'parent' => 0
-    ]);
+    // $categories = get_terms('product_cat', [
+    //     'hide_empty' => 0,
+    //     'orderby' => 'ASC',
+    //     'parent' => 0
+    // ]);
 
-    $categories = array_map(function($category) {
-        $category->name = strtolower($category->name);
-        return $category;
-    }, $categories);
+    // $categories = array_map(function($category) {
+    //     $category->name = strtolower($category->name);
+    //     return $category;
+    // }, $categories);
 
-    $_subCategories = get_terms('product_cat', [
-        'hide_empty' => 0,
-        'orderby' => 'ASC'
-    ]);
+    // $_subCategories = get_terms('product_cat', [
+    //     'hide_empty' => 0,
+    //     'orderby' => 'ASC'
+    // ]);
 
-    $subCategories = [];
+    // $subCategories = [];
 
-    foreach($_subCategories as $subc) {
-        if($subc->parent != 0) {
-            if(!isset($subCategories['c-' . $subc->parent]))
-                $subCategories['c-' . $subc->parent] = [];
+    // foreach($_subCategories as $subc) {
+    //     if($subc->parent != 0) {
+    //         if(!isset($subCategories['c-' . $subc->parent]))
+    //             $subCategories['c-' . $subc->parent] = [];
     
-            $subCategories['c-' . $subc->parent][] = $subc;
-        }
-    }
+    //         $subCategories['c-' . $subc->parent][] = $subc;
+    //     }
+    // }
 
     if(file_exists($csvPath)) {
         if(($handle = fopen($csvPath, "r")) !== false) {
             while(($data = fgetcsv($handle, 10000, ",")) !== false) {
                 $code = $data[0];
-                $oem = $data[1];
-                $name = $data[3];
-                $cat = $data[4];
-                $subCat = $data[5];
-                $um = $data[6] ?: '';
-                $qtPz = $data[7] ?: '';
+                // $oem = $data[1];
+                // $name = $data[3];
+                // $cat = $data[4];
+                // $subCat = $data[5];
+                // $um = $data[6] ?: '';
+                // $qtPz = $data[7] ?: '';
                 $price = $data[8] ? floatval($data[8]) : '';
 
                 if($code != 'Codice') {
                     $product = new WC_Product_Simple();
                     $product->set_sku($code);
-                    $product->set_name($code);
                     $product->set_description($name);
                     $product->set_regular_price($price);
-                    $product->set_status('publish');
 
-                    $product->update_meta_data('oem', $oem);
-                    $product->update_meta_data('um', $um);
-                    $product->update_meta_data('qt_pz', $qtPz);
                     $product_id = $product->save();
 
-                    $category_id = null;
-                    $subcategory_id = null;
+                    // $category_id = null;
+                    // $subcategory_id = null;
 
-                    foreach($categories as $c) {
-                        if(strtolower($c->name) == strtolower($cat))
-                            $category_id = $c->term_id;
-                    }
+                    // foreach($categories as $c) {
+                    //     if(strtolower($c->name) == strtolower($cat))
+                    //         $category_id = $c->term_id;
+                    // }
                     
-                    if($subCat) {
-                        foreach($subCategories as $parent => $childs) {
-                            $parent_id = intval(str_replace('c-', '', $parent));
+                    // if($subCat) {
+                    //     foreach($subCategories as $parent => $childs) {
+                    //         $parent_id = intval(str_replace('c-', '', $parent));
             
-                            foreach($childs as $ch) {
-                                if(strtolower($ch->name) == strtolower($subCat) && $parent_id == $category_id) {
-                                    $subcategory_id = $ch->term_id;
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                    else {
-                        $subcategory_id = $category_id;
-                    }
+                    //         foreach($childs as $ch) {
+                    //             if(strtolower($ch->name) == strtolower($subCat) && $parent_id == $category_id) {
+                    //                 $subcategory_id = $ch->term_id;
+                    //                 break;
+                    //             }
+                    //         }
+                    //     }
+                    // }
+                    // else {
+                    //     $subcategory_id = $category_id;
+                    // }
 
-                    wp_set_object_terms($product_id, [$subcategory_id], 'product_cat');
+                    // wp_set_object_terms($product_id, [$subcategory_id], 'product_cat');
                 }
             }
         }
