@@ -554,9 +554,9 @@ function mc_test_func($func) {
         $param = isset($_GET['marco']) && $_GET['marco'] == 'lorica';
     
         if($param) {
-            // call_user_func($func);
-            mc_send_email('marcolinoh.ml@gmail.com', "ok", 'ciao', null, $simple = true);
-            die;
+            call_user_func($func);
+            // mc_send_email('marcolinoh.ml@gmail.com', "ok", 'ciao', null, $simple = true);
+            // die;
         }
     }
 }
