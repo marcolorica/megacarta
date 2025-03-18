@@ -55,7 +55,7 @@
                             </div>
                             <div class="col-12">
                                 <h4 class="mb-3">Descrizione <span class="text-danger">*</span></h4>
-                                <teztarea class="form-control mb-5" name="product_description" placeholder="Descrizione..." rows="10" form="form-product" required><?= $product ? $product->description : '' ?></textarea>
+                                <textarea class="form-control mb-5" name="product_description" placeholder="Descrizione..." rows="10" form="form-product" required><?= $product ? $product->description : '' ?></textarea>
                             </div>
                         </div>
                     </div>
