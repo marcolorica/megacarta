@@ -438,6 +438,8 @@ function new_import_products() {
                 $sku = $data[0];
                 $name = $data[3];
 
+                var_dump($data);die;
+
                 $price = $data[8] ? (float) $data[8] : 0;
                 $price += ($price / 100 * 20);
 
