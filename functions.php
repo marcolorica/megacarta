@@ -439,8 +439,6 @@ function new_import_products() {
                     $products = wc_get_products(['sku' => $sku]);
                     $product = reset($products);
 
-                    var_dump($product);die;
-
                     if($product) {
                         $product->set_sku($sku);
                         $product->set_name($name);
