@@ -449,7 +449,7 @@ function new_import_products() {
                         
                         $product->save();
                     } else {
-                        $notSkus[] = $code;
+                        $notSkus[] = $sku;
                     }
                 }
             }
