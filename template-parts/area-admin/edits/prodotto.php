@@ -53,6 +53,10 @@
                                 <h4 class="mb-3">Disponibilità <span class="text-danger">*</span></h4>
                                 <input type="number" step="0.01" name="product_qty" class="form-control mb-5" placeholder="Quantità" value="<?= $product ? $product->qty : '' ?>" form="form-product" required>
                             </div>
+                            <div class="col-12">
+                                <h4 class="mb-3">Descrizione <span class="text-danger">*</span></h4>
+                                <teztarea class="form-control mb-5" name="product_description" placeholder="Descrizione..." rows="10" form="form-product" required><?= $product ? $product->description : '' ?></textarea>
+                            </div>
                         </div>
                     </div>
 
