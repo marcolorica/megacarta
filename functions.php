@@ -435,8 +435,7 @@ function new_import_products() {
                 $price = $data[8] ? (float) $data[8] : 0;
                 $price += ($price / 100 * 20);
 
-
-                if($sku != 'ra') {
+                if($sku != 'Codice') {
                     $product = wc_get_product(wc_get_product_id_by_sku($sku));
 
                     if($product) {
