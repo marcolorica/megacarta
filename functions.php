@@ -413,21 +413,15 @@ function new_import_products() {
     $not = [];
     $notSkus = [];
 
-    $i = 0;
-
     if(file_exists($descsPath)) {
         if(($handle = fopen($descsPath, "r")) !== false) {
             while(($data = fgetcsv($handle, 10000, ",")) !== false) {
-                $code = $data[0];
-                $desc = $data[1];
+                $codes = $data[0];
+                $desc = explode('-', str_replace(' ', '', $data[1]));
 
-                if($code) {
+                foreach($codes as $code) {
                     $descs[$code] = $desc;
-                } else {
-                    $not[] = $i;
                 }
-
-                $i++;
             }
         }
     }
@@ -444,7 +438,7 @@ function new_import_products() {
                 $price += ($price / 100 * 20);
 
 
-                if($sku != 'Cod Megacarta') {
+                if($sku != 'ra') {
                     $product = wc_get_product(wc_get_product_id_by_sku($sku));
 
                     if($product) {
