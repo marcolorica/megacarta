@@ -110,7 +110,7 @@
                         <?php endif; ?>
                     </div>
                 </div>
-                <?php foreach($products->result as $code => $p): $p = (object) $p; ?>
+                <?php foreach($products->result as $p): $p = (object) $p; ?>
                     <div class="row">
                         <div class="col-5 col-md-3 p-0">
                             <a href="<?= $p->url ?>">
@@ -122,7 +122,7 @@
                         <div class="col-7 col-md-9 d-flex d-md-block align-items-center">
                             <a class="w-100" href="<?= $p->url ?>">
                                 <p class="product-title"><?= $p->name ?></p>
-                                <p class="product-desc"><?= $code ?></p>
+                                <p class="product-desc"><?= $p->sku ?></p>
                                 <p class="mg-price text-success"><?= $p->price ?></p>
                             </a>
                         </div>

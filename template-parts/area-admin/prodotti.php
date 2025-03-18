@@ -55,13 +55,13 @@
             </div>
 
             <div class="col-12 body-content">
-                <?php foreach($products->result as $sku => $p) : $p = (object) $p; ?>
+                <?php foreach($products->result as $p) : $p = (object) $p; ?>
                     <div class="row row-prodotto <?= $p->qty ? 'in-stock' : '' ?>">
                         <div class="col-1 d-flex justify-content-center align-items-center text-center">
                             <img src="<?= $p->img ?>" class="w-100">
                         </div>
                         <div class="col-2 d-flex justify-content-center align-items-center text-center flex-column">
-                            <p class="p-code"><?= $sku ?></p>
+                            <p class="p-code"><?= $p->sku ?></p>
                             
                             <?php if(count($p->variants)) : ?>
                                 <span class="p-variants"><?= count($p->variants) ?> varianti</span>

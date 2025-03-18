@@ -122,7 +122,9 @@ function mc_get_products($term = null, $perPage = 10, $_order = 'piu-recenti', $
 
 			$res[$p->name] = (object) [
                 'id' => $id,
-				'name' => $p->get_description(),
+				'sku' => $p->get_sku(),
+				'name' => $p->get_name(),
+				'description' => $p->get_description(),
 				'price' => mc_format_price($p->get_price()),
 				'url' => get_permalink($id),
 				'img' => $img ?: mc_get_logo_src(),
@@ -181,7 +183,8 @@ function mc_get_product($product_id) {
     return (object) [
         'id' => $product_id,
         'img' => mc_get_product_image($product_id),
-        'name' => $product->get_description(),
+        'name' => $product->get_name(),
+        'description' => $product->get_description(),
         'oem' => $product->get_meta('oem'),
         'code' => $product->get_sku(),
         'price' => $product->get_price(),

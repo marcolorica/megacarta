@@ -317,7 +317,30 @@ function populate_products() {
 
 function new_import_products() {
     $uploads = wp_upload_dir();
-    $csvPath = $uploads['basedir'] . '/megacarta-prods.csv';
+
+    $prodsPath = $uploads['basedir'] . '/megacarta-prods.csv';
+    $descsPath = $uploads['basedir'] . '/megacarta-descs.csv';
+
+    $descs = [];
+
+    $i = 0;
+
+    if(file_exists($descsPath)) {
+        if(($handle = fopen($descsPath, "r")) !== false) {
+            while(($data = fgetcsv($handle, 10000, ",")) !== false) {
+                $code = $data[0];
+                $desc = $data[1];
+
+                if($code) {
+                    $descs[$code] = $desc;
+                } else {
+                    $not[] = $i;
+                }
+
+                $i++;
+            }
+        }
+    }
 
     // $categories = get_terms('product_cat', [
     //     'hide_empty' => 0,
@@ -346,25 +369,37 @@ function new_import_products() {
     //     }
     // }
 
-    if(file_exists($csvPath)) {
-        if(($handle = fopen($csvPath, "r")) !== false) {
+    if(file_exists($prodsPath)) {
+        if(($handle = fopen($prodsPath, "r")) !== false) {
             while(($data = fgetcsv($handle, 10000, ",")) !== false) {
-                $code = $data[0];
+                $sku = $data[0];
+                $name = $data[3];
+
                 // $oem = $data[1];
-                // $name = $data[3];
                 // $cat = $data[4];
                 // $subCat = $data[5];
                 // $um = $data[6] ?: '';
                 // $qtPz = $data[7] ?: '';
-                $price = $data[8] ? floatval($data[8]) : '';
+                // $price = $data[8] ? floatval($data[8]) : '';
+                
+                $price = $data[8] ? (float) $data[8] : 0;
+                $price *= ($price / 100 * 20);
 
-                if($code != 'Codice') {
-                    $product = new WC_Product_Simple();
-                    $product->set_sku($code);
-                    $product->set_description($name);
+                if($sku != 'Cod Megacarta') {
+                    $product = wc_get_product(wc_get_product_id_by_sku($sku));
+
+                    // $product = new WC_Product_Simple();
+                    
+                    $product->set_sku($sku);
+                    $product->set_name($name);
+                    $product->set_description($code);
+                    
+                    $product->set_price($price);
                     $product->set_regular_price($price);
+                    
+                    $product->save();
 
-                    $product_id = $product->save();
+                    // $product_id = $product->save();
 
                     // $category_id = null;
                     // $subcategory_id = null;
