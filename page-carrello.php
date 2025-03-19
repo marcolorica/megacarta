@@ -14,7 +14,7 @@
 
         $sku = $product->get_name();
         $name = $product->get_description();
-        $price = mc_format_price($product->get_price());
+        $price = mc_format_price($product->get_price(), true);
         $qty = $cart_item['quantity'];
         $url = $product->get_permalink();
 
@@ -69,7 +69,7 @@
                             <p class="remove-product"><a class="text-danger" role="button" onclick="removeProductFromCart('<?= $sku ?>')"><i class="fa-solid fa-trash me-2"></i>Rimuovi</a></p>
                         </div>
                         <div class="col-3">
-                            <p style="font-size: 20px;">€<span class="product-total"><?= mc_format_price($product->qty * $product->price, true) ?></span></p>
+                            <p style="font-size: 20px;">€<span class="product-total"><?= mc_format_price($product->qty * $product->price) ?></span></p>
                         </div>
                     </div>
                 <?php } ?>

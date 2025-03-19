@@ -545,8 +545,8 @@ function mc_format_data($datetime, $format) {
     return date($format, strtotime($datetime));
 }
 
-function mc_format_price($price) {
-    return '€' . number_format($price, 2, ',', '.');
+function mc_format_price($price, $noCurrency = false) {
+    return $noCurrency ? number_format($price, 2, ',', '.') : '€' . number_format($price, 2, ',', '.');
 }
 
 function mc_test_func($func) {
