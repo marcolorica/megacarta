@@ -807,8 +807,6 @@ function missing_imgs() {
 
 	$not = [];
 
-    $baseDir = get_stylesheet_directory_uri();
-
     if(!empty($products)) {
         foreach($products as $p) {
 			$img = mc_get_product_image($p->get_id());

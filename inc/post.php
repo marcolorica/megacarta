@@ -237,7 +237,8 @@ function admin_save_product_edits() {
     if(!$product_id) {
         $product = new WC_Product_Simple();
 		$product->set_sku($request->product_code);
-		$product->set_description($request->product_name);
+		$product->set_name($request->product_name);
+		$product->set_description($request->product_description);
 		$product->set_regular_price($request->product_price);
 		$product->set_status('publish');
 
@@ -256,7 +257,8 @@ function admin_save_product_edits() {
         $old_oem = $product->get_meta('oem');
 
         $product->set_sku($request->product_code);
-		$product->set_description($request->product_name);
+		$product->set_name($request->product_name);
+		$product->set_description($request->product_description);
 		$product->set_regular_price($request->product_price);
 		$product->set_status('publish');
     
