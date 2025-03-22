@@ -29,8 +29,6 @@
                         <img src="<?= $product->img ?: get_stylesheet_directory_uri() . '/assets/images/img-placeholder.png' ?>" class="w-100 mb-5 img-for-edit mc-square rounded <?= !$product->img ? 'ph'  : '' ?>" onclick="jQuery(this).prev().prev().click()">
                     </div>
                     
-                    
-
                     <div class="col-6">
                         <h4 class="mb-3">Nome <span class="text-danger">*</span></h4>
                         <input type="text" class="form-control mb-5" name="product_name" placeholder="Nome" value="<?= $product ? $product->name : '' ?>" form="form-product" required>

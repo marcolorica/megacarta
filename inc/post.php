@@ -282,6 +282,8 @@ function admin_save_product_edits() {
     $img = $_FILES['product_img'] ?? null;
     $img = $img ? (object) $img : null;
 
+    var_dump($img && !empty($img->name));die;
+
     if($img && !empty($img->name)) {
         $file_type = mime_content_type($img->tmp_name);
         $ext = explode('/', $file_type)[1];
