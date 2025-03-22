@@ -476,7 +476,7 @@ function mg_is_admin_area() {
     return $check;
 }
 
-function mc_upload_image_in_theme($img_name, $img_tmp_name, $dir = '') {
+function _mc_upload_image_in_theme($img_name, $img_tmp_name, $dir = '') {
     $upload_dir = wp_upload_dir();
     $upload_path = get_stylesheet_directory() . '/assets/images/' . $dir;
     
@@ -492,6 +492,44 @@ function mc_upload_image_in_theme($img_name, $img_tmp_name, $dir = '') {
         return (object) [
             'status' => 'error',
             'message' => 'Errore: Il file deve essere un\'immagine (JPG, JPEG, PNG o GIF)'
+        ];
+
+    if(!move_uploaded_file($img_tmp_name, $target_file))
+        return (object) [
+            'status' => 'error',
+            'message' => 'Errore nel caricamento dell\'immagine'
+        ];
+
+    return (object) ['status' => 'success'];
+}
+
+function mc_upload_image_in_theme($img_name, $img_tmp_name, $dir = '') {
+    $upload_dir = wp_upload_dir();
+    $upload_path = get_stylesheet_directory() . '/assets/images/' . $dir;
+    
+    if(!file_exists($upload_path))
+        mkdir($upload_path, 0755, true);
+
+    $file_info = pathinfo($img_name);
+    $file_name = $file_info['filename'];
+    
+    $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+    $allowed_types = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+    
+    foreach($allowed_extensions as $ext) {
+        $existing_file = "$upload_path/$file_name.$ext";
+
+        if(file_exists($existing_file))
+            unlink($existing_file);
+    }
+
+    $target_file = $upload_path . basename($img_name);
+    $file_type = mime_content_type($img_tmp_name);
+    
+    if(!in_array($file_type, $allowed_types))
+        return (object) [
+            'status' => 'error',
+            'message' => "Errore: Il file deve essere un'immagine (JPG, JPEG, PNG, GIF o WEBP)"
         ];
 
     if(!move_uploaded_file($img_tmp_name, $target_file))
