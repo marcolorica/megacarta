@@ -309,7 +309,7 @@ function admin_save_product_edits() {
         }
     }
 
-    mc_post_return('save_success', ($old_oem ? 'Prodotto creato!' : 'Modifiche salvate!'), '/area-admin/prodotti/prodotto?id=' . $product_id);
+    mc_post_return('save_success', ($old_oem ? 'Modifiche salvate!' : 'Prodotto creato!'), '/area-admin/prodotti/prodotto?id=' . $product_id);
 }
 
 function admin_save_order_edits() {
