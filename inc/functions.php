@@ -167,7 +167,9 @@ function mc_get_product_image($product_id) {
 
             $ext = $png ? 'png' : ($jpg ? 'jpg' : ($webp ? 'webp' : null));
 
-            return $ext ? get_stylesheet_directory_uri() . "/assets/images/products/$oem.$ext" : null;
+            $vv = 'v=' . md5(uniqid());
+
+            return $ext ? get_stylesheet_directory_uri() . "/assets/images/products/$oem.$ext?$vv" : null;
         }
     }
 
@@ -474,33 +476,6 @@ function mg_is_admin_area() {
     }
 
     return $check;
-}
-
-function _mc_upload_image_in_theme($img_name, $img_tmp_name, $dir = '') {
-    $upload_dir = wp_upload_dir();
-    $upload_path = get_stylesheet_directory() . '/assets/images/' . $dir;
-    
-    if(!file_exists($upload_path))
-        mkdir($upload_path, 0755, true);
-
-    $target_file = $upload_path . basename($img_name);
-
-    $allowed_types = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
-    $file_type = mime_content_type($img_tmp_name);
-    
-    if(!in_array($file_type, $allowed_types))
-        return (object) [
-            'status' => 'error',
-            'message' => 'Errore: Il file deve essere un\'immagine (JPG, JPEG, PNG o GIF)'
-        ];
-
-    if(!move_uploaded_file($img_tmp_name, $target_file))
-        return (object) [
-            'status' => 'error',
-            'message' => 'Errore nel caricamento dell\'immagine'
-        ];
-
-    return (object) ['status' => 'success'];
 }
 
 function mc_upload_image_in_theme($img_name, $img_tmp_name, $dir = '') {

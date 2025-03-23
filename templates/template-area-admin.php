@@ -86,7 +86,7 @@
             <div class="collapse navbar-collapse my-2" id="navbarAdmin">
                 <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="/area-admin/<?= $text ?>"><i class="fa-solid fa-arrow-left me-2"></i>Torna a <i class="fa-solid fa-<?= $icon ?> mx-2"></i><?= ucfirst($text) ?></a>
+                        <a class="nav-link" role="button" onclick="window.history.back()"><i class="fa-solid fa-arrow-left me-2"></i>Torna a <i class="fa-solid fa-<?= $icon ?> mx-2"></i><?= ucfirst($text) ?></a>
                     </li>
                 </ul>
             </div>
