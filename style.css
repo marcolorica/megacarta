@@ -1301,3 +1301,36 @@ footer a {
 .sub-options-container {
   display: none;
 }
+
+.mc-option {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px .75rem;
+  cursor: pointer;
+}
+
+.mc-option.selected,
+.mc-option:not(.back-to-main):hover {
+  background-color: #dee2e6;
+}
+
+.mc-option.back-to-main {
+  border-bottom: 1px solid #dee2e6;
+  justify-content: start;
+  font-size: 0.7rem;
+  color: gray;
+}
+
+.mc-option .icon-selected {
+  color: green;
+}
+
+.mc-option:not(.selected) .icon-selected {
+  display: none
+}
+
+.mc-option.back-to-main:hover {
+  color: black;
+}
