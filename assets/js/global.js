@@ -193,7 +193,7 @@ function initPhonesDropdown() {
     let lang = 'it_IT';
 
     DIALS.forEach((d) => {
-        let $customOpt = '<div class="request-option" data-value="' + d.code + '" onclick="selectMcOption(this, true)">' +
+        let $customOpt = '<div class="mc-option" data-value="' + d.code + '" onclick="selectMcOption(this, true)">' +
                             '<div class="flag flag-' + d.code + '"></div>' +
                             '<span>' + d.name + '</span>' +
                             '<span class="dial-code">+' + d.dial + '</span>' +
