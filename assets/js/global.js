@@ -289,3 +289,15 @@ function initDropdownsClick() {
         });
     }
 }
+
+function changeSector(el) {
+    let $select = jQuery(el);
+
+    if($select.val() == 'Altro') {
+        jQuery('#altro').show();
+    }
+    else {
+        jQuery('#altro').Hide();
+
+    }
+}
