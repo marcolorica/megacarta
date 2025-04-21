@@ -62,7 +62,7 @@
 </div>
 
 <style>
-    .request-offcanvas .request-dropdown {
+    .request-dropdown {
         position: absolute;
         display: none;
         border: 1px solid #dee2e6;
@@ -87,7 +87,7 @@
         color: grey;
     }
 
-    .request-offcanvas .request-dropdown .sub-options-container {
+    .sub-options-container {
         display: none;
     }
 </style>
