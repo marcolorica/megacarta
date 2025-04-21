@@ -56,8 +56,8 @@
                         </label>
 
                     </div>
-                    <div class="col-6">
-                        <img src="<?= get_stylesheet_directory_uri() ?>/assets/images/promo-mc.webp">
+                    <div class="col-6 d-flex justify-content-start align-items-center">
+                        <img class="w-100" src="<?= get_stylesheet_directory_uri() ?>/assets/images/promo-mc.webp">
                     </div>
                 </div>
             </div>
