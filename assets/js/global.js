@@ -207,3 +207,51 @@ function initPhonesDropdown() {
 
     $container.show();
 }
+
+function openRequestDropdown(el) {
+    let $select = $(el);
+    let $dropdown = $select.parent().find('.request-dropdown');
+
+    $('.request-dropdown').hide();
+
+    $dropdown.show();
+}
+
+function selectRequestOption(opt, dial = false) {
+    let $opt = $(opt);
+    let $parent = $opt.parent();
+    let $dropdown = $opt.parent().parent();
+    let $select = $dropdown.parent().find('select');
+
+    let optValue = $opt.attr('data-value');
+
+    if($parent.hasClass('main-options-container')) {
+        let $sub = $dropdown.find('.sub-options-container[data-main-value=' + optValue + ']');
+
+        $parent.hide('slide', { direction: 'left' }, 300, () => {
+            $sub.show('slide', { direction: 'right' }, 300);
+        });
+    }
+    else {
+        let $main = $dropdown.find('.main-options-container');
+
+        $dropdown.hide();
+
+        // $main.show();
+        // $parent.hide();
+
+        $select.val(optValue);
+        $select.trigger('change');
+
+        $dropdown.find('.selected').removeClass('selected');
+        $opt.addClass('selected');
+
+        if(dial) {
+            let $img = $select.prev();
+
+            $img.removeClass();
+            $img.addClass('img-dial');
+            $img.addClass('flag-' + optValue);
+        }
+    }
+}
