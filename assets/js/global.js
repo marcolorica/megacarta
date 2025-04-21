@@ -277,3 +277,17 @@ function initBodyOnClick() {
         }
     });
 }
+
+function initDropdownsClick() {
+    let $select = jQuery('#phones-select');
+
+    if($select.length) {
+        $select.off('mousedown');
+
+        $select.on('mousedown', (e) => {
+            e.preventDefault();
+            $select.blur();
+            window.focus();
+        });
+    }
+}

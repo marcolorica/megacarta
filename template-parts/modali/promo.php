@@ -25,7 +25,7 @@
 
                         <input type="email" name="email" class="form-control mb-3" form="form-promo" placeholder="Email *" required>
 
-                        <div class="w-100 d-flex gap-2">
+                        <div class="w-100 d-flex gap-2 mb-3">
                             <div class="w-25">
                                 <span class="img-dial"></span>
                                 
