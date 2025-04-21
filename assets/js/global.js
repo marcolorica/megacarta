@@ -193,7 +193,7 @@ function initPhonesDropdown() {
     let lang = 'it_IT';
 
     DIALS.forEach((d) => {
-        let $customOpt = '<div class="request-option" data-value="' + d.code + '" onclick="selectRequestOption(this, true)">' +
+        let $customOpt = '<div class="request-option" data-value="' + d.code + '" onclick="selectMcOption(this, true)">' +
                             '<div class="flag flag-' + d.code + '"></div>' +
                             '<span>' + d.name + '</span>' +
                             '<span class="dial-code">+' + d.dial + '</span>' +
@@ -215,14 +215,14 @@ function initPhonesDropdown() {
     $container.show();
 }
 
-function openRequestDropdown(el) {
+function openPhoneDropdown(el) {
     let $select = jQuery(el);
-    let $dropdown = $select.parent().find('.request-dropdown');
+    let $dropdown = $select.parent().find('.mc-dropdown');
 
     $dropdown.show();
 }
 
-function selectRequestOption(opt, dial = false) {
+function selectMcOption(opt, dial = false) {
     let $opt = jQuery(opt);
     let $parent = $opt.parent();
     let $dropdown = $opt.parent().parent();
@@ -266,14 +266,14 @@ function initBodyOnClick() {
         $ev = jQuery(ev.target);
 
         if(
-            !$ev.hasClass('request-dropdown') &&
-            !$ev.hasClass('quotation-select') &&
-            !$ev.hasClass('request-option') &&
-            !$ev.parent().hasClass('request-option') &&
-            !$ev.parent().parent().hasClass('request-dropdown') &&
-            !$ev.parent().parent().parent().hasClass('request-dropdown')
+            !$ev.hasClass('mc-dropdown') &&
+            !$ev.hasClass('mc-select') &&
+            !$ev.hasClass('mc-option') &&
+            !$ev.parent().hasClass('mc-option') &&
+            !$ev.parent().parent().hasClass('mc-dropdown') &&
+            !$ev.parent().parent().parent().hasClass('mc-dropdown')
         ) {
-            jQuery('.request-dropdown').hide();
+            jQuery('.mc-dropdown').hide();
         }
     });
 }

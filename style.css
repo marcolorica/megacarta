@@ -1273,7 +1273,7 @@ footer a {
   align-items: center;
 }
 
-.request-dropdown {
+.mc-dropdown {
   position: absolute;
   display: none;
   border: 1px solid #dee2e6;
@@ -1289,12 +1289,12 @@ footer a {
   width: max-content;
 }
 
-#phones-dropdown .request-option {
+#phones-dropdown .mc-option {
   justify-content: start;
   gap: 10px;
 }
 
-#phones-dropdown .request-option .dial-code {
+#phones-dropdown .mc-option .dial-code {
   color: grey;
 }
 
