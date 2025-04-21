@@ -209,16 +209,16 @@ function initPhonesDropdown() {
 }
 
 function openRequestDropdown(el) {
-    let $select = $(el);
+    let $select = jQuery(el);
     let $dropdown = $select.parent().find('.request-dropdown');
 
-    $('.request-dropdown').hide();
+    jQuery('.request-dropdown').hide();
 
     $dropdown.show();
 }
 
 function selectRequestOption(opt, dial = false) {
-    let $opt = $(opt);
+    let $opt = jQuery(opt);
     let $parent = $opt.parent();
     let $dropdown = $opt.parent().parent();
     let $select = $dropdown.parent().find('select');

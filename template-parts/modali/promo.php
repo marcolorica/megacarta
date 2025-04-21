@@ -25,17 +25,21 @@
 
                         <input type="email" name="email" class="form-control mb-3" form="form-promo" placeholder="Email *" required>
 
-                        <div class="mg-phone">
-                            <span class="img-dial"></span>
-                            
-                            <select id="phones-select" class="form-select" onclick="openRequestDropdown(this)">
-                                <option value="" selected disabled>+ 39</option>
-                            </select>
-    
-                            <div class="request-dropdown py-3 rounded-1 shadow" id="phones-dropdown">
-                                <div class="sub-options-container">
+                        <div class="mg-phone w-100">
+                            <div class="w-25">
+                                <span class="img-dial"></span>
+                                
+                                <select id="phones-select" class="form-select" onclick="openRequestDropdown(this)">
+                                    <option value="" selected disabled>+ 39</option>
+                                </select>
+        
+                                <div class="request-dropdown py-3 rounded-1 shadow" id="phones-dropdown">
+                                    <div class="sub-options-container">
+                                    </div>
                                 </div>
                             </div>
+
+                            <input type="text" placeholder="Telefono *" class="form-control w-75 ps-2" form="form-promo" required>
                         </div>
 
                         <input type="text" name="rag_sociale" class="form-control mb-3" form="form-promo" placeholder="Ragione Sociale *" required>
