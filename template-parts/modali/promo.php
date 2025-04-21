@@ -2,13 +2,13 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="promoModalLabel">PER PREVENTIVI ALL'INGROSSO</h1>
+                <h1 class="modal-title fs-5" id="promoModalLabel"><?= strtoupper('Hai un’attività su Roma e provincia e utilizzi grandi quantitativi di prodotti monouso o detergenza?') ?></h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="row">
                     <div class="col-6">
-                        <p>Se necessiti grandi quantitativi di merce su Roma lasciaci il tuo recapito per essere ricontattato il prima possibile!</p>
+                        <p>Contattaci per fissare un appuntamento o ricevere un listino personalizzato con condizioni vantaggiose pensate per la tua realtà.</p>
 
                         <form action="<?= esc_url(admin_url('admin-post.php')); ?>" id="form-promo" method="POST">
                             <input type="hidden" name="action" value="submit_promo_modal">
