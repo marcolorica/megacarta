@@ -10,7 +10,7 @@
                         <h1 class="modal-title fs-5 text-center" style="font-weight:bold;font-size:26px">HAI UN'ATTIVITÀ SU ROMA E PROVINCIA E UTILIZZI GRANDI QUANTITATIVI DI PRODOTTI MONOUSO O DETERGENZA?</h1>
                         <p class="text-center my-4">Contattaci per fissare un appuntamento o ricevere un listino personalizzato con condizioni vantaggiose pensate per la tua realtà.</p>
                     </div>
-                    <div class="col-6">
+                    <div class="col-12 col-md-6">
 
                         <form action="<?= esc_url(admin_url('admin-post.php')); ?>" id="form-promo" method="POST">
                             <input type="hidden" name="action" value="submit_promo_modal">
@@ -73,7 +73,7 @@
                         <button class="btn btn-danger w-100 mt-4" type="submit" form="form-promo">INVIA</button>
 
                     </div>
-                    <div class="col-6 d-flex justify-content-start align-items-center">
+                    <div class="col-6 d-none d-md-flex justify-content-start align-items-center">
                         <img class="w-100" src="<?= get_stylesheet_directory_uri() ?>/assets/images/promo-mc.webp">
                     </div>
                 </div>
