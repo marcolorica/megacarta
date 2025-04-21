@@ -8,7 +8,7 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-6">
-                        <p>Se necessiti di un preventivo particolare per merce all'ingrosso lasciaci il tuo recapito per essere ricontattato il prima possibile!</p>
+                        <p>Se necessiti grandi quantitativi di merce su Roma lasciaci il tuo recapito per essere ricontattato il prima possibile!</p>
 
                         <form action="<?= esc_url(admin_url('admin-post.php')); ?>" id="form-promo" method="POST">
                             <input type="hidden" name="action" value="submit_promo_modal">
