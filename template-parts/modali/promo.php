@@ -1,14 +1,16 @@
 <div class="modal modal-lg fade" id="promoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="promoModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="promoModalLabel"><?= strtoupper('Hai un’attività su Roma e provincia e utilizzi grandi quantitativi di prodotti monouso o detergenza?') ?></h1>
+            <div class="modal-header border-0">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="row">
+                    <div class="col-12">
+                        <h1 class="modal-title fs-5 text-center" style="font-weight:bold;font-size:26px">HAI UN'ATTIVITÀ SU ROMA E PROVINCIA E UTILIZZI GRANDI QUANTITATIVI DI PRODOTTI MONOUSO O DETERGENZA?</h1>
+                        <p class="text-center my-4">Contattaci per fissare un appuntamento o ricevere un listino personalizzato con condizioni vantaggiose pensate per la tua realtà.</p>
+                    </div>
                     <div class="col-6">
-                        <p>Contattaci per fissare un appuntamento o ricevere un listino personalizzato con condizioni vantaggiose pensate per la tua realtà.</p>
 
                         <form action="<?= esc_url(admin_url('admin-post.php')); ?>" id="form-promo" method="POST">
                             <input type="hidden" name="action" value="submit_promo_modal">
@@ -16,10 +18,10 @@
 
                         <div class="d-flex w-100 gap-2 mb-3">
                             <div class="w-50">
-                                <input type="text" name="name" class="form-control" form="form-promo" placeholder="Nome *" required>
+                                <input type="text" name="name" class="form-control" form="form-promo" placeholder="Nome">
                             </div>
                             <div class="w-50">
-                                <input type="text" name="surname" class="form-control" form="form-promo" placeholder="Cognome *" required>
+                                <input type="text" name="surname" class="form-control" form="form-promo" placeholder="Cognome">
                             </div>
                         </div>
 
@@ -44,8 +46,6 @@
 
                         <input type="text" name="rag_sociale" class="form-control mb-3" form="form-promo" placeholder="Ragione Sociale *" required>
 
-                        <input type="text" name="piva" class="form-control mb-3" form="form-promo" placeholder="Partita IVA *" required>
-
                         <select name="settore" class="form-select mb-3" form="form-promo" required>
                             <option value="" selected disabled>Settore economico *</option>
                         </select>
@@ -54,6 +54,8 @@
                             <input type="checkbox" class="form-check-input me-2" form="form-promo" required>
                             <span>Acconsento alla condivisione dei miei dati per essere ricontattato da Megacarta S.r.l. e alla loro memorizzazione per facilitare la fruizione del servizio. Dichiaro di essere maggiorenne, di aver letto e accettato <a href="/condizioni-duso">Condizioni d'uso</a> e <a href="/privacy-policy">Privacy Policy</a></span>
                         </label>
+
+                        <button class="btn btn-danger">INVIA</button>
 
                     </div>
                     <div class="col-6 d-flex justify-content-start align-items-center">
