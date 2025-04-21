@@ -10,6 +10,8 @@ jQuery(document).ready(() => {
         if(stop > 3)
             clearInterval(int);
     }, 1500);
+
+    setTimeout(() => { openPromoModal() }, 2000);
 });
 
 //topnav
@@ -164,4 +166,44 @@ function replaceReviewOrderProductsImages() {
             }
         });
     }
+}
+
+//modal promo
+function openPromoModal() {
+    let $modal = jQuery('#promoModal');
+
+    if($modal.length) {
+        $modal.modal('show');
+        initPhonesDropdown();
+    }
+}
+
+function initPhonesDropdown() {
+    let $dropdown = jQuery('#phones-dropdown');
+    let $container = $dropdown.find('.sub-options-container');
+    let $select = jQuery('#phones-select');
+
+    let lang = 'it_IT';
+
+    DIALS.forEach((d) => {
+        let $customOpt = '<div class="request-option" data-value="' + d.code + '" onclick="selectRequestOption(this, true)">' +
+                            '<div class="flag flag-' + d.code + '"></div>' +
+                            '<span>' + d.name + '</span>' +
+                            '<span class="dial-code">+' + d.dial + '</span>' +
+                            '<i class="fa-regular fa-circle-check fa-xs icon-selected"></i>' +
+                        '</div>';
+
+        let $opt = '<option value="' + d.code + '">+ ' + d.dial + '</option>';
+
+        if(d.code != lang) {
+            $container.append($customOpt); 
+            $select.append($opt);
+        }
+        else {
+            $container.prepend($customOpt);
+            $select.prepend($opt);
+        }
+    });
+
+    $container.show();
 }

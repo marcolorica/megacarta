@@ -9,8 +9,11 @@ add_action('woocommerce_add_order_item_meta', 'mc_variant_in_order', 10, 2);
 
 function mc_wp_enqueue_scripts() {
 	wp_enqueue_style('mc-style', get_stylesheet_directory_uri() . '/style.css', [], md5(uniqid()));
+	wp_enqueue_style('mc-phones', get_stylesheet_directory_uri() . '/phone-dials.css', [], md5(uniqid()));
 
-	wp_enqueue_script('mc-script', get_stylesheet_directory_uri() . '/assets/js/global.js', ['jquery', 'jquery-ui'],  md5(uniqid()));
+	wp_enqueue_script('mc-phones', get_stylesheet_directory_uri() . '/assets/js/phone-dials.js', ['jquery', 'jquery-ui'],  md5(uniqid()));
+
+	wp_enqueue_script('mc-script', get_stylesheet_directory_uri() . '/assets/js/global.js', ['jquery', 'jquery-ui', 'mc-phones'],  md5(uniqid()));
 	wp_localize_script('mc-script','args_mc', ['ajax_url' => admin_url('admin-ajax.php')]);
 
 	if(mg_is_admin_area()) {
