@@ -29,7 +29,7 @@
                             <div class="w-25">
                                 <span class="img-dial"></span>
                                 
-                                <select id="phones-select" class="form-select" onclick="openPhoneDropdown(this)">
+                                <select id="phones-select" class="form-select mc-select" onclick="openPhoneDropdown(this)">
                                     <option value="" selected disabled>+ 39</option>
                                 </select>
         
