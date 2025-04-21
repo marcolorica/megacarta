@@ -70,7 +70,7 @@
                             <span>Acconsento alla condivisione dei miei dati per essere ricontattato da Megacarta S.r.l. e alla loro memorizzazione per facilitare la fruizione del servizio. Dichiaro di essere maggiorenne, di aver letto e accettato <a href="/condizioni-duso">Condizioni d'uso</a> e <a href="/privacy-policy">Privacy Policy</a></span>
                         </label>
 
-                        <button class="btn btn-danger w-100 mt-4">INVIA</button>
+                        <button class="btn btn-danger w-100 mt-4" type="submit" form="form-promo">INVIA</button>
 
                     </div>
                     <div class="col-6 d-flex justify-content-start align-items-center">
