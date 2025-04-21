@@ -292,12 +292,14 @@ function initDropdownsClick() {
 
 function changeSector(el) {
     let $select = jQuery(el);
+    let $altro = jQuery('#altro');
 
     if($select.val() == 'Altro') {
-        jQuery('#altro').show();
+        $altro.show();
+        $altro.prop('required', true);
     }
     else {
-        jQuery('#altro').Hide();
-
+        $altro.hide();
+        $altro.prop('required', false);
     }
 }
