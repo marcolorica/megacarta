@@ -190,8 +190,6 @@ function initPhonesDropdown() {
     let $container = $dropdown.find('.sub-options-container');
     let $select = jQuery('#phones-select');
 
-    let lang = 'it_IT';
-
     DIALS.forEach((d) => {
         let $customOpt = '<div class="mc-option" data-value="' + d.code + '" onclick="selectMcOption(this, true)">' +
                             '<div class="flag flag-' + d.code + '"></div>' +
@@ -202,7 +200,7 @@ function initPhonesDropdown() {
 
         let $opt = '<option value="' + d.code + '">+ ' + d.dial + '</option>';
 
-        if(d.code != lang) {
+        if(d.code != 'it') {
             $container.append($customOpt); 
             $select.append($opt);
         }
