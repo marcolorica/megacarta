@@ -59,14 +59,12 @@
                             <option value="Altro">Altro</option>
                         </select>
 
-                        <div id="altro" style="display:none">
-                            <input type="text" class="form-control mb-3" name="altro" form="form-promo" placeholder="Specifica il tuo settore economico...">
-                        </div>
+                        <input type="text" class="form-control mb-3" name="altro" id="altro" style="display:none" form="form-promo" placeholder="Specifica il tuo settore economico...">
 
                         <textarea name="note" form="form-promo" class="form-control mb-3" placeholder="Note..."></textarea>
 
-                        <label for="privacy-check" class="d-flex" style="font-size:8px">
-                            <input type="checkbox" class="form-check-input me-2" form="form-promo" required>
+                        <label for="privacycheck" class="d-flex" style="font-size:8px;cursor:pointer">
+                            <input id="privacycheck" name="privacycheck" type="checkbox" class="form-check-input me-2" form="form-promo" required>
                             <span>Acconsento alla condivisione dei miei dati per essere ricontattato da Megacarta S.r.l. e alla loro memorizzazione per facilitare la fruizione del servizio. Dichiaro di essere maggiorenne, di aver letto e accettato <a href="/condizioni-duso">Condizioni d'uso</a> e <a href="/privacy-policy">Privacy Policy</a></span>
                         </label>
 
