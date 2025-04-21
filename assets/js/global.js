@@ -178,7 +178,7 @@ function openPromoModal() {
     if($modal.length) {
         setTimeout(() => {
             $modal.modal('show');
-            
+
             initPhonesDropdown();
             initDropdownsClick();
         }, 2000);
@@ -218,8 +218,6 @@ function initPhonesDropdown() {
 function openRequestDropdown(el) {
     let $select = jQuery(el);
     let $dropdown = $select.parent().find('.request-dropdown');
-
-    jQuery('.request-dropdown').hide();
 
     $dropdown.show();
 }
