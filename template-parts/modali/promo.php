@@ -1,4 +1,4 @@
-<div class="modal fade" id="promoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="promoModalLabel" aria-hidden="true">
+<div class="modal modal-lg fade" id="promoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="promoModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -60,34 +60,3 @@
         </div>
     </div>
 </div>
-
-<style>
-    .request-dropdown {
-        position: absolute;
-        display: none;
-        border: 1px solid #dee2e6;
-        font-size: 1rem;
-        width: 100%;
-        z-index: 9999;
-        background: white;
-        max-height: 200px;
-        overflow-y: scroll;
-    }
-
-    #phones-dropdown {
-        width: max-content;
-    }
-
-    #phones-dropdown .request-option {
-        justify-content: start;
-        gap: 10px;
-    }
-
-    #phones-dropdown .request-option .dial-code {
-        color: grey;
-    }
-
-    .sub-options-container {
-        display: none;
-    }
-</style>
