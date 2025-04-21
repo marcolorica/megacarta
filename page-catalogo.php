@@ -175,4 +175,6 @@
     </div>
 </section>
 
+<?php get_template_part('template-parts/modali/promo'); ?>
+
 <?php get_footer(); ?>

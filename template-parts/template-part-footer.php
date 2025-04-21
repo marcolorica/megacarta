@@ -1,8 +1,6 @@
 <?php $settings = mc_get_settings(); ?>
 <?php $email = mc_get_page_datas('contatti')->email; ?>
 
-<?php get_template_part('template-parts/modali/promo'); ?>
-
 <footer id="syrus-theme-footer">
     <div class="footer-info-container">        
         <div class="footer-info copyright">
