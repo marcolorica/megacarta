@@ -1,17 +1,8 @@
 jQuery(document).ready(() => {
     initFixedTopnav();
-
-    let stop = 0;
-
-    let int = setInterval(() => {
-        stop++;
-        replaceReviewOrderProductsImages();
-
-        if(stop > 3)
-            clearInterval(int);
-    }, 1500);
-
-    setTimeout(() => { openPromoModal() }, 2000);
+    initBodyOnClick();
+    initCartImages();
+    openPromoModal();
 });
 
 //topnav
@@ -110,6 +101,18 @@ function changeCartTotals() {
     });
 }
 
+function initCartImages() {
+    let stop = 0;
+
+    let int = setInterval(() => {
+        stop++;
+        replaceReviewOrderProductsImages();
+
+        if(stop > 3)
+            clearInterval(int);
+    }, 1500);
+}
+
 //global pagination
 function changeMcPage(where = null, specific = null) {
     let $num_page = jQuery('input[name=num_page]');
@@ -173,8 +176,10 @@ function openPromoModal() {
     let $modal = jQuery('#promoModal');
 
     if($modal.length) {
-        $modal.modal('show');
-        initPhonesDropdown();
+        setTimeout(() => {
+            $modal.modal('show');
+            initPhonesDropdown();
+        }, 2000);
     }
 }
 
@@ -254,4 +259,21 @@ function selectRequestOption(opt, dial = false) {
             $img.addClass('flag-' + optValue);
         }
     }
+}
+
+function initBodyOnClick() {
+    jQuery('body').on('click', (ev) => {
+        $ev = jQuery(ev.target);
+
+        if(
+            !$ev.hasClass('request-dropdown') &&
+            !$ev.hasClass('quotation-select') &&
+            !$ev.hasClass('request-option') &&
+            !$ev.parent().hasClass('request-option') &&
+            !$ev.parent().parent().hasClass('request-dropdown') &&
+            !$ev.parent().parent().parent().hasClass('request-dropdown')
+        ) {
+            jQuery('.request-dropdown').hide();
+        }
+    });
 }
