@@ -178,7 +178,9 @@ function openPromoModal() {
     if($modal.length) {
         setTimeout(() => {
             $modal.modal('show');
+            
             initPhonesDropdown();
+            initDropdownsClick();
         }, 2000);
     }
 }
