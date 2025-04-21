@@ -57,7 +57,7 @@
 
                     </div>
                     <div class="col-6">
-                        <img src="<?= get_stylesheet_directory_uri() ?>/assets/images/promo.webp">
+                        <img src="<?= get_stylesheet_directory_uri() ?>/assets/images/promo-mc.webp">
                     </div>
                 </div>
             </div>
